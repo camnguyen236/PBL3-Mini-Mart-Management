@@ -12,3 +12,17 @@ F:\Workspace-2\c#\PBL_3\PBL_3\obj\Debug\PBL_3.pdb
 F:\Workspace-2\c#\PBL_3\PBL_3\bin\Debug\Guna.UI2.dll
 F:\Workspace-2\c#\PBL_3\PBL_3\obj\Debug\PBL_3.csproj.CopyComplete
 F:\Workspace-2\c#\PBL_3\PBL_3\obj\Debug\PBL_3.Register.resources
+D:\code\PBL3\PBL_3\bin\Debug\PBL_3.exe.config
+D:\code\PBL3\PBL_3\bin\Debug\PBL_3.exe
+D:\code\PBL3\PBL_3\bin\Debug\PBL_3.pdb
+D:\code\PBL3\PBL_3\bin\Debug\Guna.UI2.dll
+D:\code\PBL3\PBL_3\obj\Debug\PBL_3.csproj.AssemblyReference.cache
+D:\code\PBL3\PBL_3\obj\Debug\PBL_3.csproj.SuggestedBindingRedirects.cache
+D:\code\PBL3\PBL_3\obj\Debug\PBL_3.Form1.resources
+D:\code\PBL3\PBL_3\obj\Debug\PBL_3.Properties.Resources.resources
+D:\code\PBL3\PBL_3\obj\Debug\PBL_3.Register.resources
+D:\code\PBL3\PBL_3\obj\Debug\PBL_3.csproj.GenerateResource.cache
+D:\code\PBL3\PBL_3\obj\Debug\PBL_3.csproj.CoreCompileInputs.cache
+D:\code\PBL3\PBL_3\obj\Debug\PBL_3.csproj.CopyComplete
+D:\code\PBL3\PBL_3\obj\Debug\PBL_3.exe
+D:\code\PBL3\PBL_3\obj\Debug\PBL_3.pdb

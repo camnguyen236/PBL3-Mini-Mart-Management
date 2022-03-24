@@ -26,7 +26,8 @@ namespace PBL_3
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-K9NDIH8;Initial Catalog=Information;Integrated Security=True");
+            Sql_connect sQL_Connect = new Sql_connect();
+            SqlConnection cn = sQL_Connect.connect();
             try
             {
 
@@ -45,7 +46,7 @@ namespace PBL_3
                 {
                     MessageBox.Show("Login failed!");
                 }
-            //cn.Close();
+            cn.Close();
         }
             catch (Exception ex)
             {
