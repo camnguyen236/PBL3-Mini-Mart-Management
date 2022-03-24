@@ -82,6 +82,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -107,6 +110,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\276006966_1155532831868947_6721480778135674852_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\273474412_2047346965436527_8256460248110649404_n.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -63,6 +63,16 @@ namespace PBL_3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _273474412_2047346965436527_8256460248110649404_n {
+            get {
+                object obj = ResourceManager.GetObject("273474412_2047346965436527_8256460248110649404_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _275307403_3174987252778199_6249838218041895697_n {
             get {
                 object obj = ResourceManager.GetObject("275307403_3174987252778199_6249838218041895697_n", resourceCulture);
