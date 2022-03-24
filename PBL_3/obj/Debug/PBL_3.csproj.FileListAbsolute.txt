@@ -1,0 +1,13 @@
+F:\Workspace-2\c#\PBL_3\PBL_3\bin\Debug\PBL_3.exe.config
+F:\Workspace-2\c#\PBL_3\PBL_3\bin\Debug\PBL_3.exe
+F:\Workspace-2\c#\PBL_3\PBL_3\bin\Debug\PBL_3.pdb
+F:\Workspace-2\c#\PBL_3\PBL_3\obj\Debug\PBL_3.csproj.AssemblyReference.cache
+F:\Workspace-2\c#\PBL_3\PBL_3\obj\Debug\PBL_3.csproj.SuggestedBindingRedirects.cache
+F:\Workspace-2\c#\PBL_3\PBL_3\obj\Debug\PBL_3.Form1.resources
+F:\Workspace-2\c#\PBL_3\PBL_3\obj\Debug\PBL_3.Properties.Resources.resources
+F:\Workspace-2\c#\PBL_3\PBL_3\obj\Debug\PBL_3.csproj.GenerateResource.cache
+F:\Workspace-2\c#\PBL_3\PBL_3\obj\Debug\PBL_3.csproj.CoreCompileInputs.cache
+F:\Workspace-2\c#\PBL_3\PBL_3\obj\Debug\PBL_3.exe
+F:\Workspace-2\c#\PBL_3\PBL_3\obj\Debug\PBL_3.pdb
+F:\Workspace-2\c#\PBL_3\PBL_3\bin\Debug\Guna.UI2.dll
+F:\Workspace-2\c#\PBL_3\PBL_3\obj\Debug\PBL_3.csproj.CopyComplete
