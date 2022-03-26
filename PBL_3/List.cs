@@ -7,14 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace PBL_3
 {
     public partial class List : Form
     {
+        
         public List()
         {
             InitializeComponent();
+        }
+
+        SqlConnection conn;
+        public SqlCommand cmd;
+        SqlDataAdapter ad = new SqlDataAdapter();
+        DataTable dt = new DataTable();
+ 
+        //load dữ liệu lên bảng
+        void loadData()
+        {
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "select ID,US,Name,Birthday,PhoneNumber,Position,Email from Inf_user";
+            ad.SelectCommand = cmd;
+            dt.Clear();
+            ad.Fill(dt);
+            dgv1.DataSource = dt;
         }
 
         private void tabPage6_Click(object sender, EventArgs e)
@@ -49,5 +67,13 @@ namespace PBL_3
         {
 
         }
+
+        private void guna2Button5_Click(object sender, EventArgs e) //Show
+        {
+            conn = Connection.getSqlConnection();
+            conn.Open();
+            loadData();
+        }
+
     }
 }
