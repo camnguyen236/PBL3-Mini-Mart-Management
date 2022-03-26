@@ -89,6 +89,12 @@ namespace PBL_3
             else txtPassword.UseSystemPasswordChar = true;
             txtPassword.PasswordChar = '\0';
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            ResetPassword rs = new ResetPassword();
+            rs.ShowDialog();
+        }
         //public string showName()
         //{
         //    return txtUsername.Text;

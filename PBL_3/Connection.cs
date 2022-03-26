@@ -9,7 +9,7 @@ namespace PBL_3
 {
     public class Connection
     {
-        private static string stringConnection = @"Data Source=DESKTOP-K9NDIH8;Initial Catalog=Information;Integrated Security=True";
+        private static string stringConnection = @"Data Source=DESKTOP-2SS9F1P;Initial Catalog=sqlTable_Inf_user;Integrated Security=True";
         public static SqlConnection getSqlConnection()
         {
 
