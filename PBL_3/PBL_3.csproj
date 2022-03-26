@@ -49,11 +49,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Account.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List.Designer.cs">
+      <DependentUpon>List.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -61,6 +69,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modify.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.cs">
@@ -70,8 +79,14 @@
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
     <Compile Include="Sql_connect.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List.resx">
+      <DependentUpon>List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -114,6 +129,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\273474412_2047346965436527_8256460248110649404_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\276998357_388347072760373_5672047703218817510_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\276010358_257489889930375_4224265336183245071_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\276120513_5050881871667294_290703263080839669_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\276086445_1118750095637914_1255587361718343701_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\276086445_1118750095637914_1255587361718343701_n %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\275905235_364952778863989_5214767982016964375_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\275948273_525323812495076_7965306195687253014_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\277113156_5553530958025199_9086516651086754472_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\275641042_3191084801180222_3825857187066720815_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\277065026_7900584373301133_321454943402322135_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\275969427_488226882799482_1517571442876097291_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\276954179_1039288030270157_4630440298093666305_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\276969009_703110367533402_8211948409117657312_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\277293806_1451411541982748_8799551172936554219_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0af3c9613761d2d2394d99312aeba397.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\274714900_507912344194647_8594647273926301359_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\275229353_668589270920048_8294397463394965734_n.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

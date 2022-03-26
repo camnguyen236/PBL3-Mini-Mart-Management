@@ -11,7 +11,7 @@ namespace PBL_3
     {
         public SqlConnection connect()
         {
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-2SS9F1P;Initial Catalog=Information;Integrated Security=True");
+            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-K9NDIH8;Initial Catalog=Information;Integrated Security=True");
             return cn;
         }
     }
