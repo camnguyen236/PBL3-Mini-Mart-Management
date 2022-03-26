@@ -32,7 +32,7 @@
             this.lbConfirmNewPass = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tbNewPass = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbConfirmNewPass = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnOK = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // lbNewPass
@@ -47,7 +47,7 @@
             // lbConfirmNewPass
             // 
             this.lbConfirmNewPass.BackColor = System.Drawing.Color.Transparent;
-            this.lbConfirmNewPass.Location = new System.Drawing.Point(42, 123);
+            this.lbConfirmNewPass.Location = new System.Drawing.Point(42, 137);
             this.lbConfirmNewPass.Name = "lbConfirmNewPass";
             this.lbConfirmNewPass.Size = new System.Drawing.Size(163, 22);
             this.lbConfirmNewPass.TabIndex = 1;
@@ -64,12 +64,12 @@
             this.tbNewPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbNewPass.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbNewPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbNewPass.Location = new System.Drawing.Point(252, 39);
+            this.tbNewPass.Location = new System.Drawing.Point(252, 38);
             this.tbNewPass.Name = "tbNewPass";
             this.tbNewPass.PasswordChar = '\0';
             this.tbNewPass.PlaceholderText = "";
             this.tbNewPass.SelectedText = "";
-            this.tbNewPass.Size = new System.Drawing.Size(263, 36);
+            this.tbNewPass.Size = new System.Drawing.Size(200, 36);
             this.tbNewPass.TabIndex = 2;
             // 
             // tbConfirmNewPass
@@ -83,35 +83,35 @@
             this.tbConfirmNewPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbConfirmNewPass.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbConfirmNewPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbConfirmNewPass.Location = new System.Drawing.Point(252, 109);
+            this.tbConfirmNewPass.Location = new System.Drawing.Point(252, 123);
             this.tbConfirmNewPass.Name = "tbConfirmNewPass";
             this.tbConfirmNewPass.PasswordChar = '\0';
             this.tbConfirmNewPass.PlaceholderText = "";
             this.tbConfirmNewPass.SelectedText = "";
-            this.tbConfirmNewPass.Size = new System.Drawing.Size(263, 36);
+            this.tbConfirmNewPass.Size = new System.Drawing.Size(200, 36);
             this.tbConfirmNewPass.TabIndex = 3;
             // 
-            // btnOK
+            // guna2Button1
             // 
-            this.btnOK.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnOK.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnOK.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnOK.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOK.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(428, 182);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(87, 45);
-            this.btnOK.TabIndex = 4;
-            this.btnOK.Text = "OK";
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(272, 205);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button1.TabIndex = 4;
+            this.guna2Button1.Text = "guna2Button1";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // NewPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 264);
-            this.Controls.Add(this.btnOK);
+            this.ClientSize = new System.Drawing.Size(558, 305);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.tbConfirmNewPass);
             this.Controls.Add(this.tbNewPass);
             this.Controls.Add(this.lbConfirmNewPass);
@@ -129,6 +129,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lbConfirmNewPass;
         private Guna.UI2.WinForms.Guna2TextBox tbNewPass;
         private Guna.UI2.WinForms.Guna2TextBox tbConfirmNewPass;
-        private Guna.UI2.WinForms.Guna2Button btnOK;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
