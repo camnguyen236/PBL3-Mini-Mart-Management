@@ -17,7 +17,7 @@ namespace PBL_3
         {
             InitializeComponent();
         }
-
+       // public string roleLogin;
         private void butRegister_Click(object sender, EventArgs e)
         {
             Register r = new Register();
@@ -28,8 +28,8 @@ namespace PBL_3
         {
             string user = txtUsername.Text;
             string password = txtPassword.Text;
-            if(user.Trim() == "") MessageBox.Show("Fill username!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else if (password.Trim() == "") MessageBox.Show("Fill password!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(user.Trim() == "") MessageBox.Show("Please fill in username information!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (password.Trim() == "") MessageBox.Show("Please fill in password information!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
                 string sql = "select * from Inf_user where US= '" + user + "'and PW ='" + password + "'";
@@ -37,10 +37,14 @@ namespace PBL_3
                 {
                     MainForm mf = new MainForm();
                     //mf.load_data(txtUsername.Text);
+                    //roleLogin = txtUsername.Text;
                     string rs = txtUsername.Text + " / " + modify.role; 
                     mf.mName(rs);
                     //f1.Close();
-                    mf.Show();
+                    this.Hide();
+                    mf.ShowDialog();
+                    this.Close();
+                    
                     
                 }
                 else

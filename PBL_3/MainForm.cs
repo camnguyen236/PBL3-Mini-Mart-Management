@@ -33,7 +33,10 @@ namespace PBL_3
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             List l = new List();
-            l.Show();
+            this.Hide();
+            l.ShowDialog();
+            //this.Close();
+            
         }
     }
 }
