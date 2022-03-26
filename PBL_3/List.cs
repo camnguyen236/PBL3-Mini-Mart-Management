@@ -31,9 +31,17 @@ namespace PBL_3
         {
 
         }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
+        Modify modify = new Modify();
+        Login login = new Login();
+        private void guna2Button1_Click(object sender, EventArgs e) //Button Back
         {
+            MainForm mf2 = new MainForm();
+            ////this.Hide();
+            //string rs = login.roleLogin + " / " + modify.role;
+            //mf2.mName(rs);
+            mf2.ShowDialog();
+
+            //this.Close();
 
         }
 
