@@ -12,6 +12,7 @@ namespace PBL_3
         private static string stringConnection = @"Data Source=DESKTOP-K9NDIH8;Initial Catalog=Information;Integrated Security=True";
         public static SqlConnection getSqlConnection()
         {
+
             return new SqlConnection(stringConnection);
         }
     }
