@@ -37,6 +37,23 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.guna2TabControl3 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.txtBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtRole = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPhone = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtAddress = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.lbRole = new System.Windows.Forms.Label();
+            this.lbPhoneNumber = new System.Windows.Forms.Label();
+            this.lbAddress = new System.Windows.Forms.Label();
+            this.lbBirthday = new System.Windows.Forms.Label();
+            this.lbName = new System.Windows.Forms.Label();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.lbID = new System.Windows.Forms.Label();
             this.dgv1 = new System.Windows.Forms.DataGridView();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
@@ -63,6 +80,7 @@
             this.tabPage1.SuspendLayout();
             this.guna2TabControl3.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -205,6 +223,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.guna2GroupBox1);
             this.tabPage6.Controls.Add(this.dgv1);
             this.tabPage6.Controls.Add(this.guna2Button5);
             this.tabPage6.Controls.Add(this.guna2Button4);
@@ -221,14 +240,270 @@
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
             // 
+            // guna2GroupBox1
+            // 
+            this.guna2GroupBox1.Controls.Add(this.txtBirthday);
+            this.guna2GroupBox1.Controls.Add(this.txtEmail);
+            this.guna2GroupBox1.Controls.Add(this.txtRole);
+            this.guna2GroupBox1.Controls.Add(this.txtPhone);
+            this.guna2GroupBox1.Controls.Add(this.txtAddress);
+            this.guna2GroupBox1.Controls.Add(this.txtName);
+            this.guna2GroupBox1.Controls.Add(this.txtUsername);
+            this.guna2GroupBox1.Controls.Add(this.txtID);
+            this.guna2GroupBox1.Controls.Add(this.lbEmail);
+            this.guna2GroupBox1.Controls.Add(this.lbRole);
+            this.guna2GroupBox1.Controls.Add(this.lbPhoneNumber);
+            this.guna2GroupBox1.Controls.Add(this.lbAddress);
+            this.guna2GroupBox1.Controls.Add(this.lbBirthday);
+            this.guna2GroupBox1.Controls.Add(this.lbName);
+            this.guna2GroupBox1.Controls.Add(this.lbUsername);
+            this.guna2GroupBox1.Controls.Add(this.lbID);
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.White;
+            this.guna2GroupBox1.Location = new System.Drawing.Point(21, 272);
+            this.guna2GroupBox1.Name = "guna2GroupBox1";
+            this.guna2GroupBox1.Size = new System.Drawing.Size(849, 167);
+            this.guna2GroupBox1.TabIndex = 8;
+            this.guna2GroupBox1.Text = "Information";
+            // 
+            // txtBirthday
+            // 
+            this.txtBirthday.Checked = true;
+            this.txtBirthday.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(190)))));
+            this.txtBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtBirthday.Location = new System.Drawing.Point(211, 127);
+            this.txtBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.txtBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.txtBirthday.Name = "txtBirthday";
+            this.txtBirthday.Size = new System.Drawing.Size(169, 27);
+            this.txtBirthday.TabIndex = 15;
+            this.txtBirthday.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEmail.DefaultText = "";
+            this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEmail.Location = new System.Drawing.Point(667, 127);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.PasswordChar = '\0';
+            this.txtEmail.PlaceholderText = "";
+            this.txtEmail.SelectedText = "";
+            this.txtEmail.Size = new System.Drawing.Size(163, 27);
+            this.txtEmail.TabIndex = 14;
+            // 
+            // txtRole
+            // 
+            this.txtRole.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtRole.DefaultText = "";
+            this.txtRole.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtRole.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtRole.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtRole.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtRole.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtRole.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtRole.Location = new System.Drawing.Point(667, 63);
+            this.txtRole.Name = "txtRole";
+            this.txtRole.PasswordChar = '\0';
+            this.txtRole.PlaceholderText = "";
+            this.txtRole.SelectedText = "";
+            this.txtRole.Size = new System.Drawing.Size(163, 27);
+            this.txtRole.TabIndex = 13;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPhone.DefaultText = "";
+            this.txtPhone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPhone.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPhone.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPhone.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPhone.Location = new System.Drawing.Point(438, 127);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.PasswordChar = '\0';
+            this.txtPhone.PlaceholderText = "";
+            this.txtPhone.SelectedText = "";
+            this.txtPhone.Size = new System.Drawing.Size(188, 27);
+            this.txtPhone.TabIndex = 12;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddress.DefaultText = "";
+            this.txtAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAddress.Location = new System.Drawing.Point(438, 61);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.PasswordChar = '\0';
+            this.txtAddress.PlaceholderText = "";
+            this.txtAddress.SelectedText = "";
+            this.txtAddress.Size = new System.Drawing.Size(188, 27);
+            this.txtAddress.TabIndex = 11;
+            // 
+            // txtName
+            // 
+            this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtName.DefaultText = "";
+            this.txtName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtName.Location = new System.Drawing.Point(211, 61);
+            this.txtName.Name = "txtName";
+            this.txtName.PasswordChar = '\0';
+            this.txtName.PlaceholderText = "";
+            this.txtName.SelectedText = "";
+            this.txtName.Size = new System.Drawing.Size(169, 27);
+            this.txtName.TabIndex = 10;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUsername.DefaultText = "";
+            this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUsername.Location = new System.Drawing.Point(18, 127);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.PasswordChar = '\0';
+            this.txtUsername.PlaceholderText = "";
+            this.txtUsername.SelectedText = "";
+            this.txtUsername.Size = new System.Drawing.Size(127, 27);
+            this.txtUsername.TabIndex = 9;
+            // 
+            // txtID
+            // 
+            this.txtID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtID.DefaultText = "";
+            this.txtID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtID.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtID.Location = new System.Drawing.Point(18, 61);
+            this.txtID.Name = "txtID";
+            this.txtID.PasswordChar = '\0';
+            this.txtID.PlaceholderText = "";
+            this.txtID.SelectedText = "";
+            this.txtID.Size = new System.Drawing.Size(127, 27);
+            this.txtID.TabIndex = 8;
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbEmail.Location = new System.Drawing.Point(664, 102);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(42, 18);
+            this.lbEmail.TabIndex = 7;
+            this.lbEmail.Text = "Email";
+            // 
+            // lbRole
+            // 
+            this.lbRole.AutoSize = true;
+            this.lbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbRole.Location = new System.Drawing.Point(664, 42);
+            this.lbRole.Name = "lbRole";
+            this.lbRole.Size = new System.Drawing.Size(36, 18);
+            this.lbRole.TabIndex = 6;
+            this.lbRole.Text = "Role";
+            this.lbRole.Click += new System.EventHandler(this.lbRole_Click);
+            // 
+            // lbPhoneNumber
+            // 
+            this.lbPhoneNumber.AutoSize = true;
+            this.lbPhoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbPhoneNumber.Location = new System.Drawing.Point(435, 102);
+            this.lbPhoneNumber.Name = "lbPhoneNumber";
+            this.lbPhoneNumber.Size = new System.Drawing.Size(102, 18);
+            this.lbPhoneNumber.TabIndex = 5;
+            this.lbPhoneNumber.Text = "Phone Number";
+            // 
+            // lbAddress
+            // 
+            this.lbAddress.AutoSize = true;
+            this.lbAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbAddress.Location = new System.Drawing.Point(435, 40);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(58, 18);
+            this.lbAddress.TabIndex = 4;
+            this.lbAddress.Text = "Address";
+            // 
+            // lbBirthday
+            // 
+            this.lbBirthday.AutoSize = true;
+            this.lbBirthday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbBirthday.Location = new System.Drawing.Point(208, 102);
+            this.lbBirthday.Name = "lbBirthday";
+            this.lbBirthday.Size = new System.Drawing.Size(60, 18);
+            this.lbBirthday.TabIndex = 3;
+            this.lbBirthday.Text = "Birthday";
+            // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbName.Location = new System.Drawing.Point(208, 40);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(45, 18);
+            this.lbName.TabIndex = 2;
+            this.lbName.Text = "Name";
+            // 
+            // lbUsername
+            // 
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbUsername.Location = new System.Drawing.Point(15, 96);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(72, 18);
+            this.lbUsername.TabIndex = 1;
+            this.lbUsername.Text = "Username";
+            // 
+            // lbID
+            // 
+            this.lbID.AutoSize = true;
+            this.lbID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbID.Location = new System.Drawing.Point(19, 40);
+            this.lbID.Name = "lbID";
+            this.lbID.Size = new System.Drawing.Size(21, 18);
+            this.lbID.TabIndex = 0;
+            this.lbID.Text = "ID";
+            // 
             // dgv1
             // 
             this.dgv1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv1.Location = new System.Drawing.Point(21, 27);
+            this.dgv1.Location = new System.Drawing.Point(21, 14);
             this.dgv1.Name = "dgv1";
             this.dgv1.Size = new System.Drawing.Size(849, 240);
             this.dgv1.TabIndex = 7;
+            this.dgv1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellContentClick);
             // 
             // guna2Button5
             // 
@@ -241,7 +516,7 @@
             this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.guna2Button5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.Location = new System.Drawing.Point(213, 356);
+            this.guna2Button5.Location = new System.Drawing.Point(213, 458);
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.Size = new System.Drawing.Size(107, 35);
             this.guna2Button5.TabIndex = 6;
@@ -260,12 +535,13 @@
             this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.guna2Button4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Location = new System.Drawing.Point(763, 356);
+            this.guna2Button4.Location = new System.Drawing.Point(763, 458);
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.Size = new System.Drawing.Size(107, 35);
             this.guna2Button4.TabIndex = 5;
             this.guna2Button4.Text = "Delete";
             this.guna2Button4.UseTransparentBackground = true;
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
             // guna2Button3
             // 
@@ -278,7 +554,7 @@
             this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.guna2Button3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(598, 356);
+            this.guna2Button3.Location = new System.Drawing.Point(598, 458);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(107, 35);
             this.guna2Button3.TabIndex = 4;
@@ -297,7 +573,7 @@
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.guna2Button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(412, 356);
+            this.guna2Button2.Location = new System.Drawing.Point(412, 458);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(107, 35);
             this.guna2Button2.TabIndex = 3;
@@ -316,7 +592,7 @@
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.guna2Button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(21, 356);
+            this.guna2Button1.Location = new System.Drawing.Point(21, 458);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(107, 35);
             this.guna2Button1.TabIndex = 2;
@@ -489,6 +765,8 @@
             this.tabPage1.ResumeLayout(false);
             this.guna2TabControl3.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
+            this.guna2GroupBox1.ResumeLayout(false);
+            this.guna2GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -531,5 +809,22 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private System.Windows.Forms.DataGridView dgv1;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private System.Windows.Forms.Label lbID;
+        private System.Windows.Forms.Label lbRole;
+        private System.Windows.Forms.Label lbPhoneNumber;
+        private System.Windows.Forms.Label lbAddress;
+        private System.Windows.Forms.Label lbBirthday;
+        private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.Label lbEmail;
+        private Guna.UI2.WinForms.Guna2TextBox txtRole;
+        private Guna.UI2.WinForms.Guna2TextBox txtPhone;
+        private Guna.UI2.WinForms.Guna2TextBox txtAddress;
+        private Guna.UI2.WinForms.Guna2TextBox txtName;
+        private Guna.UI2.WinForms.Guna2TextBox txtUsername;
+        private Guna.UI2.WinForms.Guna2TextBox txtID;
+        private Guna.UI2.WinForms.Guna2DateTimePicker txtBirthday;
+        private Guna.UI2.WinForms.Guna2TextBox txtEmail;
     }
 }
