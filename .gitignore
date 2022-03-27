@@ -25,5 +25,5 @@ PBL_3/Connection.cs
 *.exe
 *.pdb
 *.cache
-PBL_3.csproj.FileListAbsolute
-
+PBL_3/obj/Debug/PBL_3.csproj.FileListAbsolute.txt
+.vs/
