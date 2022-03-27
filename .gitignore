@@ -1,4 +1,4 @@
-/Connection
+Connection.cs
 *.resx;
 # Compiled class file
 *.class
@@ -22,3 +22,8 @@
 *.rar
 
 # virtual machine crash logs, see 
+
+*.exe
+*.pdb
+*.cache
+PBL_3.csproj.FileListAbsolute
