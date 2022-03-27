@@ -28,7 +28,7 @@ namespace PBL_3
         void loadData()
         {
             cmd = conn.CreateCommand();
-            cmd.CommandText = "select ID,US,Name,Birthday,PhoneNumber,Position,Email from Inf_user";
+            cmd.CommandText = "select ID,US,Name,Birthday,Adress,PhoneNumber,Position,Email from Inf_user";
             ad.SelectCommand = cmd;
             dt.Clear();
             ad.Fill(dt);
@@ -45,10 +45,6 @@ namespace PBL_3
 
         }
 
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-
-        }
         Modify modify = new Modify();
         Login login = new Login();
         private void guna2Button1_Click(object sender, EventArgs e) //Button Back
@@ -73,6 +69,43 @@ namespace PBL_3
             conn = Connection.getSqlConnection();
             conn.Open();
             loadData();
+        }
+
+        private void lbRole_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.ReadOnly = true;
+            int i = dgv1.CurrentRow.Index;
+            txtID.Text = dgv1.Rows[i].Cells[0].Value.ToString();
+            txtUsername.Text = dgv1.Rows[i].Cells[1].Value.ToString();
+            txtName.Text = dgv1.Rows[i].Cells[2].Value.ToString();
+            txtBirthday.Text = dgv1.Rows[i].Cells[3].Value.ToString();
+            txtAddress.Text = dgv1.Rows[i].Cells[4].Value.ToString();
+            txtPhone.Text = dgv1.Rows[i].Cells[5].Value.ToString();
+            txtRole.Text = dgv1.Rows[i].Cells[6].Value.ToString();
+            txtEmail.Text = dgv1.Rows[i].Cells[7].Value.ToString();
+        }
+        private void guna2Button3_Click(object sender, EventArgs e) //Update
+        {
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "update Inf_user set US = '" + txtUsername.Text + "', Name = N'"+txtName.Text+"', Birthday = '"+txtBirthday.Text+"', Adress = N'"+txtAddress.Text+"', PhoneNumber = '" + txtPhone.Text + "', Email = '" +txtEmail.Text+"' where ID = '"+txtID.Text+"'"; //vì mã nhân viên là khóa chính
+            cmd.ExecuteNonQuery();
+            loadData();
+            MessageBox.Show("Update successful!");
+            //"', PhoneNumber = '"+txtPhone.Text+
+        }
+        private void guna2Button4_Click(object sender, EventArgs e) //Delete
+        {
+            //conn = Connection.getSqlConnection();
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "delete from Inf_user where ID = '"+txtID.Text +"'"; //vì mã nhân viên là khóa chính
+            cmd.ExecuteNonQuery();
+            loadData();
+
         }
 
     }
