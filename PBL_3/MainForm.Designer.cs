@@ -120,6 +120,7 @@
             this.guna2Button2.TabIndex = 15;
             this.guna2Button2.Text = "System";
             this.guna2Button2.UseTransparentBackground = true;
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2Button3
             // 

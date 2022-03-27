@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace PBL_3
 {
@@ -16,6 +17,10 @@ namespace PBL_3
         {
             InitializeComponent();
         }
+
+        SqlConnection conn;
+        public SqlCommand cmd;
+        SqlDataAdapter ad = new SqlDataAdapter();
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
@@ -31,7 +36,12 @@ namespace PBL_3
                 }
                 else
                 {
-                    //...
+                    conn = Connection.getSqlConnection();
+                    conn.Open();
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = "update Inf_user set PW = '" + tbConfirmNewPass.Text +"'"; //vì mã nhân viên là khóa chính
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Reset Successful!");
                 }
             }
         }

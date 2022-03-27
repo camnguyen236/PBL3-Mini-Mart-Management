@@ -30,13 +30,19 @@ namespace PBL_3
             txtNameNV.Text = s;
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e) //List
         {
             List l = new List();
             this.Hide();
             l.ShowDialog();
             //this.Close();
             
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e) //system, phân quyền
+        {
+            Systemm s = new Systemm();
+            s.ShowDialog();
         }
     }
 }
