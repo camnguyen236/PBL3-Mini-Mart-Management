@@ -114,8 +114,8 @@ namespace PBL_3
                 conn.Open();
                 cmd = conn.CreateCommand();
                 cmd.CommandText = "insert into Inf_user(US,PW,Name,Gender,Birthday,Adress,PhoneNumber,Email) " +
-                    "values ('" + tbUS.Text + "','" + tbPass.Text + "','" + tbName.Text + "','" + gender + "','" +
-                    DTPBirthday.Text + "','" + tbAddress.Text + "','" + tbPhoneNumber.Text + "','" + tbEmail.Text + "')";
+                    "values ('" + tbUS.Text + "','" + tbPass.Text + "',N'" + tbName.Text + "','" + gender + "','" +
+                    DTPBirthday.Text + "',N'" + tbAddress.Text + "','" + tbPhoneNumber.Text + "','" + tbEmail.Text + "')";
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 MessageBox.Show("Added successfully");
