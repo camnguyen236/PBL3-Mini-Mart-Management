@@ -20,7 +20,7 @@ namespace PBL_3
        // public string roleLogin;
         private void butRegister_Click(object sender, EventArgs e)
         {
-            Register r = new Register();
+            AddAccount r = new AddAccount();
             r.Show();
         }
         Modify modify = new Modify();

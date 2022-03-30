@@ -59,9 +59,10 @@ namespace PBL_3
 
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void guna2Button2_Click(object sender, EventArgs e) //Add
         {
-
+            AddAccount ad = new AddAccount();
+            ad.ShowDialog();
         }
 
         private void guna2Button5_Click(object sender, EventArgs e) //Show
