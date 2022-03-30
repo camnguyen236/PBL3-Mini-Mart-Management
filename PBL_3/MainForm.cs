@@ -34,9 +34,10 @@ namespace PBL_3
         {
             List l = new List();
             this.Hide();
+            l.rs = txtNameNV.Text;
             l.ShowDialog();
             //this.Close();
-            
+
         }
 
         private void guna2Button2_Click(object sender, EventArgs e) //system, phân quyền

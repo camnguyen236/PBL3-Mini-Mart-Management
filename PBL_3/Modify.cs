@@ -24,7 +24,7 @@ namespace PBL_3
                 while (reader.Read()) //đọc từn dòng
                 {
                     accounts.Add(new Account(reader.GetString(1), reader.GetString(2)));
-                    role = reader.GetString(7);
+                    role = reader.GetString(8);
                 }
 
                 cn.Close();

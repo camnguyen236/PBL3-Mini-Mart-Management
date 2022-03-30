@@ -13,6 +13,7 @@ namespace PBL_3
 {
     public partial class List : Form
     {
+        public string rs;
         
         public List()
         {
@@ -52,7 +53,7 @@ namespace PBL_3
             MainForm mf2 = new MainForm();
             ////this.Hide();
             //string rs = login.roleLogin + " / " + modify.role;
-            //mf2.mName(rs);
+            mf2.mName(rs);
             mf2.ShowDialog();
 
             //this.Close();
