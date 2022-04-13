@@ -22,7 +22,7 @@ namespace PBL_3
 
         SqlConnection conn;
         public SqlCommand cmd;
-        SqlDataAdapter ad = new SqlDataAdapter();
+        SqlDataAdapter ad = new SqlDataAdapter(); //cầu nối trung gian giữa csdl và datatb
         DataTable dt = new DataTable();
  
         //load dữ liệu lên bảng
@@ -32,8 +32,9 @@ namespace PBL_3
             cmd.CommandText = "select ID,US,Name,Birthday,Adress,PhoneNumber,Position,Email from Inf_user";
             ad.SelectCommand = cmd;
             dt.Clear();
-            ad.Fill(dt);
+            ad.Fill(dt); //đổ dữ liệu từ csdl ra datatable
             dgv1.DataSource = dt;
+            dgv1.Columns[6].Visible = false;
         }
 
         private void tabPage6_Click(object sender, EventArgs e)
@@ -51,12 +52,12 @@ namespace PBL_3
         private void guna2Button1_Click(object sender, EventArgs e) //Button Back
         {
             MainForm mf2 = new MainForm();
-            ////this.Hide();
+            this.Hide();
             //string rs = login.roleLogin + " / " + modify.role;
             mf2.mName(rs);
             mf2.ShowDialog();
 
-            //this.Close();
+            this.Close();
 
         }
 
@@ -91,6 +92,17 @@ namespace PBL_3
             txtRole.Text = dgv1.Rows[i].Cells[6].Value.ToString();
             txtEmail.Text = dgv1.Rows[i].Cells[7].Value.ToString();
         }
+        private void Reset()
+        {
+            txtID.Text = "";
+            txtUsername.Text = "";
+            txtName.Text = "";
+            txtBirthday.Text = "";
+            txtAddress.Text = "";
+            txtPhone.Text = "";
+            txtRole.Text = "";
+            txtEmail.Text = "";
+        }
         private void guna2Button3_Click(object sender, EventArgs e) //Update
         {
             cmd = conn.CreateCommand();
@@ -105,8 +117,18 @@ namespace PBL_3
             //conn = Connection.getSqlConnection();
             cmd = conn.CreateCommand();
             cmd.CommandText = "delete from Inf_user where ID = '"+txtID.Text +"'"; //vì mã nhân viên là khóa chính
-            cmd.ExecuteNonQuery();
-            loadData();
+                DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+                if (dl == DialogResult.OK)
+                {
+                    cmd.ExecuteNonQuery();
+                    loadData();
+                    Reset();
+                }
+                else if (dl == DialogResult.Cancel)
+                {
+                    //sthis.Close();
+                }
+            
 
         }
 

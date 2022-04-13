@@ -1,0 +1,15 @@
+F:\PBL3\DAL\bin\Debug\DAL.dll
+F:\PBL3\DAL\bin\Debug\DAL.pdb
+F:\PBL3\DAL\bin\Debug\DTO.dll
+F:\PBL3\DAL\bin\Debug\Guna.UI2.dll
+F:\PBL3\DAL\bin\Debug\DTO.pdb
+F:\PBL3\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+F:\PBL3\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+F:\PBL3\DAL\obj\Debug\DAL.csproj.CopyComplete
+F:\PBL3\DAL\obj\Debug\DAL.dll
+F:\PBL3\DAL\obj\Debug\DAL.pdb
+F:\PBL3\DAL\bin\Debug\ARSoft.Tools.Net.dll
+F:\PBL3\DAL\bin\Debug\BouncyCastle.Crypto.dll
+F:\PBL3\DAL\bin\Debug\EmailValidation.dll
+F:\PBL3\DAL\bin\Debug\ARSoft.Tools.Net.xml
+F:\PBL3\DAL\bin\Debug\BouncyCastle.Crypto.pdb

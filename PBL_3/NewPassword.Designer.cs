@@ -62,12 +62,13 @@
             this.tbNewPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbNewPass.Location = new System.Drawing.Point(93, 35);
             this.tbNewPass.Name = "tbNewPass";
-            this.tbNewPass.PasswordChar = '\0';
+            this.tbNewPass.PasswordChar = '●';
             this.tbNewPass.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.tbNewPass.PlaceholderText = "New Password";
             this.tbNewPass.SelectedText = "";
             this.tbNewPass.Size = new System.Drawing.Size(201, 34);
             this.tbNewPass.TabIndex = 22;
+            this.tbNewPass.UseSystemPasswordChar = true;
             // 
             // tbConfirmNewPass
             // 
@@ -84,12 +85,13 @@
             this.tbConfirmNewPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbConfirmNewPass.Location = new System.Drawing.Point(94, 123);
             this.tbConfirmNewPass.Name = "tbConfirmNewPass";
-            this.tbConfirmNewPass.PasswordChar = '\0';
+            this.tbConfirmNewPass.PasswordChar = '●';
             this.tbConfirmNewPass.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.tbConfirmNewPass.PlaceholderText = "Confirm PassWord";
             this.tbConfirmNewPass.SelectedText = "";
             this.tbConfirmNewPass.Size = new System.Drawing.Size(201, 34);
             this.tbConfirmNewPass.TabIndex = 23;
+            this.tbConfirmNewPass.UseSystemPasswordChar = true;
             // 
             // btnOK
             // 
@@ -120,7 +122,7 @@
             this.Controls.Add(this.tbNewPass);
             this.Controls.Add(this.guna2PictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NewPassword";
             this.Text = "NewPassword";
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();

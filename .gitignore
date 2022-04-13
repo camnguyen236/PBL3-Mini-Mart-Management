@@ -1,4 +1,5 @@
 PBL_3/Connection.cs
+*.config
 *.resx;
 # Compiled class file
 *.class
