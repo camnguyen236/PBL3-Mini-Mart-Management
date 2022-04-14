@@ -64,6 +64,12 @@
     <Compile Include="AddAccount.Designer.cs">
       <DependentUpon>AddAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCustomer.Designer.cs">
+      <DependentUpon>AddCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,8 +102,17 @@
     <Compile Include="ResetPassword.Designer.cs">
       <DependentUpon>ResetPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Systems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Systems.Designer.cs">
+      <DependentUpon>Systems.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddAccount.resx">
       <DependentUpon>AddAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCustomer.resx">
+      <DependentUpon>AddCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -123,6 +138,9 @@
     </Compile>
     <EmbeddedResource Include="ResetPassword.resx">
       <DependentUpon>ResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Systems.resx">
+      <DependentUpon>Systems.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -196,6 +214,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\resetform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\276998357_388347072760373_5672047703218817510_n %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\277156972_3104866469762171_5739932989568149869_n %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\275229353_668589270920048_8294397463394965734_n %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\276083674_519869799660137_7430631639578656072_n %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

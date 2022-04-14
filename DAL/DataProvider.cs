@@ -26,17 +26,11 @@ namespace DAL
             private set { } //chỉ nội bộ lớp này mới đc set dữ liệu vào
         }
         private DataProvider() { }
-        public static SqlConnection getSqlConnection()
-        {
-            string stringConnection = @"Data Source=DESKTOP-K9NDIH8;Initial Catalog=Information;Integrated Security=True";
-            SqlConnection conn = new SqlConnection(stringConnection);
-            return conn;
-        }
         //
         public DataTable GetRecords(string query) //để thực hiện lệnh select
         {
             DataTable dt = new DataTable();
-            using (SqlConnection cnt = DataProvider.getSqlConnection()) //khi kết thúc khối lệnh, dữ liệu sẽ đc giải phóng
+            using (SqlConnection cnt = Connection.getSqlConnection()) //khi kết thúc khối lệnh, dữ liệu sẽ đc giải phóng
             {
                 cnt.Open();
                 SqlCommand cmd = new SqlCommand(query, cnt);
@@ -53,7 +47,7 @@ namespace DAL
             
             string user = null;
             //connect tới CSDL
-            SqlConnection cnt = DataProvider.getSqlConnection();
+            SqlConnection cnt = Connection.getSqlConnection();
             cnt.Open();
             SqlCommand cmd = new SqlCommand(query, cnt); //"proc_loginn"
             //cmd.CommandType = CommandType.StoredProcedure; //query, procdure
@@ -86,7 +80,7 @@ namespace DAL
         {
             try
             {
-                using(SqlConnection cnt = DataProvider.getSqlConnection())
+                using(SqlConnection cnt = Connection.getSqlConnection())
                 {
                     cnt.Open();
                     SqlCommand cmd = new SqlCommand(query, cnt);

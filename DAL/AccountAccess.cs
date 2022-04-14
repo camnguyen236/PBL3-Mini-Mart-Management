@@ -49,6 +49,11 @@ namespace DAL
             string query = "update Inf_user set PW = '" + password + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
+        public void updateRole(string username, string role)
+        {
+            string query = "update Inf_user set Position = '" + role + "'" + " where US = '" + username + "'"; ;
+            DataProvider.Instance.ExcuteDB(query);
+        }
         public void deleteAccount(Account account, string id)
         {
             string query = "delete from Inf_user where ID = '" + id + "'";
@@ -60,6 +65,16 @@ namespace DAL
                     "values ('" + account.US + "','" + account.PW + "',N'" + account.Name + "','" + account.Gender + "','" +
                     account.Birthday+ "',N'" + account.Adress + "','" + account.PhoneNumber + "','" + account.Position + "','" + account.Email + "')";
             DataProvider.Instance.ExcuteDB(query);
+        }
+        public List<string> getAllUsername()
+        {
+            List<string> data = new List<string>();
+            string query = "select US from Inf_user";
+            foreach(DataRow i in DataProvider.Instance.GetRecords(query).Rows)
+            {
+                data.Add(i["US"].ToString());
+            }
+            return data;
         }
 
     }

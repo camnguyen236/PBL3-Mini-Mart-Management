@@ -35,5 +35,11 @@ namespace GUI
             l.rs = txtNameNV.Text;
             l.ShowDialog();
         }
+
+        private void btnSystem_Click(object sender, EventArgs e)
+        {
+            Systems s = new Systems();
+            s.ShowDialog();
+        }
     }
 }
