@@ -56,12 +56,12 @@ namespace BLL
                 AccountAccess.Instance.updateAccount(account);
                 return;
             }
-            if (id != null)
+            if (id != null && !id.Equals("Add"))
             {
                 AccountAccess.Instance.deleteAccount(account, id);
                 return;
             }
-            if (account.PW == null)
+            if (id.Equals("Add"))
             {
                 AccountAccess.Instance.addAccount(account);
                 return;
@@ -70,6 +70,10 @@ namespace BLL
         public void updatePassword(string password)
         {
             AccountAccess.Instance.updatePassword(password);
+        }
+        public void updateRole(string username, string role)
+        {
+            AccountAccess.Instance.updateRole(username, role);
         }
         public bool IsValidEmail(string email)
         {
@@ -122,6 +126,11 @@ namespace BLL
         public bool checkUS(string name)
         {
             return Regex.IsMatch(name, "^[a-zA-Z0-9]{6,24}$");
+        }
+
+        public List<string> getAllUsername()
+        {
+            return AccountAccess.Instance.getAllUsername();
         }
     }
 }

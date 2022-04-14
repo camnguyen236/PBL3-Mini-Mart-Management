@@ -30,3 +30,5 @@ F:\PBL3\GUI\obj\Debug\GUI.ManageForm.resources
 F:\PBL3\GUI\obj\Debug\GUI.NewPassword.resources
 F:\PBL3\GUI\obj\Debug\GUI.ResetPassword.resources
 F:\PBL3\GUI\obj\Debug\GUI.AddAccount.resources
+F:\PBL3\GUI\obj\Debug\GUI.Systems.resources
+F:\PBL3\GUI\obj\Debug\GUI.AddCustomer.resources

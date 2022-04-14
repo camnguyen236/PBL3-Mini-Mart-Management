@@ -28,84 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbEmail = new Guna.UI2.WinForms.Guna2TextBox();
-            this.DTPBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.gbGender = new Guna.UI2.WinForms.Guna2GroupBox();
             this.rbtnFemale = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbtnMale = new Guna.UI2.WinForms.Guna2RadioButton();
             this.btnOK = new Guna.UI2.WinForms.Guna2Button();
             this.tbPhoneNumber = new Guna.UI2.WinForms.Guna2TextBox();
-            this.tbUS = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbAddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbUS = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tbEmail = new Guna.UI2.WinForms.Guna2TextBox();
+            this.DTPBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.gbGender.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GUI.Properties.Resources.resetform;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(736, 418);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(27, 283);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 15);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Your Birthday";
-            // 
-            // tbEmail
-            // 
-            this.tbEmail.BackColor = System.Drawing.SystemColors.Window;
-            this.tbEmail.BorderRadius = 15;
-            this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbEmail.DefaultText = "";
-            this.tbEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbEmail.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tbEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tbEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbEmail.Location = new System.Drawing.Point(273, 221);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.PasswordChar = '\0';
-            this.tbEmail.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.tbEmail.PlaceholderText = "Email";
-            this.tbEmail.SelectedText = "";
-            this.tbEmail.Size = new System.Drawing.Size(200, 36);
-            this.tbEmail.TabIndex = 25;
-            // 
-            // DTPBirthday
-            // 
-            this.DTPBirthday.Checked = true;
-            this.DTPBirthday.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.DTPBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.DTPBirthday.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DTPBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPBirthday.Location = new System.Drawing.Point(25, 304);
-            this.DTPBirthday.Margin = new System.Windows.Forms.Padding(2);
-            this.DTPBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.DTPBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.DTPBirthday.Name = "DTPBirthday";
-            this.DTPBirthday.Size = new System.Drawing.Size(200, 34);
-            this.DTPBirthday.TabIndex = 24;
-            this.DTPBirthday.Value = new System.DateTime(2022, 3, 27, 16, 42, 14, 105);
             // 
             // gbGender
             // 
@@ -199,29 +139,6 @@
             this.tbPhoneNumber.Size = new System.Drawing.Size(200, 36);
             this.tbPhoneNumber.TabIndex = 20;
             // 
-            // tbUS
-            // 
-            this.tbUS.BackColor = System.Drawing.Color.DodgerBlue;
-            this.tbUS.BorderRadius = 15;
-            this.tbUS.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbUS.DefaultText = "";
-            this.tbUS.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbUS.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbUS.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbUS.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbUS.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tbUS.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbUS.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tbUS.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbUS.Location = new System.Drawing.Point(273, 115);
-            this.tbUS.Name = "tbUS";
-            this.tbUS.PasswordChar = '\0';
-            this.tbUS.PlaceholderForeColor = System.Drawing.Color.DimGray;
-            this.tbUS.PlaceholderText = "Username";
-            this.tbUS.SelectedText = "";
-            this.tbUS.Size = new System.Drawing.Size(200, 36);
-            this.tbUS.TabIndex = 18;
-            // 
             // tbAddress
             // 
             this.tbAddress.BackColor = System.Drawing.SystemColors.Window;
@@ -280,6 +197,39 @@
             this.tbName.Size = new System.Drawing.Size(200, 36);
             this.tbName.TabIndex = 15;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GUI.Properties.Resources.resetform;
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(736, 418);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tbUS
+            // 
+            this.tbUS.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tbUS.BorderRadius = 15;
+            this.tbUS.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbUS.DefaultText = "";
+            this.tbUS.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbUS.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbUS.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbUS.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbUS.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.tbUS.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbUS.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbUS.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbUS.Location = new System.Drawing.Point(273, 116);
+            this.tbUS.Name = "tbUS";
+            this.tbUS.PasswordChar = '\0';
+            this.tbUS.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.tbUS.PlaceholderText = "Username";
+            this.tbUS.SelectedText = "";
+            this.tbUS.Size = new System.Drawing.Size(200, 36);
+            this.tbUS.TabIndex = 26;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GUI.Properties.Resources.resetform;
@@ -290,18 +240,66 @@
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
             // 
+            // tbEmail
+            // 
+            this.tbEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.tbEmail.BorderRadius = 15;
+            this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbEmail.DefaultText = "";
+            this.tbEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbEmail.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.tbEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbEmail.Location = new System.Drawing.Point(273, 217);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.PasswordChar = '\0';
+            this.tbEmail.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.tbEmail.PlaceholderText = "Email";
+            this.tbEmail.SelectedText = "";
+            this.tbEmail.Size = new System.Drawing.Size(200, 36);
+            this.tbEmail.TabIndex = 27;
+            // 
+            // DTPBirthday
+            // 
+            this.DTPBirthday.Checked = true;
+            this.DTPBirthday.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.DTPBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DTPBirthday.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DTPBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DTPBirthday.Location = new System.Drawing.Point(25, 307);
+            this.DTPBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DTPBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DTPBirthday.Name = "DTPBirthday";
+            this.DTPBirthday.Size = new System.Drawing.Size(200, 36);
+            this.DTPBirthday.TabIndex = 28;
+            this.DTPBirthday.Value = new System.DateTime(2022, 4, 14, 16, 42, 45, 358);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label2.Location = new System.Drawing.Point(27, 287);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Your Birthday";
+            // 
             // AddAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 418);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.DTPBirthday);
+            this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.tbUS);
             this.Controls.Add(this.gbGender);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.tbPhoneNumber);
-            this.Controls.Add(this.tbUS);
             this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbName);
@@ -310,9 +308,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AddAccount";
             this.Text = "AddAccount";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbGender.ResumeLayout(false);
             this.gbGender.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -322,18 +320,18 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2TextBox tbEmail;
-        private Guna.UI2.WinForms.Guna2DateTimePicker DTPBirthday;
         private Guna.UI2.WinForms.Guna2GroupBox gbGender;
         private Guna.UI2.WinForms.Guna2RadioButton rbtnFemale;
         private Guna.UI2.WinForms.Guna2RadioButton rbtnMale;
         private Guna.UI2.WinForms.Guna2Button btnOK;
         private Guna.UI2.WinForms.Guna2TextBox tbPhoneNumber;
-        private Guna.UI2.WinForms.Guna2TextBox tbUS;
         private Guna.UI2.WinForms.Guna2TextBox tbAddress;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox tbName;
+        private Guna.UI2.WinForms.Guna2TextBox tbUS;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private Guna.UI2.WinForms.Guna2TextBox tbEmail;
+        private Guna.UI2.WinForms.Guna2DateTimePicker DTPBirthday;
+        private System.Windows.Forms.Label label2;
     }
 }

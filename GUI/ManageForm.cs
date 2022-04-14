@@ -35,6 +35,10 @@ namespace GUI
             dgv1.DataSource = AccountBLL.Instance.getAccount();
             dgv1.Columns[6].Visible = false;
         }
+        private void Show_Customer()
+        {
+            dgv3.DataSource = Customer_BLL.Instance.getCustomer();
+        }
         private void btnShow_Click(object sender, EventArgs e)
         {
             Show();
@@ -64,6 +68,7 @@ namespace GUI
             txtEmail.Text = dgv1.Rows[i].Cells[7].Value.ToString();
         }
         Account account;
+        Customer customer;
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
@@ -105,6 +110,63 @@ namespace GUI
         {
             AddAccount ad = new AddAccount();
             ad.d = new AddAccount.Mydel(Show);
+            ad.ShowDialog();
+        }
+
+        //Tap Manage customer
+        private void btnShow_Customer_Click(object sender, EventArgs e)
+        {
+            Show_Customer();
+        }
+        private void dgv3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID_Customer.ReadOnly = true;
+            int i = dgv3.CurrentRow.Index;
+            txtID_Customer.Text = dgv3.Rows[i].Cells[0].Value.ToString();
+            txtName_Customer.Text = dgv3.Rows[i].Cells[1].Value.ToString();
+            if (dgv3.Rows[i].Cells[2].Value.ToString() == "Nữ") rbtnFemale.Checked = true;
+            else rbtnMale.Checked = true;
+            txtAddress_Customer.Text = dgv3.Rows[i].Cells[3].Value.ToString();
+            txtPhoneNumber_Customer.Text = dgv3.Rows[i].Cells[4].Value.ToString();
+            txtAccountNumber.Text = dgv3.Rows[i].Cells[5].Value.ToString();
+        }
+
+        private void btnDelete_Customer_Click(object sender, EventArgs e)
+        {
+            //vì mã nhân viên là khóa chính
+            DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dl == DialogResult.OK)
+            {
+                Customer_BLL.Instance.ExcuteDB(customer, txtID_Customer.Text);
+                Show_Customer();
+                Reset();
+            }
+            else if (dl == DialogResult.Cancel)
+            {
+                //sthis.Close();
+            }
+        }
+
+        private void btnUpdate_Customer_Click(object sender, EventArgs e)
+        {
+            customer = new Customer
+            {
+                ID_Customer = Convert.ToInt32(txtID_Customer.Text),
+                Name_Customer = txtName_Customer.Text,
+                Gender_Customer = rbtnFemale.Checked ? "Nữ" : "Nam",
+                Address_Customer = txtAddress_Customer.Text,
+                PhoneNumber_Customer = txtPhoneNumber_Customer.Text,
+                AccountNumber = txtAccountNumber.Text
+            };
+            Customer_BLL.Instance.ExcuteDB(customer);
+            Show_Customer();
+            //MessageBox.Show("Update")
+        }
+
+        private void btnAdd_Customer_Click(object sender, EventArgs e)
+        {
+            AddCustomer ad = new AddCustomer();
+            ad.d = new AddCustomer.Mydel(Show_Customer);
             ad.ShowDialog();
         }
     }

@@ -52,14 +52,14 @@ namespace GUI
                     US = tbUS.Text,
                     PW = null,
                     Name = tbName.Text,
-                    Gender = Convert.ToString(rbtnMale.Checked),
+                    Gender = rbtnFemale.Checked ? "Nữ" : "Nam",
                     Birthday = Convert.ToDateTime(DTPBirthday.Text),
-                    Adress = DTPBirthday.Text,
+                    Adress = tbAddress.Text,
                     PhoneNumber = tbPhoneNumber.Text,
                     Position = null,
                     Email = tbEmail.Text
                 };
-                AccountBLL.Instance.ExcuteDB(account);
+                AccountBLL.Instance.ExcuteDB(account,"Add");
                 //show
                 
                 MessageBox.Show("Added successfully");
@@ -68,6 +68,5 @@ namespace GUI
             }
         }
 
-     
     }
 }

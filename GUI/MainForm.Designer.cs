@@ -137,6 +137,7 @@
             this.btnSystem.TabIndex = 22;
             this.btnSystem.Text = "System";
             this.btnSystem.UseTransparentBackground = true;
+            this.btnSystem.Click += new System.EventHandler(this.btnSystem_Click);
             // 
             // btnList
             // 
@@ -234,7 +235,6 @@
             this.guna2PictureBox6.TabIndex = 15;
             this.guna2PictureBox6.TabStop = false;
             this.guna2PictureBox6.UseTransparentBackground = true;
-            //this.guna2PictureBox6.Click += new System.EventHandler(this.guna2PictureBox6_Click);
             // 
             // guna2PictureBox8
             // 
