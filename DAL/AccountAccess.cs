@@ -47,7 +47,13 @@ namespace DAL
             accounts = DataProvider.Instance.GetRecords(query);
             return accounts;
         }
-
+        public DataTable GetAccountsByOption(string name, string option)
+        {
+            DataTable accountsList = new DataTable();
+            string query = $"select ID,US,Name,Birthday,Adress,PhoneNumber,Position,Email from Inf_user where {option} like N'%{name}%'";
+            accountsList = DataProvider.Instance.GetRecords(query);
+            return accountsList;
+        }
         public void updateAccount(Account account)
         {
             string query = "update Inf_user set US = '" + account.US + "', Name = N'" + account.Name + "', Birthday = '" + account.Birthday + "', Adress = N'" + account.Adress + "', PhoneNumber = '" + account.PhoneNumber + "', Email = '" + account.Email + "' where ID = '" + account.ID + "'";

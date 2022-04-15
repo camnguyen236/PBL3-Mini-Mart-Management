@@ -18,6 +18,7 @@ namespace GUI
         public ManageForm()
         {
             InitializeComponent();
+            addCbSearch();
         }
         private void Reset()
         {
@@ -172,12 +173,45 @@ namespace GUI
 
         private void cbSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            searchUser(cbSearch.Text);
         }
-
+        public void addCbSearch()
+        {
+            cbSearch.Items.Add("Name");
+            cbSearch.Items.Add("Username");
+            cbSearch.Items.Add("Address");
+            cbSearch.Items.Add("Phone number");
+            cbSearch.Items.Add("Mail");
+        }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-
+            searchUser(cbSearch.Text);
         }
+        private void searchUser(string option)
+        {
+            switch (option)
+            {
+                case "Name":
+                    option = "Name";
+                    break;
+                case "Username":
+                    option = "US";
+                    break;
+                case "Address":
+                    option = "Adress";
+                    break;
+                case "Phone number":
+                    option = "PhoneNumber";
+                    break;
+                case "Mail":
+                    option = "Email";
+                    break;
+                default:
+                    break;
+            }
+            dgv1.DataSource = AccountBLL.Instance.getAccountByOption(txtSearch.Text, option);
+            dgv1.Columns[6].Visible = false;
+        }
+
     }
 }
