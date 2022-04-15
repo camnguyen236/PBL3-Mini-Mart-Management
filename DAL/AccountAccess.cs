@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using System.Data;
-
+using System.Security.Cryptography;
 
 namespace DAL
 {
@@ -28,7 +28,16 @@ namespace DAL
         DataTable accounts = new DataTable();
         public string checkLogin(Account account)
         {
-            string query = "select * from Inf_user where US= '" + account.US + "'and PW ='" + account.PW + "'";
+            //begin hashing
+            byte[] passByte = ASCIIEncoding.ASCII.GetBytes(account.PW); //convert s (string) to byte
+            byte[] hashPassByte = new MD5CryptoServiceProvider().ComputeHash(passByte);//Hash: Returns is an array of numbers
+            string hashPassStr = "";
+            foreach (byte item in hashPassByte)
+            {
+                hashPassStr += item;
+            }
+            //end hashing: password after hash is hashPassStr
+            string query = "select * from Inf_user where US= '" + account.US + "'and PW ='" + hashPassStr + "'";
             string inf = DataProvider.Instance.checkLoginDTO(account,query); 
             return inf;
         }

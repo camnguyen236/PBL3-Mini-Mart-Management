@@ -154,9 +154,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{0d135853-c0cc-464f-b8e3-b9c2d69fd035}</Project>
       <Name>BLL</Name>

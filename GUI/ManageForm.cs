@@ -169,5 +169,15 @@ namespace GUI
             ad.d = new AddCustomer.Mydel(Show_Customer);
             ad.ShowDialog();
         }
+
+        private void cbSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
