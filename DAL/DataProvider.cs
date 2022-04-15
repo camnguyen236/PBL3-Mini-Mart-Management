@@ -94,5 +94,17 @@ namespace DAL
                 return false;
             }
         }
+        public String CheckAcc(string query) //để thực hiện lệnh select
+        {
+            string s;
+            using (SqlConnection cnt = Connection.getSqlConnection()) //khi kết thúc khối lệnh, dữ liệu sẽ đc giải phóng
+            {
+                cnt.Open();
+                SqlCommand cmd = new SqlCommand(query, cnt);
+                s = (string)cmd.ExecuteScalar();
+                cnt.Close();
+            }
+            return s;
+        }
     }
 }

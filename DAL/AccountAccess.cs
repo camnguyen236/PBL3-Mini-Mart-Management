@@ -91,6 +91,11 @@ namespace DAL
             }
             return data;
         }
+        public string checkField(string field, string value)
+        {
+            string query = "select " + field + " from Inf_user where " + field + " = '" + value + "'";
+            return DataProvider.Instance.CheckAcc(query);
+        }
 
     }
 }

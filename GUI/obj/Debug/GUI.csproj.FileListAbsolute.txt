@@ -4,7 +4,6 @@ F:\PBL3\GUI\obj\Debug\GUI.Login.resources
 F:\PBL3\GUI\obj\Debug\GUI.Properties.Resources.resources
 F:\PBL3\GUI\obj\Debug\GUI.csproj.GenerateResource.cache
 F:\PBL3\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
-F:\PBL3\GUI\bin\Debug\GUI.exe.config
 F:\PBL3\GUI\bin\Debug\GUI.exe
 F:\PBL3\GUI\bin\Debug\GUI.pdb
 F:\PBL3\GUI\bin\Debug\BLL.dll

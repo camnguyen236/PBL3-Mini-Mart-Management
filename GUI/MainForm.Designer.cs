@@ -152,9 +152,9 @@
             this.btnList.ForeColor = System.Drawing.Color.White;
             this.btnList.Location = new System.Drawing.Point(109, 345);
             this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(101, 36);
+            this.btnList.Size = new System.Drawing.Size(104, 36);
             this.btnList.TabIndex = 21;
-            this.btnList.Text = "List";
+            this.btnList.Text = "Manage";
             this.btnList.UseTransparentBackground = true;
             this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 

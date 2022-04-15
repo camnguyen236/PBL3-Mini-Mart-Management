@@ -29,7 +29,7 @@ namespace GUI
             if (rbAdmin.Checked) newRole = "Admin";
             else newRole = "Staff";
             AccountBLL.Instance.updateRole(cbbAccount.Text, newRole);
-            MessageBox.Show("OK");
+            MessageBox.Show("Successfully!");
             this.Close();
         }
     }

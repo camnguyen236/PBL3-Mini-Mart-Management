@@ -136,5 +136,17 @@ namespace BLL
         {
             return AccountAccess.Instance.getAllUsername();
         }
+        public bool checkField(string field, string name)
+        {
+            string s = AccountAccess.Instance.checkField(field, name);
+            if (s == null) return false;
+            return true;
+        }
+        public bool checkRole(string s)
+        {
+            if(DataProvider.Instance.getRole().Equals(s))
+            return true;
+            return false;
+        }
     }
 }

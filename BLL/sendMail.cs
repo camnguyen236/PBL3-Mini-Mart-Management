@@ -34,24 +34,31 @@ namespace BLL
             EmailValidator emailValidator = new EmailValidator();
             EmailValidationResult result;
 
-            if (!emailValidator.Validate(mail, out result))
+            try
             {
-                // no internet connection or mailserver is down / busy
-                return "Unable to check email";
-            }
+                if (!emailValidator.Validate(mail, out result))
+                {
+                    // no internet connection or mailserver is down / busy
+                    return "Unable to check email";
+                }
 
-            switch (result)
+                switch (result)
+                {
+                    case EmailValidationResult.MailboxUnavailable:
+                        return "Email server replied there is no such mailbox";
+
+                    case EmailValidationResult.MailboxStorageExceeded:
+                        return "Mailbox overflow";
+
+                    case EmailValidationResult.NoMailForDomain:
+                        return "Emails are not configured for domain (no MX records)";
+                }
+                return "OK";
+            }
+            catch (Exception ex)
             {
-                case EmailValidationResult.MailboxUnavailable:
-                    return "Email server replied there is no such mailbox";
-
-                case EmailValidationResult.MailboxStorageExceeded:
-                    return "Mailbox overflow";
-
-                case EmailValidationResult.NoMailForDomain:
-                    return "Emails are not configured for domain (no MX records)";
+                return ex.ToString();
             }
-            return "OK";
         }
 
         public string Send(string sendto, string subject, string content)
@@ -79,7 +86,7 @@ namespace BLL
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
-                return "Verification Code Sent Successfully";
+                return "Sent Successfully";
             }
             catch (Exception ex)
             {

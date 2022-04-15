@@ -35,7 +35,8 @@ namespace GUI
             if (sendMail.Instance.checkMail(tbEmail.Text) != "OK") MessageBox.Show(sendMail.Instance.checkMail(tbEmail.Text) + "\nPlease re-enter your email");
             else
             {
-                MessageBox.Show(sendMail.Instance.Send(tbEmail.Text, "Verification code", "Code: " + rd.ToString()));
+                MessageBox.Show(sendMail.Instance.Send(tbEmail.Text, "DCD Supermarkets - Password recovery", "Hello " + tbName.Text
+                        + "Your OTP: " + rd.ToString()) + ". Don't share your OTP with anyone. The DCD team");
                 flag = true;
             }
             //}

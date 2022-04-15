@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+
 
 namespace GUI
 {
@@ -18,6 +20,7 @@ namespace GUI
         {
             InitializeComponent();
             mName = new MyDelName(show);
+            btnSystem.Enabled = AccountBLL.Instance.checkRole("Admin");
         }
         public void load_data(string str)
         {
@@ -41,5 +44,6 @@ namespace GUI
             Systems s = new Systems();
             s.ShowDialog();
         }
+
     }
 }
