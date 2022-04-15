@@ -71,9 +71,9 @@ namespace BLL
                 return;
             }
         }
-        public void updatePassword(string password)
+        public void updatePassword(string password, string US)
         {
-            AccountAccess.Instance.updatePassword(password);
+            AccountAccess.Instance.updatePassword(password, US);
         }
         public void updateRole(string username, string role)
         {

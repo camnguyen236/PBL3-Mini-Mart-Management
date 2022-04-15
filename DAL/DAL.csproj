@@ -58,6 +58,7 @@
     <Compile Include="Customer_DAL.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Supply_DAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
