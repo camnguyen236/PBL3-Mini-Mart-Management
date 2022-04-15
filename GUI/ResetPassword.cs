@@ -36,7 +36,7 @@ namespace GUI
             else
             {
                 MessageBox.Show(sendMail.Instance.Send(tbEmail.Text, "DCD Supermarkets - Password recovery", "Hello " + tbName.Text
-                        + "Your OTP: " + rd.ToString()) + ". Don't share your OTP with anyone. The DCD team");
+                        + ",<br>Your OTP: " + rd.ToString() + ". Don't share your OTP with anyone.<br>The DCD team"));
                 flag = true;
             }
             //}
@@ -60,38 +60,11 @@ namespace GUI
             }
             else
             {
-                NewPassword np = new NewPassword();
+                NewPassword np = new NewPassword(tbName.Text);
                 this.Hide();
                 np.ShowDialog();
                 this.Close();
             }
-        }
-
-        private void btnOK_Click_1(object sender, EventArgs e)
-        {
-            if (!flag)
-            {
-                MessageBox.Show("Please fill in the required information");
-                return;
-            }
-            if (tbCode.Text.Trim() == "")
-            {
-                MessageBox.Show("Please enter the verification code");
-                return;
-            }
-            if (tbCode.Text != rd.ToString())
-            {
-                MessageBox.Show("Confirmation code is incorrect");
-            }
-            else
-            {
-                NewPassword np = new NewPassword();
-                this.Hide();
-                np.ShowDialog();
-                this.Close();
-            }
-        }
-
-      
+        }      
     }
 }

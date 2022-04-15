@@ -14,10 +14,11 @@ namespace GUI
 {
     public partial class NewPassword : Form
     {
-
-        public NewPassword()
+        string US;
+        public NewPassword(string name)
         {
             InitializeComponent();
+            US = name;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace GUI
                 }
                 else
                 {
-                    AccountBLL.Instance.updatePassword(tbConfirmNewPass.Text);
+                    AccountBLL.Instance.updatePassword(HashCode.Instance.hashCode(tbConfirmNewPass.Text), US);
                     MessageBox.Show("Reset Successful!");
                 }
             }

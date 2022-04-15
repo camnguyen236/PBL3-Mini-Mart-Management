@@ -40,6 +40,10 @@ namespace GUI
         {
             dgv3.DataSource = Customer_BLL.Instance.getCustomer();
         }
+        private void Show_Supply()
+        {
+            dgv4.DataSource = Supply_BLL.Instance.getSupply();
+        }
         private void btnShow_Click(object sender, EventArgs e)
         {
             Show();
@@ -70,6 +74,7 @@ namespace GUI
         }
         Account account;
         Customer customer;
+        Supply supply;
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
@@ -213,5 +218,58 @@ namespace GUI
             dgv1.Columns[6].Visible = false;
         }
 
+        //Tab Manage Supply
+        private void btnShow_Supply_Click(object sender, EventArgs e)
+        {
+            Show_Supply();
+        }
+
+        private void btnAdd_Supply_Click(object sender, EventArgs e)
+        {
+            AddSupply ad = new AddSupply();
+            ad.d = new AddSupply.Mydel(Show_Supply);
+            ad.ShowDialog();
+        }
+
+        private void btnUpdate_Supply_Click(object sender, EventArgs e)
+        {
+            supply = new Supply
+            {
+                ID_Supply = Convert.ToInt32(txtID_Supply.Text),
+                Name_Supply = txtName_Supply.Text,
+                Address_Supply = txtAddress_Supply.Text,
+                PhoneNumber_Supply = txtPhoneNumber_Supply.Text,
+                BankAccount = txtBankAccount.Text
+            };
+            Supply_BLL.Instance.ExcuteDB(supply);
+            Show_Supply();
+        }
+
+        private void btnDelete_Supply_Click(object sender, EventArgs e)
+        {
+            //vì mã nhân viên là khóa chính
+            DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dl == DialogResult.OK)
+            {
+                Supply_BLL.Instance.ExcuteDB(supply, txtID_Supply.Text);
+                Show_Supply();
+                Reset();
+            }
+            else if (dl == DialogResult.Cancel)
+            {
+                //sthis.Close();
+            }
+        }
+
+        private void dgv4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID_Supply.ReadOnly = true;
+            int i = dgv4.CurrentRow.Index;
+            txtID_Supply.Text = dgv4.Rows[i].Cells[0].Value.ToString();
+            txtName_Supply.Text = dgv4.Rows[i].Cells[1].Value.ToString();
+            txtAddress_Supply.Text = dgv4.Rows[i].Cells[2].Value.ToString();
+            txtPhoneNumber_Supply.Text = dgv4.Rows[i].Cells[3].Value.ToString();
+            txtBankAccount.Text = dgv4.Rows[i].Cells[4].Value.ToString();
+        }
     }
 }

@@ -24,3 +24,16 @@ C:\Users\lvdle\Source\Repos\PBL3\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cach
 C:\Users\lvdle\Source\Repos\PBL3\DTO\obj\Debug\DTO.csproj.CopyComplete
 C:\Users\lvdle\Source\Repos\PBL3\DTO\obj\Debug\DTO.dll
 C:\Users\lvdle\Source\Repos\PBL3\DTO\obj\Debug\DTO.pdb
+D:\code\PBL3\DTO\bin\Debug\DTO.dll
+D:\code\PBL3\DTO\bin\Debug\DTO.pdb
+D:\code\PBL3\DTO\bin\Debug\ARSoft.Tools.Net.dll
+D:\code\PBL3\DTO\bin\Debug\BouncyCastle.Crypto.dll
+D:\code\PBL3\DTO\bin\Debug\EmailValidation.dll
+D:\code\PBL3\DTO\bin\Debug\Guna.UI2.dll
+D:\code\PBL3\DTO\bin\Debug\ARSoft.Tools.Net.xml
+D:\code\PBL3\DTO\bin\Debug\BouncyCastle.Crypto.pdb
+D:\code\PBL3\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\code\PBL3\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\code\PBL3\DTO\obj\Debug\DTO.csproj.CopyComplete
+D:\code\PBL3\DTO\obj\Debug\DTO.dll
+D:\code\PBL3\DTO\obj\Debug\DTO.pdb

@@ -59,9 +59,9 @@ namespace DAL
             string query = "update Inf_user set US = '" + account.US + "', Name = N'" + account.Name + "', Birthday = '" + account.Birthday + "', Adress = N'" + account.Adress + "', PhoneNumber = '" + account.PhoneNumber + "', Email = '" + account.Email + "' where ID = '" + account.ID + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
-        public void updatePassword(string password)
+        public void updatePassword(string password, string US)
         {
-            string query = "update Inf_user set PW = '" + password + "'";
+            string query = "update Inf_user set PW = '" + password + "' where US = '" + US + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateRole(string username, string role)
