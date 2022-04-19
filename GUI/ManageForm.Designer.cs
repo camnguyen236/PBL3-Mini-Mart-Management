@@ -63,12 +63,12 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtDelteProduct = new Guna.UI2.WinForms.Guna2Button();
-            this.txtUpdateProduct = new Guna.UI2.WinForms.Guna2Button();
-            this.txtAddProduct = new Guna.UI2.WinForms.Guna2Button();
-            this.txtShowProduct = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDelteProduct = new Guna.UI2.WinForms.Guna2Button();
+            this.btnShowProduct = new Guna.UI2.WinForms.Guna2Button();
             this.btnBackProduct = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox4 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtQuantityProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtCostProduct = new Guna.UI2.WinForms.Guna2TextBox();
@@ -139,8 +139,8 @@
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnUpdateProduct = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddProduct = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.guna2TabControl3.SuspendLayout();
@@ -709,10 +709,10 @@
             // 
             this.tabPage7.Controls.Add(this.label1);
             this.tabPage7.Controls.Add(this.txtSearchProduct);
-            this.tabPage7.Controls.Add(this.txtDelteProduct);
-            this.tabPage7.Controls.Add(this.txtUpdateProduct);
-            this.tabPage7.Controls.Add(this.txtAddProduct);
-            this.tabPage7.Controls.Add(this.txtShowProduct);
+            this.tabPage7.Controls.Add(this.btnDelteProduct);
+            this.tabPage7.Controls.Add(this.btnUpdateProduct);
+            this.tabPage7.Controls.Add(this.btnAddProduct);
+            this.tabPage7.Controls.Add(this.btnShowProduct);
             this.tabPage7.Controls.Add(this.btnBackProduct);
             this.tabPage7.Controls.Add(this.guna2GroupBox4);
             this.tabPage7.Controls.Add(this.cbProductsGroups);
@@ -762,81 +762,43 @@
             this.txtSearchProduct.Size = new System.Drawing.Size(175, 36);
             this.txtSearchProduct.TabIndex = 40;
             // 
-            // txtDelteProduct
+            // btnDelteProduct
             // 
-            this.txtDelteProduct.AutoRoundedCorners = true;
-            this.txtDelteProduct.BorderRadius = 20;
-            this.txtDelteProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtDelteProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.txtDelteProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.txtDelteProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.txtDelteProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.txtDelteProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtDelteProduct.ForeColor = System.Drawing.Color.White;
-            this.txtDelteProduct.Location = new System.Drawing.Point(667, 559);
-            this.txtDelteProduct.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDelteProduct.Name = "txtDelteProduct";
-            this.txtDelteProduct.Size = new System.Drawing.Size(129, 43);
-            this.txtDelteProduct.TabIndex = 36;
-            this.txtDelteProduct.Text = "Delete";
-            this.txtDelteProduct.UseTransparentBackground = true;
+            this.btnDelteProduct.AutoRoundedCorners = true;
+            this.btnDelteProduct.BorderRadius = 20;
+            this.btnDelteProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelteProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelteProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDelteProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDelteProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnDelteProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnDelteProduct.ForeColor = System.Drawing.Color.White;
+            this.btnDelteProduct.Location = new System.Drawing.Point(667, 559);
+            this.btnDelteProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelteProduct.Name = "btnDelteProduct";
+            this.btnDelteProduct.Size = new System.Drawing.Size(129, 43);
+            this.btnDelteProduct.TabIndex = 36;
+            this.btnDelteProduct.Text = "Delete";
+            this.btnDelteProduct.UseTransparentBackground = true;
             // 
-            // txtUpdateProduct
+            // btnShowProduct
             // 
-            this.txtUpdateProduct.AutoRoundedCorners = true;
-            this.txtUpdateProduct.BorderRadius = 20;
-            this.txtUpdateProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtUpdateProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.txtUpdateProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.txtUpdateProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.txtUpdateProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.txtUpdateProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtUpdateProduct.ForeColor = System.Drawing.Color.White;
-            this.txtUpdateProduct.Location = new System.Drawing.Point(515, 559);
-            this.txtUpdateProduct.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUpdateProduct.Name = "txtUpdateProduct";
-            this.txtUpdateProduct.Size = new System.Drawing.Size(127, 43);
-            this.txtUpdateProduct.TabIndex = 35;
-            this.txtUpdateProduct.Text = "Update";
-            this.txtUpdateProduct.UseTransparentBackground = true;
-            // 
-            // txtAddProduct
-            // 
-            this.txtAddProduct.AutoRoundedCorners = true;
-            this.txtAddProduct.BorderRadius = 20;
-            this.txtAddProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtAddProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.txtAddProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.txtAddProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.txtAddProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.txtAddProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtAddProduct.ForeColor = System.Drawing.Color.White;
-            this.txtAddProduct.Location = new System.Drawing.Point(362, 559);
-            this.txtAddProduct.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAddProduct.Name = "txtAddProduct";
-            this.txtAddProduct.Size = new System.Drawing.Size(128, 43);
-            this.txtAddProduct.TabIndex = 34;
-            this.txtAddProduct.Text = "Add";
-            this.txtAddProduct.UseTransparentBackground = true;
-            // 
-            // txtShowProduct
-            // 
-            this.txtShowProduct.AutoRoundedCorners = true;
-            this.txtShowProduct.BorderRadius = 20;
-            this.txtShowProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtShowProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.txtShowProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.txtShowProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.txtShowProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.txtShowProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtShowProduct.ForeColor = System.Drawing.Color.White;
-            this.txtShowProduct.Location = new System.Drawing.Point(207, 559);
-            this.txtShowProduct.Margin = new System.Windows.Forms.Padding(4);
-            this.txtShowProduct.Name = "txtShowProduct";
-            this.txtShowProduct.Size = new System.Drawing.Size(125, 43);
-            this.txtShowProduct.TabIndex = 37;
-            this.txtShowProduct.Text = "Show";
-            this.txtShowProduct.UseTransparentBackground = true;
+            this.btnShowProduct.AutoRoundedCorners = true;
+            this.btnShowProduct.BorderRadius = 20;
+            this.btnShowProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnShowProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnShowProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnShowProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnShowProduct.ForeColor = System.Drawing.Color.White;
+            this.btnShowProduct.Location = new System.Drawing.Point(207, 559);
+            this.btnShowProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowProduct.Name = "btnShowProduct";
+            this.btnShowProduct.Size = new System.Drawing.Size(125, 43);
+            this.btnShowProduct.TabIndex = 37;
+            this.btnShowProduct.Text = "Show";
+            this.btnShowProduct.UseTransparentBackground = true;
             // 
             // btnBackProduct
             // 
@@ -884,6 +846,35 @@
             this.guna2GroupBox4.Size = new System.Drawing.Size(1132, 206);
             this.guna2GroupBox4.TabIndex = 39;
             this.guna2GroupBox4.Text = "Information";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.label3.Location = new System.Drawing.Point(848, 134);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 23);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "Categorie";
+            // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.guna2ComboBox1.BorderThickness = 2;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(852, 159);
+            this.guna2ComboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.Size = new System.Drawing.Size(240, 36);
+            this.guna2ComboBox1.TabIndex = 44;
             // 
             // txtQuantityProduct
             // 
@@ -1998,34 +1989,43 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // guna2ComboBox1
+            // btnUpdateProduct
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.guna2ComboBox1.BorderThickness = 2;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(852, 159);
-            this.guna2ComboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(240, 36);
-            this.guna2ComboBox1.TabIndex = 44;
+            this.btnUpdateProduct.AutoRoundedCorners = true;
+            this.btnUpdateProduct.BorderRadius = 20;
+            this.btnUpdateProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdateProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdateProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUpdateProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpdateProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnUpdateProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnUpdateProduct.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateProduct.Location = new System.Drawing.Point(515, 559);
+            this.btnUpdateProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdateProduct.Name = "btnUpdateProduct";
+            this.btnUpdateProduct.Size = new System.Drawing.Size(127, 43);
+            this.btnUpdateProduct.TabIndex = 35;
+            this.btnUpdateProduct.Text = "Update";
+            this.btnUpdateProduct.UseTransparentBackground = true;
             // 
-            // label3
+            // btnAddProduct
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.label3.Location = new System.Drawing.Point(848, 134);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 23);
-            this.label3.TabIndex = 45;
-            this.label3.Text = "Categorie";
+            this.btnAddProduct.AutoRoundedCorners = true;
+            this.btnAddProduct.BorderRadius = 20;
+            this.btnAddProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnAddProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnAddProduct.ForeColor = System.Drawing.Color.White;
+            this.btnAddProduct.Location = new System.Drawing.Point(362, 559);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(128, 43);
+            this.btnAddProduct.TabIndex = 34;
+            this.btnAddProduct.Text = "Add";
+            this.btnAddProduct.UseTransparentBackground = true;
             // 
             // ManageForm
             // 
@@ -2159,10 +2159,8 @@
         private Guna.UI2.WinForms.Guna2Button btnAdd_Supply;
         private Guna.UI2.WinForms.Guna2Button btnBack_Supply;
         private Guna.UI2.WinForms.Guna2TextBox txtSearchProduct;
-        private Guna.UI2.WinForms.Guna2Button txtDelteProduct;
-        private Guna.UI2.WinForms.Guna2Button txtUpdateProduct;
-        private Guna.UI2.WinForms.Guna2Button txtAddProduct;
-        private Guna.UI2.WinForms.Guna2Button txtShowProduct;
+        private Guna.UI2.WinForms.Guna2Button btnDelteProduct;
+        private Guna.UI2.WinForms.Guna2Button btnShowProduct;
         private Guna.UI2.WinForms.Guna2Button btnBackProduct;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox4;
         private Guna.UI2.WinForms.Guna2TextBox txtCostProduct;
@@ -2186,5 +2184,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2Button btnUpdateProduct;
+        private Guna.UI2.WinForms.Guna2Button btnAddProduct;
     }
 }
