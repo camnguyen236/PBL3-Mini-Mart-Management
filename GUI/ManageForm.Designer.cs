@@ -734,6 +734,7 @@
             this.txtSearchProduct.SelectedText = "";
             this.txtSearchProduct.Size = new System.Drawing.Size(175, 36);
             this.txtSearchProduct.TabIndex = 40;
+            this.txtSearchProduct.TextChanged += new System.EventHandler(this.txtSearchProduct_TextChanged);
             // 
             // btnDelteProduct
             // 

@@ -18,8 +18,11 @@ namespace GUI
         public ManageForm()
         {
             InitializeComponent();
+            //account
             addCbSearch();
+            //catalories
             setCBProductsGroups();
+            addCbSearchProduct();
         }
         private void Reset()
         {
@@ -366,5 +369,9 @@ namespace GUI
             dgv2.DataSource = Product_BLL.Instance.getProductsByOption(getCurrenGroupName(), txtSearchProduct.Text, option);
         }
 
+        private void txtSearchProduct_TextChanged(object sender, EventArgs e)
+        {
+            searchProduct(cbSearchProduct.Text);
+        }
     }
 }
