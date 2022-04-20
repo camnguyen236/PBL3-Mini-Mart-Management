@@ -33,6 +33,8 @@ namespace DAL
             return products;
         }
 
+        
+
         public void addProduct(Product product)
         {
             string query = "insert into Product(Name_P,Unit_P,Cost_P,Price_P,VAT,IMG_P) " + "values (N'"

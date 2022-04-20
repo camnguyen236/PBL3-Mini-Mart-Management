@@ -28,7 +28,8 @@ namespace BLL
         {
             return Product_DAL.Instance.GetRecords();
         }
-
+       
+        
         public void ExcuteDB(Product product, string id_product = null) //update, delete, add
         {
             if (id_product == null)

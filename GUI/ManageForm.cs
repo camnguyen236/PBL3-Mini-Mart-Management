@@ -295,6 +295,7 @@ namespace GUI
         }
         private void btnShowProduct_Click(object sender, EventArgs e)
         {
+            
             Show_Product();
         }
 
