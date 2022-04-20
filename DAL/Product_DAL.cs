@@ -28,7 +28,7 @@ namespace DAL
 
         public DataTable GetRecords()
         {
-            string query = "select * from Products";
+            string query = "select ID_P,Name_P,Unit_P,Cost_P,Price_P,VAT from Products";
             products = DataProvider.Instance.GetRecords(query);
             return products;
         }

@@ -75,6 +75,7 @@ namespace GUI
         Account account;
         Customer customer;
         Supply supply;
+        Product product;
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
@@ -245,6 +246,8 @@ namespace GUI
             Show_Supply();
         }
 
+
+        
         private void btnDelete_Supply_Click(object sender, EventArgs e)
         {
             //vì mã nhân viên là khóa chính
@@ -270,6 +273,40 @@ namespace GUI
             txtAddress_Supply.Text = dgv4.Rows[i].Cells[2].Value.ToString();
             txtPhoneNumber_Supply.Text = dgv4.Rows[i].Cells[3].Value.ToString();
             txtBankAccount.Text = dgv4.Rows[i].Cells[4].Value.ToString();
+        }
+
+
+        //manage product
+        private string selectIDProduct;
+        private void Show_Product()
+        {
+            dgv2.DataSource = Product_BLL.Instance.getProducts();
+        }
+        private void btnShowProduct_Click(object sender, EventArgs e)
+        {
+            Show_Product();
+        }
+
+        private void btnDelteProduct_Click(object sender, EventArgs e)
+        {
+            DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dl == DialogResult.OK)
+            {
+                Product_BLL.Instance.ExcuteDB(product,selectIDProduct);
+                Show_Product();
+            }
+            else if (dl == DialogResult.Cancel)
+            {
+                //sthis.Close();
+            }
+        }
+
+        
+
+        private void dgv2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = dgv2.CurrentRow.Index;
+            selectIDProduct = dgv2.Rows[i].Cells[0].Value.ToString();
         }
     }
 }

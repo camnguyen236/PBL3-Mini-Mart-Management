@@ -68,7 +68,7 @@
             this.btnBackProduct = new Guna.UI2.WinForms.Guna2Button();
             this.cbProductsGroups = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbSearchProduct = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.dvg2 = new System.Windows.Forms.DataGridView();
+            this.dgv2 = new System.Windows.Forms.DataGridView();
             this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.btnShow_Customer = new Guna.UI2.WinForms.Guna2Button();
@@ -130,7 +130,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dvg2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             this.tabPage8.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
@@ -694,7 +694,7 @@
             this.tabPage7.Controls.Add(this.btnBackProduct);
             this.tabPage7.Controls.Add(this.cbProductsGroups);
             this.tabPage7.Controls.Add(this.cbSearchProduct);
-            this.tabPage7.Controls.Add(this.dvg2);
+            this.tabPage7.Controls.Add(this.dgv2);
             this.tabPage7.Controls.Add(this.guna2PictureBox4);
             this.tabPage7.ImageIndex = 1;
             this.tabPage7.Location = new System.Drawing.Point(184, 4);
@@ -757,6 +757,7 @@
             this.btnDelteProduct.TabIndex = 36;
             this.btnDelteProduct.Text = "Delete";
             this.btnDelteProduct.UseTransparentBackground = true;
+            this.btnDelteProduct.Click += new System.EventHandler(this.btnDelteProduct_Click);
             // 
             // btnShowProduct
             // 
@@ -776,6 +777,7 @@
             this.btnShowProduct.TabIndex = 37;
             this.btnShowProduct.Text = "Show";
             this.btnShowProduct.UseTransparentBackground = true;
+            this.btnShowProduct.Click += new System.EventHandler(this.btnShowProduct_Click);
             // 
             // btnBackProduct
             // 
@@ -832,16 +834,17 @@
             this.cbSearchProduct.Size = new System.Drawing.Size(183, 36);
             this.cbSearchProduct.TabIndex = 41;
             // 
-            // dvg2
+            // dgv2
             // 
-            this.dvg2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dvg2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvg2.Location = new System.Drawing.Point(59, 77);
-            this.dvg2.Margin = new System.Windows.Forms.Padding(4);
-            this.dvg2.Name = "dvg2";
-            this.dvg2.RowHeadersWidth = 51;
-            this.dvg2.Size = new System.Drawing.Size(1132, 423);
-            this.dvg2.TabIndex = 38;
+            this.dgv2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv2.Location = new System.Drawing.Point(59, 77);
+            this.dgv2.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv2.Name = "dgv2";
+            this.dgv2.RowHeadersWidth = 51;
+            this.dgv2.Size = new System.Drawing.Size(1132, 423);
+            this.dgv2.TabIndex = 38;
+            this.dgv2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv2_CellClick);
             // 
             // guna2PictureBox4
             // 
@@ -1712,7 +1715,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dvg2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
             this.tabPage8.ResumeLayout(false);
             this.guna2GroupBox2.ResumeLayout(false);
@@ -1827,7 +1830,7 @@
         private Guna.UI2.WinForms.Guna2Button btnBackProduct;
         private Guna.UI2.WinForms.Guna2ComboBox cbProductsGroups;
         private Guna.UI2.WinForms.Guna2ComboBox cbSearchProduct;
-        private System.Windows.Forms.DataGridView dvg2;
+        private System.Windows.Forms.DataGridView dgv2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
         private System.Windows.Forms.Label label1;
     }
