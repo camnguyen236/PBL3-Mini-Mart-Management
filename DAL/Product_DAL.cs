@@ -33,7 +33,20 @@ namespace DAL
             return products;
         }
 
-        
+        public DataTable getProductsByGroupName(string groupName)
+        {
+            string query = "SELECT ID_P,Name_P,Unit_P,Cost_P,Price_P,VAT FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG and g.Name_PG = N'" + groupName + "'";
+            products = DataProvider.Instance.GetRecords(query);
+            return products;
+        }
+
+        public DataTable getProductsByOption(string groupName, string name, string option)
+        {
+            DataTable productList = new DataTable();
+            string query = $"select ID_P,Name_P,Unit_P,Cost_P,Price_P,VAT FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG and g.Name_PG = N'{groupName}'where {option} like N'%{name}%'";
+            productList = DataProvider.Instance.GetRecords(query);
+            return productList;
+        }
 
         public void addProduct(Product product)
         {

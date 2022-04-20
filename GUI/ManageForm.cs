@@ -279,24 +279,44 @@ namespace GUI
 
         //manage product
         private string selectIDProduct;
-
+        private string getCurrenGroupName()
+        {
+            string groupName = cbProductsGroups.Text;
+            if (groupName == "")
+            {
+                MessageBox.Show("Choose product group!");
+            }
+            else
+            {
+                return groupName = cbProductsGroups.SelectedItem.ToString();
+            }
+            return groupName;
+        }
         private void setCBProductsGroups()
         {
-           List <string> listProductsGroups = ProductGroups_BLL.Instance.getProductGroups().Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Name_PG")).ToList();
+            cbProductsGroups.Items.Add("All");
+            List<string> listProductsGroups = ProductGroups_BLL.Instance.getProductGroups().Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Name_PG")).ToList();
             foreach (string i in listProductsGroups)
             {
                 cbProductsGroups.Items.Add(i);
             }
         }
 
-        private void Show_Product()
+        private void Show_Product(string groupName)
         {
-            dgv2.DataSource = Product_BLL.Instance.getProducts();
+            if (groupName == "All")
+            {
+                dgv2.DataSource = Product_BLL.Instance.getProducts();
+            }
+            else
+            {
+                dgv2.DataSource = Product_BLL.Instance.getProductsByGroupName(groupName);
+            }
         }
         private void btnShowProduct_Click(object sender, EventArgs e)
         {
-            
-            Show_Product();
+
+            Show_Product(getCurrenGroupName());
         }
 
         private void btnDelteProduct_Click(object sender, EventArgs e)
@@ -304,26 +324,47 @@ namespace GUI
             DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dl == DialogResult.OK)
             {
-                Product_BLL.Instance.ExcuteDB(product,selectIDProduct);
-                Show_Product();
+                Product_BLL.Instance.ExcuteDB(product, selectIDProduct);
+                Show_Product(getCurrenGroupName());
             }
             else if (dl == DialogResult.Cancel)
             {
                 //sthis.Close();
             }
         }
-
-        
-
         private void dgv2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = dgv2.CurrentRow.Index;
             selectIDProduct = dgv2.Rows[i].Cells[0].Value.ToString();
         }
 
-        private void guna2PictureBox4_Click(object sender, EventArgs e)
+        private void cbProductsGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Show_Product(getCurrenGroupName());
         }
+
+
+        //search
+        public void addCbSearchProduct()
+        {
+            cbSearchProduct.Items.Add("ID");
+            cbSearchProduct.Items.Add("Name product");
+        }
+        private void searchProduct(string option)
+        {
+            switch (option)
+            {
+                case "ID":
+                    option = "ID_P";
+                    break;
+                case "Name product":
+                    option = "Name_P";
+                    break;
+                default:
+                    break;
+            }
+            dgv2.DataSource = Product_BLL.Instance.getProductsByOption(getCurrenGroupName(), txtSearchProduct.Text, option);
+        }
+
     }
 }

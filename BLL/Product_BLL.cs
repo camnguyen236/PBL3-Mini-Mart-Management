@@ -28,8 +28,17 @@ namespace BLL
         {
             return Product_DAL.Instance.GetRecords();
         }
-       
-        
+
+        public DataTable getProductsByGroupName(string groupName)
+        {
+            return Product_DAL.Instance.getProductsByGroupName(groupName);
+        }
+
+        public DataTable getProductsByOption(string groupName, string name, string option)
+        {
+            return Product_DAL.Instance.getProductsByOption(groupName, name, option);
+        }
+
         public void ExcuteDB(Product product, string id_product = null) //update, delete, add
         {
             if (id_product == null)

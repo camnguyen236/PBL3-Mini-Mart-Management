@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageForm));
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.guna2TabControl3 = new Guna.UI2.WinForms.Guna2TabControl();
@@ -111,7 +109,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.dgv4 = new System.Windows.Forms.DataGridView();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -200,7 +197,6 @@
             this.guna2TabControl3.Controls.Add(this.tabPage7);
             this.guna2TabControl3.Controls.Add(this.tabPage8);
             this.guna2TabControl3.Controls.Add(this.tabPage9);
-            this.guna2TabControl3.ImageList = this.imageList1;
             this.guna2TabControl3.ItemSize = new System.Drawing.Size(180, 40);
             this.guna2TabControl3.Location = new System.Drawing.Point(0, 0);
             this.guna2TabControl3.Margin = new System.Windows.Forms.Padding(4);
@@ -815,6 +811,7 @@
             this.cbProductsGroups.Name = "cbProductsGroups";
             this.cbProductsGroups.Size = new System.Drawing.Size(243, 36);
             this.cbProductsGroups.TabIndex = 42;
+            this.cbProductsGroups.SelectedIndexChanged += new System.EventHandler(this.cbProductsGroups_SelectedIndexChanged);
             // 
             // cbSearchProduct
             // 
@@ -857,7 +854,6 @@
             this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox4.TabIndex = 32;
             this.guna2PictureBox4.TabStop = false;
-            this.guna2PictureBox4.Click += new System.EventHandler(this.guna2PictureBox4_Click);
             // 
             // tabPage8
             // 
@@ -1556,15 +1552,6 @@
             this.guna2PictureBox2.TabIndex = 1;
             this.guna2PictureBox2.TabStop = false;
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "277197966_768300187484673_1523182626504873628_n.png");
-            this.imageList1.Images.SetKeyName(1, "278018881_441955847689968_7762481627824407057_n.png");
-            this.imageList1.Images.SetKeyName(2, "273266382_995350161375197_8410915538075050214_n.png");
-            this.imageList1.Images.SetKeyName(3, "277689640_417989139662809_4848316582344577711_n.png");
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(-5, 0);
@@ -1791,7 +1778,6 @@
         private Guna.UI2.WinForms.Guna2Button btnAdd_Customer;
         private Guna.UI2.WinForms.Guna2Button btnBack_Customer;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
-        private System.Windows.Forms.ImageList imageList1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
         private Guna.UI2.WinForms.Guna2TextBox txtPhoneNumber_Customer;
         private Guna.UI2.WinForms.Guna2TextBox txtAddress_Customer;
