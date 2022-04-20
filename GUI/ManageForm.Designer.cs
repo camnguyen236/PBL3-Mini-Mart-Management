@@ -843,6 +843,7 @@
             this.dgv2.Size = new System.Drawing.Size(1132, 423);
             this.dgv2.TabIndex = 38;
             this.dgv2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv2_CellClick);
+            this.dgv2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv2_CellDoubleClick);
             // 
             // guna2PictureBox4
             // 
@@ -1757,7 +1758,6 @@
         private Guna.UI2.WinForms.Guna2Button btnUpdate;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private Guna.UI2.WinForms.Guna2Button btnBack;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;
@@ -1821,5 +1821,6 @@
         private System.Windows.Forms.DataGridView dgv2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
     }
 }

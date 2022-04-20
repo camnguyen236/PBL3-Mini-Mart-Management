@@ -373,5 +373,10 @@ namespace GUI
         {
             searchProduct(cbSearchProduct.Text);
         }
+
+        private void dgv2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

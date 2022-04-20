@@ -33,17 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ARSoft.Tools.Net, Version=2.2.2.0, Culture=neutral, PublicKeyToken=1940454cd762ec57, processorArchitecture=MSIL">
-      <HintPath>..\packages\ARSoft.Tools.Net.2.2.2\lib\net45\ARSoft.Tools.Net.dll</HintPath>
+    <Reference Include="ARSoft.Tools.Net, Version=2.2.9.0, Culture=neutral, PublicKeyToken=1940454cd762ec57, processorArchitecture=MSIL">
+      <HintPath>..\packages\ARSoft.Tools.Net.2.2.9\lib\net45\ARSoft.Tools.Net.dll</HintPath>
     </Reference>
-    <Reference Include="BouncyCastle.Crypto, Version=1.7.4137.9688, Culture=neutral, PublicKeyToken=a4292a325f69b123, processorArchitecture=MSIL">
-      <HintPath>..\packages\BouncyCastle.1.7.0\lib\Net40-Client\BouncyCastle.Crypto.dll</HintPath>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="EmailValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EmailValidator.NET.1.0.5\lib\net45\EmailValidation.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2, Version=2.0.3.1, Culture=neutral, PublicKeyToken=e4b9cdd7b4cde4b4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Guna.UI2.WinForms.2.0.3.1\lib\net40\Guna.UI2.dll</HintPath>
+    <Reference Include="Guna.UI2, Version=2.0.3.2, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.3.2\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -160,6 +160,7 @@
     <EmbeddedResource Include="Systems.resx">
       <DependentUpon>Systems.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
