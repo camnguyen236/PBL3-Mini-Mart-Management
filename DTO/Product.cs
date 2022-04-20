@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace DTO
 {
@@ -12,9 +13,9 @@ namespace DTO
         public string ID_PG { get; set; }
         public string Name_P { get; set; }
         public string Unit_P { get; set; }
-        public DateTime Birthday { get; set; }
         public string Price_P { get; set; }
         public string VAT { get; set; }
         public string Cost_P { get; set; }
+        public Byte[] img { get; set; }
     }
 }
