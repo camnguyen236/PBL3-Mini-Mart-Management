@@ -813,7 +813,7 @@
             this.cbProductsGroups.Location = new System.Drawing.Point(245, 35);
             this.cbProductsGroups.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbProductsGroups.Name = "cbProductsGroups";
-            this.cbProductsGroups.Size = new System.Drawing.Size(183, 36);
+            this.cbProductsGroups.Size = new System.Drawing.Size(243, 36);
             this.cbProductsGroups.TabIndex = 42;
             // 
             // cbSearchProduct
@@ -857,6 +857,7 @@
             this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox4.TabIndex = 32;
             this.guna2PictureBox4.TabStop = false;
+            this.guna2PictureBox4.Click += new System.EventHandler(this.guna2PictureBox4_Click);
             // 
             // tabPage8
             // 

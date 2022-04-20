@@ -19,6 +19,7 @@ namespace GUI
         {
             InitializeComponent();
             addCbSearch();
+            setCBProductsGroups();
         }
         private void Reset()
         {
@@ -278,6 +279,16 @@ namespace GUI
 
         //manage product
         private string selectIDProduct;
+
+        private void setCBProductsGroups()
+        {
+           List <string> listProductsGroups = ProductGroups_BLL.Instance.getProductGroups().Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Name_PG")).ToList();
+            foreach (string i in listProductsGroups)
+            {
+                cbProductsGroups.Items.Add(i);
+            }
+        }
+
         private void Show_Product()
         {
             dgv2.DataSource = Product_BLL.Instance.getProducts();
@@ -307,6 +318,11 @@ namespace GUI
         {
             int i = dgv2.CurrentRow.Index;
             selectIDProduct = dgv2.Rows[i].Cells[0].Value.ToString();
+        }
+
+        private void guna2PictureBox4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
