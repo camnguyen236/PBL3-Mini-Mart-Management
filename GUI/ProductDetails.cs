@@ -23,9 +23,14 @@ namespace GUI
             id_p = id;
             loadData();
         }
-
+        
+        //
         //variable
         public bool btnEditEnabled = true;
+        private string imgLocation = ""; 
+        //
+
+
         private string getNameGroupByID(string id)
         {
             DataTable db = ProductGroups_BLL.Instance.getNameGroupByID(id_p);
@@ -53,8 +58,9 @@ namespace GUI
             txtCost_PD.Enabled = false;
             txtPrice_PD.Enabled = false;
             txtVAT_PD.Enabled = false;
-            /* byte[] ms = new dr["IMG_P"]);
-             img_PD.Image = new Bitmap(ms);*/
+            byte[] img = (byte[])dr["IMG_P"];
+            MemoryStream ms = new MemoryStream(img);
+            img_PD.Image = Image.FromStream(ms);
         }
             
 
@@ -82,6 +88,7 @@ namespace GUI
                 lbSave.Text = "Changing...";
                 lbSave.ForeColor = Color.FromArgb(220, 3, 49);
                 btnEditEnabled = false;
+                btnChangeImg_PD.Show();
             }
             else
             {
@@ -96,12 +103,60 @@ namespace GUI
                 lbSave.Text = "Saved✓";
                 lbSave.ForeColor = Color.FromArgb(39, 216, 102);
                 btnEditEnabled = true;
+                btnEdit_PD.Text = "Edit";
+                btnChangeImg_PD.Hide();
+                //check
+                if (txtCatagories_PD.Text.Trim() == "" ||  txtName_PD.Text.Trim() == "" || txtUnit_PD.Text.Trim() == "" || txtCost_PD.Text.Trim() == "" || txtPrice_PD.Text.Trim() == ""|| txtVAT_PD.Text.Trim() == "")
+                    MessageBox.Show("Please fill in the required information!", "Warning",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else 
+                {
+                    saveBtn();
+
+                    //show
+                    MessageBox.Show("update successfully"); 
+                }
             }
+        }
+
+        private void saveBtn()
+        {
+            Product product = new Product
+            {
+                ID_P = Convert.ToInt32(txtID_PD.Text),
+                Name_P = txtName_PD.Text,
+                Unit_P = txtUnit_PD.Text,
+                Price_P = txtPrice_PD.Text,
+                VAT = txtVAT_PD.Text,
+                Cost_P = txtCost_PD.Text
+            };
+            //read img in location and convert to byte[]
+            Product_BLL.Instance.updateProductImg(imgLocation, Convert.ToInt32(txtID_PD.Text));
+            
+                
+            
+
+            //save
+
+            Product_BLL.Instance.ExcuteDB(product);
+
         }
 
         private void btnOK_PD_Click(object sender, EventArgs e)
         {
+            d();
+            this.Close();
+        }
 
+        private void btnChangeImg_PD_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "png files(*png)|*.png|jpg file (*jpg)|*.jpg|All file(*.*)|*.*";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                imgLocation = dialog.FileName.ToString();
+                img_PD.ImageLocation = imgLocation;
+            }
         }
     }
 }

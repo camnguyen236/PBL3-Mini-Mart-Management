@@ -49,6 +49,7 @@
             this.btnEdit_PD = new Guna.UI2.WinForms.Guna2Button();
             this.btnOK_PD = new Guna.UI2.WinForms.Guna2Button();
             this.lbSave = new System.Windows.Forms.Label();
+            this.btnChangeImg_PD = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.img_PD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +59,7 @@
             this.img_PD.Location = new System.Drawing.Point(36, 73);
             this.img_PD.Name = "img_PD";
             this.img_PD.Size = new System.Drawing.Size(450, 433);
+            this.img_PD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.img_PD.TabIndex = 1;
             this.img_PD.TabStop = false;
             // 
@@ -72,7 +74,7 @@
             this.txtCatagories_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCatagories_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCatagories_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCatagories_PD.Location = new System.Drawing.Point(993, 317);
+            this.txtCatagories_PD.Location = new System.Drawing.Point(994, 245);
             this.txtCatagories_PD.Margin = new System.Windows.Forms.Padding(4);
             this.txtCatagories_PD.Name = "txtCatagories_PD";
             this.txtCatagories_PD.PasswordChar = '\0';
@@ -112,7 +114,7 @@
             this.txtVAT_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtVAT_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtVAT_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtVAT_PD.Location = new System.Drawing.Point(994, 390);
+            this.txtVAT_PD.Location = new System.Drawing.Point(764, 390);
             this.txtVAT_PD.Margin = new System.Windows.Forms.Padding(4);
             this.txtVAT_PD.Name = "txtVAT_PD";
             this.txtVAT_PD.PasswordChar = '\0';
@@ -173,7 +175,7 @@
             this.txtCost_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCost_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCost_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCost_PD.Location = new System.Drawing.Point(531, 390);
+            this.txtCost_PD.Location = new System.Drawing.Point(994, 317);
             this.txtCost_PD.Margin = new System.Windows.Forms.Padding(4);
             this.txtCost_PD.Name = "txtCost_PD";
             this.txtCost_PD.PasswordChar = '\0';
@@ -206,7 +208,7 @@
             // 
             this.lbEmail.AutoSize = true;
             this.lbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbEmail.Location = new System.Drawing.Point(990, 297);
+            this.lbEmail.Location = new System.Drawing.Point(991, 225);
             this.lbEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(73, 16);
@@ -228,7 +230,7 @@
             // 
             this.lbPhoneNumber.AutoSize = true;
             this.lbPhoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbPhoneNumber.Location = new System.Drawing.Point(991, 370);
+            this.lbPhoneNumber.Location = new System.Drawing.Point(761, 370);
             this.lbPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPhoneNumber.Name = "lbPhoneNumber";
             this.lbPhoneNumber.Size = new System.Drawing.Size(34, 16);
@@ -250,7 +252,7 @@
             // 
             this.lbBirthday.AutoSize = true;
             this.lbBirthday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbBirthday.Location = new System.Drawing.Point(761, 370);
+            this.lbBirthday.Location = new System.Drawing.Point(528, 370);
             this.lbBirthday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbBirthday.Name = "lbBirthday";
             this.lbBirthday.Size = new System.Drawing.Size(38, 16);
@@ -272,7 +274,7 @@
             // 
             this.lbUsername.AutoSize = true;
             this.lbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbUsername.Location = new System.Drawing.Point(528, 370);
+            this.lbUsername.Location = new System.Drawing.Point(991, 297);
             this.lbUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbUsername.Name = "lbUsername";
             this.lbUsername.Size = new System.Drawing.Size(34, 16);
@@ -301,7 +303,7 @@
             this.txtPrice_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPrice_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPrice_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPrice_PD.Location = new System.Drawing.Point(764, 390);
+            this.txtPrice_PD.Location = new System.Drawing.Point(531, 390);
             this.txtPrice_PD.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice_PD.Name = "txtPrice_PD";
             this.txtPrice_PD.PasswordChar = '\0';
@@ -372,12 +374,29 @@
             this.lbSave.TabIndex = 36;
             this.lbSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnChangeImg_PD
+            // 
+            this.btnChangeImg_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangeImg_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangeImg_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnChangeImg_PD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChangeImg_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnChangeImg_PD.ForeColor = System.Drawing.Color.White;
+            this.btnChangeImg_PD.Location = new System.Drawing.Point(404, 461);
+            this.btnChangeImg_PD.Name = "btnChangeImg_PD";
+            this.btnChangeImg_PD.Size = new System.Drawing.Size(82, 45);
+            this.btnChangeImg_PD.TabIndex = 37;
+            this.btnChangeImg_PD.Text = "Browse";
+            this.btnChangeImg_PD.Visible = false;
+            this.btnChangeImg_PD.Click += new System.EventHandler(this.btnChangeImg_PD_Click);
+            // 
             // ProductDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(1203, 629);
+            this.Controls.Add(this.btnChangeImg_PD);
             this.Controls.Add(this.lbSave);
             this.Controls.Add(this.btnOK_PD);
             this.Controls.Add(this.btnEdit_PD);
@@ -431,5 +450,6 @@
         private Guna.UI2.WinForms.Guna2Button btnEdit_PD;
         private Guna.UI2.WinForms.Guna2Button btnOK_PD;
         private System.Windows.Forms.Label lbSave;
+        private Guna.UI2.WinForms.Guna2Button btnChangeImg_PD;
     }
 }

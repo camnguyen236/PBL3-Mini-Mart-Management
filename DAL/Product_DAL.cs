@@ -77,10 +77,18 @@ namespace DAL
         }
         public void updateProduct(Product product)
         {
-            string query = "update Products set Name_P = N'" + product.Name_P + "', Unit_P = N'" + product.Unit_P
+            /*string query = "update Products set Name_P = N'" + product.Name_P + "', Unit_P = N'" + product.Unit_P
                 + "', Cost_P = '" + product.Cost_P + "', Price_P = '" + product.Price_P
-                + "', VAT = '" + product.VAT + "', IMG_P = '" + product.Img_P
-                + "' where ID_P = '" + product.ID_P + "'";
+                + "', VAT = '" + product.VAT + "', IMG_P = '" + product.Img_P+ "' where ID_P = '" + product.ID_P + "'";*/
+            string query = "update Products set Name_P = N'" + product.Name_P + "', Unit_P = N'" + product.Unit_P
+                 + "', Cost_P = '" + product.Cost_P + "', Price_P = '" + product.Price_P
+                 + "', VAT = '" + product.VAT + "' where ID_P = '" + product.ID_P + "'";
+            DataProvider.Instance.ExcuteDB(query);
+        }
+
+        public void updateProductImg(string src, int id)
+        {
+            string query = $"UPDATE Products SET IMG_P = BulkColumn FROM OPENROWSET(BULK N'{src}', SINGLE_BLOB) as img WHERE ID_P='{id}'";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void deleteProduct(string id_product)
