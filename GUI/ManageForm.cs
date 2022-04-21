@@ -387,5 +387,14 @@ namespace GUI
             pd.d = new ProductDetails.MyDel(ShowAllProduct);
             pd.Show();
         }
+
+        private void btnAdd_PG_Click(object sender, EventArgs e)
+        {
+            
+            ProductDetails pd = new ProductDetails();
+            //deleget
+            pd.d = new ProductDetails.MyDel(ShowAllProduct);
+            pd.Show();
+        }
     }
 }

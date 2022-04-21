@@ -119,6 +119,7 @@
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnAdd_PG = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.guna2TabControl3.SuspendLayout();
@@ -683,6 +684,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.btnAdd_PG);
             this.tabPage7.Controls.Add(this.label1);
             this.tabPage7.Controls.Add(this.txtSearchProduct);
             this.tabPage7.Controls.Add(this.btnDelteProduct);
@@ -747,7 +749,7 @@
             this.btnDelteProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnDelteProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnDelteProduct.ForeColor = System.Drawing.Color.White;
-            this.btnDelteProduct.Location = new System.Drawing.Point(489, 559);
+            this.btnDelteProduct.Location = new System.Drawing.Point(623, 559);
             this.btnDelteProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelteProduct.Name = "btnDelteProduct";
             this.btnDelteProduct.Size = new System.Drawing.Size(129, 43);
@@ -767,7 +769,7 @@
             this.btnShowProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnShowProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnShowProduct.ForeColor = System.Drawing.Color.White;
-            this.btnShowProduct.Location = new System.Drawing.Point(275, 559);
+            this.btnShowProduct.Location = new System.Drawing.Point(245, 559);
             this.btnShowProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowProduct.Name = "btnShowProduct";
             this.btnShowProduct.Size = new System.Drawing.Size(125, 43);
@@ -1685,6 +1687,26 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
+            // btnAdd_PG
+            // 
+            this.btnAdd_PG.AutoRoundedCorners = true;
+            this.btnAdd_PG.BorderRadius = 20;
+            this.btnAdd_PG.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd_PG.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd_PG.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdd_PG.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdd_PG.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnAdd_PG.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnAdd_PG.ForeColor = System.Drawing.Color.White;
+            this.btnAdd_PG.Location = new System.Drawing.Point(432, 559);
+            this.btnAdd_PG.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd_PG.Name = "btnAdd_PG";
+            this.btnAdd_PG.Size = new System.Drawing.Size(129, 43);
+            this.btnAdd_PG.TabIndex = 44;
+            this.btnAdd_PG.Text = "Add";
+            this.btnAdd_PG.UseTransparentBackground = true;
+            this.btnAdd_PG.Click += new System.EventHandler(this.btnAdd_PG_Click);
+            // 
             // ManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1822,5 +1844,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
+        private Guna.UI2.WinForms.Guna2Button btnAdd_PG;
     }
 }

@@ -71,8 +71,8 @@ namespace DAL
 
         public void addProduct(Product product)
         {
-            string query = "insert into Product(Name_P,Unit_P,Cost_P,Price_P,VAT,IMG_P) " + "values (N'"
-                + product.Name_P + "',N'" + product.Unit_P + "','" + product.Cost_P + "','" + product.Price_P + "','" + product.VAT + "','" + product.Img_P + "')";
+            string query = "insert into Products(Name_P,Unit_P,Cost_P,Price_P,VAT) " + "values (N'"
+                + product.Name_P + "',N'" + product.Unit_P + "','" + product.Cost_P + "','" + product.Price_P + "','" + product.VAT + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateProduct(Product product)

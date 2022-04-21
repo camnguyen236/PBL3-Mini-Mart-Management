@@ -50,6 +50,8 @@
             this.btnOK_PD = new Guna.UI2.WinForms.Guna2Button();
             this.lbSave = new System.Windows.Forms.Label();
             this.btnChangeImg_PD = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAdd_PD = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCancel_PD = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.img_PD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,6 +165,7 @@
             this.txtName_PD.SelectedText = "";
             this.txtName_PD.Size = new System.Drawing.Size(169, 33);
             this.txtName_PD.TabIndex = 26;
+            this.txtName_PD.TextChanged += new System.EventHandler(this.txtName_PD_TextChanged);
             // 
             // txtCost_PD
             // 
@@ -390,12 +393,52 @@
             this.btnChangeImg_PD.Visible = false;
             this.btnChangeImg_PD.Click += new System.EventHandler(this.btnChangeImg_PD_Click);
             // 
+            // btnAdd_PD
+            // 
+            this.btnAdd_PD.BackColor = System.Drawing.SystemColors.Window;
+            this.btnAdd_PD.BorderRadius = 20;
+            this.btnAdd_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdd_PD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdd_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnAdd_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd_PD.ForeColor = System.Drawing.Color.White;
+            this.btnAdd_PD.Location = new System.Drawing.Point(837, 524);
+            this.btnAdd_PD.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd_PD.Name = "btnAdd_PD";
+            this.btnAdd_PD.Size = new System.Drawing.Size(141, 41);
+            this.btnAdd_PD.TabIndex = 38;
+            this.btnAdd_PD.Text = "Add Product";
+            this.btnAdd_PD.Click += new System.EventHandler(this.btnAdd_PD_Click);
+            // 
+            // btnCancel_PD
+            // 
+            this.btnCancel_PD.BackColor = System.Drawing.SystemColors.Window;
+            this.btnCancel_PD.BorderRadius = 20;
+            this.btnCancel_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancel_PD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancel_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnCancel_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel_PD.ForeColor = System.Drawing.Color.White;
+            this.btnCancel_PD.Location = new System.Drawing.Point(678, 524);
+            this.btnCancel_PD.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel_PD.Name = "btnCancel_PD";
+            this.btnCancel_PD.Size = new System.Drawing.Size(141, 41);
+            this.btnCancel_PD.TabIndex = 39;
+            this.btnCancel_PD.Text = "Cancel";
+            this.btnCancel_PD.Click += new System.EventHandler(this.btnCancel_PD_Click);
+            // 
             // ProductDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(1203, 629);
+            this.Controls.Add(this.btnCancel_PD);
+            this.Controls.Add(this.btnAdd_PD);
             this.Controls.Add(this.btnChangeImg_PD);
             this.Controls.Add(this.lbSave);
             this.Controls.Add(this.btnOK_PD);
@@ -451,5 +494,7 @@
         private Guna.UI2.WinForms.Guna2Button btnOK_PD;
         private System.Windows.Forms.Label lbSave;
         private Guna.UI2.WinForms.Guna2Button btnChangeImg_PD;
+        private Guna.UI2.WinForms.Guna2Button btnAdd_PD;
+        private Guna.UI2.WinForms.Guna2Button btnCancel_PD;
     }
 }

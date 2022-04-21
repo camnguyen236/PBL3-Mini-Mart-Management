@@ -17,12 +17,13 @@ namespace GUI
         public delegate void MyDel();
         public MyDel d { get; set; }
         public string id_p { get; set; }
-        public ProductDetails(string id)
+        public ProductDetails(string id = null)
         {
             InitializeComponent();
             id_p = id;
-            loadData();
+            loadData(id_p);
         }
+
         
         //
         //variable
@@ -37,30 +38,40 @@ namespace GUI
             DataRow dr = db.Rows[0];
             return dr["Name_PG"].ToString();
         }
-        private void loadData()
+        private void loadData(string id)
         {
-            DataTable db = Product_BLL.Instance.GetProductByID(id_p);
-            DataRow dr = db.Rows[0];
-            lbNameProduct_PD.Text = dr["Name_P"].ToString();
+            if (id!=null)
+            {
+                DataTable db = Product_BLL.Instance.GetProductByID(id_p);
+                DataRow dr = db.Rows[0];
+                lbNameProduct_PD.Text = dr["Name_P"].ToString();
 
-            txtID_PD.Text = dr["ID_P"].ToString();
-            txtCatagories_PD.Text = getNameGroupByID(dr["ID_PG"].ToString());
-            txtName_PD.Text = dr["Name_P"].ToString();
-            txtUnit_PD.Text = dr["Unit_P"].ToString();
-            txtCost_PD.Text = dr["Cost_P"].ToString();
-            txtPrice_PD.Text = dr["Price_P"].ToString();
-            txtVAT_PD.Text = dr["VAT"].ToString();
-            txtID_PD.Enabled = false;
-            txtCatagories_PD.Enabled = false;
-            txtQuantity_PD.Enabled = false ;
-            txtName_PD.Enabled = false;
-            txtUnit_PD.Enabled = false;
-            txtCost_PD.Enabled = false;
-            txtPrice_PD.Enabled = false;
-            txtVAT_PD.Enabled = false;
-            byte[] img = (byte[])dr["IMG_P"];
-            MemoryStream ms = new MemoryStream(img);
-            img_PD.Image = Image.FromStream(ms);
+                txtID_PD.Text = dr["ID_P"].ToString();
+                txtCatagories_PD.Text = getNameGroupByID(dr["ID_PG"].ToString());
+                txtName_PD.Text = dr["Name_P"].ToString();
+                txtUnit_PD.Text = dr["Unit_P"].ToString();
+                txtCost_PD.Text = dr["Cost_P"].ToString();
+                txtPrice_PD.Text = dr["Price_P"].ToString();
+                txtVAT_PD.Text = dr["VAT"].ToString();
+                txtID_PD.Enabled = false;
+                txtCatagories_PD.Enabled = false;
+                txtQuantity_PD.Enabled = false;
+                txtName_PD.Enabled = false;
+                txtUnit_PD.Enabled = false;
+                txtCost_PD.Enabled = false;
+                txtPrice_PD.Enabled = false;
+                txtVAT_PD.Enabled = false;
+                byte[] img = (byte[])dr["IMG_P"];
+                MemoryStream ms = new MemoryStream(img);
+                img_PD.Image = Image.FromStream(ms);
+                btnCancel_PD.Hide();
+                btnAdd_PD.Hide();
+            }
+            else
+            {
+                txtID_PD.Enabled = false;
+                txtQuantity_PD.Enabled = false;
+            }
         }
             
 
@@ -105,40 +116,48 @@ namespace GUI
                 btnEditEnabled = true;
                 btnEdit_PD.Text = "Edit";
                 btnChangeImg_PD.Hide();
-                //check
-                if (txtCatagories_PD.Text.Trim() == "" ||  txtName_PD.Text.Trim() == "" || txtUnit_PD.Text.Trim() == "" || txtCost_PD.Text.Trim() == "" || txtPrice_PD.Text.Trim() == ""|| txtVAT_PD.Text.Trim() == "")
-                    MessageBox.Show("Please fill in the required information!", "Warning",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else 
-                {
-                    saveBtn();
-
-                    //show
-                    MessageBox.Show("update successfully"); 
-                }
+                saveBtn();
             }
         }
 
         private void saveBtn()
         {
-            Product product = new Product
+            //check
+            if (txtCatagories_PD.Text.Trim() == "" || txtName_PD.Text.Trim() == "" || txtUnit_PD.Text.Trim() == "" || txtCost_PD.Text.Trim() == "" || txtPrice_PD.Text.Trim() == "" || txtVAT_PD.Text.Trim() == "")
+                MessageBox.Show("Please fill in the required information!", "Warning",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
             {
-                ID_P = Convert.ToInt32(txtID_PD.Text),
-                Name_P = txtName_PD.Text,
-                Unit_P = txtUnit_PD.Text,
-                Price_P = txtPrice_PD.Text,
-                VAT = txtVAT_PD.Text,
-                Cost_P = txtCost_PD.Text
-            };
-            //read img in location and convert to byte[]
-            Product_BLL.Instance.updateProductImg(imgLocation, Convert.ToInt32(txtID_PD.Text));
-            
+                Product product = new Product
+                {
+                    Name_P = txtName_PD.Text,
+                    Unit_P = txtUnit_PD.Text,
+                    Price_P = txtPrice_PD.Text,
+                    VAT = txtVAT_PD.Text,
+                    Cost_P = txtCost_PD.Text
+                };
+
+                //save to database
+                if (txtID_PD.Text=="")
+                {
+                    Product_BLL.Instance.ExcuteDB(product,"Add");
+                    //save img to database
+                    /*Product_BLL.Instance.updateProductImg(imgLocation);*/
+                }
+                else
+                {
+                    product.ID_P = Convert.ToInt32(txtID_PD.Text);
+                    Product_BLL.Instance.ExcuteDB(product);
+                    MessageBox.Show(product.ID_P.ToString());
+                    //save img to database
+                    Product_BLL.Instance.updateProductImg(imgLocation, Convert.ToInt32(txtID_PD.Text));
+                }
+
                 
-            
+                //ok
+                MessageBox.Show("update successfully");
 
-            //save
-
-            Product_BLL.Instance.ExcuteDB(product);
+            }
 
         }
 
@@ -157,6 +176,21 @@ namespace GUI
                 imgLocation = dialog.FileName.ToString();
                 img_PD.ImageLocation = imgLocation;
             }
+        }
+
+        private void btnCancel_PD_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAdd_PD_Click(object sender, EventArgs e)
+        {
+            saveBtn();
+        }
+
+        private void txtName_PD_TextChanged(object sender, EventArgs e)
+        {
+            lbNameProduct_PD.Text=txtName_PD.Text;
         }
     }
 }
