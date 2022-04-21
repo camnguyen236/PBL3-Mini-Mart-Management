@@ -46,7 +46,6 @@ C:\Users\lvdle\Source\Repos\PBL3\GUI\bin\Debug\DTO.pdb
 C:\Users\lvdle\Source\Repos\PBL3\GUI\bin\Debug\PBL_3.pdb
 C:\Users\lvdle\Source\Repos\PBL3\GUI\bin\Debug\PBL_3.exe.config
 C:\Users\lvdle\Source\Repos\PBL3\GUI\bin\Debug\ARSoft.Tools.Net.xml
-C:\Users\lvdle\Source\Repos\PBL3\GUI\bin\Debug\BouncyCastle.Crypto.pdb
 C:\Users\lvdle\Source\Repos\PBL3\GUI\bin\Debug\DAL.pdb
 C:\Users\lvdle\Source\Repos\PBL3\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
 C:\Users\lvdle\Source\Repos\PBL3\GUI\obj\Debug\GUI.csproj.SuggestedBindingRedirects.cache
@@ -100,3 +99,7 @@ D:\code\PBL3\GUI\obj\Debug\GUI.pdb
 D:\code\PBL3\GUI\obj\Debug\GUI.AddSupply.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.AddSupply.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ProductDetails.resources
+C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\GUI.exe.config
+C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\BLL.dll.config
+C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\DTO.dll.config
+C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\DAL.dll.config

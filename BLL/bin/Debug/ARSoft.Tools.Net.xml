@@ -7284,7 +7284,7 @@
               PTR mechanism, matches if a correct reverse mapping exists
             </summary>
         </member>
-        <member name="F:ARSoft.Tools.Net.Spf.SpfMechanismType.Exist">
+        <member name="F:ARSoft.Tools.Net.Spf.SpfMechanismType.Exists">
             <summary>
               EXISTS mechanism, matches if the given domain exists
             </summary>

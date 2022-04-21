@@ -304,6 +304,10 @@ namespace GUI
                 cbProductsGroups.Items.Add(i);
             }
         }
+        private void ShowAllProduct()
+        {
+                dgv2.DataSource = Product_BLL.Instance.getProducts();
+        }
 
         private void Show_Product(string groupName)
         {
@@ -376,7 +380,12 @@ namespace GUI
 
         private void dgv2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            int i = dgv2.CurrentRow.Index;
+            string id = dgv2.Rows[i].Cells["ID_P"].Value.ToString();
+            ProductDetails pd = new ProductDetails(id);
+            //deleget
+            pd.d = new ProductDetails.MyDel(ShowAllProduct);
+            pd.Show();
         }
     }
 }

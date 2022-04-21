@@ -22,7 +22,6 @@ C:\Users\lvdle\Source\Repos\PBL3\DAL\bin\Debug\EmailValidation.dll
 C:\Users\lvdle\Source\Repos\PBL3\DAL\bin\Debug\Guna.UI2.dll
 C:\Users\lvdle\Source\Repos\PBL3\DAL\bin\Debug\DTO.pdb
 C:\Users\lvdle\Source\Repos\PBL3\DAL\bin\Debug\ARSoft.Tools.Net.xml
-C:\Users\lvdle\Source\Repos\PBL3\DAL\bin\Debug\BouncyCastle.Crypto.pdb
 C:\Users\lvdle\Source\Repos\PBL3\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
 C:\Users\lvdle\Source\Repos\PBL3\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\lvdle\Source\Repos\PBL3\DAL\obj\Debug\DAL.csproj.CopyComplete
@@ -43,3 +42,5 @@ D:\code\PBL3\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\code\PBL3\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\code\PBL3\DAL\obj\Debug\DAL.dll
 D:\code\PBL3\DAL\obj\Debug\DAL.pdb
+C:\Users\lvdle\source\repos\PBL3\DAL\bin\Debug\DAL.dll.config
+C:\Users\lvdle\source\repos\PBL3\DAL\bin\Debug\DTO.dll.config

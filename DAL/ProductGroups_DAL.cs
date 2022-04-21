@@ -31,5 +31,11 @@ namespace DAL
             productGroups = DataProvider.Instance.GetRecords(query);
             return productGroups;
         }
+        public DataTable getNameGroupByID(string id)
+        {
+            string query = $"SELECT g.ID_PG , Name_PG FROM ProductGroups as g inner JOIN Products as p ON p.ID_PG = g.ID_PG and p.ID_P = {id}";
+            productGroups = DataProvider.Instance.GetRecords(query);
+            return productGroups;
+        }
     }
 }

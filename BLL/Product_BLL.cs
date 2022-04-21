@@ -29,6 +29,10 @@ namespace BLL
             return Product_DAL.Instance.GetRecords();
         }
 
+        public DataTable GetProductByID(string id)
+        {
+            return Product_DAL.Instance.GetProductByID(id);
+        }
         public DataTable getProductsByGroupName(string groupName)
         {
             return Product_DAL.Instance.getProductsByGroupName(groupName);

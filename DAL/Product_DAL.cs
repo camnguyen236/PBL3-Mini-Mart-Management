@@ -25,10 +25,23 @@ namespace DAL
         }
         private Product_DAL() { }
         DataTable products = new DataTable();
-
+        DataRow product;
         public DataTable GetRecords()
         {
             string query = "select ID_P,Name_P,Unit_P,Cost_P,Price_P,VAT from Products";
+            products = DataProvider.Instance.GetRecords(query);
+            return products;
+        }
+
+        public DataTable GetProductByID(string id)
+        {
+            string query = $"select ID_P,ID_PG,Name_P,Unit_P,Cost_P,Price_P,VAT,IMG_P from Products where ID_P={id}";
+            products = DataProvider.Instance.GetRecords(query);
+            return products;
+        }
+        public DataTable GetRecordsAllColumns()
+        {
+            string query = "select ID_P,Name_P,Unit_P,Cost_P,Price_P,VAT,IMG_P from Products";
             products = DataProvider.Instance.GetRecords(query);
             return products;
         }

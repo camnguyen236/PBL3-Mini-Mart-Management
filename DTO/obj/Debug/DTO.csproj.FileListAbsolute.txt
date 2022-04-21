@@ -18,7 +18,6 @@ C:\Users\lvdle\Source\Repos\PBL3\DTO\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\lvdle\Source\Repos\PBL3\DTO\bin\Debug\EmailValidation.dll
 C:\Users\lvdle\Source\Repos\PBL3\DTO\bin\Debug\Guna.UI2.dll
 C:\Users\lvdle\Source\Repos\PBL3\DTO\bin\Debug\ARSoft.Tools.Net.xml
-C:\Users\lvdle\Source\Repos\PBL3\DTO\bin\Debug\BouncyCastle.Crypto.pdb
 C:\Users\lvdle\Source\Repos\PBL3\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
 C:\Users\lvdle\Source\Repos\PBL3\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\lvdle\Source\Repos\PBL3\DTO\obj\Debug\DTO.csproj.CopyComplete
@@ -37,3 +36,4 @@ D:\code\PBL3\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\code\PBL3\DTO\obj\Debug\DTO.csproj.CopyComplete
 D:\code\PBL3\DTO\obj\Debug\DTO.dll
 D:\code\PBL3\DTO\obj\Debug\DTO.pdb
+C:\Users\lvdle\source\repos\PBL3\DTO\bin\Debug\DTO.dll.config
