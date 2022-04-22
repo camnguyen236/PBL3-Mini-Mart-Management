@@ -108,6 +108,7 @@ namespace GUI
             }
             else
             {
+                btnChangeImg_PD.Show();
                 txtID_PD.Enabled = false;
                 txtQuantity_PD.Enabled = false;
                 txtVATInclusive_PD.Enabled=false;
@@ -158,7 +159,27 @@ namespace GUI
                 saveBtn();
             }
         }
+        //chuyển đổi ảnh
+        public byte[] ImgToByteArray(Image img)
+        {
+            MemoryStream ms = new MemoryStream();
+            img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            return ms.ToArray();
+        }
+        public byte[] PathToByteArray(string path)
+        {
+            MemoryStream ms = new MemoryStream();
+            Image img = Image.FromFile(path);
+            img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            return ms.ToArray();
+        }
 
+        public Image ByteArrayToImg(byte[] b)
+        {
+            MemoryStream ms = new MemoryStream(b);
+
+            return Image.FromStream(ms);
+        }
         private void saveBtn()
         {
             //check
@@ -174,29 +195,22 @@ namespace GUI
                     Price_P = txtPrice_PD.Text,
                     VAT = txtVAT_PD.Text,
                     ID_PG = getIDByGroupName(cbCatagories_PD.Text),
+                    IMG_P = ImgToByteArray(img_PD.Image),
+                    //ok
                 };
 
                 //save to database
                 if (txtID_PD.Text=="")
                 {
                     Product_BLL.Instance.ExcuteDB(product,"Add");
-                    //save img to database
-                    /*Product_BLL.Instance.updateProductImg(imgLocation);*/
+                    MessageBox.Show("Add successfully");
                 }
                 else
                 {
                     product.ID_P = Convert.ToInt32(txtID_PD.Text);
                     Product_BLL.Instance.ExcuteDB(product);
-                    //save img to database
-                    Product_BLL.Instance.updateProductImg(imgLocation, Convert.ToInt32(txtID_PD.Text));
                 }
-
-                
-                //ok
-                /*MessageBox.Show("update successfully");*/
-
             }
-
         }
 
         private void btnOK_PD_Click(object sender, EventArgs e)

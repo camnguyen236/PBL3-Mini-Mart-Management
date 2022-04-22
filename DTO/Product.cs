@@ -16,6 +16,6 @@ namespace DTO
         public string Price_P { get; set; }
         public string VAT { get; set; }
         public int VATInclusive_P { get; set; }
-        public Byte[] Img_P { get; set; }
+        public byte[] IMG_P { get; set; }
     }
 }

@@ -94,6 +94,27 @@ namespace DAL
                 return false;
             }
         }
+
+        public bool ExcuteDB(string query, byte [] byteData)
+        {
+            try
+            {
+                using (SqlConnection cnt = Connection.getSqlConnection())
+                {
+                    cnt.Open();
+
+                    SqlCommand cmd = new SqlCommand(query, cnt);
+                    cmd.Parameters.Add("@data", SqlDbType.VarBinary, byteData.Length).Value = byteData;
+                    cmd.ExecuteNonQuery();
+                    cnt.Close();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         public String CheckAcc(string query) //để thực hiện lệnh select
         {
             string s;

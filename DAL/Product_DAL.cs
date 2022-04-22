@@ -71,19 +71,21 @@ namespace DAL
 
         public void addProduct(Product product)
         {
-            string query = "insert into Products(ID_PG,Name_P,Unit_P,Price_P,VAT) " + "values (" +
-                "'" + product.ID_PG + "',N'" + product.Name_P + "',N'" + product.Unit_P + "','" + product.Price_P + "','" + product.VAT + "')";
-            DataProvider.Instance.ExcuteDB(query);
+            /*string query = "insert into Products(ID_PG,Name_P,Unit_P,Price_P,VAT) " + "values (" +
+                "'" + product.ID_PG + "',N'" + product.Name_P + "',N'" + product.Unit_P + "','" + product.Price_P + "','" + product.VAT + "')";*/
+            //string query = $"insert into Products(ID_PG,Name_P,Unit_P,Price_P,VAT,Img_P) values ('{ product.ID_PG}',N'{product.Name_P}',N'{product.Unit_P}','{product.Price_P}','{product.VAT}','{product.Img_P}')";
+            
+            string query = $"insert into Products(ID_PG,Name_P,Unit_P,Price_P,VAT,IMG_P) values ('{ product.ID_PG}',N'{product.Name_P}',N'{product.Unit_P}','{product.Price_P}','{product.VAT}',@data)";
+            
+            DataProvider.Instance.ExcuteDB(query,product.IMG_P);
         }
         public void updateProduct(Product product)
         {
             /*string query = "update Products set Name_P = N'" + product.Name_P + "', Unit_P = N'" + product.Unit_P
                 + "', Cost_P = '" + product.Cost_P + "', Price_P = '" + product.Price_P
                 + "', VAT = '" + product.VAT + "', IMG_P = '" + product.Img_P+ "' where ID_P = '" + product.ID_P + "'";*/
-            string query = "update Products set ID_PG = '"+product.ID_PG+"', Name_P = N'" + product.Name_P + "', Unit_P = N'" + product.Unit_P
-                 + "', Price_P = '" + product.Price_P
-                 + "', VAT = '" + product.VAT + "' where ID_P = '" + product.ID_P + "'";
-            DataProvider.Instance.ExcuteDB(query);
+            string query = $"update Products set ID_PG = '{product.ID_PG}',Name_P = N'{product.Name_P}', Unit_P = N'{product.Unit_P}',Price_P = '{product.Price_P}', VAT = '{product.VAT}', IMG_P = @data where ID_P = '{product.ID_P}'";
+            DataProvider.Instance.ExcuteDB(query,product.IMG_P);
         }
 
         public void updateProductImg(string src, int id)
