@@ -29,20 +29,19 @@
         private void InitializeComponent()
         {
             this.img_PD = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.txtCatagories_PD = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtQuantity_PD = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtVAT_PD = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtUnit_PD = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtName_PD = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtCost_PD = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtVATInclusive_PD = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtID_PD = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbEmail = new System.Windows.Forms.Label();
             this.lbRole = new System.Windows.Forms.Label();
-            this.lbPhoneNumber = new System.Windows.Forms.Label();
+            this.lbVAT_PD = new System.Windows.Forms.Label();
             this.lbAddress = new System.Windows.Forms.Label();
-            this.lbBirthday = new System.Windows.Forms.Label();
+            this.lbPrice_PD = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
-            this.lbUsername = new System.Windows.Forms.Label();
+            this.VAT_Inclusive = new System.Windows.Forms.Label();
             this.lbID = new System.Windows.Forms.Label();
             this.txtPrice_PD = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbNameProduct_PD = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@
             this.btnChangeImg_PD = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd_PD = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel_PD = new Guna.UI2.WinForms.Guna2Button();
+            this.cbCatagories_PD = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.img_PD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,26 +65,6 @@
             this.img_PD.TabIndex = 1;
             this.img_PD.TabStop = false;
             // 
-            // txtCatagories_PD
-            // 
-            this.txtCatagories_PD.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCatagories_PD.DefaultText = "";
-            this.txtCatagories_PD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCatagories_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCatagories_PD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCatagories_PD.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCatagories_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCatagories_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCatagories_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCatagories_PD.Location = new System.Drawing.Point(994, 245);
-            this.txtCatagories_PD.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCatagories_PD.Name = "txtCatagories_PD";
-            this.txtCatagories_PD.PasswordChar = '\0';
-            this.txtCatagories_PD.PlaceholderText = "";
-            this.txtCatagories_PD.SelectedText = "";
-            this.txtCatagories_PD.Size = new System.Drawing.Size(169, 33);
-            this.txtCatagories_PD.TabIndex = 30;
-            // 
             // txtQuantity_PD
             // 
             this.txtQuantity_PD.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -96,13 +76,13 @@
             this.txtQuantity_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtQuantity_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtQuantity_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtQuantity_PD.Location = new System.Drawing.Point(764, 317);
+            this.txtQuantity_PD.Location = new System.Drawing.Point(741, 317);
             this.txtQuantity_PD.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuantity_PD.Name = "txtQuantity_PD";
             this.txtQuantity_PD.PasswordChar = '\0';
             this.txtQuantity_PD.PlaceholderText = "";
             this.txtQuantity_PD.SelectedText = "";
-            this.txtQuantity_PD.Size = new System.Drawing.Size(169, 33);
+            this.txtQuantity_PD.Size = new System.Drawing.Size(209, 36);
             this.txtQuantity_PD.TabIndex = 29;
             // 
             // txtVAT_PD
@@ -116,14 +96,15 @@
             this.txtVAT_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtVAT_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtVAT_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtVAT_PD.Location = new System.Drawing.Point(764, 390);
+            this.txtVAT_PD.Location = new System.Drawing.Point(741, 390);
             this.txtVAT_PD.Margin = new System.Windows.Forms.Padding(4);
             this.txtVAT_PD.Name = "txtVAT_PD";
             this.txtVAT_PD.PasswordChar = '\0';
             this.txtVAT_PD.PlaceholderText = "";
             this.txtVAT_PD.SelectedText = "";
-            this.txtVAT_PD.Size = new System.Drawing.Size(169, 33);
+            this.txtVAT_PD.Size = new System.Drawing.Size(209, 36);
             this.txtVAT_PD.TabIndex = 28;
+            this.txtVAT_PD.TextChanged += new System.EventHandler(this.txtVAT_PD_TextChanged);
             // 
             // txtUnit_PD
             // 
@@ -136,13 +117,13 @@
             this.txtUnit_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUnit_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtUnit_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUnit_PD.Location = new System.Drawing.Point(531, 317);
+            this.txtUnit_PD.Location = new System.Drawing.Point(508, 317);
             this.txtUnit_PD.Margin = new System.Windows.Forms.Padding(4);
             this.txtUnit_PD.Name = "txtUnit_PD";
             this.txtUnit_PD.PasswordChar = '\0';
             this.txtUnit_PD.PlaceholderText = "";
             this.txtUnit_PD.SelectedText = "";
-            this.txtUnit_PD.Size = new System.Drawing.Size(169, 33);
+            this.txtUnit_PD.Size = new System.Drawing.Size(209, 36);
             this.txtUnit_PD.TabIndex = 27;
             this.txtUnit_PD.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
@@ -157,35 +138,35 @@
             this.txtName_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtName_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtName_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtName_PD.Location = new System.Drawing.Point(764, 245);
+            this.txtName_PD.Location = new System.Drawing.Point(741, 245);
             this.txtName_PD.Margin = new System.Windows.Forms.Padding(4);
             this.txtName_PD.Name = "txtName_PD";
             this.txtName_PD.PasswordChar = '\0';
             this.txtName_PD.PlaceholderText = "";
             this.txtName_PD.SelectedText = "";
-            this.txtName_PD.Size = new System.Drawing.Size(169, 33);
+            this.txtName_PD.Size = new System.Drawing.Size(209, 36);
             this.txtName_PD.TabIndex = 26;
             this.txtName_PD.TextChanged += new System.EventHandler(this.txtName_PD_TextChanged);
             // 
-            // txtCost_PD
+            // txtVATInclusive_PD
             // 
-            this.txtCost_PD.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCost_PD.DefaultText = "";
-            this.txtCost_PD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCost_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCost_PD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCost_PD.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCost_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCost_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCost_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCost_PD.Location = new System.Drawing.Point(994, 317);
-            this.txtCost_PD.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCost_PD.Name = "txtCost_PD";
-            this.txtCost_PD.PasswordChar = '\0';
-            this.txtCost_PD.PlaceholderText = "";
-            this.txtCost_PD.SelectedText = "";
-            this.txtCost_PD.Size = new System.Drawing.Size(169, 33);
-            this.txtCost_PD.TabIndex = 25;
+            this.txtVATInclusive_PD.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtVATInclusive_PD.DefaultText = "";
+            this.txtVATInclusive_PD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtVATInclusive_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtVATInclusive_PD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtVATInclusive_PD.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtVATInclusive_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtVATInclusive_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtVATInclusive_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtVATInclusive_PD.Location = new System.Drawing.Point(971, 390);
+            this.txtVATInclusive_PD.Margin = new System.Windows.Forms.Padding(4);
+            this.txtVATInclusive_PD.Name = "txtVATInclusive_PD";
+            this.txtVATInclusive_PD.PasswordChar = '\0';
+            this.txtVATInclusive_PD.PlaceholderText = "";
+            this.txtVATInclusive_PD.SelectedText = "";
+            this.txtVATInclusive_PD.Size = new System.Drawing.Size(209, 36);
+            this.txtVATInclusive_PD.TabIndex = 25;
             // 
             // txtID_PD
             // 
@@ -198,20 +179,20 @@
             this.txtID_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtID_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtID_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtID_PD.Location = new System.Drawing.Point(531, 245);
+            this.txtID_PD.Location = new System.Drawing.Point(508, 245);
             this.txtID_PD.Margin = new System.Windows.Forms.Padding(4);
             this.txtID_PD.Name = "txtID_PD";
             this.txtID_PD.PasswordChar = '\0';
             this.txtID_PD.PlaceholderText = "";
             this.txtID_PD.SelectedText = "";
-            this.txtID_PD.Size = new System.Drawing.Size(169, 33);
+            this.txtID_PD.Size = new System.Drawing.Size(209, 36);
             this.txtID_PD.TabIndex = 24;
             // 
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
             this.lbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbEmail.Location = new System.Drawing.Point(991, 225);
+            this.lbEmail.Location = new System.Drawing.Point(968, 225);
             this.lbEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(73, 16);
@@ -222,73 +203,73 @@
             // 
             this.lbRole.AutoSize = true;
             this.lbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbRole.Location = new System.Drawing.Point(761, 297);
+            this.lbRole.Location = new System.Drawing.Point(738, 297);
             this.lbRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbRole.Name = "lbRole";
             this.lbRole.Size = new System.Drawing.Size(55, 16);
             this.lbRole.TabIndex = 22;
             this.lbRole.Text = "Quantity";
             // 
-            // lbPhoneNumber
+            // lbVAT_PD
             // 
-            this.lbPhoneNumber.AutoSize = true;
-            this.lbPhoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbPhoneNumber.Location = new System.Drawing.Point(761, 370);
-            this.lbPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbPhoneNumber.Name = "lbPhoneNumber";
-            this.lbPhoneNumber.Size = new System.Drawing.Size(34, 16);
-            this.lbPhoneNumber.TabIndex = 21;
-            this.lbPhoneNumber.Text = "VAT";
+            this.lbVAT_PD.AutoSize = true;
+            this.lbVAT_PD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbVAT_PD.Location = new System.Drawing.Point(738, 370);
+            this.lbVAT_PD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbVAT_PD.Name = "lbVAT_PD";
+            this.lbVAT_PD.Size = new System.Drawing.Size(34, 16);
+            this.lbVAT_PD.TabIndex = 21;
+            this.lbVAT_PD.Text = "VAT";
             // 
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
             this.lbAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbAddress.Location = new System.Drawing.Point(528, 297);
+            this.lbAddress.Location = new System.Drawing.Point(505, 297);
             this.lbAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(30, 16);
             this.lbAddress.TabIndex = 20;
             this.lbAddress.Text = "Unit";
             // 
-            // lbBirthday
+            // lbPrice_PD
             // 
-            this.lbBirthday.AutoSize = true;
-            this.lbBirthday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbBirthday.Location = new System.Drawing.Point(528, 370);
-            this.lbBirthday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbBirthday.Name = "lbBirthday";
-            this.lbBirthday.Size = new System.Drawing.Size(38, 16);
-            this.lbBirthday.TabIndex = 19;
-            this.lbBirthday.Text = "Price";
+            this.lbPrice_PD.AutoSize = true;
+            this.lbPrice_PD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbPrice_PD.Location = new System.Drawing.Point(505, 370);
+            this.lbPrice_PD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPrice_PD.Name = "lbPrice_PD";
+            this.lbPrice_PD.Size = new System.Drawing.Size(38, 16);
+            this.lbPrice_PD.TabIndex = 19;
+            this.lbPrice_PD.Text = "Price";
             // 
             // lbName
             // 
             this.lbName.AutoSize = true;
             this.lbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbName.Location = new System.Drawing.Point(761, 225);
+            this.lbName.Location = new System.Drawing.Point(738, 225);
             this.lbName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(93, 16);
             this.lbName.TabIndex = 18;
             this.lbName.Text = "Name Product";
             // 
-            // lbUsername
+            // VAT_Inclusive
             // 
-            this.lbUsername.AutoSize = true;
-            this.lbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbUsername.Location = new System.Drawing.Point(991, 297);
-            this.lbUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(34, 16);
-            this.lbUsername.TabIndex = 17;
-            this.lbUsername.Text = "Cost";
+            this.VAT_Inclusive.AutoSize = true;
+            this.VAT_Inclusive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.VAT_Inclusive.Location = new System.Drawing.Point(968, 370);
+            this.VAT_Inclusive.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.VAT_Inclusive.Name = "VAT_Inclusive";
+            this.VAT_Inclusive.Size = new System.Drawing.Size(90, 16);
+            this.VAT_Inclusive.TabIndex = 17;
+            this.VAT_Inclusive.Text = "VAT-Inclusive";
             // 
             // lbID
             // 
             this.lbID.AutoSize = true;
             this.lbID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbID.Location = new System.Drawing.Point(528, 225);
+            this.lbID.Location = new System.Drawing.Point(505, 225);
             this.lbID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbID.Name = "lbID";
             this.lbID.Size = new System.Drawing.Size(20, 16);
@@ -306,14 +287,15 @@
             this.txtPrice_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPrice_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPrice_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPrice_PD.Location = new System.Drawing.Point(531, 390);
+            this.txtPrice_PD.Location = new System.Drawing.Point(508, 390);
             this.txtPrice_PD.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice_PD.Name = "txtPrice_PD";
             this.txtPrice_PD.PasswordChar = '\0';
             this.txtPrice_PD.PlaceholderText = "";
             this.txtPrice_PD.SelectedText = "";
-            this.txtPrice_PD.Size = new System.Drawing.Size(169, 33);
+            this.txtPrice_PD.Size = new System.Drawing.Size(209, 36);
             this.txtPrice_PD.TabIndex = 31;
+            this.txtPrice_PD.TextChanged += new System.EventHandler(this.txtPrice_PD_TextChanged);
             // 
             // lbNameProduct_PD
             // 
@@ -404,7 +386,7 @@
             this.btnAdd_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnAdd_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd_PD.ForeColor = System.Drawing.Color.White;
-            this.btnAdd_PD.Location = new System.Drawing.Point(837, 524);
+            this.btnAdd_PD.Location = new System.Drawing.Point(838, 524);
             this.btnAdd_PD.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd_PD.Name = "btnAdd_PD";
             this.btnAdd_PD.Size = new System.Drawing.Size(141, 41);
@@ -423,7 +405,7 @@
             this.btnCancel_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnCancel_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel_PD.ForeColor = System.Drawing.Color.White;
-            this.btnCancel_PD.Location = new System.Drawing.Point(678, 524);
+            this.btnCancel_PD.Location = new System.Drawing.Point(679, 524);
             this.btnCancel_PD.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel_PD.Name = "btnCancel_PD";
             this.btnCancel_PD.Size = new System.Drawing.Size(141, 41);
@@ -431,12 +413,31 @@
             this.btnCancel_PD.Text = "Cancel";
             this.btnCancel_PD.Click += new System.EventHandler(this.btnCancel_PD_Click);
             // 
+            // cbCatagories_PD
+            // 
+            this.cbCatagories_PD.BackColor = System.Drawing.Color.Transparent;
+            this.cbCatagories_PD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.cbCatagories_PD.BorderThickness = 2;
+            this.cbCatagories_PD.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbCatagories_PD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCatagories_PD.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbCatagories_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbCatagories_PD.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbCatagories_PD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbCatagories_PD.ItemHeight = 30;
+            this.cbCatagories_PD.Location = new System.Drawing.Point(971, 245);
+            this.cbCatagories_PD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbCatagories_PD.Name = "cbCatagories_PD";
+            this.cbCatagories_PD.Size = new System.Drawing.Size(209, 36);
+            this.cbCatagories_PD.TabIndex = 43;
+            // 
             // ProductDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(1203, 629);
+            this.Controls.Add(this.cbCatagories_PD);
             this.Controls.Add(this.btnCancel_PD);
             this.Controls.Add(this.btnAdd_PD);
             this.Controls.Add(this.btnChangeImg_PD);
@@ -445,20 +446,19 @@
             this.Controls.Add(this.btnEdit_PD);
             this.Controls.Add(this.lbNameProduct_PD);
             this.Controls.Add(this.txtPrice_PD);
-            this.Controls.Add(this.txtCatagories_PD);
             this.Controls.Add(this.txtQuantity_PD);
             this.Controls.Add(this.txtVAT_PD);
             this.Controls.Add(this.txtUnit_PD);
             this.Controls.Add(this.txtName_PD);
-            this.Controls.Add(this.txtCost_PD);
+            this.Controls.Add(this.txtVATInclusive_PD);
             this.Controls.Add(this.txtID_PD);
             this.Controls.Add(this.lbEmail);
             this.Controls.Add(this.lbRole);
-            this.Controls.Add(this.lbPhoneNumber);
+            this.Controls.Add(this.lbVAT_PD);
             this.Controls.Add(this.lbAddress);
-            this.Controls.Add(this.lbBirthday);
+            this.Controls.Add(this.lbPrice_PD);
             this.Controls.Add(this.lbName);
-            this.Controls.Add(this.lbUsername);
+            this.Controls.Add(this.VAT_Inclusive);
             this.Controls.Add(this.lbID);
             this.Controls.Add(this.img_PD);
             this.Name = "ProductDetails";
@@ -473,20 +473,19 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2PictureBox img_PD;
-        private Guna.UI2.WinForms.Guna2TextBox txtCatagories_PD;
         private Guna.UI2.WinForms.Guna2TextBox txtQuantity_PD;
         private Guna.UI2.WinForms.Guna2TextBox txtVAT_PD;
         private Guna.UI2.WinForms.Guna2TextBox txtUnit_PD;
         private Guna.UI2.WinForms.Guna2TextBox txtName_PD;
-        private Guna.UI2.WinForms.Guna2TextBox txtCost_PD;
+        private Guna.UI2.WinForms.Guna2TextBox txtVATInclusive_PD;
         private Guna.UI2.WinForms.Guna2TextBox txtID_PD;
         private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.Label lbRole;
-        private System.Windows.Forms.Label lbPhoneNumber;
+        private System.Windows.Forms.Label lbVAT_PD;
         private System.Windows.Forms.Label lbAddress;
-        private System.Windows.Forms.Label lbBirthday;
+        private System.Windows.Forms.Label lbPrice_PD;
         private System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.Label VAT_Inclusive;
         private System.Windows.Forms.Label lbID;
         private Guna.UI2.WinForms.Guna2TextBox txtPrice_PD;
         private System.Windows.Forms.Label lbNameProduct_PD;
@@ -496,5 +495,6 @@
         private Guna.UI2.WinForms.Guna2Button btnChangeImg_PD;
         private Guna.UI2.WinForms.Guna2Button btnAdd_PD;
         private Guna.UI2.WinForms.Guna2Button btnCancel_PD;
+        private Guna.UI2.WinForms.Guna2ComboBox cbCatagories_PD;
     }
 }

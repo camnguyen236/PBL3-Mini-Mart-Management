@@ -22,21 +22,60 @@ namespace GUI
             InitializeComponent();
             id_p = id;
             loadData(id_p);
+            setCBcbCatagories_PD();
+            setCBCatagoriesSelectItem_PDByID(id);
         }
 
         
         //
         //variable
         public bool btnEditEnabled = true;
-        private string imgLocation = ""; 
+        private string imgLocation = "";
         //
 
-
+        private void setCBcbCatagories_PD()
+        {
+            List<string> listProductsGroups = ProductGroups_BLL.Instance.getProductGroups().Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Name_PG")).ToList();
+            foreach (string i in listProductsGroups)
+            {
+                cbCatagories_PD.Items.Add(i);
+            }
+        }
         private string getNameGroupByID(string id)
         {
             DataTable db = ProductGroups_BLL.Instance.getNameGroupByID(id_p);
             DataRow dr = db.Rows[0];
             return dr["Name_PG"].ToString();
+        }
+        private string getIDByGroupName(string name)
+        {
+            try
+            {
+                DataTable db = ProductGroups_BLL.Instance.getIDByGroupName(name);
+                DataRow dr = db.Rows[0];
+                return dr["ID_PG"].ToString();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+            return "";
+        }
+        private void setCBCatagoriesSelectItem_PDByID(string id)
+        {
+            int index = 0;
+            if(id!=null){
+                foreach (var item in cbCatagories_PD.Items)
+                {
+                    if (item.ToString() == getNameGroupByID(id))
+                    {
+                        cbCatagories_PD.SelectedIndex = index;
+                    }
+                    index++;
+                }
+            }
+            
         }
         private void loadData(string id)
         {
@@ -47,18 +86,18 @@ namespace GUI
                 lbNameProduct_PD.Text = dr["Name_P"].ToString();
 
                 txtID_PD.Text = dr["ID_P"].ToString();
-                txtCatagories_PD.Text = getNameGroupByID(dr["ID_PG"].ToString());
+                cbCatagories_PD.Text = getNameGroupByID(dr["ID_PG"].ToString());
                 txtName_PD.Text = dr["Name_P"].ToString();
                 txtUnit_PD.Text = dr["Unit_P"].ToString();
-                txtCost_PD.Text = dr["Cost_P"].ToString();
                 txtPrice_PD.Text = dr["Price_P"].ToString();
                 txtVAT_PD.Text = dr["VAT"].ToString();
+                txtVATInclusive_PD.Text = dr["VAT_Inclusive_P"].ToString();
                 txtID_PD.Enabled = false;
-                txtCatagories_PD.Enabled = false;
+                cbCatagories_PD.Enabled = false;
                 txtQuantity_PD.Enabled = false;
                 txtName_PD.Enabled = false;
                 txtUnit_PD.Enabled = false;
-                txtCost_PD.Enabled = false;
+                txtVATInclusive_PD.Enabled = false;
                 txtPrice_PD.Enabled = false;
                 txtVAT_PD.Enabled = false;
                 byte[] img = (byte[])dr["IMG_P"];
@@ -71,6 +110,7 @@ namespace GUI
             {
                 txtID_PD.Enabled = false;
                 txtQuantity_PD.Enabled = false;
+                txtVATInclusive_PD.Enabled=false;
             }
         }
             
@@ -87,10 +127,9 @@ namespace GUI
 
         private void btnEdit_PD_Click(object sender, EventArgs e)
         {
-            txtCatagories_PD.Enabled = true;
+            cbCatagories_PD.Enabled = true;
             txtName_PD.Enabled = true;
             txtUnit_PD.Enabled = true;
-            txtCost_PD.Enabled = true;
             txtPrice_PD.Enabled = true;
             txtVAT_PD.Enabled = true;
             if (btnEditEnabled == true)
@@ -104,11 +143,11 @@ namespace GUI
             else
             {
                 txtID_PD.Enabled = false;
-                txtCatagories_PD.Enabled = false;
+                cbCatagories_PD.Enabled = false;
                 txtQuantity_PD.Enabled = false;
                 txtName_PD.Enabled = false;
                 txtUnit_PD.Enabled = false;
-                txtCost_PD.Enabled = false;
+                txtVATInclusive_PD.Enabled = false;
                 txtPrice_PD.Enabled = false;
                 txtVAT_PD.Enabled = false;
                 lbSave.Text = "Saved✓";
@@ -123,7 +162,7 @@ namespace GUI
         private void saveBtn()
         {
             //check
-            if (txtCatagories_PD.Text.Trim() == "" || txtName_PD.Text.Trim() == "" || txtUnit_PD.Text.Trim() == "" || txtCost_PD.Text.Trim() == "" || txtPrice_PD.Text.Trim() == "" || txtVAT_PD.Text.Trim() == "")
+            if (cbCatagories_PD.Text.Trim() == "" || txtName_PD.Text.Trim() == "" || txtUnit_PD.Text.Trim() == "" || txtPrice_PD.Text.Trim() == "" || txtVAT_PD.Text.Trim() == ""|| cbCatagories_PD.Text == "")
                 MessageBox.Show("Please fill in the required information!", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
@@ -134,7 +173,7 @@ namespace GUI
                     Unit_P = txtUnit_PD.Text,
                     Price_P = txtPrice_PD.Text,
                     VAT = txtVAT_PD.Text,
-                    Cost_P = txtCost_PD.Text
+                    ID_PG = getIDByGroupName(cbCatagories_PD.Text),
                 };
 
                 //save to database
@@ -148,14 +187,13 @@ namespace GUI
                 {
                     product.ID_P = Convert.ToInt32(txtID_PD.Text);
                     Product_BLL.Instance.ExcuteDB(product);
-                    MessageBox.Show(product.ID_P.ToString());
                     //save img to database
                     Product_BLL.Instance.updateProductImg(imgLocation, Convert.ToInt32(txtID_PD.Text));
                 }
 
                 
                 //ok
-                MessageBox.Show("update successfully");
+                /*MessageBox.Show("update successfully");*/
 
             }
 
@@ -192,5 +230,32 @@ namespace GUI
         {
             lbNameProduct_PD.Text=txtName_PD.Text;
         }
+
+        private void txtPrice_PD_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int price = Convert.ToInt32(txtPrice_PD.Text);
+                int vat = Convert.ToInt32(txtVAT_PD.Text);
+                txtVATInclusive_PD.Text = (price * (1 + (vat / 100))).ToString();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void txtVAT_PD_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double price = Convert.ToInt32(txtPrice_PD.Text);
+                double vat = Convert.ToInt32(txtVAT_PD.Text);
+                txtVATInclusive_PD.Text = (price * (1 + (vat / 100))).ToString();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
     }
 }

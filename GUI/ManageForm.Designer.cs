@@ -59,6 +59,7 @@
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.btnAdd_PG = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnDelteProduct = new Guna.UI2.WinForms.Guna2Button();
@@ -119,7 +120,7 @@
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnAdd_PG = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUpdate_PG = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.guna2TabControl3.SuspendLayout();
@@ -157,7 +158,7 @@
             this.guna2TabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2TabControl1.Name = "guna2TabControl1";
             this.guna2TabControl1.SelectedIndex = 0;
-            this.guna2TabControl1.Size = new System.Drawing.Size(1447, 682);
+            this.guna2TabControl1.Size = new System.Drawing.Size(1467, 689);
             this.guna2TabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.guna2TabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.guna2TabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -186,7 +187,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1439, 634);
+            this.tabPage1.Size = new System.Drawing.Size(1459, 641);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Manage Information";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -203,7 +204,7 @@
             this.guna2TabControl3.Margin = new System.Windows.Forms.Padding(4);
             this.guna2TabControl3.Name = "guna2TabControl3";
             this.guna2TabControl3.SelectedIndex = 0;
-            this.guna2TabControl3.Size = new System.Drawing.Size(1441, 628);
+            this.guna2TabControl3.Size = new System.Drawing.Size(1481, 660);
             this.guna2TabControl3.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.guna2TabControl3.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.guna2TabControl3.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -240,7 +241,7 @@
             this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage6.Size = new System.Drawing.Size(1253, 620);
+            this.tabPage6.Size = new System.Drawing.Size(1293, 652);
             this.tabPage6.TabIndex = 0;
             this.tabPage6.Text = "Manage Employee";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -684,6 +685,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.btnUpdate_PG);
             this.tabPage7.Controls.Add(this.btnAdd_PG);
             this.tabPage7.Controls.Add(this.label1);
             this.tabPage7.Controls.Add(this.txtSearchProduct);
@@ -699,10 +701,30 @@
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage7.Size = new System.Drawing.Size(1253, 620);
+            this.tabPage7.Size = new System.Drawing.Size(1293, 652);
             this.tabPage7.TabIndex = 1;
             this.tabPage7.Text = " Manage Product";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd_PG
+            // 
+            this.btnAdd_PG.AutoRoundedCorners = true;
+            this.btnAdd_PG.BorderRadius = 20;
+            this.btnAdd_PG.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd_PG.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd_PG.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdd_PG.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdd_PG.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnAdd_PG.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnAdd_PG.ForeColor = System.Drawing.Color.White;
+            this.btnAdd_PG.Location = new System.Drawing.Point(342, 559);
+            this.btnAdd_PG.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd_PG.Name = "btnAdd_PG";
+            this.btnAdd_PG.Size = new System.Drawing.Size(129, 43);
+            this.btnAdd_PG.TabIndex = 44;
+            this.btnAdd_PG.Text = "Add";
+            this.btnAdd_PG.UseTransparentBackground = true;
+            this.btnAdd_PG.Click += new System.EventHandler(this.btnAdd_PG_Click);
             // 
             // label1
             // 
@@ -749,7 +771,7 @@
             this.btnDelteProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnDelteProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnDelteProduct.ForeColor = System.Drawing.Color.White;
-            this.btnDelteProduct.Location = new System.Drawing.Point(623, 559);
+            this.btnDelteProduct.Location = new System.Drawing.Point(648, 559);
             this.btnDelteProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelteProduct.Name = "btnDelteProduct";
             this.btnDelteProduct.Size = new System.Drawing.Size(129, 43);
@@ -769,7 +791,7 @@
             this.btnShowProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnShowProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnShowProduct.ForeColor = System.Drawing.Color.White;
-            this.btnShowProduct.Location = new System.Drawing.Point(245, 559);
+            this.btnShowProduct.Location = new System.Drawing.Point(194, 559);
             this.btnShowProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowProduct.Name = "btnShowProduct";
             this.btnShowProduct.Size = new System.Drawing.Size(125, 43);
@@ -838,7 +860,7 @@
             // 
             this.dgv2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv2.Location = new System.Drawing.Point(59, 77);
+            this.dgv2.Location = new System.Drawing.Point(33, 77);
             this.dgv2.Margin = new System.Windows.Forms.Padding(4);
             this.dgv2.Name = "dgv2";
             this.dgv2.RowHeadersWidth = 51;
@@ -854,7 +876,7 @@
             this.guna2PictureBox4.Location = new System.Drawing.Point(-7, -2);
             this.guna2PictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.guna2PictureBox4.Name = "guna2PictureBox4";
-            this.guna2PictureBox4.Size = new System.Drawing.Size(1266, 624);
+            this.guna2PictureBox4.Size = new System.Drawing.Size(1274, 643);
             this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox4.TabIndex = 32;
             this.guna2PictureBox4.TabStop = false;
@@ -874,7 +896,7 @@
             this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage8.Size = new System.Drawing.Size(1253, 620);
+            this.tabPage8.Size = new System.Drawing.Size(1267, 626);
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "Manage Customer";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1250,7 +1272,7 @@
             this.tabPage9.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage9.Size = new System.Drawing.Size(1253, 620);
+            this.tabPage9.Size = new System.Drawing.Size(1267, 626);
             this.tabPage9.TabIndex = 3;
             this.tabPage9.Text = "  Manage Supply";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1561,7 +1583,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(-5, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1447, 628);
+            this.pictureBox1.Size = new System.Drawing.Size(1421, 628);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -1573,7 +1595,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1439, 634);
+            this.tabPage2.Size = new System.Drawing.Size(1459, 641);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Import Product";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1596,7 +1618,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(1439, 634);
+            this.tabPage3.Size = new System.Drawing.Size(1459, 641);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Sell Products";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1687,31 +1709,31 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // btnAdd_PG
+            // btnUpdate_PG
             // 
-            this.btnAdd_PG.AutoRoundedCorners = true;
-            this.btnAdd_PG.BorderRadius = 20;
-            this.btnAdd_PG.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdd_PG.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdd_PG.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAdd_PG.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAdd_PG.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.btnAdd_PG.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnAdd_PG.ForeColor = System.Drawing.Color.White;
-            this.btnAdd_PG.Location = new System.Drawing.Point(432, 559);
-            this.btnAdd_PG.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAdd_PG.Name = "btnAdd_PG";
-            this.btnAdd_PG.Size = new System.Drawing.Size(129, 43);
-            this.btnAdd_PG.TabIndex = 44;
-            this.btnAdd_PG.Text = "Add";
-            this.btnAdd_PG.UseTransparentBackground = true;
-            this.btnAdd_PG.Click += new System.EventHandler(this.btnAdd_PG_Click);
+            this.btnUpdate_PG.AutoRoundedCorners = true;
+            this.btnUpdate_PG.BorderRadius = 20;
+            this.btnUpdate_PG.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdate_PG.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdate_PG.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUpdate_PG.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpdate_PG.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnUpdate_PG.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnUpdate_PG.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate_PG.Location = new System.Drawing.Point(496, 559);
+            this.btnUpdate_PG.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdate_PG.Name = "btnUpdate_PG";
+            this.btnUpdate_PG.Size = new System.Drawing.Size(129, 43);
+            this.btnUpdate_PG.TabIndex = 45;
+            this.btnUpdate_PG.Text = "Update";
+            this.btnUpdate_PG.UseTransparentBackground = true;
+            this.btnUpdate_PG.Click += new System.EventHandler(this.btnUpdate_PG_Click);
             // 
             // ManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1468, 702);
+            this.ClientSize = new System.Drawing.Size(1477, 702);
             this.Controls.Add(this.guna2TabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1845,5 +1867,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private Guna.UI2.WinForms.Guna2Button btnAdd_PG;
+        private Guna.UI2.WinForms.Guna2Button btnUpdate_PG;
     }
 }

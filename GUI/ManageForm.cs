@@ -287,7 +287,7 @@ namespace GUI
             string groupName = cbProductsGroups.Text;
             if (groupName == "")
             {
-                MessageBox.Show("Choose product group!");
+                MessageBox.Show("Choose Catalories!");
             }
             else
             {
@@ -392,6 +392,16 @@ namespace GUI
         {
             
             ProductDetails pd = new ProductDetails();
+            //deleget
+            pd.d = new ProductDetails.MyDel(ShowAllProduct);
+            pd.Show();
+        }
+
+        private void btnUpdate_PG_Click(object sender, EventArgs e)
+        {
+            int i = dgv2.CurrentRow.Index;
+            string id = dgv2.Rows[i].Cells["ID_P"].Value.ToString();
+            ProductDetails pd = new ProductDetails(id);
             //deleget
             pd.d = new ProductDetails.MyDel(ShowAllProduct);
             pd.Show();

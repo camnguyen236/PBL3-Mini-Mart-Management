@@ -34,5 +34,9 @@ namespace BLL
         {
             return ProductGroups_DAL.Instance.getNameGroupByID(id);
         }
+        public DataTable getIDByGroupName(string groupName)
+        {
+            return ProductGroups_DAL.Instance.getIDByGroupName(groupName);
+        }
     }
 }

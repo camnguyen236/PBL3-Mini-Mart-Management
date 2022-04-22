@@ -28,27 +28,27 @@ namespace DAL
         DataRow product;
         public DataTable GetRecords()
         {
-            string query = "select ID_P,Name_P,Unit_P,Cost_P,Price_P,VAT from Products";
+            string query = "select ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P from Products";
             products = DataProvider.Instance.GetRecords(query);
             return products;
         }
 
         public DataTable GetProductByID(string id)
         {
-            string query = $"select ID_P,ID_PG,Name_P,Unit_P,Cost_P,Price_P,VAT,IMG_P from Products where ID_P={id}";
+            string query = $"select ID_P,ID_PG,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P,IMG_P from Products where ID_P={id}";
             products = DataProvider.Instance.GetRecords(query);
             return products;
         }
         public DataTable GetRecordsAllColumns()
         {
-            string query = "select ID_P,Name_P,Unit_P,Cost_P,Price_P,VAT,IMG_P from Products";
+            string query = "select ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P,IMG_P from Products";
             products = DataProvider.Instance.GetRecords(query);
             return products;
         }
 
         public DataTable getProductsByGroupName(string groupName)
         {
-            string query = "SELECT ID_P,Name_P,Unit_P,Cost_P,Price_P,VAT FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG and g.Name_PG = N'" + groupName + "'";
+            string query = "SELECT ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG and g.Name_PG = N'" + groupName + "'";
             products = DataProvider.Instance.GetRecords(query);
             return products;
         }
@@ -59,11 +59,11 @@ namespace DAL
             string query;
             if (groupName == "All")
             {
-                query = $"select ID_P,Name_P,Unit_P,Cost_P,Price_P,VAT FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG where {option} like N'%{name}%'";
+                query = $"select ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG where {option} like N'%{name}%'";
             }
             else
             {
-                query = $"select ID_P,Name_P,Unit_P,Cost_P,Price_P,VAT FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG and g.Name_PG = N'{groupName}'where {option} like N'%{name}%'";
+                query = $"select ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG and g.Name_PG = N'{groupName}'where {option} like N'%{name}%'";
             }
             productList = DataProvider.Instance.GetRecords(query);
             return productList;
@@ -71,8 +71,8 @@ namespace DAL
 
         public void addProduct(Product product)
         {
-            string query = "insert into Products(Name_P,Unit_P,Cost_P,Price_P,VAT) " + "values (N'"
-                + product.Name_P + "',N'" + product.Unit_P + "','" + product.Cost_P + "','" + product.Price_P + "','" + product.VAT + "')";
+            string query = "insert into Products(ID_PG,Name_P,Unit_P,Price_P,VAT) " + "values (" +
+                "'" + product.ID_PG + "',N'" + product.Name_P + "',N'" + product.Unit_P + "','" + product.Price_P + "','" + product.VAT + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateProduct(Product product)
@@ -80,8 +80,8 @@ namespace DAL
             /*string query = "update Products set Name_P = N'" + product.Name_P + "', Unit_P = N'" + product.Unit_P
                 + "', Cost_P = '" + product.Cost_P + "', Price_P = '" + product.Price_P
                 + "', VAT = '" + product.VAT + "', IMG_P = '" + product.Img_P+ "' where ID_P = '" + product.ID_P + "'";*/
-            string query = "update Products set Name_P = N'" + product.Name_P + "', Unit_P = N'" + product.Unit_P
-                 + "', Cost_P = '" + product.Cost_P + "', Price_P = '" + product.Price_P
+            string query = "update Products set ID_PG = '"+product.ID_PG+"', Name_P = N'" + product.Name_P + "', Unit_P = N'" + product.Unit_P
+                 + "', Price_P = '" + product.Price_P
                  + "', VAT = '" + product.VAT + "' where ID_P = '" + product.ID_P + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
