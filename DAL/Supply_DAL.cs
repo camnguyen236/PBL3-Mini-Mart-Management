@@ -27,7 +27,7 @@ namespace DAL
         DataTable supply = new DataTable();
         public DataTable GetRecords()
         {
-            string query = "select ID_Supply,Name_Supply,Address_Supply,PhoneNumber_Supply,BankAccount from Supply";
+            string query = "select ID_Supply,Name_Supply,Address_Supply,PhoneNumber_Supply,BankAccount, TaxCode from Supply";
             supply = DataProvider.Instance.GetRecords(query);
             return supply;
         }

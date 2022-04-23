@@ -27,7 +27,7 @@ namespace DAL
         DataTable customers = new DataTable();
         public DataTable GetRecords()
         {
-            string query = "select ID_Customer,Name_Customer,Gender_Customer,Address_Customer,PhoneNumber_Customer,AccountNumber from Customer";
+            string query = "select ID_Customer,Name_Customer,Gender_Customer,Address_Customer,PhoneNumber_Customer,AccountNumber,TaxCode from Customer";
             customers = DataProvider.Instance.GetRecords(query);
             return customers;
         }
