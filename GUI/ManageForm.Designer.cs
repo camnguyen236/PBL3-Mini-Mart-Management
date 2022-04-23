@@ -121,6 +121,10 @@
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.txtTaxCode_Acc = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.guna2TabControl3.SuspendLayout();
@@ -749,11 +753,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(66, 45);
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(205)))), ((int)(((byte)(238)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label1.Location = new System.Drawing.Point(29, 42);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 16);
+            this.label1.Size = new System.Drawing.Size(215, 20);
             this.label1.TabIndex = 43;
             this.label1.Text = "Choose product categories ";
             // 
@@ -852,7 +858,7 @@
             this.cbProductsGroups.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbProductsGroups.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbProductsGroups.ItemHeight = 30;
-            this.cbProductsGroups.Location = new System.Drawing.Point(245, 35);
+            this.cbProductsGroups.Location = new System.Drawing.Point(278, 35);
             this.cbProductsGroups.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbProductsGroups.Name = "cbProductsGroups";
             this.cbProductsGroups.Size = new System.Drawing.Size(243, 36);
@@ -1024,6 +1030,8 @@
             // 
             // guna2GroupBox2
             // 
+            this.guna2GroupBox2.Controls.Add(this.txtTaxCode_Acc);
+            this.guna2GroupBox2.Controls.Add(this.label3);
             this.guna2GroupBox2.Controls.Add(this.gbGender);
             this.guna2GroupBox2.Controls.Add(this.txtPhoneNumber_Customer);
             this.guna2GroupBox2.Controls.Add(this.txtAddress_Customer);
@@ -1400,6 +1408,8 @@
             // 
             // guna2GroupBox3
             // 
+            this.guna2GroupBox3.Controls.Add(this.guna2TextBox1);
+            this.guna2GroupBox3.Controls.Add(this.label10);
             this.guna2GroupBox3.Controls.Add(this.txtPhoneNumber_Supply);
             this.guna2GroupBox3.Controls.Add(this.txtAddress_Supply);
             this.guna2GroupBox3.Controls.Add(this.txtName_Supply);
@@ -1730,6 +1740,68 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
+            // txtTaxCode_Acc
+            // 
+            this.txtTaxCode_Acc.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTaxCode_Acc.DefaultText = "";
+            this.txtTaxCode_Acc.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTaxCode_Acc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTaxCode_Acc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTaxCode_Acc.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTaxCode_Acc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTaxCode_Acc.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTaxCode_Acc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTaxCode_Acc.Location = new System.Drawing.Point(635, 155);
+            this.txtTaxCode_Acc.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTaxCode_Acc.Name = "txtTaxCode_Acc";
+            this.txtTaxCode_Acc.PasswordChar = '\0';
+            this.txtTaxCode_Acc.PlaceholderText = "";
+            this.txtTaxCode_Acc.SelectedText = "";
+            this.txtTaxCode_Acc.Size = new System.Drawing.Size(225, 33);
+            this.txtTaxCode_Acc.TabIndex = 26;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.label3.Location = new System.Drawing.Point(634, 129);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(147, 23);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Account Tax code";
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Location = new System.Drawing.Point(857, 156);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(251, 33);
+            this.guna2TextBox1.TabIndex = 14;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.label10.Location = new System.Drawing.Point(853, 118);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 23);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Tax code";
+            // 
             // ManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1869,5 +1941,9 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private Guna.UI2.WinForms.Guna2Button btnAdd_PG;
         private Guna.UI2.WinForms.Guna2Button btnUpdate_PG;
+        private Guna.UI2.WinForms.Guna2TextBox txtTaxCode_Acc;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private System.Windows.Forms.Label label10;
     }
 }
