@@ -238,6 +238,8 @@ namespace GUI
         private void btnAdd_PD_Click(object sender, EventArgs e)
         {
             saveBtn();
+            d();
+            this.Close();
         }
 
         private void txtName_PD_TextChanged(object sender, EventArgs e)

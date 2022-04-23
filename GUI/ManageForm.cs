@@ -406,5 +406,15 @@ namespace GUI
             pd.d = new ProductDetails.MyDel(ShowAllProduct);
             pd.Show();
         }
+
+        private void btnBackProduct_Click(object sender, EventArgs e)
+        {
+            MainForm mf2 = new MainForm();
+            this.Hide();
+            mf2.mName(rs);
+            mf2.ShowDialog();
+
+            this.Close();
+        }
     }
 }

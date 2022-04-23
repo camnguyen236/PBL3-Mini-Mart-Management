@@ -59,6 +59,7 @@
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.btnUpdate_PG = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd_PG = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
@@ -120,7 +121,6 @@
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnUpdate_PG = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.guna2TabControl3.SuspendLayout();
@@ -706,6 +706,26 @@
             this.tabPage7.Text = " Manage Product";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // btnUpdate_PG
+            // 
+            this.btnUpdate_PG.AutoRoundedCorners = true;
+            this.btnUpdate_PG.BorderRadius = 20;
+            this.btnUpdate_PG.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdate_PG.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdate_PG.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUpdate_PG.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpdate_PG.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnUpdate_PG.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnUpdate_PG.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate_PG.Location = new System.Drawing.Point(496, 559);
+            this.btnUpdate_PG.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdate_PG.Name = "btnUpdate_PG";
+            this.btnUpdate_PG.Size = new System.Drawing.Size(129, 43);
+            this.btnUpdate_PG.TabIndex = 45;
+            this.btnUpdate_PG.Text = "Update";
+            this.btnUpdate_PG.UseTransparentBackground = true;
+            this.btnUpdate_PG.Click += new System.EventHandler(this.btnUpdate_PG_Click);
+            // 
             // btnAdd_PG
             // 
             this.btnAdd_PG.AutoRoundedCorners = true;
@@ -818,6 +838,7 @@
             this.btnBackProduct.TabIndex = 33;
             this.btnBackProduct.Text = "Back";
             this.btnBackProduct.UseTransparentBackground = true;
+            this.btnBackProduct.Click += new System.EventHandler(this.btnBackProduct_Click);
             // 
             // cbProductsGroups
             // 
@@ -896,7 +917,7 @@
             this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage8.Size = new System.Drawing.Size(1267, 626);
+            this.tabPage8.Size = new System.Drawing.Size(1293, 652);
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "Manage Customer";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1272,7 +1293,7 @@
             this.tabPage9.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage9.Size = new System.Drawing.Size(1267, 626);
+            this.tabPage9.Size = new System.Drawing.Size(1293, 652);
             this.tabPage9.TabIndex = 3;
             this.tabPage9.Text = "  Manage Supply";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1708,26 +1729,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
-            // 
-            // btnUpdate_PG
-            // 
-            this.btnUpdate_PG.AutoRoundedCorners = true;
-            this.btnUpdate_PG.BorderRadius = 20;
-            this.btnUpdate_PG.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnUpdate_PG.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnUpdate_PG.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnUpdate_PG.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnUpdate_PG.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.btnUpdate_PG.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnUpdate_PG.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate_PG.Location = new System.Drawing.Point(496, 559);
-            this.btnUpdate_PG.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpdate_PG.Name = "btnUpdate_PG";
-            this.btnUpdate_PG.Size = new System.Drawing.Size(129, 43);
-            this.btnUpdate_PG.TabIndex = 45;
-            this.btnUpdate_PG.Text = "Update";
-            this.btnUpdate_PG.UseTransparentBackground = true;
-            this.btnUpdate_PG.Click += new System.EventHandler(this.btnUpdate_PG_Click);
             // 
             // ManageForm
             // 

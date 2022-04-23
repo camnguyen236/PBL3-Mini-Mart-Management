@@ -386,7 +386,7 @@
             this.btnAdd_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnAdd_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd_PD.ForeColor = System.Drawing.Color.White;
-            this.btnAdd_PD.Location = new System.Drawing.Point(838, 573);
+            this.btnAdd_PD.Location = new System.Drawing.Point(840, 524);
             this.btnAdd_PD.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd_PD.Name = "btnAdd_PD";
             this.btnAdd_PD.Size = new System.Drawing.Size(141, 41);
@@ -405,7 +405,7 @@
             this.btnCancel_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnCancel_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel_PD.ForeColor = System.Drawing.Color.White;
-            this.btnCancel_PD.Location = new System.Drawing.Point(679, 573);
+            this.btnCancel_PD.Location = new System.Drawing.Point(679, 524);
             this.btnCancel_PD.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel_PD.Name = "btnCancel_PD";
             this.btnCancel_PD.Size = new System.Drawing.Size(141, 41);
