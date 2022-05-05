@@ -39,6 +39,7 @@ namespace GUI
                 default:
                     //MessageBox.Show("Login Successed!");
                     MainForm mf = new MainForm();
+                    mf.cur_login = this;
                     //mf.load_data(txtUsername.Text);
                     string rs = txtUsername.Text + " / " + AccountBLL.Instance.getRole();
                     mf.mName(rs);
@@ -61,6 +62,11 @@ namespace GUI
         {
             ResetPassword rs = new ResetPassword();
             rs.ShowDialog();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
