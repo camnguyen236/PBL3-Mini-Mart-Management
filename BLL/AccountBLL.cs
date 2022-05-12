@@ -44,6 +44,10 @@ namespace BLL
         {
             return DataProvider.Instance.getRole();
         }
+        public int getID()
+        {
+            return DataProvider.Instance.getId();
+        }
         public DataTable getAccount()
         {
             return AccountAccess.Instance.GetRecords();

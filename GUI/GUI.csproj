@@ -45,6 +45,24 @@
     <Reference Include="Guna.UI2, Version=2.0.3.2, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.3.2\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -75,6 +93,43 @@
     </Compile>
     <Compile Include="AddSupply.Designer.cs">
       <DependentUpon>AddSupply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailPaymentBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailPaymentBill.Designer.cs">
+      <DependentUpon>DetailPaymentBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportHistory.Designer.cs">
+      <DependentUpon>ImportHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InformationDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InformationDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InformationDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InformationDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InformationDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InformationDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InformationDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InformationDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InformationDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InformationDataSet4.xsd</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -114,6 +169,7 @@
     <Compile Include="ResetPassword.Designer.cs">
       <DependentUpon>ResetPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Systems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +184,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddSupply.resx">
       <DependentUpon>AddSupply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailPaymentBill.resx">
+      <DependentUpon>DetailPaymentBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportHistory.resx">
+      <DependentUpon>ImportHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -154,6 +216,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="DetailPaymentBill.rdlc" />
     <EmbeddedResource Include="ResetPassword.resx">
       <DependentUpon>ResetPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +224,61 @@
       <DependentUpon>Systems.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="InformationDataSet.xsc">
+      <DependentUpon>InformationDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="InformationDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InformationDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InformationDataSet.xss">
+      <DependentUpon>InformationDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="InformationDataSet1.xsc">
+      <DependentUpon>InformationDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="InformationDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InformationDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InformationDataSet1.xss">
+      <DependentUpon>InformationDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="InformationDataSet2.xsc">
+      <DependentUpon>InformationDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="InformationDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InformationDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InformationDataSet2.xss">
+      <DependentUpon>InformationDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="InformationDataSet3.xsc">
+      <DependentUpon>InformationDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="InformationDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InformationDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InformationDataSet3.xss">
+      <DependentUpon>InformationDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="InformationDataSet4.xsc">
+      <DependentUpon>InformationDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="InformationDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InformationDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InformationDataSet4.xss">
+      <DependentUpon>InformationDataSet4.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -242,6 +360,49 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\276083674_519869799660137_7430631639578656072_n %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4e992acf6bcaa594fcdb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\383-3839600_download-svg-download-png-ikon-note-transparent-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1200px-New_Document_Icon.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-symbol-green-logo-new-file-logo-application-stock-photography-thumbnail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floppy-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-icon-2375785_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Recycle-Bin-PNG-Cutout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\viewer-icon-12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\84bad9491f2720a4ebe17fedf3690f19.jpg" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

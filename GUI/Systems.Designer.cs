@@ -138,6 +138,7 @@
             this.cbbAccount.Name = "cbbAccount";
             this.cbbAccount.Size = new System.Drawing.Size(140, 36);
             this.cbbAccount.TabIndex = 16;
+            this.cbbAccount.SelectedIndexChanged += new System.EventHandler(this.cbbAccount_SelectedIndexChanged);
             // 
             // label3
             // 

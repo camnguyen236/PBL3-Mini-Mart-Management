@@ -42,6 +42,7 @@ namespace DAL
         }
 
         public string role;
+        public int id;
         public string checkLoginDTO(Account account, string query = null)
         {
             
@@ -62,6 +63,7 @@ namespace DAL
                 {
                     user = reader.GetString(1);
                     role = reader.GetString(8);
+                    id = reader.GetInt32(0);
                 }
                 reader.Close();
                 cnt.Close();
@@ -74,6 +76,10 @@ namespace DAL
         public string getRole()
         {
             return role;
+        }
+        public int getId()
+        {
+            return id;
         }
         //để thực hiện update, delete
         public bool ExcuteDB(string query)
