@@ -14,13 +14,19 @@ namespace GUI
 {
     public partial class MainForm : Form
     {
+        public Login cur_login;
         public delegate void MyDelName(string s);
         public MyDelName mName;
+        
         public MainForm()
         {
             InitializeComponent();
+            
             mName = new MyDelName(show);
             btnSystem.Enabled = AccountBLL.Instance.checkRole("Admin");
+
+            pnAccountDropDown.Hide();
+            pnAccountDropDown.Size = pnAccountDropDown.MinimumSize;
         }
         public void load_data(string str)
         {
@@ -45,5 +51,52 @@ namespace GUI
             s.ShowDialog();
         }
 
+
+        private bool isCollapsed=true;//check collap
+        //bấm zô cái avatar
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (isCollapsed)
+            {
+                pnAccountDropDown.Show();
+                pnAccountDropDown.Height += 50;
+                if (pnAccountDropDown.Size == pnAccountDropDown.MaximumSize)
+                {
+                    timer1.Stop();
+                    isCollapsed = false;
+                }
+            }
+            else
+            {
+                
+                pnAccountDropDown.Height -= 50;
+                if (pnAccountDropDown.Size == pnAccountDropDown.MinimumSize)
+                {
+                    timer1.Stop();
+                    isCollapsed = true;
+                }
+                pnAccountDropDown.Hide();
+            }
+        }
+
+        private void ptAvatar_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+        private void btnSignout_MouseHover(object sender, EventArgs e)
+        {
+            btnSignout.BackColor = Color.FromArgb(192, 0, 0);
+        }
+        private void btnSignout_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnSignout_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
+            Login login = new Login();
+            login.ShowDialog();
+        }
     }
 }
