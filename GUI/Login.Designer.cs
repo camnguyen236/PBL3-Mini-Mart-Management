@@ -75,7 +75,7 @@
             this.txtUsername.ForeColor = System.Drawing.Color.DimGray;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.Location = new System.Drawing.Point(91, 249);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.PlaceholderForeColor = System.Drawing.Color.DarkGray;
@@ -83,6 +83,9 @@
             this.txtUsername.SelectedText = "";
             this.txtUsername.Size = new System.Drawing.Size(321, 44);
             this.txtUsername.TabIndex = 5;
+            this.txtUsername.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtUsername_DragEnter);
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // txtPassword
             // 
@@ -99,7 +102,7 @@
             this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.Location = new System.Drawing.Point(91, 332);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.PlaceholderForeColor = System.Drawing.Color.DarkGray;
@@ -108,6 +111,7 @@
             this.txtPassword.Size = new System.Drawing.Size(321, 44);
             this.txtPassword.TabIndex = 6;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // btnLogin
             // 
@@ -121,7 +125,7 @@
             this.btnLogin.Font = new System.Drawing.Font("Calibri", 11.25F);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(160, 420);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(177, 43);
             this.btnLogin.TabIndex = 7;
@@ -135,7 +139,7 @@
             this.cb1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.cb1.Location = new System.Drawing.Point(273, 391);
-            this.cb1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb1.Margin = new System.Windows.Forms.Padding(4);
             this.cb1.Name = "cb1";
             this.cb1.Size = new System.Drawing.Size(121, 21);
             this.cb1.TabIndex = 12;
@@ -162,7 +166,7 @@
             this.guna2PictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox5.ImageRotate = 0F;
             this.guna2PictureBox5.Location = new System.Drawing.Point(0, 503);
-            this.guna2PictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2PictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.guna2PictureBox5.Name = "guna2PictureBox5";
             this.guna2PictureBox5.Size = new System.Drawing.Size(977, 12);
             this.guna2PictureBox5.TabIndex = 18;
@@ -174,7 +178,7 @@
             this.guna2PictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox4.ImageRotate = 0F;
             this.guna2PictureBox4.Location = new System.Drawing.Point(0, -9);
-            this.guna2PictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2PictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.guna2PictureBox4.Name = "guna2PictureBox4";
             this.guna2PictureBox4.Size = new System.Drawing.Size(977, 12);
             this.guna2PictureBox4.TabIndex = 17;
@@ -186,7 +190,7 @@
             this.guna2PictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox3.ImageRotate = 0F;
             this.guna2PictureBox3.Location = new System.Drawing.Point(1, 501);
-            this.guna2PictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2PictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.guna2PictureBox3.Name = "guna2PictureBox3";
             this.guna2PictureBox3.Size = new System.Drawing.Size(977, 12);
             this.guna2PictureBox3.TabIndex = 16;
@@ -198,7 +202,7 @@
             this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox2.ImageRotate = 0F;
             this.guna2PictureBox2.Location = new System.Drawing.Point(0, -6);
-            this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.Size = new System.Drawing.Size(977, 12);
             this.guna2PictureBox2.TabIndex = 15;
@@ -211,7 +215,7 @@
             this.guna2PictureBox1.Image = global::GUI.Properties.Resources.loginGif;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(135, 80);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(237, 161);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -223,7 +227,7 @@
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.login1;
             this.pictureBox1.Location = new System.Drawing.Point(521, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(443, 505);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -249,7 +253,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Login";
             this.TransparencyKey = System.Drawing.Color.WhiteSmoke;

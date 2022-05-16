@@ -68,5 +68,35 @@ namespace GUI
         {
 
         }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+        }
+
+        private void txtUsername_DragEnter(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (this.GetNextControl(ActiveControl, true) != null)
+                {
+                    e.Handled = true;
+                    this.GetNextControl(ActiveControl, true).Focus();
+                }
+            }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
     }
 }
