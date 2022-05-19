@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DTO;
+using Product_Library;
 
 namespace GUI
 {
     public partial class ManageForm : Form
     {
         public string rs;
-        public ManageForm()
+        Account acc;
+        public ManageForm(Account acc)
         {
             InitializeComponent();
+            this.acc = acc;
             //account
             addCbSearch();
             //catalories
@@ -25,9 +29,14 @@ namespace GUI
             addCbSearchProduct();
             //ImportProduct
             //setCBBID_IP();
+
             setCBBName_Supply();
             setCBBID_Products();
             setCBBDiscount();
+
+            addTab();
+            ViewCart();
+            showDgvSH();
         }
         private void Reset()
         {
@@ -60,7 +69,7 @@ namespace GUI
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            MainForm mf2 = new MainForm();
+            MainForm mf2 = new MainForm(acc);
             this.Hide();
             mf2.mName(rs);
             mf2.ShowDialog();
@@ -348,8 +357,9 @@ namespace GUI
         }
         private void dgv2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int i = dgv2.CurrentRow.Index;
-            selectIDProduct = dgv2.Rows[i].Cells[0].Value.ToString();
+            DataGridView dgv = (DataGridView)sender;
+            int i = dgv.CurrentRow.Index;
+            selectIDProduct = dgv.Rows[i].Cells[0].Value.ToString();
         }
 
         private void cbProductsGroups_SelectedIndexChanged(object sender, EventArgs e)
@@ -387,10 +397,11 @@ namespace GUI
 
         private void dgv2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int i = dgv2.CurrentRow.Index;
-            string id = dgv2.Rows[i].Cells["ID_P"].Value.ToString();
+            DataGridView dgv = sender as DataGridView;
+            int i = dgv.CurrentRow.Index;
+            string id = dgv.Rows[i].Cells["ID_P"].Value.ToString();
             ProductDetails pd = new ProductDetails(id);
-            //deleget
+            //delegate
             pd.d = new ProductDetails.MyDel(ShowAllProduct);
             pd.Show();
         }
@@ -412,16 +423,6 @@ namespace GUI
             //deleget
             pd.d = new ProductDetails.MyDel(ShowAllProduct);
             pd.Show();
-        }
-
-        private void btnBackProduct_Click(object sender, EventArgs e)
-        {
-            MainForm mf2 = new MainForm();
-            this.Hide();
-            mf2.mName(rs);
-            mf2.ShowDialog();
-
-            this.Close();
         }
 
         //Tab Import Product
@@ -686,6 +687,263 @@ namespace GUI
 
             }
             return totalall;
+        }
+
+        //selling product 
+        List<Tuple<int, int>> productArray;
+        UserControl1 products;
+        double Total;
+        private UserControl1 populateItems(UserControl1 uc, string groupName, int i)
+        {
+            DataRow dc;
+            if (!groupName.Equals("All products")) dc = Product_BLL.Instance.getAllProductsByGroupName(groupName).Rows[i];
+            else dc = Product_BLL.Instance.getAllProducts().Rows[i];
+
+            uc = new UserControl1(Convert.ToInt32(dc["ID_P"].ToString()));
+            uc.AddToCard_Click += new UserControl1.AddToCard_ClickHandler(addToCard_Click);
+
+            Byte[] data = new Byte[0];
+            data = (Byte[])(dc["IMG_P"]);
+            MemoryStream mem = new MemoryStream(data);
+            uc.Picture = Image.FromStream(mem);
+
+            uc.Name = dc["Name_P"].ToString();
+            uc.Price = "Price: " + dc["Price_P"].ToString();
+            uc.Unit = "Unit: " + dc["Unit_P"].ToString();
+            uc.Number = 0;
+            return uc;
+        }
+
+        void addToCard_Click(object sender, EventArgs e)
+        {
+            txtTotal.Text = "";
+            UserControl1 us = (UserControl1)sender;
+            if (us.Number <= 0)
+            {
+                MessageBox.Show("Please enter the quantity");
+                return;
+            }
+            MessageBox.Show("Add successful");
+            productArray.Add(new Tuple<int, int>(us.Id_p, us.Number));
+            viewCart();
+            us.Number = 0;
+        }
+
+        private void addItems(FlowLayoutPanel fl, string groupName)
+        {
+            productArray = new List<Tuple<int, int>>();
+            int numOfProduct;
+            if (groupName.Equals("All products")) numOfProduct = Product_BLL.Instance.getAllProducts().Rows.Count;
+            else numOfProduct = Product_BLL.Instance.getAllProductsByGroupName(groupName).Rows.Count;
+            fl.Controls.Clear();
+            for (int i = 0; i < numOfProduct; i++)
+            {
+                products = populateItems(products, groupName, i);
+                fl.Controls.Add(products);
+            }
+        }
+
+        private void createTab(TabPage myTabPage, string product)
+        {
+            tabControlSellP.TabPages.Add(myTabPage);
+            myTabPage.Text = product;
+
+            FlowLayoutPanel fl_panel = new FlowLayoutPanel();
+            myTabPage.Controls.Add(fl_panel);
+            fl_panel.AutoScroll = true;
+            fl_panel.BackgroundImage = global::GUI.Properties.Resources._277293806_1451411541982748_8799551172936554219_n__1_;
+            fl_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            fl_panel.Location = new System.Drawing.Point(0, 0);
+            fl_panel.Name = "flowLayoutPanel";
+            fl_panel.Size = new System.Drawing.Size(908, 508);
+            addItems(fl_panel, product);
+        }
+
+        private void addTab()
+        {
+            TabPage myTabPage = new TabPage("tpAllProducts");
+            createTab(myTabPage, "All products");
+            List<string> listProductsGroups = ProductGroups_BLL.Instance.getProductGroups().Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Name_PG")).ToList();
+            for (int i = 0; i < listProductsGroups.Count; i++)
+            {
+                myTabPage = new TabPage("tp" + listProductsGroups[i]);
+                createTab(myTabPage, listProductsGroups[i]);
+            }
+        }
+
+        private void updateTP(TabPage tp, string productGroup)
+        {
+            if (tp.Name.Equals("tpAllProducts") || tp.Name.Equals("tp" + productGroup))
+            {
+                while (tp.Controls.Count > 0) tp.Controls[0].Dispose();
+                createTab(tp, productGroup);
+            }
+        }
+
+        private void viewCart()
+        {
+            Total = 0;
+            DataTable dt = new DataTable();
+            dt.Columns.AddRange(new DataColumn[]
+            {
+                new DataColumn(columnName: "ID_P", dataType: typeof (int)),
+                new DataColumn(columnName: "Name_PG", dataType: typeof (string)),
+                new DataColumn(columnName: "Name_P", dataType: typeof(string)),
+                new DataColumn(columnName: "Unit_P", dataType: typeof(string)),
+                new DataColumn(columnName: "Price_P", dataType: typeof(string)),
+                new DataColumn(columnName: "VAT", dataType: typeof(string)),
+                new DataColumn(columnName: "VAT_Inclusive_P", dataType: typeof(int)),
+                new DataColumn(columnName: "Number", dataType: typeof(int))
+            });
+            for (int i = 0; i < productArray.Count; i++)
+            {
+                DataRow dr = Product_BLL.Instance.getProductByID(productArray[i].Item1);
+                DataRow row1 = dt.NewRow();
+                row1["ID_P"] = dr["ID_P"];
+                row1["Name_PG"] = dr["Name_PG"];
+                row1["Name_P"] = dr["Name_P"];
+                row1["Unit_P"] = dr["Unit_P"];
+                row1["Price_P"] = dr["Price_P"];
+                row1["VAT"] = dr["VAT"];
+                row1["VAT_Inclusive_P"] = dr["VAT_Inclusive_P"];
+                row1["number"] = productArray[i].Item2;
+                dt.Rows.Add(row1);
+                Total += Convert.ToInt32(dr["VAT_Inclusive_P"]) * productArray[i].Item2;
+            }
+            dgvCart.DataSource = dt;
+            dgvCart.Columns[0].HeaderText = "ID Product";
+            dgvCart.Columns[1].HeaderText = "Product Categories";
+            dgvCart.Columns[2].HeaderText = "Product's name";
+            dgvCart.Columns[3].HeaderText = "Unit";
+            dgvCart.Columns[4].HeaderText = "Price";
+            dgvCart.Columns[5].HeaderText = "VAT(%)";
+            dgvCart.Columns[6].HeaderText = "Amount";
+            dgvCart.Columns[7].HeaderText = "Number";
+            txtTotalProduct.Text = Total.ToString();
+        }
+        private void ViewCart()
+        {
+
+
+            //DataTable dt = new DataTable();
+            //dt.Columns.AddRange(new DataColumn[]
+            //{
+            //    new DataColumn(columnName: "ID_P", dataType: typeof (string)),
+            //    new DataColumn(columnName: "Name_PG", dataType: typeof (string)),
+            //    new DataColumn(columnName: "Name_P", dataType: typeof(string)),
+            //    new DataColumn(columnName: "Unit_P", dataType: typeof(string)),
+            //    new DataColumn(columnName: "Price_P", dataType: typeof(string)),
+            //    new DataColumn(columnName: "VAT", dataType: typeof(string)),
+            //    new DataColumn(columnName: "VAT_Inclusive_P", dataType: typeof(string)),
+            //    new DataColumn(columnName: "Number", dataType: typeof(int))
+            //});
+            //dgvCart.DataSource = dt;
+        }
+
+        private void btnDelProduct_Click(object sender, EventArgs e)
+        {
+            DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dl == DialogResult.OK)
+            {
+                var it = productArray.Single(productArray => productArray.Item1 == Convert.ToInt32(selectIDProduct));
+                productArray.Remove(it);
+                viewCart();
+            }
+            else if (dl == DialogResult.Cancel)
+            {
+                //sthis.Close();
+            }
+
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            if (txtNameCustomer.Text.Equals(""))
+            {
+                MessageBox.Show("Please enter customer information");
+                return;
+            }
+            Invoice inv = new Invoice
+            {
+                ID = acc.ID,
+                ID_Customer = Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text).ID_Customer,
+                Invoice_Date = DateTime.Now
+            };
+            Invoice_BLL.Instance.ExcuteDB(inv, "Add");
+            int id = Convert.ToInt32(Invoice_BLL.Instance.getInvoice().Rows[Invoice_BLL.Instance.getInvoice().Rows.Count - 1]["ID_Invoice"].ToString());
+            for (int i = 0; i < productArray.Count; i++)
+            {
+                InvoiceDetail ind = new InvoiceDetail
+                {
+                    ID_Invoice = id,
+                    ID_P = productArray[i].Item1,
+                    Unit_Price = Convert.ToInt32(Product_BLL.Instance.getProductByID(productArray[i].Item1)["VAT_Inclusive_P"].ToString()),
+                    Quantity = productArray[i].Item2
+                };
+                InvoiceDetail_BLL.Instance.ExcuteDB(ind, "Add");
+            }
+            showDgvSH();
+            MessageBox.Show("Payment successful");
+            btnRefresh.PerformClick();
+        }
+
+        private void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            AddCustomer ad = new AddCustomer();
+            ad.d = new AddCustomer.Mydel(Show_Customer);
+            ad.ShowDialog();
+        }
+
+        private void txtCustomerPhoneNum_TextChanged(object sender, EventArgs e)
+        {
+            if (AccountBLL.Instance.checkPhoneNumber(txtCustomerPhoneNum.Text))
+            {
+                if (Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text) != null)
+                {
+                    txtNameCustomer.Text = Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text).Name_Customer;
+                }
+                else
+                {
+                    MessageBox.Show("This account does not exist, please re-enter");
+                }
+            }
+        }
+        private void showDgvSH()
+        {
+            dgvInvoice.DataSource = Invoice_BLL.Instance.getInvoiceView();
+            dgvInvoice.Columns[0].HeaderText = "ID Invoice";
+            dgvInvoice.Columns[1].HeaderText = "Staff's name";
+            dgvInvoice.Columns[2].HeaderText = "Customer name";
+            dgvInvoice.Columns[3].HeaderText = "Date";
+        }
+
+        private void dgvInvoice_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = dgvInvoice.CurrentRow.Index;
+            string id = dgvInvoice.Rows[i].Cells["ID_Invoice"].Value.ToString();
+            dgvDetailInvoice.DataSource = InvoiceDetail_BLL.Instance.getInvoiceDetailView(Convert.ToInt32(id));
+            txtTotalDI.Text = InvoiceDetail_BLL.Instance.getTotal(Convert.ToInt32(id)).ToString();
+
+            dgvDetailInvoice.Columns[0].HeaderText = "Product's name";
+            dgvDetailInvoice.Columns[1].HeaderText = "Product Category";
+            dgvDetailInvoice.Columns[2].HeaderText = "Unit";
+            dgvDetailInvoice.Columns[3].HeaderText = "Unit Price";
+            dgvDetailInvoice.Columns[4].HeaderText = "Quantity";
+            dgvDetailInvoice.Columns[5].HeaderText = "Amount";
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            List<int> ls = new List<int>();
+            dgvCart.DataSource = ls;
+            txtCustomerPhoneNum.Text = "";
+            txtTotalProduct.Text = "";
+            txtNameCustomer.Text = "";
+        }
+
+        private void txtSearchSH_TextChanged(object sender, EventArgs e)
+        {
+            dgvInvoice.DataSource = Invoice_BLL.Instance.GetInvoiceByDate(txtSearchSH.Text);
         }
     }
 }

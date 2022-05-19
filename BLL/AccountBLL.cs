@@ -36,17 +36,13 @@ namespace BLL
         {
             //kiểm tra nghiệp vụ
             if (account.US.Trim() == "") return "Please fill in username information!";
-            if (account.PW.Trim() =="") return "Please fill in passwork information!";
+            if (account.PW.Trim() == "") return "Please fill in passwork information!";
             string inf = AccountAccess.Instance.checkLogin(account);
             return inf;
         }
         public string getRole()
         {
             return DataProvider.Instance.getRole();
-        }
-        public int getID()
-        {
-            return DataProvider.Instance.getId();
         }
         public DataTable getAccount()
         {
@@ -148,9 +144,24 @@ namespace BLL
         }
         public bool checkRole(string s)
         {
-            if(DataProvider.Instance.getRole().Equals(s))
-            return true;
+            if (DataProvider.Instance.getRole().Equals(s))
+                return true;
             return false;
+        }
+        public Account getAccountByUS(string US)
+        {
+            foreach (Account i in AccountAccess.Instance.GetAllAccount())
+            {
+                if (US == i.US)
+                {
+                    return i;
+                }
+            }
+            return null;
+        }
+        public int getID()
+        {
+            return DataProvider.Instance.getId();
         }
     }
 }

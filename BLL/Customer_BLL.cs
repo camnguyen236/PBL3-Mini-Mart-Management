@@ -54,5 +54,17 @@ namespace BLL
                 return;
             }
         }
+
+        public Customer getCustomerByPhoneNum(string phoneNum)
+        {
+            foreach (Customer i in Customer_DAL.Instance.GetAllCustomer())
+            {
+                if (phoneNum == i.PhoneNumber_Customer)
+                {
+                    return i;
+                }
+            }
+            return null;
+        }
     }
 }

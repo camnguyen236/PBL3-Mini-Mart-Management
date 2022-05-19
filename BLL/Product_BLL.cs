@@ -43,8 +43,6 @@ namespace BLL
             return Product_DAL.Instance.getProductsByOption(groupName, name, option);
         }
 
-
-        
         public void ExcuteDB(Product product, string id_product = null) //update, delete, add
         {
             if (id_product == null)
@@ -63,6 +61,33 @@ namespace BLL
                 Product_DAL.Instance.addProduct(product);
                 return;
             }
+        }
+
+        public DataTable getAllProductsByGroupName(string groupName)
+        {
+            return Product_DAL.Instance.getAllProductsByGroupName(groupName);
+        }
+
+        public DataTable getAllProducts()
+        {
+            return Product_DAL.Instance.GetAllRecords();
+        }
+
+        public DataRow getProductByID(int id)
+        {
+            DataRow dr = Product_DAL.Instance.getProductByID(id.ToString()).Rows[0];
+            return dr;
+            //return new Product
+            //{
+            //    ID_P = Convert.ToInt32(dr["ID_P"].ToString()),
+            //    ID_PG = dr["ID_PG"].ToString(),
+            //    Name_P = dr["Name_P"].ToString(),
+            //    Unit_P = dr["Unit_P"].ToString(),
+            //    Price_P = dr["Price_P"].ToString(),
+            //    VAT = dr["VAT"].ToString(),
+            //    VATInclusive_P = Convert.ToInt32(dr["VAT_Inclusive_P"].ToString()),
+            //    IMG_P = null
+            //};
         }
     }
 }

@@ -38,7 +38,7 @@ namespace DAL
             }
             //end hashing: password after hash is hashPassStr
             string query = "select * from Inf_user where US= '" + account.US + "'and PW ='" + hashPassStr + "'";
-            string inf = DataProvider.Instance.checkLoginDTO(account,query); 
+            string inf = DataProvider.Instance.checkLoginDTO(account, query);
             return inf;
         }
         public DataTable GetRecords()
@@ -46,6 +46,32 @@ namespace DAL
             string query = "select ID,US,Name,Birthday,Adress,PhoneNumber,Position,Email from Inf_user";
             accounts = DataProvider.Instance.GetRecords(query);
             return accounts;
+        }
+
+        public List<Account> GetAllAccount()
+        {
+            List<Account> list = new List<Account>();
+            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from Inf_user").Rows)
+            {
+                list.Add(GetAccountByDataRow(i));
+            }
+            return list;
+        }
+        public Account GetAccountByDataRow(DataRow i)
+        {
+            return new Account
+            {
+                ID = Convert.ToInt32(i["ID"].ToString()),
+                US = i["US"].ToString(),
+                PW = i["PW"].ToString(),
+                Name = i["Name"].ToString(),
+                Gender = i["Gender"].ToString(),
+                Birthday = Convert.ToDateTime(i["Birthday"].ToString()),
+                Adress = i["Adress"].ToString(),
+                PhoneNumber = i["PhoneNumber"].ToString(),
+                Position = i["Position"].ToString(),
+                Email = i["Email"].ToString()
+            };
         }
         public DataTable GetAccountsByOption(string name, string option)
         {
@@ -78,14 +104,14 @@ namespace DAL
         {
             string query = "insert into Inf_user(US,PW,Name,Gender,Birthday,Adress,PhoneNumber,Position,Email) " +
                     "values ('" + account.US + "','" + account.PW + "',N'" + account.Name + "','" + account.Gender + "','" +
-                    account.Birthday+ "',N'" + account.Adress + "','" + account.PhoneNumber + "','" + account.Position + "','" + account.Email + "')";
+                    account.Birthday + "',N'" + account.Adress + "','" + account.PhoneNumber + "','" + account.Position + "','" + account.Email + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public List<string> getAllUsername()
         {
             List<string> data = new List<string>();
             string query = "select US from Inf_user";
-            foreach(DataRow i in DataProvider.Instance.GetRecords(query).Rows)
+            foreach (DataRow i in DataProvider.Instance.GetRecords(query).Rows)
             {
                 data.Add(i["US"].ToString());
             }

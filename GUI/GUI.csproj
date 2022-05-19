@@ -63,6 +63,12 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="MyLibrary">
+      <HintPath>..\..\LT.NET\WindowsForms_Demo1\FormDelegate\MyLibrary\bin\Debug\MyLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Product_Library">
+      <HintPath>..\Product_Library\bin\Debug\Product_Library.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -298,10 +304,6 @@
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{19d2dfd8-7701-4d71-a2af-446cd02e2b72}</Project>
       <Name>DTO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PBL_3\PBL_3.csproj">
-      <Project>{bca426c3-c4d7-4ad6-9ea4-3aa69c90d42a}</Project>
-      <Name>PBL_3</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

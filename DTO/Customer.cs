@@ -14,5 +14,6 @@ namespace DTO
         public string Address_Customer { get; set; }
         public string PhoneNumber_Customer { get; set; }
         public string AccountNumber { get; set; }
+        public string TaxCode { get; set; }
     }
 }

@@ -77,6 +77,8 @@
     <Compile Include="DataProvider.cs" />
     <Compile Include="DetailImportProductDAL.cs" />
     <Compile Include="ImportProductsDAL.cs" />
+    <Compile Include="InvoiceDetail_DAL.cs" />
+    <Compile Include="Invoice_DAL.cs" />
     <Compile Include="ProductGroups_DAL.cs" />
     <Compile Include="Product_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

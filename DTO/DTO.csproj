@@ -75,6 +75,8 @@
     <Compile Include="Customer.cs" />
     <Compile Include="DetailImportProducts.cs" />
     <Compile Include="ImportProducts.cs" />
+    <Compile Include="Invoice.cs" />
+    <Compile Include="InvoiceDetail.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductGroups.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

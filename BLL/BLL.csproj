@@ -78,6 +78,8 @@
     <Compile Include="DetailImportProductBLL.cs" />
     <Compile Include="HashCode.cs" />
     <Compile Include="ImportProductsBLL.cs" />
+    <Compile Include="InvoiceDetail_BLL.cs" />
+    <Compile Include="Invoice_BLL.cs" />
     <Compile Include="ProductGroups_BLL.cs" />
     <Compile Include="Product_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

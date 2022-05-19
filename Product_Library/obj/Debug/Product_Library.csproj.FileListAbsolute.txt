@@ -1,0 +1,10 @@
+D:\code\PBL3\Product_Library\bin\Debug\Product_Library.dll
+D:\code\PBL3\Product_Library\bin\Debug\Product_Library.pdb
+D:\code\PBL3\Product_Library\bin\Debug\Guna.UI2.dll
+D:\code\PBL3\Product_Library\obj\Debug\Product_Library.csproj.AssemblyReference.cache
+D:\code\PBL3\Product_Library\obj\Debug\Product_Library.UserControl1.resources
+D:\code\PBL3\Product_Library\obj\Debug\Product_Library.csproj.GenerateResource.cache
+D:\code\PBL3\Product_Library\obj\Debug\Product_Library.csproj.CoreCompileInputs.cache
+D:\code\PBL3\Product_Library\obj\Debug\Product_Library.csproj.CopyComplete
+D:\code\PBL3\Product_Library\obj\Debug\Product_Library.dll
+D:\code\PBL3\Product_Library\obj\Debug\Product_Library.pdb

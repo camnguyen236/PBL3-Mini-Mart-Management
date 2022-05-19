@@ -31,6 +31,28 @@ namespace DAL
             customers = DataProvider.Instance.GetRecords(query);
             return customers;
         }
+        public List<Customer> GetAllCustomer()
+        {
+            List<Customer> list = new List<Customer>();
+            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from Customer").Rows)
+            {
+                list.Add(GetCustomerByDataRow(i));
+            }
+            return list;
+        }
+        public Customer GetCustomerByDataRow(DataRow i)
+        {
+            return new Customer
+            {
+                ID_Customer = Convert.ToInt32(i["ID_Customer"].ToString()),
+                Name_Customer = i["Name_Customer"].ToString(),
+                Gender_Customer = i["Gender_Customer"].ToString(),
+                PhoneNumber_Customer = i["PhoneNumber_Customer"].ToString(),
+                AccountNumber = i["AccountNumber"].ToString(),
+                Address_Customer = i["Address_Customer"].ToString(),
+                TaxCode = i["TaxCode"].ToString()
+            };
+        }
         public void addCustomer(Customer customer)
         {
             string query = "insert into Customer(Name_Customer,Gender_Customer,Address_Customer,PhoneNumber_Customer,AccountNumber) " +

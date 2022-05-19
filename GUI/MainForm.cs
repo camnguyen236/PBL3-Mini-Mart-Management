@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DTO;
 
 
 namespace GUI
@@ -17,14 +18,15 @@ namespace GUI
         public Login cur_login;
         public delegate void MyDelName(string s);
         public MyDelName mName;
-        
-        public MainForm()
+        Account mAccount;
+
+        public MainForm(Account acc)
         {
             InitializeComponent();
             
             mName = new MyDelName(show);
             btnSystem.Enabled = AccountBLL.Instance.checkRole("Admin");
-
+            mAccount = acc;
             pnAccountDropDown.Hide();
             pnAccountDropDown.Size = pnAccountDropDown.MinimumSize;
         }
@@ -39,7 +41,7 @@ namespace GUI
 
         private void btnList_Click(object sender, EventArgs e)
         {
-            ManageForm l = new ManageForm();
+            ManageForm l = new ManageForm(mAccount);
             this.Hide();
             l.rs = txtNameNV.Text;
             l.ShowDialog();
