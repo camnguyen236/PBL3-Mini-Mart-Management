@@ -34,7 +34,7 @@ namespace GUI
             setCBBID_Products();
             setCBBDiscount();
 
-            addTab();
+            //addTab();
             ViewCart();
             showDgvSH();
         }
@@ -941,9 +941,77 @@ namespace GUI
             txtNameCustomer.Text = "";
         }
 
+        private void guna2DateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbDaily_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDaily.Checked)
+            {
+                dtDaily.Enabled = rbDaily.Checked;
+                rbAnnual.Checked = false;
+                rbQuarterly.Checked = false;
+            }
+            dtQuarterly.Enabled = rbQuarterly.Checked;
+            dtAnnual.Enabled = rbAnnual.Checked;
+        }
+
+        private void rbQuarterly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbQuarterly.Checked)
+            {
+                dtQuarterly.Enabled = rbQuarterly.Checked;
+                rbAnnual.Checked = rbAnnual.Checked;
+                rbDaily.Checked = false;
+            }
+            dtAnnual.Enabled = rbAnnual.Checked;
+            dtDaily.Enabled = rbDaily.Checked;
+        }
+
+        private void rbAnnual_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbAnnual.Checked)
+            {
+                dtAnnual.Enabled = rbAnnual.Checked;
+                rbQuarterly.Checked = false;
+                rbDaily.Checked = false;
+            }
+            dtQuarterly.Enabled = rbQuarterly.Checked;
+            dtDaily.Enabled = rbDaily.Checked;
+        }
+
+        private void btnBack_TR_Click(object sender, EventArgs e)
+        {
+            MainForm mf2 = new MainForm(acc);
+            this.Hide();
+            mf2.mName(rs);
+            mf2.ShowDialog();
+        }
+
+        private void label35_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2DateTimePicker6_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TabControl1_Click(object sender, EventArgs e)
+        {
+            addTab();
+
+        }
+
         private void txtSearchSH_TextChanged(object sender, EventArgs e)
         {
             dgvInvoice.DataSource = Invoice_BLL.Instance.GetInvoiceByDate(txtSearchSH.Text);
         }
+
+        //report
+        
     }
 }
