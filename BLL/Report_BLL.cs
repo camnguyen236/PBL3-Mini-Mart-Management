@@ -39,5 +39,16 @@ namespace BLL
         {
             return Report_DAL.Instance.GetSalesReportByDate(date);
         }
+
+        //import
+        public DataTable GetImportReportByYear(DateTime date)
+        {
+            return Report_DAL.Instance.GetImportReportByYear(date);
+        }
+
+        public DataTable GetImportReportByDate(DateTime date)
+        {
+            return Report_DAL.Instance.GetImportReportByDate(date);
+        }
     }
 }

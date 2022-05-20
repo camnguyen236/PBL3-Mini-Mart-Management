@@ -54,7 +54,7 @@
             this.rbAnnual_Import_A = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbDaily_Import_A = new Guna.UI2.WinForms.Guna2RadioButton();
             this.dtpAnnualy_Import_A = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.dvgImport_A = new System.Windows.Forms.DataGridView();
             this.dtpShow_Import_A = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -83,7 +83,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2GroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgImport_A)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
@@ -356,7 +356,7 @@
             // 
             this.tabPage2.Controls.Add(this.guna2PictureBox2);
             this.tabPage2.Controls.Add(this.guna2GroupBox2);
-            this.tabPage2.Controls.Add(this.dataGridView6);
+            this.tabPage2.Controls.Add(this.dvgImport_A);
             this.tabPage2.Controls.Add(this.dtpShow_Import_A);
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
@@ -534,16 +534,16 @@
             this.dtpAnnualy_Import_A.TabIndex = 15;
             this.dtpAnnualy_Import_A.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
             // 
-            // dataGridView6
+            // dvgImport_A
             // 
-            this.dataGridView6.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Location = new System.Drawing.Point(145, 27);
-            this.dataGridView6.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.RowHeadersWidth = 51;
-            this.dataGridView6.Size = new System.Drawing.Size(1169, 295);
-            this.dataGridView6.TabIndex = 23;
+            this.dvgImport_A.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dvgImport_A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgImport_A.Location = new System.Drawing.Point(145, 27);
+            this.dvgImport_A.Margin = new System.Windows.Forms.Padding(4);
+            this.dvgImport_A.Name = "dvgImport_A";
+            this.dvgImport_A.RowHeadersWidth = 51;
+            this.dvgImport_A.Size = new System.Drawing.Size(1169, 295);
+            this.dvgImport_A.TabIndex = 23;
             // 
             // dtpShow_Import_A
             // 
@@ -814,7 +814,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.guna2GroupBox2.ResumeLayout(false);
             this.guna2GroupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgImport_A)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
@@ -861,7 +861,7 @@
         private Guna.UI2.WinForms.Guna2RadioButton rbAnnual_Import_A;
         private Guna.UI2.WinForms.Guna2RadioButton rbDaily_Import_A;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpAnnualy_Import_A;
-        private System.Windows.Forms.DataGridView dataGridView6;
+        private System.Windows.Forms.DataGridView dvgImport_A;
         private Guna.UI2.WinForms.Guna2Button dtpShow_Import_A;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

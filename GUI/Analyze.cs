@@ -67,22 +67,22 @@ namespace GUI
 
         private void dtpShow_Import_A_Click(object sender, EventArgs e)
         {
-
+            showImportReport();
         }
         public void showImportReport()
         {
-            if (rbDaily_Sales.Checked || rbAnnual_Sales.Checked || rbQuarterly_Sales.Checked)
+            if (rbDaily_Import_A.Checked || rbAnnual_Import_A.Checked || rbQuarterly_Sales.Checked)
             {
-                if (rbDaily_Sales.Checked)
+                if (rbDaily_Import_A.Checked)
                 {
-                    dvgSales_A.DataSource = Report_BLL.Instance.GetSalesReportByDate(dtpDaily_Sales_A.Value);
-                    lbTotalRevenue.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByDate(dtpDaily_Sales_A.Value)).ToString() + " VND";
+                    dvgImport_A.DataSource = Report_BLL.Instance.GetImportReportByYear(dtpDaily_Import_A.Value);
+                    lbTotalCost_Import_A.Text = totalCost(Report_BLL.Instance.GetImportReportByYear(dtpDaily_Import_A.Value)).ToString() + " VND";
                 }
-                if (rbAnnual_Sales.Checked)
+                if (rbAnnual_Import_A.Checked)
                 {
-                    dvgSales_A.DataSource = Report_BLL.Instance.GetSalesReportByYear(dtpSales_Year_A.Value);
-                    lbTotalRevenue.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByYear(dtpSales_Year_A.Value)).ToString() + " VND";
-
+                    dvgImport_A.DataSource = Report_BLL.Instance.GetImportReportByYear(dtpAnnualy_Import_A.Value);
+                    lbTotalCost_Import_A.Text = totalCost(Report_BLL.Instance.GetImportReportByYear(dtpAnnualy_Import_A.Value)).ToString() + " VND";
+                    
                 }
                 if (rbQuarterly_Sales.Checked)
                 {
@@ -104,7 +104,7 @@ namespace GUI
             int n = 0;
             foreach (DataRow i in dt.Rows)
             {
-                s += Convert.ToInt32(dt.Rows[n]["Amount"]);
+                s += Convert.ToInt32(dt.Rows[n]["Total"]);
                 n++;
             }
             return s;

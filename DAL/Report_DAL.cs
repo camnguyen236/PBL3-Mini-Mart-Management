@@ -46,5 +46,26 @@ namespace DAL
             report = DataProvider.Instance.GetRecords(query);
             return report;
         }
+
+        //import
+        public DataTable GetImportReportByYear(DateTime date)
+        {
+            string query = "select Products.Name_P, Products.Unit_P,  DetailImportProduct.Amount_IP, DetailImportProduct.Amount_Price, DetailImportProduct.Total from(( ImportProduct" +
+                " inner join DetailImportProduct" +
+                $" on ImportProduct.ID_IP= ImportProduct.ID_IP and year(ImportProduct.Date_Import)='{date.Year}') " +
+                "inner join Products on DetailImportProduct.ID_P=Products.ID_P)";
+            report = DataProvider.Instance.GetRecords(query);
+            return report;
+        }
+
+        public DataTable GetImportReportByDate(DateTime date)
+        {
+            string query = "select Products.Name_P, Products.Unit_P,  DetailImportProduct.Amount_IP, DetailImportProduct.Amount_Price, DetailImportProduct.Total from(( ImportProduct" +
+                " inner join DetailImportProduct" +
+                $" on ImportProduct.ID_IP= ImportProduct.ID_IP and ImportProduct.Date_Import='{date.ToString("yyyy-MM-dd")}') " +
+                "inner join Products on DetailImportProduct.ID_P=Products.ID_P)";
+            report = DataProvider.Instance.GetRecords(query);
+            return report;
+        }
     }
 }
