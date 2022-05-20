@@ -100,6 +100,12 @@
     <Compile Include="AddSupply.Designer.cs">
       <DependentUpon>AddSupply.cs</DependentUpon>
     </Compile>
+    <Compile Include="Analyze.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Analyze.Designer.cs">
+      <DependentUpon>Analyze.cs</DependentUpon>
+    </Compile>
     <Compile Include="DetailPaymentBill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddSupply.resx">
       <DependentUpon>AddSupply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Analyze.resx">
+      <DependentUpon>Analyze.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DetailPaymentBill.resx">
       <DependentUpon>DetailPaymentBill.cs</DependentUpon>
