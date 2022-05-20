@@ -100,5 +100,11 @@ namespace GUI
             Login login = new Login();
             login.ShowDialog();
         }
+
+        private void btnAnalyze_Click(object sender, EventArgs e)
+        {
+            Analyze l = new Analyze();
+            l.ShowDialog();
+        }
     }
 }

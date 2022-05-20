@@ -83,6 +83,7 @@
     <Compile Include="ProductGroups_BLL.cs" />
     <Compile Include="Product_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report_BLL.cs" />
     <Compile Include="sendMail.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Supply_BLL.cs" />

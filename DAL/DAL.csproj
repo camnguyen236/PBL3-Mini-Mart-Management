@@ -82,6 +82,7 @@
     <Compile Include="ProductGroups_DAL.cs" />
     <Compile Include="Product_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report_DAL.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Supply_DAL.cs" />
     <Compile Include="TableImportSqlDAL.cs" />

@@ -273,3 +273,4 @@ C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\zh-CHS\Microsoft.ReportViewer.Win
 C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.DetailPaymentBill.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ImportHistory.resources
+C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.Analyze.resources

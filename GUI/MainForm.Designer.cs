@@ -108,6 +108,7 @@
             this.btnAnalyze.TabIndex = 24;
             this.btnAnalyze.Text = "Analyze";
             this.btnAnalyze.UseTransparentBackground = true;
+            this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
             // 
             // btnHelp
             // 
