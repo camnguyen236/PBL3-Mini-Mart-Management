@@ -58,18 +58,18 @@
             this.dtpShow_Import_A = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbRevenue_Profit_A = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView7 = new System.Windows.Forms.DataGridView();
+            this.lbTotalCost_Profit_A = new System.Windows.Forms.Label();
+            this.blblblb = new System.Windows.Forms.Label();
+            this.dvgSales_Profit_A = new System.Windows.Forms.DataGridView();
             this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lbProfit_A = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker11 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.dataGridView8 = new System.Windows.Forms.DataGridView();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
+            this.dtpAnnualy_Profit_A = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dvgImport_Profit_A = new System.Windows.Forms.DataGridView();
+            this.btnShow_Profit_A = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -86,9 +86,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dvgImport_A)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgSales_Profit_A)).BeginInit();
             this.guna2GroupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgImport_Profit_A)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -381,6 +381,7 @@
             this.guna2PictureBox2.TabIndex = 25;
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.UseTransparentBackground = true;
+            this.guna2PictureBox2.Click += new System.EventHandler(this.guna2PictureBox2_Click);
             // 
             // guna2GroupBox2
             // 
@@ -579,14 +580,14 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.lbRevenue_Profit_A);
             this.tabPage3.Controls.Add(this.label6);
-            this.tabPage3.Controls.Add(this.label7);
-            this.tabPage3.Controls.Add(this.label8);
-            this.tabPage3.Controls.Add(this.dataGridView7);
+            this.tabPage3.Controls.Add(this.lbTotalCost_Profit_A);
+            this.tabPage3.Controls.Add(this.blblblb);
+            this.tabPage3.Controls.Add(this.dvgSales_Profit_A);
             this.tabPage3.Controls.Add(this.guna2GroupBox3);
-            this.tabPage3.Controls.Add(this.dataGridView8);
-            this.tabPage3.Controls.Add(this.guna2Button5);
+            this.tabPage3.Controls.Add(this.dvgImport_Profit_A);
+            this.tabPage3.Controls.Add(this.btnShow_Profit_A);
             this.tabPage3.Controls.Add(this.guna2PictureBox3);
             this.tabPage3.Controls.Add(this.pictureBox3);
             this.tabPage3.Location = new System.Drawing.Point(4, 44);
@@ -598,16 +599,16 @@
             this.tabPage3.Text = "Profit";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // lbRevenue_Profit_A
             // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.label5.Location = new System.Drawing.Point(978, 323);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 16);
-            this.label5.TabIndex = 44;
-            this.label5.Text = "Total revenue";
+            this.lbRevenue_Profit_A.AutoSize = true;
+            this.lbRevenue_Profit_A.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbRevenue_Profit_A.Location = new System.Drawing.Point(978, 323);
+            this.lbRevenue_Profit_A.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbRevenue_Profit_A.Name = "lbRevenue_Profit_A";
+            this.lbRevenue_Profit_A.Size = new System.Drawing.Size(90, 16);
+            this.lbRevenue_Profit_A.TabIndex = 44;
+            this.lbRevenue_Profit_A.Text = "Total revenue";
             // 
             // label6
             // 
@@ -620,45 +621,45 @@
             this.label6.TabIndex = 42;
             this.label6.Text = "Total revenue:";
             // 
-            // label7
+            // lbTotalCost_Profit_A
             // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.label7.Location = new System.Drawing.Point(381, 323);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 16);
-            this.label7.TabIndex = 45;
-            this.label7.Text = "Total expenses";
+            this.lbTotalCost_Profit_A.AutoSize = true;
+            this.lbTotalCost_Profit_A.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbTotalCost_Profit_A.Location = new System.Drawing.Point(361, 323);
+            this.lbTotalCost_Profit_A.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTotalCost_Profit_A.Name = "lbTotalCost_Profit_A";
+            this.lbTotalCost_Profit_A.Size = new System.Drawing.Size(100, 16);
+            this.lbTotalCost_Profit_A.TabIndex = 45;
+            this.lbTotalCost_Profit_A.Text = "Total expenses";
             // 
-            // label8
+            // blblblb
             // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.label8.Location = new System.Drawing.Point(250, 323);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 16);
-            this.label8.TabIndex = 43;
-            this.label8.Text = "Total expenses:";
+            this.blblblb.AutoSize = true;
+            this.blblblb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.blblblb.Location = new System.Drawing.Point(250, 323);
+            this.blblblb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.blblblb.Name = "blblblb";
+            this.blblblb.Size = new System.Drawing.Size(71, 16);
+            this.blblblb.TabIndex = 43;
+            this.blblblb.Text = "Total Cost:";
             // 
-            // dataGridView7
+            // dvgSales_Profit_A
             // 
-            this.dataGridView7.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView7.Location = new System.Drawing.Point(735, 27);
-            this.dataGridView7.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView7.Name = "dataGridView7";
-            this.dataGridView7.RowHeadersWidth = 51;
-            this.dataGridView7.Size = new System.Drawing.Size(579, 292);
-            this.dataGridView7.TabIndex = 50;
+            this.dvgSales_Profit_A.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dvgSales_Profit_A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgSales_Profit_A.Location = new System.Drawing.Point(735, 27);
+            this.dvgSales_Profit_A.Margin = new System.Windows.Forms.Padding(4);
+            this.dvgSales_Profit_A.Name = "dvgSales_Profit_A";
+            this.dvgSales_Profit_A.RowHeadersWidth = 51;
+            this.dvgSales_Profit_A.Size = new System.Drawing.Size(579, 292);
+            this.dvgSales_Profit_A.TabIndex = 50;
             // 
             // guna2GroupBox3
             // 
             this.guna2GroupBox3.Controls.Add(this.label9);
-            this.guna2GroupBox3.Controls.Add(this.label10);
+            this.guna2GroupBox3.Controls.Add(this.lbProfit_A);
             this.guna2GroupBox3.Controls.Add(this.label11);
-            this.guna2GroupBox3.Controls.Add(this.guna2DateTimePicker11);
+            this.guna2GroupBox3.Controls.Add(this.dtpAnnualy_Profit_A);
             this.guna2GroupBox3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.guna2GroupBox3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox3.ForeColor = System.Drawing.Color.White;
@@ -680,16 +681,16 @@
             this.label9.TabIndex = 25;
             this.label9.Text = "Choose year:";
             // 
-            // label10
+            // lbProfit_A
             // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.label10.Location = new System.Drawing.Point(740, 115);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 23);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "Profit";
+            this.lbProfit_A.AutoSize = true;
+            this.lbProfit_A.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbProfit_A.Location = new System.Drawing.Point(740, 115);
+            this.lbProfit_A.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbProfit_A.Name = "lbProfit_A";
+            this.lbProfit_A.Size = new System.Drawing.Size(55, 23);
+            this.lbProfit_A.TabIndex = 24;
+            this.lbProfit_A.Text = "Profit";
             // 
             // label11
             // 
@@ -702,52 +703,53 @@
             this.label11.TabIndex = 23;
             this.label11.Text = "Profit:";
             // 
-            // guna2DateTimePicker11
+            // dtpAnnualy_Profit_A
             // 
-            this.guna2DateTimePicker11.Checked = true;
-            this.guna2DateTimePicker11.CustomFormat = "yyyy";
-            this.guna2DateTimePicker11.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(190)))));
-            this.guna2DateTimePicker11.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker11.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.guna2DateTimePicker11.Location = new System.Drawing.Point(302, 105);
-            this.guna2DateTimePicker11.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2DateTimePicker11.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker11.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker11.Name = "guna2DateTimePicker11";
-            this.guna2DateTimePicker11.ShowUpDown = true;
-            this.guna2DateTimePicker11.Size = new System.Drawing.Size(225, 33);
-            this.guna2DateTimePicker11.TabIndex = 15;
-            this.guna2DateTimePicker11.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            this.dtpAnnualy_Profit_A.Checked = true;
+            this.dtpAnnualy_Profit_A.CustomFormat = "yyyy";
+            this.dtpAnnualy_Profit_A.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(190)))));
+            this.dtpAnnualy_Profit_A.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpAnnualy_Profit_A.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpAnnualy_Profit_A.Location = new System.Drawing.Point(302, 105);
+            this.dtpAnnualy_Profit_A.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpAnnualy_Profit_A.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpAnnualy_Profit_A.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpAnnualy_Profit_A.Name = "dtpAnnualy_Profit_A";
+            this.dtpAnnualy_Profit_A.ShowUpDown = true;
+            this.dtpAnnualy_Profit_A.Size = new System.Drawing.Size(225, 33);
+            this.dtpAnnualy_Profit_A.TabIndex = 15;
+            this.dtpAnnualy_Profit_A.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
             // 
-            // dataGridView8
+            // dvgImport_Profit_A
             // 
-            this.dataGridView8.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView8.Location = new System.Drawing.Point(145, 27);
-            this.dataGridView8.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView8.Name = "dataGridView8";
-            this.dataGridView8.RowHeadersWidth = 51;
-            this.dataGridView8.Size = new System.Drawing.Size(579, 292);
-            this.dataGridView8.TabIndex = 47;
+            this.dvgImport_Profit_A.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dvgImport_Profit_A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgImport_Profit_A.Location = new System.Drawing.Point(145, 27);
+            this.dvgImport_Profit_A.Margin = new System.Windows.Forms.Padding(4);
+            this.dvgImport_Profit_A.Name = "dvgImport_Profit_A";
+            this.dvgImport_Profit_A.RowHeadersWidth = 51;
+            this.dvgImport_Profit_A.Size = new System.Drawing.Size(579, 292);
+            this.dvgImport_Profit_A.TabIndex = 47;
             // 
-            // guna2Button5
+            // btnShow_Profit_A
             // 
-            this.guna2Button5.AutoRoundedCorners = true;
-            this.guna2Button5.BorderRadius = 20;
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.guna2Button5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
-            this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.Location = new System.Drawing.Point(666, 570);
-            this.guna2Button5.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(125, 43);
-            this.guna2Button5.TabIndex = 46;
-            this.guna2Button5.Text = "Show";
-            this.guna2Button5.UseTransparentBackground = true;
+            this.btnShow_Profit_A.AutoRoundedCorners = true;
+            this.btnShow_Profit_A.BorderRadius = 20;
+            this.btnShow_Profit_A.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShow_Profit_A.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShow_Profit_A.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnShow_Profit_A.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnShow_Profit_A.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnShow_Profit_A.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnShow_Profit_A.ForeColor = System.Drawing.Color.White;
+            this.btnShow_Profit_A.Location = new System.Drawing.Point(666, 570);
+            this.btnShow_Profit_A.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShow_Profit_A.Name = "btnShow_Profit_A";
+            this.btnShow_Profit_A.Size = new System.Drawing.Size(125, 43);
+            this.btnShow_Profit_A.TabIndex = 46;
+            this.btnShow_Profit_A.Text = "Show";
+            this.btnShow_Profit_A.UseTransparentBackground = true;
+            this.btnShow_Profit_A.Click += new System.EventHandler(this.btnShow_Profit_A_Click);
             // 
             // guna2PictureBox3
             // 
@@ -818,10 +820,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgSales_Profit_A)).EndInit();
             this.guna2GroupBox3.ResumeLayout(false);
             this.guna2GroupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgImport_Profit_A)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage4.ResumeLayout(false);
@@ -863,18 +865,18 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpAnnualy_Import_A;
         private System.Windows.Forms.DataGridView dvgImport_A;
         private Guna.UI2.WinForms.Guna2Button dtpShow_Import_A;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbRevenue_Profit_A;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridView7;
+        private System.Windows.Forms.Label lbTotalCost_Profit_A;
+        private System.Windows.Forms.Label blblblb;
+        private System.Windows.Forms.DataGridView dvgSales_Profit_A;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbProfit_A;
         private System.Windows.Forms.Label label11;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker11;
-        private System.Windows.Forms.DataGridView dataGridView8;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpAnnualy_Profit_A;
+        private System.Windows.Forms.DataGridView dvgImport_Profit_A;
+        private Guna.UI2.WinForms.Guna2Button btnShow_Profit_A;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
