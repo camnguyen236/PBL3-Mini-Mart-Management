@@ -114,5 +114,29 @@ namespace DAL
             report = DataProvider.Instance.GetRecords(query);
             return report;
         }
+
+
+        //PROFIT//////////////////
+        public DataTable GetRevenueByDate(DateTime date1, DateTime date2)
+        {
+
+            string query = "select ImportProduct.Date_Import as Date, sum(DetailImportProduct.Total) as Revenue " +
+                $"from (select * from ImportProduct where Date_Import between '{date1.ToString("yyyy - MM - dd")}' and '{date2.ToString("yyyy - MM - dd")}') as ImportProduct " +
+                "left join DetailImportProduct on ImportProduct.ID_IP = DetailImportProduct.ID_IP " +
+                "group by ImportProduct.Date_Import";
+            report = DataProvider.Instance.GetRecords(query);
+            return report;
+        }
+        public DataTable GetCostByDate(DateTime date1, DateTime date2)
+        {
+
+            string query = "select Invoice.Invoice_Date as Date, sum(InvoiceDetail.Amount) as Cost " +
+                $"from (select * from Invoice where Invoice_Date between '{date1.ToString("yyyy - MM - dd")}' and '{date2.ToString("yyyy - MM - dd")}') as Invoice " +
+                "left join InvoiceDetail " +
+                "on Invoice.ID_Invoice = InvoiceDetail.ID_Invoice " +
+                "group by Invoice.Invoice_Date";
+            report = DataProvider.Instance.GetRecords(query);
+            return report;
+        }
     }
 }

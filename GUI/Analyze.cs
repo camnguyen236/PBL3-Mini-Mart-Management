@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DTO;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUI
 {
@@ -174,12 +175,13 @@ namespace GUI
             lbDate.Text = "Choose Year:";
 
             dtp_Profit_Date_A.Enabled = true;
+            dtp_Profit_Date_B.Enabled = true;
+            dtp_Profit_Date_A.Value = new DateTime(DateTime.Now.Year, 1, 1);
+            dtp_Profit_Date_B.Value = new DateTime(DateTime.Now.Year, 12, 31);
             dtp_Profit_Date_B.Hide();
+      
             dtp_Profit_Date_A.CustomFormat = "yyyy";
             dtp_Profit_Date_A.ShowUpDown = true;
-
-            dtp_Profit_Date_A.Value = DateTime.Now;
-            dtp_Profit_Date_A.Format = DateTimePickerFormat.Custom;
 
             dtp_Profit_Date_A.Enabled = false;
 
@@ -197,11 +199,13 @@ namespace GUI
             btnProfit_Year.BorderThickness = 1;
             btnProfit_Custom.BorderThickness = 0;
             btnProfit_Year.BringToFront();
-        }
 
-        private void chart2_Click(object sender, EventArgs e)
-        {
-
+            dtp_Profit_Date_A.Enabled = true;
+            dtp_Profit_Date_A.CustomFormat = "";
+            ShowRevenue();
+            ShowCost();
+            dtp_Profit_Date_A.CustomFormat = "yyyy";
+            dtp_Profit_Date_A.Enabled = false;
         }
 
         private void btnProfit_Day_Click(object sender, EventArgs e)
@@ -233,6 +237,9 @@ namespace GUI
             btnProfit_Custom.BorderThickness = 0;
 
             btnProfit_Day.BringToFront();
+
+            ShowRevenue();
+            ShowCost();
         }
 
         private void btnProfit_Week_Click(object sender, EventArgs e)
@@ -268,6 +275,8 @@ namespace GUI
             btnProfit_Custom.BorderThickness = 0;
             btnProfit_Week.BringToFront();
 
+            ShowRevenue();
+            ShowCost();
         }
 
         private void btnProfit_Month_Click(object sender, EventArgs e)
@@ -302,9 +311,42 @@ namespace GUI
             btnProfit_Year.BorderThickness = 0;
             btnProfit_Custom.BorderThickness = 0;
             btnProfit_Month.BringToFront();
+
+            ShowRevenue();
+            ShowCost();
         }
 
         private void btnProfit_Custom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShowRevenue()
+        {
+            DataTable dt = Report_BLL.Instance.GetRevenueByDate(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value);
+            dgv_Profit_Revenue.DataSource = dt;
+            SetRevenueChart(dt);
+        }
+
+
+        public void SetRevenueChart(DataTable dt)
+        {
+
+           
+        }
+
+        private void ShowCost()
+        {
+            MessageBox.Show(dtp_Profit_Date_A.Value.ToString("yyy-MM-dd") + "  " + dtp_Profit_Date_B.Value.ToString("yyy-MM-dd"));
+            DataTable dt = Report_BLL.Instance.GetCostByDate(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value);
+            dgv_Profit_Cost.DataSource = dt;
+          
+        }
+
+
+
+
+        private void guna2TabControl1_Click(object sender, EventArgs e)
         {
 
         }

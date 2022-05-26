@@ -60,5 +60,15 @@ namespace BLL
         {
             return Report_DAL.Instance.GetProductsBestSaleYear(date1, date2);
         }
+
+        //Profit
+        public DataTable GetRevenueByDate(DateTime date1, DateTime date2)
+        {
+            return Report_DAL.Instance.GetRevenueByDate(date1,date2);
+        }
+        public DataTable GetCostByDate(DateTime date1, DateTime date2)
+        {
+            return Report_DAL.Instance.GetCostByDate(date1, date2);
+        }
     }
 }

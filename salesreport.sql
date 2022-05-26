@@ -101,66 +101,72 @@ group by Products.Name_P , Products.Unit_P, InvoiceDetail.Unit_Price*/
                  "group by Products.Name_P , Products.Unit_P , DetailImportProduct.IP_Price";*/
 
 /*sale date*/
-select Products.Name_P as "Name Product", Products.Unit_P as Unit,InvoiceDetail.Unit_Price as Price,  sum(InvoiceDetail.Quantity) as Quantity,  sum(InvoiceDetail.Amount) as Amount
+/*select Products.Name_P as "Name Product", Products.Unit_P as Unit,InvoiceDetail.Unit_Price as Price,  sum(InvoiceDetail.Quantity) as Quantity,  sum(InvoiceDetail.Amount) as Amount
 from ((InvoiceDetail
 inner join (select * from Invoice where Invoice.Invoice_Date = '2022-04-03') as Invoice
 on InvoiceDetail.ID_Invoice = Invoice.ID_Invoice)
 left join Products 
 on Products.ID_P = InvoiceDetail.ID_P)
-group by Products.Name_P , Products.Unit_P, InvoiceDetail.Unit_Price
+group by Products.Name_P , Products.Unit_P, InvoiceDetail.Unit_Price*/
 
 /*sale Year*/
-select Products.Name_P as "Name Product", Products.Unit_P as Unit,InvoiceDetail.Unit_Price as Price,  sum(InvoiceDetail.Quantity) as Quantity,  sum(InvoiceDetail.Amount) as Amount
+/*select Products.Name_P as "Name Product", Products.Unit_P as Unit,InvoiceDetail.Unit_Price as Price,  sum(InvoiceDetail.Quantity) as Quantity,  sum(InvoiceDetail.Amount) as Amount
 from ((InvoiceDetail
 inner join (select * from Invoice where Year(Invoice.Invoice_Date) = '2024') as Invoice
 on InvoiceDetail.ID_Invoice = Invoice.ID_Invoice)
 left join Products 
 on Products.ID_P = InvoiceDetail.ID_P)
-group by Products.Name_P , Products.Unit_P, InvoiceDetail.Unit_Price
+group by Products.Name_P , Products.Unit_P, InvoiceDetail.Unit_Price*/
 
 /*import date*/
-select Products.Name_P, Products.Unit_P, sum(DetailImportProduct.Amount_IP) as Quantity, DetailImportProduct.IP_Price as Price, sum(DetailImportProduct.Total) as Total
+/*select Products.Name_P, Products.Unit_P, sum(DetailImportProduct.Amount_IP) as Quantity, DetailImportProduct.IP_Price as Price, sum(DetailImportProduct.Total) as Total
 from ((DetailImportProduct
 inner join (select * from ImportProduct where ImportProduct.Date_Import = '2022-03-28') as ImportProduct
 on DetailImportProduct.ID_IP = ImportProduct.ID_IP)
 left join Products 
 on Products.ID_P = DetailImportProduct.ID_P)
-group by Products.Name_P , Products.Unit_P, DetailImportProduct.IP_Price
+group by Products.Name_P , Products.Unit_P, DetailImportProduct.IP_Price*/
 
 /*import year*/
-select Products.Name_P, Products.Unit_P, sum(DetailImportProduct.Amount_IP) as Quantity, DetailImportProduct.IP_Price as Price, sum(DetailImportProduct.Total) as Total
+/*select Products.Name_P, Products.Unit_P, sum(DetailImportProduct.Amount_IP) as Quantity, DetailImportProduct.IP_Price as Price, sum(DetailImportProduct.Total) as Total
 from ((DetailImportProduct
 inner join (select * from ImportProduct where year(ImportProduct.Date_Import) = '2022') as ImportProduct
 on DetailImportProduct.ID_IP = ImportProduct.ID_IP)
 left join Products 
 on Products.ID_P = DetailImportProduct.ID_P)
-group by Products.Name_P , Products.Unit_P, DetailImportProduct.IP_Price
+group by Products.Name_P , Products.Unit_P, DetailImportProduct.IP_Price*/
 
 /*import date*/
-select Products.Name_P, Products.Unit_P, sum(DetailImportProduct.Amount_IP) as Quantity, DetailImportProduct.IP_Price as Price, sum(DetailImportProduct.Total) as Total, ImportProduct.Date_Import
+/*select Products.Name_P, Products.Unit_P, sum(DetailImportProduct.Amount_IP) as Quantity, DetailImportProduct.IP_Price as Price, sum(DetailImportProduct.Total) as Total, ImportProduct.Date_Import
 from ((DetailImportProduct
 inner join (select * from ImportProduct where ImportProduct.Date_Import BETWEEN '2022-03-27' and '2022-04-26') as ImportProduct
 on DetailImportProduct.ID_IP = ImportProduct.ID_IP)
 left join Products 
 on Products.ID_P = DetailImportProduct.ID_P)
-group by Products.Name_P , Products.Unit_P, DetailImportProduct.IP_Price, ImportProduct.Date_Import
+group by Products.Name_P , Products.Unit_P, DetailImportProduct.IP_Price, ImportProduct.Date_Import*/
 
-select top(5) Products.Name_P , sum(InvoiceDetail.Quantity) as Quantity
+
+/*select top sale push to chart*/
+/*select top(5) Products.Name_P , sum(InvoiceDetail.Quantity) as Quantity
                 from((InvoiceDetail
                 inner join(select * from Invoice where year(Invoice.Invoice_Date) BETWEEN '2022' and '2022') as Invoice
                 on InvoiceDetail.ID_Invoice = Invoice.ID_Invoice)
                 left join Products 
                 on Products.ID_P = InvoiceDetail.ID_P)
                 group by Products.Name_P
-                order by sum(InvoiceDetail.Quantity) desc 
+                order by sum(InvoiceDetail.Quantity) desc */
                
                 
+/*profit*/
+/*import*/
+
+ 
+ select Invoice.Invoice_Date as Date, sum(InvoiceDetail.Amount) as Cost from (select * from Invoice where Invoice_Date between '2022-01-01' and '2022-12-31') as Invoice 
+left join InvoiceDetail on Invoice.ID_Invoice = InvoiceDetail.ID_Invoice
+ group by Invoice.Invoice_Date
+
+    
 
 
-                select Products.Name_P as "Name Product", Products.Unit_P as Unit,InvoiceDetail.Unit_Price as Price,  sum(InvoiceDetail.Quantity) as Quantity,  sum(InvoiceDetail.Amount) as Amount 
-                from((InvoiceDetail 
-                inner join(select * from Invoice where year(Invoice.Invoice_Date) BETWEEN '2022' and '2022') as Invoice
-                on InvoiceDetail.ID_Invoice = Invoice.ID_Invoice)
-                left join Products 
-                on Products.ID_P = InvoiceDetail.ID_P) 
-                group by Products.Name_P , Products.Unit_P, InvoiceDetail.Unit_Price
+
+
