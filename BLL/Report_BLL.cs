@@ -52,9 +52,13 @@ namespace BLL
         }
 
         //best sale
-        public DataTable GetProductsBestSale(DateTime date1, DateTime date2)
+        public DataTable GetProductsBestSaleDate(DateTime date1, DateTime date2)
         {
-            return Report_DAL.Instance.GetProductsBestSale(date1, date2);
+            return Report_DAL.Instance.GetProductsBestSaleDate(date1, date2);
+        }
+        public DataTable GetProductsBestSaleYear(DateTime date1, DateTime date2)
+        {
+            return Report_DAL.Instance.GetProductsBestSaleYear(date1, date2);
         }
     }
 }

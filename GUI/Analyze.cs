@@ -24,11 +24,9 @@ namespace GUI
         private void btnShow_Sales_A_Click(object sender, EventArgs e)
         {
             showSalesReport();
-            GetProductsBestSale();
         }
-        public void GetProductsBestSale()
+        public void GetProductsBestSale(DataTable dt)
         {
-            DataTable dt = Report_BLL.Instance.GetProductsBestSale(dtpSales_Year_A.Value, dtpSales_Year_A.Value);
             //Get the names of Cities.
             string[] x = (from p in dt.AsEnumerable()
                           orderby p.Field<string>("Name_P") ascending
@@ -47,18 +45,20 @@ namespace GUI
                 if (rbDaily_Sales.Checked)
                 {
                     MessageBox.Show("Daily");
+                    GetProductsBestSale(Report_BLL.Instance.GetProductsBestSaleDate(dtpDaily_Sales_A.Value, dtpDaily_Sales_A.Value));
                     dvgSales_A.DataSource = Report_BLL.Instance.GetSalesReportByDate(dtpDaily_Sales_A.Value, dtpDaily_Sales_A.Value);
                     lbTotalRevenue.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByDate(dtpDaily_Sales_A.Value, dtpDaily_Sales_A.Value)).ToString()+" VND";
                 }
                 if (rbAnnual_Sales.Checked)
                 {
                     MessageBox.Show("Annual");
+                    GetProductsBestSale(Report_BLL.Instance.GetProductsBestSaleYear(dtpSales_Year_A.Value, dtpSales_Year_A.Value));
                     dvgSales_A.DataSource = Report_BLL.Instance.GetSalesReportByYear(dtpSales_Year_A.Value, dtpSales_Year_A.Value);
                     lbTotalRevenue.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByYear(dtpSales_Year_A.Value, dtpSales_Year_A.Value)).ToString()+" VND";
-
                 }
                 if (rbCustom_Sales.Checked)
                 {
+                    GetProductsBestSale(Report_BLL.Instance.GetProductsBestSaleDate(dtpCustomA_Sales_A.Value, dtpCustomB_Sales_A.Value));
                     dvgSales_A.DataSource = Report_BLL.Instance.GetSalesReportByDate(dtpCustomA_Sales_A.Value, dtpCustomB_Sales_A.Value);
                     lbTotalRevenue.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByDate(dtpCustomA_Sales_A.Value, dtpCustomB_Sales_A.Value)).ToString() + " VND";
                 }
@@ -143,7 +143,11 @@ namespace GUI
 
         }
 
-        //profit
+        //profit/////////////////////////////////////////////////////
+        public void GUI_Profit()
+        {
+            btnProfit_Custom.BackColor = Color.FromArgb(50, 100, 115);
+        }
         private void btnShow_Profit_A_Click(object sender, EventArgs e)
         {
             showProfitReport();
@@ -155,22 +159,152 @@ namespace GUI
 
 
                     //dvgImport_Profit_A.DataSource = Report_BLL.Instance.GetImportReportByYear(dtpAnnualy_Profit_A.Value);
-                    lbTotalCost_Profit_A.Text = totalCost(Report_BLL.Instance.GetImportReportByYear(dtpAnnualy_Profit_A.Value, dtpAnnualy_Profit_A.Value)).ToString() + " VND";
+                    lbTotalCost_Profit_A.Text = totalCost(Report_BLL.Instance.GetImportReportByYear(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value)).ToString() + " VND";
 
 
                     //dvgSales_Profit_A.DataSource = Report_BLL.Instance.GetSalesReportByYear(dtpAnnualy_Profit_A.Value);
-                    lbRevenue_Profit_A.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByYear(dtpAnnualy_Profit_A.Value, dtpAnnualy_Profit_A.Value)).ToString() + " VND";
+                    lbRevenue_Profit_A.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByYear(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value)).ToString() + " VND";
 
-                    lbProfit_A.Text = (totalRevenue(Report_BLL.Instance.GetSalesReportByYear(dtpAnnualy_Profit_A.Value, dtpAnnualy_Profit_A.Value))-totalCost(Report_BLL.Instance.GetImportReportByYear(dtpAnnualy_Profit_A.Value, dtpAnnualy_Profit_A.Value))).ToString()+"VND";
+                    lbProfit_A.Text = (totalRevenue(Report_BLL.Instance.GetSalesReportByYear(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value))-totalCost(Report_BLL.Instance.GetImportReportByYear(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value))).ToString()+"VND";
 
         }
 
-        private void dvgImport_Profit_A_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnProfit_Year_Click(object sender, EventArgs e)
+        {
+            lbDate.Text = "Choose Year:";
+
+            dtp_Profit_Date_A.Enabled = true;
+            dtp_Profit_Date_B.Hide();
+            dtp_Profit_Date_A.CustomFormat = "yyyy";
+            dtp_Profit_Date_A.ShowUpDown = true;
+
+            dtp_Profit_Date_A.Value = DateTime.Now;
+            dtp_Profit_Date_A.Format = DateTimePickerFormat.Custom;
+
+            dtp_Profit_Date_A.Enabled = false;
+
+            lbTo.Hide();
+
+            btnProfit_Day.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Week.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Month.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Year.FillColor = Color.FromArgb(50, 100, 115);
+            btnProfit_Custom.FillColor = Color.FromArgb(203, 228, 236);
+
+            btnProfit_Day.BorderThickness = 0;
+            btnProfit_Week.BorderThickness = 0;
+            btnProfit_Month.BorderThickness = 0;
+            btnProfit_Year.BorderThickness = 1;
+            btnProfit_Custom.BorderThickness = 0;
+            btnProfit_Year.BringToFront();
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnLast30Days_Click(object sender, EventArgs e)
+        private void btnProfit_Day_Click(object sender, EventArgs e)
+        {
+
+            lbDate.Text = "This Day: ";
+
+            dtp_Profit_Date_A.Enabled = true;
+            dtp_Profit_Date_B.Hide();
+
+            dtp_Profit_Date_A.CustomFormat = "";
+            dtp_Profit_Date_A.ShowUpDown = false;
+
+            dtp_Profit_Date_A.Value = DateTime.Now;
+
+            dtp_Profit_Date_A.Enabled = false;
+            lbTo.Hide();
+
+            btnProfit_Day.FillColor = Color.FromArgb(50, 100, 115);
+            btnProfit_Week.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Month.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Year.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Custom.FillColor = Color.FromArgb(203, 228, 236);
+
+            btnProfit_Day.BorderThickness = 1;
+            btnProfit_Week.BorderThickness = 0;
+            btnProfit_Month.BorderThickness = 0;
+            btnProfit_Year.BorderThickness = 0;
+            btnProfit_Custom.BorderThickness = 0;
+
+            btnProfit_Day.BringToFront();
+        }
+
+        private void btnProfit_Week_Click(object sender, EventArgs e)
+        {
+            lbDate.Text = "7Days: ";
+
+            dtp_Profit_Date_A.Enabled = true;
+            dtp_Profit_Date_B.Enabled = true;
+           
+            dtp_Profit_Date_A.CustomFormat = "";
+            dtp_Profit_Date_A.ShowUpDown = false;
+            dtp_Profit_Date_B.Show();
+            dtp_Profit_Date_B.CustomFormat = "";
+
+            dtp_Profit_Date_A.Value = DateTime.Today.AddDays(-7);
+            dtp_Profit_Date_B.Value = DateTime.Now;
+
+            dtp_Profit_Date_A.Enabled = false;
+            dtp_Profit_Date_B.Enabled = false;
+
+            lbTo.Show();
+            
+            btnProfit_Day.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Week.FillColor = Color.FromArgb(50, 100, 115);
+            btnProfit_Month.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Year.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Custom.FillColor = Color.FromArgb(203, 228, 236);
+
+            btnProfit_Day.BorderThickness = 0;
+            btnProfit_Week.BorderThickness = 1;
+            btnProfit_Month.BorderThickness = 0;
+            btnProfit_Year.BorderThickness = 0;
+            btnProfit_Custom.BorderThickness = 0;
+            btnProfit_Week.BringToFront();
+
+        }
+
+        private void btnProfit_Month_Click(object sender, EventArgs e)
+        {
+            lbDate.Text = "30Days ";
+
+            dtp_Profit_Date_A.Enabled = true;
+            dtp_Profit_Date_B.Enabled = true;
+
+            dtp_Profit_Date_A.CustomFormat = "";
+            dtp_Profit_Date_A.ShowUpDown = false;
+            dtp_Profit_Date_B.Show();
+            dtp_Profit_Date_B.CustomFormat = "";
+
+            dtp_Profit_Date_A.Value = DateTime.Today.AddDays(-30);
+            dtp_Profit_Date_B.Value = DateTime.Now;
+
+            dtp_Profit_Date_A.Enabled = false;
+            dtp_Profit_Date_B.Enabled = false;
+
+            lbTo.Show();
+
+            btnProfit_Day.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Week.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Month.FillColor = Color.FromArgb(50, 100, 115);
+            btnProfit_Year.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Custom.FillColor = Color.FromArgb(203, 228, 236);
+
+            btnProfit_Day.BorderThickness = 0;
+            btnProfit_Week.BorderThickness = 0;
+            btnProfit_Month.BorderThickness = 1;
+            btnProfit_Year.BorderThickness = 0;
+            btnProfit_Custom.BorderThickness = 0;
+            btnProfit_Month.BringToFront();
+        }
+
+        private void btnProfit_Custom_Click(object sender, EventArgs e)
         {
 
         }
