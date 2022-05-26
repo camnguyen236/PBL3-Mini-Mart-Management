@@ -25,27 +25,12 @@ namespace DAL
         private Report_DAL() { }
         DataTable report = new DataTable();
 
-        public DataTable GetSalesReportByYear(DateTime date)
+        public DataTable GetSalesReportByYear(DateTime date1, DateTime date2)
         {
             
             string query = "select Products.Name_P as \"Name Product\", Products.Unit_P as Unit,InvoiceDetail.Unit_Price as Price,  sum(InvoiceDetail.Quantity) as Quantity,  sum(InvoiceDetail.Amount) as Amount " +
                 "from((InvoiceDetail " +
-                $"inner join(select * from Invoice where year(Invoice.Invoice_Date) = '{date.Year}') as Invoice " +
-                "on InvoiceDetail.ID_Invoice = Invoice.ID_Invoice) " +
-                "left join Products " +
-                "on Products.ID_P = InvoiceDetail.ID_P) " +
-                "group by Products.Name_P , Products.Unit_P, InvoiceDetail.Unit_Price ";
-            report = DataProvider.Instance.GetRecords(query);
-            return report;
-        }
-
-        public DataTable GetSalesReportByDate(DateTime date)
-        {
-
-            
-            string query = "select Products.Name_P as \"Name Product\", Products.Unit_P as Unit,InvoiceDetail.Unit_Price as Price,  sum(InvoiceDetail.Quantity) as Quantity,  sum(InvoiceDetail.Amount) as Amount " +
-                "from((InvoiceDetail " +
-                $"inner join(select * from Invoice where Invoice.Invoice_Date = '{date.ToString("yyyy - MM - dd")}') as Invoice " +
+                $"inner join(select * from Invoice where year(Invoice.Invoice_Date) BETWEEN '{date1.Year}' and '{date2.Year}') as Invoice " +
                 "on InvoiceDetail.ID_Invoice = Invoice.ID_Invoice) " +
                 "left join Products " +
                 "on Products.ID_P = InvoiceDetail.ID_P) " +
@@ -54,13 +39,44 @@ namespace DAL
             return report;
         }
 
+        public DataTable GetSalesReportByDate(DateTime date1, DateTime date2)
+        {
+
+            
+            string query = "select Products.Name_P as \"Name Product\", Products.Unit_P as Unit,InvoiceDetail.Unit_Price as Price,  sum(InvoiceDetail.Quantity) as Quantity,  sum(InvoiceDetail.Amount) as Amount " +
+                "from((InvoiceDetail " +
+                $"inner join(select * from Invoice where Invoice.Invoice_Date between '{date1.ToString("yyyy - MM - dd")}' and '{date2.ToString("yyyy - MM - dd")}') as Invoice " +
+                "on InvoiceDetail.ID_Invoice = Invoice.ID_Invoice) " +
+                "left join Products " +
+                "on Products.ID_P = InvoiceDetail.ID_P) " +
+                "group by Products.Name_P , Products.Unit_P, InvoiceDetail.Unit_Price";
+            report = DataProvider.Instance.GetRecords(query);
+            return report;
+        }
+
+        public DataTable GetProductsBestSale(DateTime date1, DateTime date2)
+        {
+
+            string query = "select top(5) Products.Name_P, sum(InvoiceDetail.Quantity) as Quantity " +
+                "from((InvoiceDetail " +
+                $"inner join(select * from Invoice where year(Invoice.Invoice_Date) BETWEEN '{date1.Year}' and '{date2.Year}') as Invoice " +
+                "on InvoiceDetail.ID_Invoice = Invoice.ID_Invoice) " +
+                "left join Products " +
+                "on Products.ID_P = InvoiceDetail.ID_P) " +
+                "group by Products.Name_P " +
+                "order by sum(InvoiceDetail.Quantity) desc";
+            report = DataProvider.Instance.GetRecords(query);
+            return report;
+        }
+
+
         //import
-        public DataTable GetImportReportByYear(DateTime date)
+        public DataTable GetImportReportByYear(DateTime date1, DateTime date2)
         {
             
             string query = "select Products.Name_P, Products.Unit_P, sum(DetailImportProduct.Amount_IP) as Quantity, DetailImportProduct.IP_Price as Price, sum(DetailImportProduct.Total) as Total " +
                  "from((DetailImportProduct " +
-                 $"inner join(select * from ImportProduct where Year(ImportProduct.Date_Import)='{date.Year}') as ImportProduct " +
+                 $"inner join(select * from ImportProduct where Year(ImportProduct.Date_Import) between'{date1.Year}'and '{date2.Year}') as ImportProduct " +
                  "on DetailImportProduct.ID_IP = ImportProduct.ID_IP) " +
                  "left join Products " +
                  "on Products.ID_P = DetailImportProduct.ID_P) " +
@@ -70,12 +86,12 @@ namespace DAL
             return report;
         }
 
-        public DataTable GetImportReportByDate(DateTime date)
+        public DataTable GetImportReportByDate(DateTime date1, DateTime date2)
         {
             
-            string query = "select Products.Name_P, Products.Unit_P, sum(DetailImportProduct.Amount_IP) as Quantity, DetailImportProduct.IP_Price as Price, sum(DetailImportProduct.Total) as Total " +
+            string query = "select Products.Name_P, Products.Unit_P, sum(DetailImportProduct.Amount_IP) as Quantity, DetailImportProduct.IP_Price as Price, sum(DetailImportProduct.Total) as Total" +
                  "from((DetailImportProduct " +
-                 $"inner join(select * from ImportProduct where ImportProduct.Date_Import = '{date.ToString("yyyy - MM - dd")}') as ImportProduct " +
+                 $"inner join(select * from ImportProduct where ImportProduct.Date_Import between '{date1.ToString("yyyy - MM - dd")}' and '{date2.ToString("yyyy - MM - dd")}') as ImportProduct " +
                  "on DetailImportProduct.ID_IP = ImportProduct.ID_IP) " +
                  "left join Products " +
                  "on Products.ID_P = DetailImportProduct.ID_P) " +

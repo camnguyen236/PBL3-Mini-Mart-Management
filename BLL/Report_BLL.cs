@@ -21,7 +21,7 @@ namespace BLL
                 }
                 return _Instance;
             }
-            private set { } //chỉ nội bộ lớp này mới đc set dữ liệu vào
+            private set { } 
         }
         private Report_BLL() { }
         public DataTable getCustomer()
@@ -30,25 +30,31 @@ namespace BLL
             //return accounts;
         }
 
-        public DataTable GetSalesReportByYear(DateTime date)
+        public DataTable GetSalesReportByYear(DateTime date1, DateTime date2)
         {
-            return Report_DAL.Instance.GetSalesReportByYear(date);
+            return Report_DAL.Instance.GetSalesReportByYear(date1, date2);
         }
 
-        public DataTable GetSalesReportByDate(DateTime date)
+        public DataTable GetSalesReportByDate(DateTime date1, DateTime date2)
         {
-            return Report_DAL.Instance.GetSalesReportByDate(date);
+            return Report_DAL.Instance.GetSalesReportByDate(date1, date2);
         }
 
         //import
-        public DataTable GetImportReportByYear(DateTime date)
+        public DataTable GetImportReportByYear(DateTime date1, DateTime date2)
         {
-            return Report_DAL.Instance.GetImportReportByYear(date);
+            return Report_DAL.Instance.GetImportReportByYear(date1, date2);
         }
 
-        public DataTable GetImportReportByDate(DateTime date)
+        public DataTable GetImportReportByDate(DateTime date1, DateTime date2)
         {
-            return Report_DAL.Instance.GetImportReportByDate(date);
+            return Report_DAL.Instance.GetImportReportByDate(date1, date2);
+        }
+
+        //best sale
+        public DataTable GetProductsBestSale(DateTime date1, DateTime date2)
+        {
+            return Report_DAL.Instance.GetProductsBestSale(date1, date2);
         }
     }
 }
