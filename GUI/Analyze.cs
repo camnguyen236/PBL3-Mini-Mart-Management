@@ -80,7 +80,6 @@ namespace GUI
             int s = 0;
             int n = 0;
             int numberOfRecords = dt.Rows.Count;
-            MessageBox.Show(numberOfRecords.ToString());
             foreach (DataRow i in dt.Rows)
             {
                 if (numberOfRecords!=0)
@@ -376,7 +375,7 @@ namespace GUI
 
         private void ShowCost()
         {
-            MessageBox.Show(dtp_Profit_Date_A.Value.ToString("yyy-MM-dd") + "  " + dtp_Profit_Date_B.Value.ToString("yyy-MM-dd"));
+           // MessageBox.Show(dtp_Profit_Date_A.Value.ToString("yyy-MM-dd") + "  " + dtp_Profit_Date_B.Value.ToString("yyy-MM-dd"));
             DataTable dt = Report_BLL.Instance.GetCostByDate(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value);
             dgv_Profit_Cost.DataSource = dt;
           
@@ -417,13 +416,18 @@ namespace GUI
         private void btnShow_Click(object sender, EventArgs e)
         {
             int IDGroup = ((CBBGroups)cbProductsGroups.SelectedItem).Value;
-            MessageBox.Show(IDGroup.ToString());
             ShowProduct(IDGroup);
         }
 
         private void dgv_Analyze_Inventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cbProductsGroups_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int IDGroup = ((CBBGroups)cbProductsGroups.SelectedItem).Value;
+            ShowProduct(IDGroup);
         }
     }
 }
