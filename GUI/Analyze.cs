@@ -400,11 +400,16 @@ namespace GUI
             DataTable dt = Report_BLL.Instance.GetInventoryByGroupID(ID);
             foreach (DataRow i in dt.Rows)
             {
+                if (string.IsNullOrEmpty(i["Import"].ToString()))
+                {
+                    i["Import"] = 0;
+                }
                 if (string.IsNullOrEmpty(i["Sale"].ToString()))
                 {
                     i["Sale"] = 0;
                     i["Inventory"] = i["Import"];
                 }
+                
             }
             dgv_Analyze_Inventory.DataSource = dt;
 
