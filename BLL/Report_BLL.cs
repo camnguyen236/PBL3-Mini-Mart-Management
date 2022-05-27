@@ -70,5 +70,11 @@ namespace BLL
         {
             return Report_DAL.Instance.GetCostByDate(date1, date2);
         }
+
+        //
+        public DataTable GetInventoryByGroupID(int ID)
+        {
+            return Report_DAL.Instance.GetInventoryByGroupID(ID);
+        }
     }
 }

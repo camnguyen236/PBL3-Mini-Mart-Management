@@ -43,5 +43,25 @@ namespace DAL
             productGroups = DataProvider.Instance.GetRecords(query);
             return productGroups;
         }
+
+
+        public ProductGroups GetGroup(DataRow i)
+        {
+            return new ProductGroups
+            {
+                ID_PG = i["ID_PG"].ToString(),
+                Name_PG = i["Name_PG"].ToString(),
+            };
+        }
+        public List<ProductGroups> GetAllGroups()
+        {
+            List<ProductGroups> data = new List<ProductGroups>();
+            string query = "select * from ProductGroups";
+            foreach (DataRow i in DataProvider.Instance.GetRecords(query).Rows)
+            {
+                data.Add(GetGroup(i));
+            };
+            return data;
+        }
     }
 }

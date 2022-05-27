@@ -160,13 +160,27 @@ group by Products.Name_P , Products.Unit_P, DetailImportProduct.IP_Price, Import
 /*profit*/
 /*import*/
 
- 
+ /*
  select Invoice.Invoice_Date as Date, sum(InvoiceDetail.Amount) as Cost from (select * from Invoice where Invoice_Date between '2022-01-01' and '2022-12-31') as Invoice 
 left join InvoiceDetail on Invoice.ID_Invoice = InvoiceDetail.ID_Invoice
  group by Invoice.Invoice_Date
+ */
 
-    
+ /*inventory*/
+ /*
+ select Products.ID_P, Products.Name_P, sum (InvoiceDetail.Quantity) as "Import Quantity", sum(DetailImportproduct.Amount_IP) as "Sale Quantity"
+    from Products
+    left join InvoiceDetail
+    on InvoiceDetail.ID_P=Products.ID_P
+    left join DetailImportproduct
+    on DetailImportproduct.ID_P = Products.ID_P
+    Group by Products.ID_P, Products.Name_P
+ */
 
-
-
-
+    select Products.ID_PG, Products.ID_P, Products.Name_P, sum(DetailImportproduct.Amount_IP) as Import, sum(InvoiceDetail.Quantity) as Sale,(sum(DetailImportproduct.Amount_IP)-sum(InvoiceDetail.Quantity)) as Inventory
+    from (select * from Products where Products.ID_PG=102) as Products
+    left join InvoiceDetail
+    on InvoiceDetail.ID_P=Products.ID_P
+    left join DetailImportproduct
+    on DetailImportproduct.ID_P = Products.ID_P
+    Group by Products.ID_P, Products.Name_P, Products.ID_PG

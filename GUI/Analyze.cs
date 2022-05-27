@@ -20,6 +20,7 @@ namespace GUI
         public Analyze()
         {
             InitializeComponent();
+            setCBProductsGroups();
         }
 
         private void btnShow_Sales_A_Click(object sender, EventArgs e)
@@ -45,23 +46,21 @@ namespace GUI
             {
                 if (rbDaily_Sales.Checked)
                 {
-                    MessageBox.Show("Daily");
                     GetProductsBestSale(Report_BLL.Instance.GetProductsBestSaleDate(dtpDaily_Sales_A.Value, dtpDaily_Sales_A.Value));
                     dvgSales_A.DataSource = Report_BLL.Instance.GetSalesReportByDate(dtpDaily_Sales_A.Value, dtpDaily_Sales_A.Value);
-                    lbTotalRevenue.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByDate(dtpDaily_Sales_A.Value, dtpDaily_Sales_A.Value)).ToString()+" VND";
+                    lbTotalRevenue.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByDate(dtpDaily_Sales_A.Value, dtpDaily_Sales_A.Value), "Amount").ToString()+" VND";
                 }
                 if (rbAnnual_Sales.Checked)
                 {
-                    MessageBox.Show("Annual");
                     GetProductsBestSale(Report_BLL.Instance.GetProductsBestSaleYear(dtpSales_Year_A.Value, dtpSales_Year_A.Value));
                     dvgSales_A.DataSource = Report_BLL.Instance.GetSalesReportByYear(dtpSales_Year_A.Value, dtpSales_Year_A.Value);
-                    lbTotalRevenue.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByYear(dtpSales_Year_A.Value, dtpSales_Year_A.Value)).ToString()+" VND";
+                    lbTotalRevenue.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByYear(dtpSales_Year_A.Value, dtpSales_Year_A.Value), "Amount").ToString()+" VND";
                 }
                 if (rbCustom_Sales.Checked)
                 {
                     GetProductsBestSale(Report_BLL.Instance.GetProductsBestSaleDate(dtpCustomA_Sales_A.Value, dtpCustomB_Sales_A.Value));
                     dvgSales_A.DataSource = Report_BLL.Instance.GetSalesReportByDate(dtpCustomA_Sales_A.Value, dtpCustomB_Sales_A.Value);
-                    lbTotalRevenue.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByDate(dtpCustomA_Sales_A.Value, dtpCustomB_Sales_A.Value)).ToString() + " VND";
+                    lbTotalRevenue.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByDate(dtpCustomA_Sales_A.Value, dtpCustomB_Sales_A.Value), "Amount").ToString() + " VND";
                 }
             }
             else
@@ -76,7 +75,7 @@ namespace GUI
         {
 
         }
-        public int totalRevenue(DataTable dt)
+        public int totalRevenue(DataTable dt, string nameColumn)
         {
             int s = 0;
             int n = 0;
@@ -86,7 +85,11 @@ namespace GUI
             {
                 if (numberOfRecords!=0)
                 {
-                    s += Convert.ToInt32(dt.Rows[n]["Amount"]);
+                    if (!(string.IsNullOrEmpty(dt.Rows[n][nameColumn].ToString())))
+                    {
+                        
+                        s += Convert.ToInt32(dt.Rows[n][nameColumn]);
+                    }
                     n++;
                 }
             }
@@ -104,18 +107,18 @@ namespace GUI
                 if (rbDaily_Import_A.Checked)
                 {
                     dvgImport_A.DataSource = Report_BLL.Instance.GetImportReportByDate(dtpDaily_Import_A.Value, dtpDaily_Import_A.Value);
-                    lbTotalCost_Import_A.Text = totalCost(Report_BLL.Instance.GetImportReportByDate(dtpDaily_Import_A.Value, dtpDaily_Import_A.Value)).ToString() + " VND";
+                    lbTotalCost_Import_A.Text = totalCost(Report_BLL.Instance.GetImportReportByDate(dtpDaily_Import_A.Value, dtpDaily_Import_A.Value), "Total").ToString() + " VND";
                 }
                 if (rbAnnual_Import_A.Checked)
                 {
                     dvgImport_A.DataSource = Report_BLL.Instance.GetImportReportByYear(dtpAnnualy_Import_A.Value, dtpAnnualy_Import_A.Value);
-                    lbTotalCost_Import_A.Text = totalCost(Report_BLL.Instance.GetImportReportByYear(dtpAnnualy_Import_A.Value, dtpAnnualy_Import_A.Value)).ToString() + " VND";
+                    lbTotalCost_Import_A.Text = totalCost(Report_BLL.Instance.GetImportReportByYear(dtpAnnualy_Import_A.Value, dtpAnnualy_Import_A.Value), "Total").ToString() + " VND";
                     
                 }
                 if (rbCustom_Import_A.Checked)
                 {
                     dvgImport_A.DataSource = Report_BLL.Instance.GetImportReportByDate(dtpCustomA_Sales_A.Value, dtpCustomB_Sales_A.Value);
-                    lbTotalCost_Import_A.Text = totalCost(Report_BLL.Instance.GetImportReportByDate(dtpCustomA_Sales_A.Value, dtpCustomB_Sales_A.Value)).ToString() + " VND";
+                    lbTotalCost_Import_A.Text = totalCost(Report_BLL.Instance.GetImportReportByDate(dtpCustomA_Sales_A.Value, dtpCustomB_Sales_A.Value), "Total").ToString() + " VND";
                 }
             }
             else
@@ -127,13 +130,13 @@ namespace GUI
 
 
         }
-        public int totalCost(DataTable dt)
+        public int totalCost(DataTable dt, string nameColumn)
         {
             int s = 0;
             int n = 0;
             foreach (DataRow i in dt.Rows)
             {
-                s += Convert.ToInt32(dt.Rows[n]["Total"]);
+                s += Convert.ToInt32(dt.Rows[n][nameColumn]);
                 n++;
             }
             return s;
@@ -152,28 +155,29 @@ namespace GUI
         private void btnShow_Profit_A_Click(object sender, EventArgs e)
         {
             showProfitReport();
+            ShowRevenue();
+            ShowCost();
         }
 
         public void showProfitReport()
         {
 
 
-
-                    //dvgImport_Profit_A.DataSource = Report_BLL.Instance.GetImportReportByYear(dtpAnnualy_Profit_A.Value);
-                    lbTotalCost_Profit_A.Text = totalCost(Report_BLL.Instance.GetImportReportByYear(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value)).ToString() + " VND";
-
-
+            DataTable Cost = Report_BLL.Instance.GetCostByDate(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value);
+            DataTable Revenue = Report_BLL.Instance.GetRevenueByDate(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value);
+            //dvgImport_Profit_A.DataSource = Report_BLL.Instance.GetImportReportByYear(dtpAnnualy_Profit_A.Value);
+                    lbTotalCost_Profit_A.Text = totalCost(Cost,"Cost").ToString() + " VND";
                     //dvgSales_Profit_A.DataSource = Report_BLL.Instance.GetSalesReportByYear(dtpAnnualy_Profit_A.Value);
-                    lbRevenue_Profit_A.Text = totalRevenue(Report_BLL.Instance.GetSalesReportByYear(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value)).ToString() + " VND";
+                    lbRevenue_Profit_A.Text = totalRevenue(Revenue, "Revenue").ToString() + " VND";
 
-                    lbProfit_A.Text = (totalRevenue(Report_BLL.Instance.GetSalesReportByYear(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value))-totalCost(Report_BLL.Instance.GetImportReportByYear(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value))).ToString()+"VND";
+                    lbProfit_A.Text = (totalRevenue(Revenue,"Revenue")-totalCost(Cost,"Cost")).ToString()+"VND";
 
         }
 
         private void btnProfit_Year_Click(object sender, EventArgs e)
         {
-            lbDate.Text = "Choose Year:";
-
+            lbDate.Text = "This Year:";
+            btnShow_Profit_A.Hide();
             dtp_Profit_Date_A.Enabled = true;
             dtp_Profit_Date_B.Enabled = true;
             dtp_Profit_Date_A.Value = new DateTime(DateTime.Now.Year, 1, 1);
@@ -204,8 +208,10 @@ namespace GUI
             dtp_Profit_Date_A.CustomFormat = "";
             ShowRevenue();
             ShowCost();
+            showProfitReport();
             dtp_Profit_Date_A.CustomFormat = "yyyy";
             dtp_Profit_Date_A.Enabled = false;
+
         }
 
         private void btnProfit_Day_Click(object sender, EventArgs e)
@@ -213,6 +219,7 @@ namespace GUI
 
             lbDate.Text = "This Day: ";
 
+            btnShow_Profit_A.Hide();
             dtp_Profit_Date_A.Enabled = true;
             dtp_Profit_Date_B.Hide();
 
@@ -240,12 +247,14 @@ namespace GUI
 
             ShowRevenue();
             ShowCost();
+            showProfitReport();
         }
 
         private void btnProfit_Week_Click(object sender, EventArgs e)
         {
             lbDate.Text = "7Days: ";
 
+            btnShow_Profit_A.Hide();
             dtp_Profit_Date_A.Enabled = true;
             dtp_Profit_Date_B.Enabled = true;
            
@@ -277,12 +286,14 @@ namespace GUI
 
             ShowRevenue();
             ShowCost();
+            showProfitReport();
         }
 
         private void btnProfit_Month_Click(object sender, EventArgs e)
         {
             lbDate.Text = "30Days ";
 
+            btnShow_Profit_A.Hide();
             dtp_Profit_Date_A.Enabled = true;
             dtp_Profit_Date_B.Enabled = true;
 
@@ -314,11 +325,39 @@ namespace GUI
 
             ShowRevenue();
             ShowCost();
+            showProfitReport();
         }
 
         private void btnProfit_Custom_Click(object sender, EventArgs e)
         {
+            lbDate.Text = "Choose date: ";
 
+            btnShow_Profit_A.Show();
+            dtp_Profit_Date_A.Enabled = true;
+            dtp_Profit_Date_B.Enabled = true;
+
+            dtp_Profit_Date_A.CustomFormat = "";
+            /*dtp_Profit_Date_A.ShowUpDown = false;*/
+            dtp_Profit_Date_B.Show();
+            dtp_Profit_Date_B.CustomFormat = "";
+
+            dtp_Profit_Date_A.Value = DateTime.Now;
+            dtp_Profit_Date_B.Value = DateTime.Now;
+
+            lbTo.Show();
+
+            btnProfit_Day.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Week.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Month.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Year.FillColor = Color.FromArgb(203, 228, 236);
+            btnProfit_Custom.FillColor = Color.FromArgb(50, 100, 115);
+
+            btnProfit_Day.BorderThickness = 0;
+            btnProfit_Week.BorderThickness = 0;
+            btnProfit_Month.BorderThickness = 0;
+            btnProfit_Year.BorderThickness = 0;
+            btnProfit_Custom.BorderThickness = 1;
+            btnProfit_Custom.BringToFront();
         }
 
         private void ShowRevenue()
@@ -343,10 +382,31 @@ namespace GUI
           
         }
 
+        ////inventory
+        
 
-
+        public void setCBProductsGroups()
+        {
+            cbProductsGroups.Items.Add(new CBBGroups { Value = 0, Text = "All" });
+            cbProductsGroups.Items.AddRange(ProductGroups_BLL.Instance.GetListCBB().ToArray());
+        }
 
         private void guna2TabControl1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ShowProduct(int ID)
+        {
+            dgv_Analyze_Inventory.DataSource = Report_BLL.Instance.GetInventoryByGroupID(ID);
+        }
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            int IDGroup = ((CBBGroups)cbProductsGroups.SelectedItem).Value;
+            MessageBox.Show(IDGroup.ToString());
+            ShowProduct(IDGroup);
+        }
+
+        private void dgv_Analyze_Inventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

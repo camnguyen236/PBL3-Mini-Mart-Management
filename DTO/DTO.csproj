@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="CBBGroups.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="DetailImportProducts.cs" />
     <Compile Include="ImportProducts.cs" />

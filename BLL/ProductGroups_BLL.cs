@@ -38,5 +38,19 @@ namespace BLL
         {
             return ProductGroups_DAL.Instance.getIDByGroupName(groupName);
         }
+
+        public List<CBBGroups> GetListCBB()
+        {
+            List<CBBGroups> data = new List<CBBGroups>();
+            foreach (ProductGroups i in ProductGroups_DAL.Instance.GetAllGroups())
+            {
+                data.Add(new CBBGroups
+                {
+                    Text = i.Name_PG,
+                    Value = Convert.ToInt32(i.ID_PG),
+                });
+            }
+            return data;
+        }
     }
 }
