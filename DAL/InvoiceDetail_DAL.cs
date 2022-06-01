@@ -89,5 +89,12 @@ namespace DAL
             }
             return total;
         }
+        public DataTable getInvoiceDetailByID(int ID_Invoice)
+        {
+            DataTable data = new DataTable();
+            string query = "select Customer.Name_Customer, Customer.Address_Customer, Customer.PhoneNumber_Customer, Customer.AccountNumber, Inf_user.Name, Invoice.Invoice_Date, InvoiceDetail.Unit_Price, InvoiceDetail.Quantity,InvoiceDetail.ID_Invoice, InvoiceDetail.Amount, Products.Name_P from Customer LEFT OUTER JOIN Invoice ON Customer.ID_Customer = Invoice.ID_Customer LEFT OUTER JOIN Inf_user ON Invoice.ID = Inf_user.ID LEFT OUTER JOIN InvoiceDetail ON Invoice.ID_Invoice = InvoiceDetail.ID_Invoice LEFT OUTER JOIN Products ON InvoiceDetail.ID_P = Products.ID_P Where InvoiceDetail.ID_Invoice = " + ID_Invoice;
+            data = DataProvider.Instance.GetRecords(query);
+            return data;
+        }
     }
 }

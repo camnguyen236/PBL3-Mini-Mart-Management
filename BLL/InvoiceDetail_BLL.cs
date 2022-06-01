@@ -55,5 +55,19 @@ namespace BLL
         {
             return InvoiceDetail_DAL.Instance.getTotal(id);
         }
+        private string id_invoice;
+        public void get(string ID_Invoice)
+        {
+            id_invoice = ID_Invoice;
+            
+        }
+        public string getID_Invoice()
+        {
+            return id_invoice;
+        }
+        public DataTable getInvoiceDetailByID(int ID_Invoice)
+        {
+            return InvoiceDetail_DAL.Instance.getInvoiceDetailByID(ID_Invoice);
+        }
     }
 }

@@ -37,6 +37,10 @@ namespace BLL
         {
             return ImportProductsDAL.Instance.getAllIP_Product();
         }
+        public string getID_Product(string Name_P)
+        {
+            return ImportProductsDAL.Instance.getID_Product(Name_P);
+        }
         public List<string> getAllDiscount() //nha cc
         {
             return ImportProductsDAL.Instance.getAllDiscount();
