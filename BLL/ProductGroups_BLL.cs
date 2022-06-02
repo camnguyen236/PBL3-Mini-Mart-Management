@@ -30,6 +30,10 @@ namespace BLL
         {
             return ProductGroups_DAL.Instance.GetRecords();
         }
+        public List<ProductGroups> getAllProductGroups()
+        {
+            return ProductGroups_DAL.Instance.GetAllProductGroups();
+        }
         public DataTable getNameGroupByID(string id)
         {
             return ProductGroups_DAL.Instance.getNameGroupByID(id);
@@ -51,6 +55,32 @@ namespace BLL
                 });
             }
             return data;
+        }
+        public void ExcuteDB(ProductGroups pg, string id_pg = null) //update, delete
+        {
+            if (id_pg == null)
+            {
+                ProductGroups_DAL.Instance.updateProductGroups(pg);
+                return;
+            }
+            if (id_pg != null && !id_pg.Equals("Add"))
+            {
+                ProductGroups_DAL.Instance.deleteProductGroups(Convert.ToInt32(id_pg));
+                return;
+            }
+            if (id_pg == "Add")
+            {
+                ProductGroups_DAL.Instance.addProductGroups(pg);
+                return;
+            }
+        }
+        public ProductGroups getPGByID(string id)
+        {
+            foreach(var i in getAllProductGroups())
+            {
+                if (i.ID_PG.Equals(id)) return i;
+            }
+            return null;
         }
     }
 }

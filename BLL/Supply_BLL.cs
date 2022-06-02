@@ -38,7 +38,7 @@ namespace BLL
             }
             if (id_supply != null && !id_supply.Equals("Add"))
             {
-                Supply_DAL.Instance.deleteSupply(supply, id_supply);
+                Supply_DAL.Instance.deleteSupply(id_supply);
                 return;
             }
             if (id_supply == "Add")

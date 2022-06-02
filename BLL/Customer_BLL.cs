@@ -31,6 +31,12 @@ namespace BLL
             private set { } //chỉ nội bộ lớp này mới đc set dữ liệu vào
         }
         private Customer_BLL() { }
+        enum Search
+        {
+            Name,
+            Phonenumber,
+            Email
+        }
         public DataTable getCustomer()
         {
             return Customer_DAL.Instance.GetRecords();
@@ -45,7 +51,7 @@ namespace BLL
             }
             if (id_customer != null && !id_customer.Equals("Add"))
             {
-                Customer_DAL.Instance.deleteCustomer(customer, id_customer);
+                Customer_DAL.Instance.deleteCustomer(id_customer);
                 return;
             }
             if (id_customer == "Add")
@@ -55,16 +61,50 @@ namespace BLL
             }
         }
 
-        public Customer getCustomerByPhoneNum(string phoneNum)
+        public List<Customer> getCustomerByName(string name)
         {
+            List<Customer> list = new List<Customer> ();
             foreach (Customer i in Customer_DAL.Instance.GetAllCustomer())
             {
-                if (phoneNum == i.PhoneNumber_Customer)
+                if (i.Name_Customer.Contains(name))
                 {
-                    return i;
+                    list.Add(i);
                 }
             }
-            return null;
+            return list;
+        }
+
+        public List<Customer> getCustomerByPhoneNum(string phoneNum)
+        {
+            List<Customer> list = new List<Customer>();
+            foreach (Customer i in Customer_DAL.Instance.GetAllCustomer())
+            {
+                if (i.PhoneNumber_Customer.Contains(phoneNum))
+                {
+                    list.Add(i);
+                }
+            }
+            return list;
+        }
+
+        public List<Customer> getCustomerByEmail(string email)
+        {
+            List<Customer> list = new List<Customer>();
+            foreach (Customer i in Customer_DAL.Instance.GetAllCustomer())
+            {
+                if (i.Email_Customer.Contains(email))
+                {
+                    list.Add(i);
+                }
+            }
+            return list;
+        }
+
+        public List<Customer> getListCustomer(string cbb, string txt)
+        {
+            if(cbb.Equals(Search.Name.ToString())) return getCustomerByName(txt);
+            else if (cbb.Equals(Search.Phonenumber.ToString())) return getCustomerByPhoneNum(txt);
+            else return getCustomerByEmail(txt);
         }
     }
 }

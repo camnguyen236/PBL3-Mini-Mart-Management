@@ -37,13 +37,13 @@ namespace DAL
                 hashPassStr += item;
             }
             //end hashing: password after hash is hashPassStr
-            string query = "select * from Inf_user where US= '" + account.US + "'and PW ='" + hashPassStr + "'";
+            string query = "select * from Inf_user where US= '" + account.US + "'and PW ='" + hashPassStr + "' and Status = 'true'";
             string inf = DataProvider.Instance.checkLoginDTO(account, query);
             return inf;
         }
         public DataTable GetRecords()
         {
-            string query = "select ID,US,Name,Birthday,Adress,PhoneNumber,Position,Email from Inf_user";
+            string query = "select ID,US,Name,Birthday,Adress,PhoneNumber,Position,Email from Inf_user where Status = 'true'";
             accounts = DataProvider.Instance.GetRecords(query);
             return accounts;
         }
@@ -51,7 +51,7 @@ namespace DAL
         public List<Account> GetAllAccount()
         {
             List<Account> list = new List<Account>();
-            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from Inf_user").Rows)
+            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from Inf_user where Status = 'true'").Rows)
             {
                 list.Add(GetAccountByDataRow(i));
             }
@@ -70,19 +70,23 @@ namespace DAL
                 Adress = i["Adress"].ToString(),
                 PhoneNumber = i["PhoneNumber"].ToString(),
                 Position = i["Position"].ToString(),
-                Email = i["Email"].ToString()
+                Email = i["Email"].ToString(),
+                Status = Convert.ToBoolean(i["Status"].ToString())
             };
         }
         public DataTable GetAccountsByOption(string name, string option)
         {
             DataTable accountsList = new DataTable();
-            string query = $"select ID,US,Name,Birthday,Adress,PhoneNumber,Position,Email from Inf_user where {option} like N'%{name}%'";
+            string query = $"select ID,US,Name,Birthday,Adress,PhoneNumber,Position,Email from Inf_user where {option} like N'%{name}%' and Status = 'true'";
             accountsList = DataProvider.Instance.GetRecords(query);
             return accountsList;
         }
         public void updateAccount(Account account)
         {
-            string query = "update Inf_user set US = '" + account.US + "', Name = N'" + account.Name + "', Birthday = '" + account.Birthday + "', Adress = N'" + account.Adress + "', PhoneNumber = '" + account.PhoneNumber + "', Email = '" + account.Email + "' where ID = '" + account.ID + "'";
+            string query = "update Inf_user set US = '" + account.US + "', Name = N'" + account.Name 
+                + "', Birthday = '" + account.Birthday + "', Adress = N'" + account.Adress 
+                + "', PhoneNumber = '" + account.PhoneNumber + "', Email = '" + account.Email
+                + "', Status = '" + account.Status + "' where ID = '" + account.ID + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updatePassword(string password, string US)
@@ -95,22 +99,23 @@ namespace DAL
             string query = "update Inf_user set Position = '" + role + "'" + " where US = '" + username + "'"; ;
             DataProvider.Instance.ExcuteDB(query);
         }
-        public void deleteAccount(Account account, string id)
+        public void deleteAccount(string id)
         {
-            string query = "delete from Inf_user where ID = '" + id + "'";
+            string query = "update Inf_user set Status = 'false' where ID = '" + id + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void addAccount(Account account)
         {
-            string query = "insert into Inf_user(US,PW,Name,Gender,Birthday,Adress,PhoneNumber,Position,Email) " +
+            string query = "insert into Inf_user(US,PW,Name,Gender,Birthday,Adress,PhoneNumber,Position,Email,Status) " +
                     "values ('" + account.US + "','" + account.PW + "',N'" + account.Name + "','" + account.Gender + "','" +
-                    account.Birthday + "',N'" + account.Adress + "','" + account.PhoneNumber + "','" + account.Position + "','" + account.Email + "')";
+                    account.Birthday + "',N'" + account.Adress + "','" + account.PhoneNumber + "','" 
+                    + account.Position + "','" + account.Email + "','" + account.Status + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public List<string> getAllUsername()
         {
             List<string> data = new List<string>();
-            string query = "select US from Inf_user";
+            string query = "select US from Inf_user where Status = 'true'";
             foreach (DataRow i in DataProvider.Instance.GetRecords(query).Rows)
             {
                 data.Add(i["US"].ToString());
@@ -119,7 +124,7 @@ namespace DAL
         }
         public string checkField(string field, string value)
         {
-            string query = "select " + field + " from Inf_user where " + field + " = '" + value + "'";
+            string query = "select " + field + " from Inf_user where " + field + " = '" + value + "' and Status = 'true'";
             return DataProvider.Instance.CheckAcc(query);
         }
 

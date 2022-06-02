@@ -25,10 +25,9 @@ namespace DAL
         }
         private Product_DAL() { }
         DataTable products = new DataTable();
-        DataRow product;
         public DataTable GetRecords()
         {
-            string query = "select ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P from Products";
+            string query = "select ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P from Products where Status = 'true'";
             products = DataProvider.Instance.GetRecords(query);
             return products;
         }
@@ -36,7 +35,7 @@ namespace DAL
         public DataTable GetProductByID(string id)
         {
             string query = $"select ID_P,ID_PG,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P,IMG_P " +
-                $"from Products where ID_P={id}";
+                $"from Products where ID_P={id} and Status = 'true'";
             products = DataProvider.Instance.GetRecords(query);
             return products;
         }
@@ -44,13 +43,7 @@ namespace DAL
         {
             string query = $"select ID_P,ProductGroups.Name_PG,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P " +
                 $"from Products inner JOIN ProductGroups ON ProductGroups.ID_PG = Products.ID_PG " +
-                $"where ID_P={id}";
-            products = DataProvider.Instance.GetRecords(query);
-            return products;
-        }
-        public DataTable GetRecordsAllColumns()
-        {
-            string query = "select ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P,IMG_P from Products";
+                $"where ID_P={id} and Products.Status = 'true'";
             products = DataProvider.Instance.GetRecords(query);
             return products;
         }
@@ -59,7 +52,7 @@ namespace DAL
         {
             string query = "SELECT ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P " +
                 "FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG " +
-                "and g.Name_PG = N'" + groupName + "'";
+                "and g.Name_PG = N'" + groupName + "' where p.Status = 'true'";
             products = DataProvider.Instance.GetRecords(query);
             return products;
         }
@@ -72,13 +65,13 @@ namespace DAL
             {
                 query = $"select ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P " +
                     $"FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG " +
-                    $"where {option} like N'%{name}%'";
+                    $"where {option} like N'%{name}%' and p.Status = 'true'";
             }
             else
             {
                 query = $"select ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P " +
                     $"FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG " +
-                    $"and g.Name_PG = N'{groupName}'where {option} like N'%{name}%'";
+                    $"and g.Name_PG = N'{groupName}'where {option} like N'%{name}%' and p.Status = 'true'";
             }
             productList = DataProvider.Instance.GetRecords(query);
             return productList;
@@ -90,7 +83,7 @@ namespace DAL
                 "'" + product.ID_PG + "',N'" + product.Name_P + "',N'" + product.Unit_P + "','" + product.Price_P + "','" + product.VAT + "')";*/
             //string query = $"insert into Products(ID_PG,Name_P,Unit_P,Price_P,VAT,Img_P) values ('{ product.ID_PG}',N'{product.Name_P}',N'{product.Unit_P}','{product.Price_P}','{product.VAT}','{product.Img_P}')";
 
-            string query = $"insert into Products(ID_PG,Name_P,Unit_P,Price_P,VAT,IMG_P) values ('{ product.ID_PG}',N'{product.Name_P}',N'{product.Unit_P}','{product.Price_P}','{product.VAT}',@data)";
+            string query = $"insert into Products(ID_PG,Name_P,Unit_P,Price_P,VAT,IMG_P,Status) values ('{ product.ID_PG}',N'{product.Name_P}',N'{product.Unit_P}','{product.Price_P}','{product.VAT}',@data,'{product.Status}')";
 
             DataProvider.Instance.ExcuteDB(query, product.IMG_P);
         }
@@ -99,7 +92,9 @@ namespace DAL
             /*string query = "update Products set Name_P = N'" + product.Name_P + "', Unit_P = N'" + product.Unit_P
                 + "', Cost_P = '" + product.Cost_P + "', Price_P = '" + product.Price_P
                 + "', VAT = '" + product.VAT + "', IMG_P = '" + product.Img_P+ "' where ID_P = '" + product.ID_P + "'";*/
-            string query = $"update Products set ID_PG = '{product.ID_PG}',Name_P = N'{product.Name_P}', Unit_P = N'{product.Unit_P}',Price_P = '{product.Price_P}', VAT = '{product.VAT}', IMG_P = @data where ID_P = '{product.ID_P}'";
+            string query = $"update Products set ID_PG = '{product.ID_PG}',Name_P = N'{product.Name_P}'" +
+                $", Unit_P = N'{product.Unit_P}',Price_P = '{product.Price_P}', VAT = '{product.VAT}'" +
+                $", IMG_P = @data, Status = '{product.Status}' where ID_P = '{product.ID_P}'";
             DataProvider.Instance.ExcuteDB(query, product.IMG_P);
         }
 
@@ -110,20 +105,28 @@ namespace DAL
         }
         public void deleteProduct(string id_product)
         {
-            string query = "delete from Products where ID_P = '" + id_product + "'";
+            string query = "update Products set Status = 'false' where ID_P = '" + id_product + "'";
+            DataProvider.Instance.ExcuteDB(query);
+        }
+        public void deleteProductByPG(int id_PG)
+        {
+            string query = "update Products set Status = 'false' where ID_PG = '" + Convert.ToString(id_PG) + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
 
         public DataTable getAllProductsByGroupName(string groupName)
         {
-            string query = "SELECT * FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG and g.Name_PG = N'" + groupName + "'";
+            string query = "SELECT ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P,IMG_P " +
+                "FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG " +
+                "and g.Name_PG = N'" + groupName + "' where p.Status = 'true'";
             products = DataProvider.Instance.GetRecords(query);
             return products;
         }
 
         public DataTable GetAllRecords()
         {
-            string query = "select * from Products";
+            string query = "select ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P,IMG_P " +
+                "from Products where Status = 'true'";
             products = DataProvider.Instance.GetRecords(query);
             return products;
         }

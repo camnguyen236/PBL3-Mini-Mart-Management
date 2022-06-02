@@ -13,7 +13,10 @@ namespace DTO
         public string Gender_Customer { get; set; }
         public string Address_Customer { get; set; }
         public string PhoneNumber_Customer { get; set; }
+        public string Email_Customer { get; set; }  
         public string AccountNumber { get; set; }
         public string TaxCode { get; set; }
+        public int Discount { get; set; }
+        public bool Status { get; set; }
     }
 }

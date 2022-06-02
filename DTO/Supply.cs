@@ -13,5 +13,7 @@ namespace DTO
         public string Address_Supply { get; set; }
         public string PhoneNumber_Supply { get; set; }
         public string BankAccount { get; set; }
+        public string TaxCode { get; set; }
+        public bool Status { get; set; }
     }
 }
