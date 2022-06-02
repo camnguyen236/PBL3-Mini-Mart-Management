@@ -22,13 +22,17 @@ namespace GUI
         {
             InitializeComponent();
             this.acc = acc;
-            //account
+            if (!AccountBLL.Instance.checkRole("Admin"))
+            {
+                TabControlManage.TabPages.Remove(tpUS);
+                TabControlManage.TabPages.Remove(tpProduct);
+                TabControlManage.TabPages.Remove(tpSupply);
+                TabControlMain.TabPages.Remove(tpImport);
+            }
+
             addCbSearch();
-            //catalories
             setCBProductsGroups();
             addCbSearchProduct();
-            //ImportProduct
-            //setCBBID_IP();
 
             setCBBName_Supply();
             setCBBID_Products();
@@ -37,7 +41,7 @@ namespace GUI
             cbbID_Product.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             setCBBDiscount();
 
-            //addTab();
+            addTab();
             ViewCart();
             showDgvSH();
         }
@@ -46,11 +50,12 @@ namespace GUI
             txtID.Text = "";
             txtUsername.Text = "";
             txtName.Text = "";
-            txtBirthday.Text = "";
+            dpBirthday.Text = "";
             txtAddress.Text = "";
             txtPhone.Text = "";
             txtRole.Text = "";
             txtEmail.Text = "";
+            rbTrue_us.Checked = true;
         }
         private void Show()
         {
@@ -87,7 +92,7 @@ namespace GUI
             txtID.Text = dgv1.Rows[i].Cells[0].Value.ToString();
             txtUsername.Text = dgv1.Rows[i].Cells[1].Value.ToString();
             txtName.Text = dgv1.Rows[i].Cells[2].Value.ToString();
-            txtBirthday.Text = dgv1.Rows[i].Cells[3].Value.ToString();
+            dpBirthday.Text = dgv1.Rows[i].Cells[3].Value.ToString();
             txtAddress.Text = dgv1.Rows[i].Cells[4].Value.ToString();
             txtPhone.Text = dgv1.Rows[i].Cells[5].Value.ToString();
             txtRole.Text = dgv1.Rows[i].Cells[6].Value.ToString();
@@ -97,7 +102,7 @@ namespace GUI
         Customer customer;
         Supply supply;
         Product product;
-        DetailImportProducts detailImportProducts, detailImportProducts2;
+        DetailImportProducts detailImportProducts;
         ImportProducts importProducts;
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -109,11 +114,12 @@ namespace GUI
                 PW = "null",
                 Name = txtName.Text,
                 Gender = "nữ",
-                Birthday = Convert.ToDateTime(txtBirthday.Text),
+                Birthday = Convert.ToDateTime(dpBirthday.Text),
                 Adress = txtAddress.Text,
                 PhoneNumber = txtPhone.Text,
                 Position = txtRole.Text,
-                Email = txtEmail.Text
+                Email = txtEmail.Text,
+                Status = rbTrue_us.Checked
             };
             AccountBLL.Instance.ExcuteDB(account);
             Show();
@@ -154,8 +160,8 @@ namespace GUI
             int i = dgv3.CurrentRow.Index;
             txtID_Customer.Text = dgv3.Rows[i].Cells[0].Value.ToString();
             txtName_Customer.Text = dgv3.Rows[i].Cells[1].Value.ToString();
-            if (dgv3.Rows[i].Cells[2].Value.ToString() == "Nữ") rbtnFemale.Checked = true;
-            else rbtnMale.Checked = true;
+            if (dgv3.Rows[i].Cells[2].Value.ToString() == "Nữ") rbtnFemale_cus.Checked = true;
+            else rbtnMale_cus.Checked = true;
             txtAddress_Customer.Text = dgv3.Rows[i].Cells[3].Value.ToString();
             txtPhoneNumber_Customer.Text = dgv3.Rows[i].Cells[4].Value.ToString();
             txtAccountNumber.Text = dgv3.Rows[i].Cells[5].Value.ToString();
@@ -183,10 +189,14 @@ namespace GUI
             {
                 ID_Customer = Convert.ToInt32(txtID_Customer.Text),
                 Name_Customer = txtName_Customer.Text,
-                Gender_Customer = rbtnFemale.Checked ? "Nữ" : "Nam",
+                Gender_Customer = rbtnFemale_cus.Checked ? "Nữ" : "Nam",
                 Address_Customer = txtAddress_Customer.Text,
                 PhoneNumber_Customer = txtPhoneNumber_Customer.Text,
-                AccountNumber = txtAccountNumber.Text
+                AccountNumber = txtAccountNumber.Text,
+                Email_Customer = txtEmail_cus.Text,
+                Discount = Convert.ToInt32(txtDiscountCustomer.Text),
+                TaxCode = txtTaxCode_cus.Text,
+                Status = rbTrue_cus.Checked
             };
             Customer_BLL.Instance.ExcuteDB(customer);
             Show_Customer();
@@ -263,7 +273,8 @@ namespace GUI
                 Name_Supply = txtName_Supply.Text,
                 Address_Supply = txtAddress_Supply.Text,
                 PhoneNumber_Supply = txtPhoneNumber_Supply.Text,
-                BankAccount = txtBankAccount.Text
+                BankAccount = txtBankAccount.Text,
+                Status = rbTrue_su.Checked
             };
             Supply_BLL.Instance.ExcuteDB(supply);
             Show_Supply();
@@ -316,6 +327,7 @@ namespace GUI
         }
         private void setCBProductsGroups()
         {
+            cbProductsGroups.Items.Clear();
             cbProductsGroups.Items.Add("All");
             List<string> listProductsGroups = ProductGroups_BLL.Instance.getProductGroups().Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Name_PG")).ToList();
             foreach (string i in listProductsGroups)
@@ -867,16 +879,15 @@ namespace GUI
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            if (txtNameCustomer.Text.Equals(""))
-            {
-                MessageBox.Show("Please enter customer information");
-                return;
-            }
+            //if (txtSearchCustomer.Text.Equals(""))
+            //{
+            //    MessageBox.Show("Please enter customer information");
+            //    return;
+            //}
             Invoice inv = new Invoice
             {
-                //ID_Invoice = 0,
                 ID = acc.ID,
-                ID_Customer = Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text).ID_Customer,
+                //ID_Customer = Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text).ID_Customer,
                 Invoice_Date = DateTime.Now
             };
             Invoice_BLL.Instance.ExcuteDB(inv, "Add");
@@ -919,17 +930,17 @@ namespace GUI
 
         private void txtCustomerPhoneNum_TextChanged(object sender, EventArgs e)
         {
-            if (AccountBLL.Instance.checkPhoneNumber(txtCustomerPhoneNum.Text))
-            {
-                if (Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text) != null)
-                {
-                    txtNameCustomer.Text = Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text).Name_Customer;
-                }
-                else
-                {
-                    MessageBox.Show("This account does not exist, please re-enter");
-                }
-            }
+            //if (AccountBLL.Instance.checkPhoneNumber(txtCustomerPhoneNum.Text))
+            //{
+            //    if (Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text) != null)
+            //    {
+            //        txtNameCustomer.Text = Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text).Name_Customer;
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("This account does not exist, please re-enter");
+            //    }
+            //}
         }
         private void showDgvSH()
         {
@@ -959,14 +970,9 @@ namespace GUI
         {
             List<int> ls = new List<int>();
             dgvCart.DataSource = ls;
-            txtCustomerPhoneNum.Text = "";
+            //txtCustomerPhoneNum.Text = "";
             txtTotalProduct.Text = "";
-            txtNameCustomer.Text = "";
-        }
-
-        private void guna2DateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
+            //txtSearchCustomer.Text = "";
         }
 
         private void rbDaily_CheckedChanged(object sender, EventArgs e)
@@ -1013,20 +1019,26 @@ namespace GUI
             mf2.ShowDialog();
         }
 
-        private void label35_Click(object sender, EventArgs e)
+        private void cbbResultSearchCustomer_MouseClick(object sender, MouseEventArgs e)
         {
+            cbbResultSearchCustomer.Items.Clear();
+            if (Customer_BLL.Instance.getListCustomer(cbbSearchCustomer.SelectedItem.ToString(), txtSearchCustomer.Text) != null)
+            {
+                foreach (var i in Customer_BLL.Instance.getListCustomer(cbbSearchCustomer.SelectedItem.ToString(), txtSearchCustomer.Text))
+                {
 
+                    cbbResultSearchCustomer.Items.Add((i.Name_Customer == null ? "" : i.Name_Customer + "-")
+                        + (i.PhoneNumber_Customer == null ? "" : i.PhoneNumber_Customer + "-")
+                        + (i.Email_Customer == null ? "" : i.Email_Customer));
+                }
+            }
         }
 
-        private void guna2DateTimePicker6_ValueChanged(object sender, EventArgs e)
+        private void btnCatalogManagement_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void guna2TabControl1_Click(object sender, EventArgs e)
-        {
-            addTab();
-
+            CatalogManagement cm = new CatalogManagement();
+            cm.d = new CatalogManagement.Mydel(setCBProductsGroups);
+            cm.ShowDialog();
         }
 
         //private void btnPrintInvoice_Click(object sender, EventArgs e)
@@ -1035,17 +1047,51 @@ namespace GUI
         //    invoiceReport.ShowDialog();
         //}
 
-        private void cbbID_Product_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtSearchSH_TextChanged(object sender, EventArgs e)
         {
             dgvInvoice.DataSource = Invoice_BLL.Instance.GetInvoiceByDate(txtSearchSH.Text);
         }
 
+        private void pbRefresh_Cus_Click(object sender, EventArgs e)
+        {
+            txtID_Customer.Text = "";
+            txtName_Customer.Text = "";
+            txtPhoneNumber_Customer.Text = "";
+            txtAccountNumber.Text = "";
+            txtAddress_Customer.Text = "";
+            txtDiscountCustomer.Text = "";
+            txtTaxCode_cus.Text = "";
+            txtEmail_cus.Text = "";
+            rbtnMale_cus.Checked = true;
+            rbTrue_cus.Checked = true;
+        }
+
+        private void pbRefresh_US_Click(object sender, EventArgs e)
+        {
+            txtID.Text = "";
+            txtName.Text = "";
+            txtEmail.Text = "";
+            txtPhone.Text = "";
+            txtAddress.Text = "";
+            txtUsername.Text = "";
+            txtRole.Text = "";
+            dpBirthday.Value = DateTime.Now;
+            rbMale_us.Checked = true;
+            rbTrue_us.Checked = true;
+        }
+
+        private void pbRefresh_Supply_Click(object sender, EventArgs e)
+        {
+            txtID_Supply.Text = "";
+            txtName_Supply.Text = "";
+            txtTaxCode_su.Text = "";
+            txtAddress_Supply.Text = "";
+            txtPhoneNumber_Supply.Text = "";
+            txtBankAccount.Text = "";
+            rbTrue_su.Checked = true;
+        }
+
         //report
-        
+
     }
 }

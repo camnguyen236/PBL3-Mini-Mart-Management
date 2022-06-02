@@ -38,7 +38,8 @@ namespace GUI
                     Name_Supply = tbName.Text,
                     Address_Supply = tbAddress.Text,
                     PhoneNumber_Supply = tbPhoneNumber.Text,
-                    BankAccount = tbAccountNumber.Text
+                    BankAccount = tbAccountNumber.Text,
+                    Status = rbTrue.Checked
                 };
                 Supply_BLL.Instance.ExcuteDB(supply, "Add");
                 //show
@@ -47,6 +48,15 @@ namespace GUI
                 d();
                 this.Close();
             }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            tbName.Text = "";
+            tbAddress.Text = "";
+            tbAccountNumber.Text = "";
+            tbPhoneNumber.Text = "";
+            rbTrue.Checked = true;
         }
     }
 }

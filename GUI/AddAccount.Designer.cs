@@ -42,9 +42,14 @@
             this.tbEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.DTPBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
+            this.gbStatus = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.rbFalse = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rbTrue = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.gbStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbGender
@@ -109,7 +114,7 @@
             this.btnOK.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnOK.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(308, 369);
+            this.btnOK.Location = new System.Drawing.Point(555, 365);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(136, 37);
             this.btnOK.TabIndex = 22;
@@ -270,7 +275,7 @@
             this.DTPBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DTPBirthday.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DTPBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DTPBirthday.Location = new System.Drawing.Point(25, 307);
+            this.DTPBirthday.Location = new System.Drawing.Point(273, 295);
             this.DTPBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DTPBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DTPBirthday.Name = "DTPBirthday";
@@ -282,17 +287,88 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(27, 287);
+            this.label2.Location = new System.Drawing.Point(275, 275);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 29;
             this.label2.Text = "Your Birthday";
+            // 
+            // gbStatus
+            // 
+            this.gbStatus.Controls.Add(this.rbFalse);
+            this.gbStatus.Controls.Add(this.rbTrue);
+            this.gbStatus.CustomBorderColor = System.Drawing.Color.WhiteSmoke;
+            this.gbStatus.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.gbStatus.Location = new System.Drawing.Point(25, 275);
+            this.gbStatus.Name = "gbStatus";
+            this.gbStatus.Size = new System.Drawing.Size(200, 113);
+            this.gbStatus.TabIndex = 30;
+            this.gbStatus.Text = "Status";
+            // 
+            // rbFalse
+            // 
+            this.rbFalse.AutoSize = true;
+            this.rbFalse.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbFalse.CheckedState.BorderThickness = 0;
+            this.rbFalse.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbFalse.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbFalse.CheckedState.InnerOffset = -4;
+            this.rbFalse.Location = new System.Drawing.Point(24, 90);
+            this.rbFalse.Name = "rbFalse";
+            this.rbFalse.Size = new System.Drawing.Size(51, 18);
+            this.rbFalse.TabIndex = 1;
+            this.rbFalse.Text = "False";
+            this.rbFalse.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbFalse.UncheckedState.BorderThickness = 2;
+            this.rbFalse.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbFalse.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // rbTrue
+            // 
+            this.rbTrue.AutoSize = true;
+            this.rbTrue.Checked = true;
+            this.rbTrue.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbTrue.CheckedState.BorderThickness = 0;
+            this.rbTrue.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbTrue.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbTrue.CheckedState.InnerOffset = -4;
+            this.rbTrue.Location = new System.Drawing.Point(24, 52);
+            this.rbTrue.Name = "rbTrue";
+            this.rbTrue.Size = new System.Drawing.Size(46, 18);
+            this.rbTrue.TabIndex = 0;
+            this.rbTrue.TabStop = true;
+            this.rbTrue.Text = "True";
+            this.rbTrue.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbTrue.UncheckedState.BorderThickness = 2;
+            this.rbTrue.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbTrue.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.SystemColors.Window;
+            this.btnRefresh.BorderRadius = 20;
+            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(337, 365);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(136, 37);
+            this.btnRefresh.TabIndex = 31;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // AddAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 418);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.gbStatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DTPBirthday);
             this.Controls.Add(this.tbEmail);
@@ -312,6 +388,8 @@
             this.gbGender.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.gbStatus.ResumeLayout(false);
+            this.gbStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,5 +411,9 @@
         private Guna.UI2.WinForms.Guna2TextBox tbEmail;
         private Guna.UI2.WinForms.Guna2DateTimePicker DTPBirthday;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2GroupBox gbStatus;
+        private Guna.UI2.WinForms.Guna2RadioButton rbFalse;
+        private Guna.UI2.WinForms.Guna2RadioButton rbTrue;
+        private Guna.UI2.WinForms.Guna2Button btnRefresh;
     }
 }

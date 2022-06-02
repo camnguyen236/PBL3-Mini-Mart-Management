@@ -92,6 +92,7 @@ namespace GUI
                 txtPrice_PD.Text = dr["Price_P"].ToString();
                 txtVAT_PD.Text = dr["VAT"].ToString();
                 txtVATInclusive_PD.Text = dr["VAT_Inclusive_P"].ToString();
+                rbTrue.Checked = true;
                 txtID_PD.Enabled = false;
                 cbCatagories_PD.Enabled = false;
                 txtQuantity_PD.Enabled = false;
@@ -196,6 +197,7 @@ namespace GUI
                     VAT = txtVAT_PD.Text,
                     ID_PG = getIDByGroupName(cbCatagories_PD.Text),
                     IMG_P = ImgToByteArray(img_PD.Image),
+                    Status = rbTrue.Checked
                     //ok
                 };
 
@@ -273,5 +275,17 @@ namespace GUI
             }
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtName_PD.Text = "";
+            txtID_PD.Text = "";
+            txtPrice_PD.Text = "";
+            txtQuantity_PD.Text = "";
+            txtUnit_PD.Text = "";
+            txtVATInclusive_PD.Text = "";
+            txtVAT_PD.Text = "";
+            cbCatagories_PD.SelectedIndex = 1;
+            rbTrue.Checked = true;
+        }
     }
 }

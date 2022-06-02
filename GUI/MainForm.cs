@@ -26,6 +26,7 @@ namespace GUI
             
             mName = new MyDelName(show);
             btnSystem.Enabled = AccountBLL.Instance.checkRole("Admin");
+            btnAnalyze.Enabled = AccountBLL.Instance.checkRole("Admin");
             mAccount = acc;
             pnAccountDropDown.Hide();
             pnAccountDropDown.Size = pnAccountDropDown.MinimumSize;

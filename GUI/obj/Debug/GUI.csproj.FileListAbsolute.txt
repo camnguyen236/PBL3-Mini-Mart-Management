@@ -275,3 +275,7 @@ F:\PBL3\GUI\bin\Debug\Product_Library.dll
 F:\PBL3\GUI\obj\Debug\GUI.Analyze.resources
 F:\PBL3\GUI\obj\Debug\GUI.InvoiceReport.resources
 F:\PBL3\GUI\obj\Debug\GUI.ImportProductsBill.resources
+D:\code\PBL3\GUI\obj\Debug\GUI.Analyze.resources
+D:\code\PBL3\GUI\obj\Debug\GUI.ImportProductsBill.resources
+D:\code\PBL3\GUI\obj\Debug\GUI.InvoiceReport.resources
+D:\code\PBL3\GUI\obj\Debug\GUI.CatalogManagement.resources

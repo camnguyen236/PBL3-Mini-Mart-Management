@@ -27,26 +27,28 @@ namespace DAL
         DataTable supply = new DataTable();
         public DataTable GetRecords()
         {
-            string query = "select ID_Supply,Name_Supply,Address_Supply,PhoneNumber_Supply,BankAccount, TaxCode from Supply";
+            string query = "select ID_Supply,Name_Supply,Address_Supply,PhoneNumber_Supply,BankAccount,TaxCode from Supply where Status = 'true'";
             supply = DataProvider.Instance.GetRecords(query);
             return supply;
         }
         public void addSupply(Supply supply)
         {
-            string query = "insert into Supply(Name_Supply,Address_Supply,PhoneNumber_Supply,BankAccount) " + "values (N'"
-                + supply.Name_Supply + "',N'" + supply.Address_Supply + "','" + supply.PhoneNumber_Supply + "','" + supply.BankAccount + "')";
+            string query = "insert into Supply(Name_Supply,Address_Supply,PhoneNumber_Supply,BankAccount,TaxCode,Status) " + "values (N'"
+                + supply.Name_Supply + "',N'" + supply.Address_Supply + "','" + supply.PhoneNumber_Supply 
+                + "','" + supply.BankAccount + "','" + supply.TaxCode + "','" + supply.Status + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateSupply(Supply supply)
         {
             string query = "update Supply set Name_Supply = N'" + supply.Name_Supply + "', Address_Supply = N'" + supply.Address_Supply
                 + "', PhoneNumber_Supply = '" + supply.PhoneNumber_Supply + "', BankAccount = '" + supply.BankAccount
+                + "', TaxCode = '" + supply.TaxCode + "', Status = '" + supply.Status 
                 + "' where ID_Supply = '" + supply.ID_Supply + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
-        public void deleteSupply(Supply supply, string id_supply)
+        public void deleteSupply(string id_supply)
         {
-            string query = "delete from Supply where ID_Supply = '" + id_supply + "'";
+            string query = "update Supply set Status = 'false' where ID_Supply = '" + id_supply + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
     }

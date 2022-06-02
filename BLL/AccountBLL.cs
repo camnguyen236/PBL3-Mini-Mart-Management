@@ -62,7 +62,7 @@ namespace BLL
             }
             if (id != null && !id.Equals("Add"))
             {
-                AccountAccess.Instance.deleteAccount(account, id);
+                AccountAccess.Instance.deleteAccount(id);
                 return;
             }
             if (id.Equals("Add"))

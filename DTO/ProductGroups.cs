@@ -10,5 +10,6 @@ namespace DTO
     {
         public string ID_PG { get; set; }
         public string Name_PG { get; set; }
+        public bool Status { get; set; }
     }
 }

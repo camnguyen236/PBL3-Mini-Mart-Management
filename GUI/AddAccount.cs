@@ -79,7 +79,8 @@ namespace GUI
                             Adress = tbAddress.Text,
                             PhoneNumber = tbPhoneNumber.Text,
                             Position = null,
-                            Email = tbEmail.Text
+                            Email = tbEmail.Text,
+                            Status = rbTrue.Checked
                         };
                         AccountBLL.Instance.ExcuteDB(account, "Add");
                         //show
@@ -95,5 +96,16 @@ namespace GUI
             }
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            tbName.Text = "";
+            tbEmail.Text = "";
+            tbAddress.Text = "";
+            tbPhoneNumber.Text = "";
+            tbUS.Text = "";
+            DTPBirthday.Value = DateTime.Now;
+            rbTrue.Checked = true;
+            rbtnMale.Checked = true;
+        }
     }
 }

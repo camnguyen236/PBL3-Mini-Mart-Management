@@ -17,5 +17,6 @@ namespace DTO
         public string VAT { get; set; }
         public int VATInclusive_P { get; set; }
         public byte[] IMG_P { get; set; }
+        public bool Status { get; set; }
     }
 }

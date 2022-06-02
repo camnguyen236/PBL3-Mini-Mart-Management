@@ -38,8 +38,15 @@
             this.rbtnMale = new Guna.UI2.WinForms.Guna2RadioButton();
             this.tbAddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnOK_Customer = new Guna.UI2.WinForms.Guna2Button();
+            this.gbStatus = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.rbFalse = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rbTrue = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.txtTaxCode = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gbGender.SuspendLayout();
+            this.gbStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -47,7 +54,7 @@
             this.pictureBox2.Image = global::GUI.Properties.Resources.resetform;
             this.pictureBox2.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(736, 418);
+            this.pictureBox2.Size = new System.Drawing.Size(736, 383);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
@@ -198,7 +205,7 @@
             this.tbAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbAddress.Location = new System.Drawing.Point(24, 247);
+            this.tbAddress.Location = new System.Drawing.Point(24, 204);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.PasswordChar = '\0';
             this.tbAddress.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -218,18 +225,137 @@
             this.btnOK_Customer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnOK_Customer.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK_Customer.ForeColor = System.Drawing.Color.White;
-            this.btnOK_Customer.Location = new System.Drawing.Point(561, 310);
+            this.btnOK_Customer.Location = new System.Drawing.Point(618, 305);
             this.btnOK_Customer.Name = "btnOK_Customer";
-            this.btnOK_Customer.Size = new System.Drawing.Size(136, 37);
+            this.btnOK_Customer.Size = new System.Drawing.Size(93, 37);
             this.btnOK_Customer.TabIndex = 32;
             this.btnOK_Customer.Text = "OK";
             this.btnOK_Customer.Click += new System.EventHandler(this.btnOK_Customer_Click);
+            // 
+            // gbStatus
+            // 
+            this.gbStatus.Controls.Add(this.rbFalse);
+            this.gbStatus.Controls.Add(this.rbTrue);
+            this.gbStatus.CustomBorderColor = System.Drawing.Color.WhiteSmoke;
+            this.gbStatus.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.gbStatus.Location = new System.Drawing.Point(561, 170);
+            this.gbStatus.Name = "gbStatus";
+            this.gbStatus.Size = new System.Drawing.Size(113, 113);
+            this.gbStatus.TabIndex = 33;
+            this.gbStatus.Text = "Status";
+            // 
+            // rbFalse
+            // 
+            this.rbFalse.AutoSize = true;
+            this.rbFalse.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbFalse.CheckedState.BorderThickness = 0;
+            this.rbFalse.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbFalse.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbFalse.CheckedState.InnerOffset = -4;
+            this.rbFalse.Location = new System.Drawing.Point(24, 90);
+            this.rbFalse.Name = "rbFalse";
+            this.rbFalse.Size = new System.Drawing.Size(51, 18);
+            this.rbFalse.TabIndex = 1;
+            this.rbFalse.Text = "False";
+            this.rbFalse.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbFalse.UncheckedState.BorderThickness = 2;
+            this.rbFalse.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbFalse.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // rbTrue
+            // 
+            this.rbTrue.AutoSize = true;
+            this.rbTrue.Checked = true;
+            this.rbTrue.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbTrue.CheckedState.BorderThickness = 0;
+            this.rbTrue.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbTrue.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbTrue.CheckedState.InnerOffset = -4;
+            this.rbTrue.Location = new System.Drawing.Point(24, 52);
+            this.rbTrue.Name = "rbTrue";
+            this.rbTrue.Size = new System.Drawing.Size(46, 18);
+            this.rbTrue.TabIndex = 0;
+            this.rbTrue.TabStop = true;
+            this.rbTrue.Text = "True";
+            this.rbTrue.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbTrue.UncheckedState.BorderThickness = 2;
+            this.rbTrue.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbTrue.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // txtTaxCode
+            // 
+            this.txtTaxCode.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTaxCode.BorderRadius = 15;
+            this.txtTaxCode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTaxCode.DefaultText = "";
+            this.txtTaxCode.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTaxCode.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTaxCode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTaxCode.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTaxCode.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTaxCode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTaxCode.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTaxCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTaxCode.Location = new System.Drawing.Point(24, 305);
+            this.txtTaxCode.Name = "txtTaxCode";
+            this.txtTaxCode.PasswordChar = '\0';
+            this.txtTaxCode.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.txtTaxCode.PlaceholderText = "Your tax code";
+            this.txtTaxCode.SelectedText = "";
+            this.txtTaxCode.Size = new System.Drawing.Size(200, 36);
+            this.txtTaxCode.TabIndex = 34;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.txtEmail.BorderRadius = 15;
+            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEmail.DefaultText = "";
+            this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEmail.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEmail.Location = new System.Drawing.Point(24, 255);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.PasswordChar = '\0';
+            this.txtEmail.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.txtEmail.PlaceholderText = "Your email";
+            this.txtEmail.SelectedText = "";
+            this.txtEmail.Size = new System.Drawing.Size(200, 36);
+            this.txtEmail.TabIndex = 35;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.SystemColors.Window;
+            this.btnRefresh.BorderRadius = 20;
+            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(501, 304);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(100, 37);
+            this.btnRefresh.TabIndex = 36;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 382);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtTaxCode);
+            this.Controls.Add(this.gbStatus);
             this.Controls.Add(this.btnOK_Customer);
             this.Controls.Add(this.gbGender);
             this.Controls.Add(this.tbAddress);
@@ -244,6 +370,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gbGender.ResumeLayout(false);
             this.gbGender.PerformLayout();
+            this.gbStatus.ResumeLayout(false);
+            this.gbStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +389,11 @@
         private Guna.UI2.WinForms.Guna2RadioButton rbtnMale;
         private Guna.UI2.WinForms.Guna2TextBox tbAddress;
         private Guna.UI2.WinForms.Guna2Button btnOK_Customer;
+        private Guna.UI2.WinForms.Guna2GroupBox gbStatus;
+        private Guna.UI2.WinForms.Guna2RadioButton rbFalse;
+        private Guna.UI2.WinForms.Guna2RadioButton rbTrue;
+        private Guna.UI2.WinForms.Guna2TextBox txtTaxCode;
+        private Guna.UI2.WinForms.Guna2TextBox txtEmail;
+        private Guna.UI2.WinForms.Guna2Button btnRefresh;
     }
 }

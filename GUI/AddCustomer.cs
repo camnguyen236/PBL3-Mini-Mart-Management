@@ -23,7 +23,8 @@ namespace GUI
 
         private void btnOK_Customer_Click(object sender, EventArgs e)
         {
-            if (tbName.Text.Trim() == "" || tbAccountNumber.Text.Trim() == "" || tbAddress.Text.Trim() == "" || tbPhoneNumber.Text.Trim() == "")
+            if (tbName.Text.Trim() == "" || tbAccountNumber.Text.Trim() == "" || tbAddress.Text.Trim() == "" 
+                || tbPhoneNumber.Text.Trim() == "" || txtEmail.Text.Trim() == "" )
                 MessageBox.Show("Please fill in the required information!", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             else if (!AccountBLL.Instance.checkPhoneNumber(tbPhoneNumber.Text))
@@ -39,7 +40,10 @@ namespace GUI
                     Gender_Customer = rbtnFemale.Checked ? "Nữ" : "Nam",
                     Address_Customer = tbAddress.Text,
                     PhoneNumber_Customer = tbPhoneNumber.Text,
-                    AccountNumber = tbAccountNumber.Text
+                    AccountNumber = tbAccountNumber.Text,
+                    Email_Customer = txtEmail.Text,
+                    TaxCode = txtTaxCode.Text,
+                    Status = rbTrue.Checked
                 };
                 Customer_BLL.Instance.ExcuteDB(customer,"Add");
                 //show
@@ -50,5 +54,16 @@ namespace GUI
             }
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            tbName.Text = "";
+            tbAddress.Text = "";
+            tbPhoneNumber.Text = "";
+            tbAccountNumber.Text = "";
+            txtEmail.Text = "";
+            txtTaxCode.Text = "";
+            rbtnMale.Checked = true;
+            rbTrue.Checked = true;
+        }
     }
 }
