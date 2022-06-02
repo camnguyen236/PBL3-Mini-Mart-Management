@@ -896,7 +896,17 @@ namespace GUI
             }
             
             showDgvSH();
-            MessageBox.Show("Payment successful");
+            DialogResult dl = MessageBox.Show("Are you want to print this bill?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (dl == DialogResult.OK)
+            {
+                InvoiceReport invoiceReport = new InvoiceReport();
+                invoiceReport.ShowDialog();
+            }
+            else if (dl == DialogResult.Cancel)
+            {
+                //sthis.Close();
+            }
+            //MessageBox.Show("Payment successful");
             btnRefresh.PerformClick();
         }
 
@@ -1019,11 +1029,11 @@ namespace GUI
 
         }
 
-        private void btnPrintInvoice_Click(object sender, EventArgs e)
-        {
-            InvoiceReport invoiceReport = new InvoiceReport();
-            invoiceReport.ShowDialog();
-        }
+        //private void btnPrintInvoice_Click(object sender, EventArgs e)
+        //{
+        //    InvoiceReport invoiceReport = new InvoiceReport();
+        //    invoiceReport.ShowDialog();
+        //}
 
         private void cbbID_Product_SelectedIndexChanged(object sender, EventArgs e)
         {
