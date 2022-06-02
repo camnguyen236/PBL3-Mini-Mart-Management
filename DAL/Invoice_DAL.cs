@@ -58,7 +58,7 @@ namespace DAL
         }
         public void addInvoice(Invoice invoice)
         {
-            string query = "insert into Invoice " + "values (N'" + invoice.ID + "',N'"
+            string query = "insert into Invoice " + "values ('" + invoice.ID + "','"
                 + invoice.ID_Customer + "','" + invoice.Invoice_Date + "')";
             DataProvider.Instance.ExcuteDB(query);
         }

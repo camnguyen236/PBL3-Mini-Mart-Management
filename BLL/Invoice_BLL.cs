@@ -45,7 +45,7 @@ namespace BLL
                 Invoice_DAL.Instance.deleteInvoice(invoice.ID_Invoice);
                 return;
             }
-            if (id_invoice == "Add")
+            if (id_invoice.Equals("Add"))
             {
                 Invoice_DAL.Instance.addInvoice(invoice);
                 return;

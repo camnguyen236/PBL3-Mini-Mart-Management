@@ -48,12 +48,18 @@ namespace DAL
         public List<string> getAllIP_Product()
         {
             List<string> data = new List<string>();
-            string query = "select ID_P from Products";
+            string query = "select Name_P from Products";
             foreach (DataRow i in DataProvider.Instance.GetRecords(query).Rows)
             {
-                data.Add(i["ID_P"].ToString());
+                data.Add(i["Name_P"].ToString());
             }
             return data;
+        }
+        public String getID_Product(string Name_P)
+        {
+            string query = "select ID_P from Products where Name_P = N'" + Name_P + "'";
+            return DataProvider.Instance.GetRecords(query).Rows[0]["ID_P"].ToString();
+
         }
         public List<string> getAllDiscount()
         {
@@ -103,8 +109,8 @@ namespace DAL
         }
         public void addProducts(ImportProducts importProducts)
         {
-            string query = "insert into ImportProduct(ID,ID_Supply,Symbol,Date_Import) " + "values ('"
-                + importProducts.ID + "','" + importProducts.ID_Supply + "','" + importProducts.Symbol + "','" + importProducts.Date_Import + "')";
+            string query = "insert into ImportProduct(ID,ID_Supply,Date_Import) " + "values ('"
+                + importProducts.ID + "','" + importProducts.ID_Supply + "','" + importProducts.Date_Import + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateImportProduct(ImportProducts importProducts)

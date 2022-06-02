@@ -9,15 +9,12 @@ F:\PBL3\GUI\bin\Debug\GUI.pdb
 F:\PBL3\GUI\bin\Debug\BLL.dll
 F:\PBL3\GUI\bin\Debug\DTO.dll
 F:\PBL3\GUI\bin\Debug\Guna.UI2.dll
-F:\PBL3\GUI\bin\Debug\PBL_3.exe
 F:\PBL3\GUI\bin\Debug\DAL.dll
 F:\PBL3\GUI\bin\Debug\EmailValidation.dll
 F:\PBL3\GUI\bin\Debug\ARSoft.Tools.Net.dll
 F:\PBL3\GUI\bin\Debug\BouncyCastle.Crypto.dll
 F:\PBL3\GUI\bin\Debug\BLL.pdb
 F:\PBL3\GUI\bin\Debug\DTO.pdb
-F:\PBL3\GUI\bin\Debug\PBL_3.pdb
-F:\PBL3\GUI\bin\Debug\PBL_3.exe.config
 F:\PBL3\GUI\bin\Debug\DAL.pdb
 F:\PBL3\GUI\bin\Debug\ARSoft.Tools.Net.xml
 F:\PBL3\GUI\obj\Debug\GUI.csproj.CopyComplete
@@ -274,3 +271,7 @@ C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\zh-CHT\Microsoft.ReportViewer.Win
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.DetailPaymentBill.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ImportHistory.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.Analyze.resources
+F:\PBL3\GUI\bin\Debug\Product_Library.dll
+F:\PBL3\GUI\obj\Debug\GUI.Analyze.resources
+F:\PBL3\GUI\obj\Debug\GUI.InvoiceReport.resources
+F:\PBL3\GUI\obj\Debug\GUI.ImportProductsBill.resources

@@ -32,6 +32,9 @@ namespace GUI
 
             setCBBName_Supply();
             setCBBID_Products();
+            cbbID_Product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbbID_Product.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbbID_Product.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             setCBBDiscount();
 
             //addTab();
@@ -434,7 +437,7 @@ namespace GUI
             txtBankAccountInfOfBill.Text = ImportProductsBLL.Instance.getRecords().Rows[i]["BankAccount"].ToString();
             txtPhoneNumberSupply.Text = ImportProductsBLL.Instance.getRecords().Rows[i]["PhoneNumber_Supply"].ToString();
             txtID_Tax.Text = ImportProductsBLL.Instance.getRecords().Rows[i]["TaxCode"].ToString();
-            txtSymbol.Text = ImportProductsBLL.Instance.getRecords().Rows[i]["Symbol"].ToString();
+            //txtSymbol.Text = ImportProductsBLL.Instance.getRecords().Rows[i]["Symbol"].ToString();
         }
         public void showInformationNew()
         {
@@ -458,7 +461,10 @@ namespace GUI
         }
         public void setCBBID_Products() //cbb mã sp
         {
+            //cbbID_Product.SelectedIndex = 0;
             cbbID_Product.Items.AddRange(ImportProductsBLL.Instance.getAllIP_Product().ToArray());
+            //cbbID_Product.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //cbbID_Product.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
         public void setCBBDiscount() //cbb mã sp
         {
@@ -468,7 +474,7 @@ namespace GUI
         {
             //showInformationOfBill(cbbID_IP.SelectedIndex);
             int ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID_IP"].ToString()); //láy id phiếu cuối
-            MessageBox.Show(Convert.ToString(ID_IP));
+            //MessageBox.Show(Convert.ToString(ID_IP));
             dtgvImportProduct.DataSource = ImportProductsBLL.Instance.getDetailsImportProduct(ID_IP);
         }
         //private void cbbID_IP_SelectedIndexChanged(object sender, EventArgs e)
@@ -490,10 +496,11 @@ namespace GUI
         //}
         private void btnAdd_InfOfProduct_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show(ImportProductsBLL.Instance.getID_Product(cbbID_Product.SelectedItem.ToString()));
             detailImportProducts = new DetailImportProducts
             {
                 ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID_IP"].ToString()),
-                ID_P = Convert.ToInt32(cbbID_Product.SelectedItem.ToString()),
+                ID_P = Convert.ToInt32(ImportProductsBLL.Instance.getID_Product(cbbID_Product.SelectedItem.ToString())),
                 IP_Price = Convert.ToInt32(txtImport_Price.Text),
                 Amount_IP = Convert.ToInt32(nmrQuantity.Value),
                 Amount_Price = amount,
@@ -511,7 +518,7 @@ namespace GUI
         {
             cbbID_Product.Enabled = false;
             int i = dtgvImportProduct.CurrentRow.Index;
-            cbbID_Product.Text = dtgvImportProduct.Rows[i].Cells[0].Value.ToString();
+            cbbID_Product.Text = dtgvImportProduct.Rows[i].Cells[1].Value.ToString();
             txtImport_Price.Text = dtgvImportProduct.Rows[i].Cells[2].Value.ToString();
             nmrQuantity.Value = Convert.ToInt32(dtgvImportProduct.Rows[i].Cells[3].Value.ToString());
             amount = (Convert.ToInt32(dtgvImportProduct.Rows[i].Cells[3].Value) * Convert.ToInt32(dtgvImportProduct.Rows[i].Cells[2].Value));
@@ -559,7 +566,7 @@ namespace GUI
             txtBankAccountInfOfBill.Text = "";
             txtPhoneNumberSupply.Text = "";
             txtID_Tax.Text = "";
-            txtSymbol.Text = "";
+            //txtSymbol.Text = "";
             dtgvImportProduct.DataSource = empty;
             lbSaveInfOfBill.ForeColor = Color.White;
         }
@@ -580,13 +587,14 @@ namespace GUI
                 Date_Import = Convert.ToDateTime(dtDate_Import.Text),
                 //Name_Supply = Convert.ToInt32(txtImport_Price.Text),
                 ID_Supply = ImportProductsBLL.Instance.getID_Supply(cbbName_Supply.SelectedItem.ToString()),
-                Symbol = txtSymbol.Text,
+                //Symbol = txtSymbol.Text,
             };
             
             ImportProductsBLL.Instance.ExcuteDB(importProducts, "Add");
             //lbAdd.ForeColor = Color.Green;
             lbSaveInfOfBill.ForeColor = Color.Green;
             txtID_IP.Text = ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID_IP"].ToString();
+            DetailImportProductBLL.Instance.get(txtID_IP.Text);
             //setCBBID_IP();
         }
         //nút update bill
@@ -610,8 +618,8 @@ namespace GUI
 
         private void btnDetailImportBill_Click(object sender, EventArgs e)
         {
-            DetailPaymentBill detailPaymentBill = new DetailPaymentBill();
-            detailPaymentBill.ShowDialog();
+            ImportProductsBill importProductsBill = new ImportProductsBill();
+            importProductsBill.ShowDialog();
         }
 
         //cần sửa chữa
@@ -626,7 +634,7 @@ namespace GUI
                 {
                     ID_IP2 = Convert.ToInt32(txtID_IP.Text),//Convert.ToInt32(cbbID_IP.SelectedItem.ToString()),
                     Date_Import2 = Convert.ToDateTime(dtDate_Import.Text), //OK
-                    Symbol2 = txtSymbol.Text, //OK
+                    //Symbol2 = txtSymbol.Text, //OK
                     Name_Supply2 = cbbName_Supply.SelectedItem.ToString(), //OK
                     Address_Supply2 = txtAddress_InfOfBill.Text, //OK
                     TaxCode2 = txtID_Tax.Text, //OK
@@ -855,6 +863,7 @@ namespace GUI
             }
 
         }
+        
 
         private void btnPay_Click(object sender, EventArgs e)
         {
@@ -865,12 +874,15 @@ namespace GUI
             }
             Invoice inv = new Invoice
             {
+                //ID_Invoice = 0,
                 ID = acc.ID,
                 ID_Customer = Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text).ID_Customer,
                 Invoice_Date = DateTime.Now
             };
             Invoice_BLL.Instance.ExcuteDB(inv, "Add");
             int id = Convert.ToInt32(Invoice_BLL.Instance.getInvoice().Rows[Invoice_BLL.Instance.getInvoice().Rows.Count - 1]["ID_Invoice"].ToString());
+            MessageBox.Show(id.ToString());
+            InvoiceDetail_BLL.Instance.get(id.ToString());
             for (int i = 0; i < productArray.Count; i++)
             {
                 InvoiceDetail ind = new InvoiceDetail
@@ -882,8 +894,19 @@ namespace GUI
                 };
                 InvoiceDetail_BLL.Instance.ExcuteDB(ind, "Add");
             }
+            
             showDgvSH();
-            MessageBox.Show("Payment successful");
+            DialogResult dl = MessageBox.Show("Are you want to print this bill?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (dl == DialogResult.OK)
+            {
+                InvoiceReport invoiceReport = new InvoiceReport();
+                invoiceReport.ShowDialog();
+            }
+            else if (dl == DialogResult.Cancel)
+            {
+                //sthis.Close();
+            }
+            //MessageBox.Show("Payment successful");
             btnRefresh.PerformClick();
         }
 
@@ -1003,6 +1026,17 @@ namespace GUI
         private void guna2TabControl1_Click(object sender, EventArgs e)
         {
             addTab();
+
+        }
+
+        //private void btnPrintInvoice_Click(object sender, EventArgs e)
+        //{
+        //    InvoiceReport invoiceReport = new InvoiceReport();
+        //    invoiceReport.ShowDialog();
+        //}
+
+        private void cbbID_Product_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
 

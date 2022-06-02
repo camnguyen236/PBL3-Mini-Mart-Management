@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DAL;
+using System.Data;
 
 namespace BLL
 {
@@ -41,6 +42,19 @@ namespace BLL
                 DetailImportProductDAL.Instance.addProducts(detailImportProducts);
                 return;
             }
+        }
+        private string id_ip;
+        public void get(string ID_IP)
+        {
+            id_ip = ID_IP;
+        }
+        public string getID_IP()
+        {
+            return id_ip;
+        }
+        public DataTable getDetailImportProductByID(int ID_IP)
+        {
+            return DetailImportProductDAL.Instance.getDetailImportProductByID(ID_IP);
         }
         //public void updateImportProduct()
         //{

@@ -38,6 +38,7 @@ namespace GUI
                     break;
                 default:
                     //MessageBox.Show("Login Successed!");
+                    account = AccountBLL.Instance.getAccountByUS(txtUsername.Text);
                     MainForm mf = new MainForm(account);
                     mf.cur_login = this;
                     //mf.load_data(txtUsername.Text);

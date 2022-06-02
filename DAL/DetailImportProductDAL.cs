@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,8 +42,17 @@ namespace DAL
         //}
         public void deleteImportProduct(DetailImportProducts detailImportProducts,string id_product)
         {
-            string query = "delete from DetailImportProduct where ID_P = '" + id_product + "'";
-            DataProvider.Instance.ExcuteDB(query);
+            string query = "select ID_P from Products where Name_P = N'" + id_product + "'";
+            int ID_P = Convert.ToInt32(DataProvider.Instance.GetRecords(query).Rows[0]["ID_P"].ToString());
+            
+            DataProvider.Instance.ExcuteDB("delete from DetailImportProduct where ID_P = '" + ID_P + "'");
+        }
+        public DataTable getDetailImportProductByID(int ID_IP)
+        {
+            DataTable data = new DataTable();
+            string query = "SELECT DetailImportProduct.ID_IP, DetailImportProduct.IP_Price, DetailImportProduct.Amount_IP, DetailImportProduct.Amount_Price, DetailImportProduct.Discount, DetailImportProduct.Total, ImportProduct.Date_Import, Inf_user.Name, Products.Name_P, Supply.Name_Supply, Supply.PhoneNumber_Supply, Supply.Address_Supply, Supply.BankAccount, Supply.TaxCode from DetailImportProduct LEFT OUTER JOIN ImportProduct ON DetailImportProduct.ID_IP = ImportProduct.ID_IP LEFT OUTER JOIN Inf_user ON ImportProduct.ID = Inf_user.ID LEFT OUTER JOIN Products ON DetailImportProduct.ID_P = Products.ID_P LEFT OUTER JOIN Supply ON ImportProduct.ID_Supply = Supply.ID_Supply Where ImportProduct.ID_IP = " + ID_IP;
+            data = DataProvider.Instance.GetRecords(query);
+            return data;
         }
 
     }

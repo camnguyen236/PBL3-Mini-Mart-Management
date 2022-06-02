@@ -107,6 +107,11 @@
     <Compile Include="Analyze.Designer.cs">
       <DependentUpon>Analyze.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DetailPaymentBill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +123,17 @@
     </Compile>
     <Compile Include="ImportHistory.Designer.cs">
       <DependentUpon>ImportHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportProductsBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportProductsBill.Designer.cs">
+      <DependentUpon>ImportProductsBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportProductsDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImportProductsDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="InformationDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -143,6 +159,20 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InformationDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceDS.cs">
+      <DependentUpon>InvoiceDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvoiceReport.Designer.cs">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -207,6 +237,14 @@
     <EmbeddedResource Include="ImportHistory.resx">
       <DependentUpon>ImportHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ImportProductsBill.rdlc" />
+    <EmbeddedResource Include="ImportProductsBill.resx">
+      <DependentUpon>ImportProductsBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice.rdlc" />
+    <EmbeddedResource Include="InvoiceReport.resx">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,6 +278,28 @@
       <DependentUpon>Systems.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ImportProductsDS.xsc">
+      <DependentUpon>ImportProductsDS.xsd</DependentUpon>
+    </None>
+    <None Include="ImportProductsDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ImportProductsDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ImportProductsDS.xss">
+      <DependentUpon>ImportProductsDS.xsd</DependentUpon>
+    </None>
     <None Include="InformationDataSet.xsc">
       <DependentUpon>InformationDataSet.xsd</DependentUpon>
     </None>
@@ -294,6 +354,17 @@
     </None>
     <None Include="InformationDataSet4.xss">
       <DependentUpon>InformationDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="InvoiceDS.xsc">
+      <DependentUpon>InvoiceDS.xsd</DependentUpon>
+    </None>
+    <None Include="InvoiceDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvoiceDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="InvoiceDS.xss">
+      <DependentUpon>InvoiceDS.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
