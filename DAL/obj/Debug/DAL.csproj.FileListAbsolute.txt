@@ -40,8 +40,6 @@ D:\code\PBL3\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\code\PBL3\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\code\PBL3\DAL\obj\Debug\DAL.dll
 D:\code\PBL3\DAL\obj\Debug\DAL.pdb
-C:\Users\lvdle\source\repos\PBL3\DAL\bin\Debug\DAL.dll.config
-C:\Users\lvdle\source\repos\PBL3\DAL\bin\Debug\DTO.dll.config
 F:\PBL3\DAL\bin\Debug\DAL.dll.config
 F:\PBL3\DAL\bin\Debug\DTO.dll.config
 F:\PBL3\DAL\bin\Debug\SqlServerTypes\x64\msvcr120.dll

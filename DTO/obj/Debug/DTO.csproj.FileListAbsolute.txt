@@ -34,7 +34,6 @@ D:\code\PBL3\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\code\PBL3\DTO\obj\Debug\DTO.csproj.CopyComplete
 D:\code\PBL3\DTO\obj\Debug\DTO.dll
 D:\code\PBL3\DTO\obj\Debug\DTO.pdb
-C:\Users\lvdle\source\repos\PBL3\DTO\bin\Debug\DTO.dll.config
 F:\PBL3\DTO\bin\Debug\DTO.dll.config
 F:\PBL3\DTO\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 F:\PBL3\DTO\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll

@@ -89,9 +89,6 @@ D:\code\PBL3\GUI\obj\Debug\GUI.AddSupply.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.AddSupply.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ProductDetails.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\GUI.exe.config
-C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\BLL.dll.config
-C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\DTO.dll.config
-C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\DAL.dll.config
 F:\PBL3\GUI\bin\Debug\GUI.exe.config
 F:\PBL3\GUI\obj\Debug\GUI.AddSupply.resources
 F:\PBL3\GUI\obj\Debug\GUI.ProductDetails.resources
@@ -279,3 +276,7 @@ D:\code\PBL3\GUI\obj\Debug\GUI.Analyze.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.ImportProductsBill.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.InvoiceReport.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.CatalogManagement.resources
+C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.exe.config
+C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.CatalogManagement.resources
+C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ImportProductsBill.resources
+C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.InvoiceReport.resources

@@ -46,9 +46,6 @@ D:\code\PBL3\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 D:\code\PBL3\BLL\obj\Debug\BLL.csproj.CopyComplete
 D:\code\PBL3\BLL\obj\Debug\BLL.dll
 D:\code\PBL3\BLL\obj\Debug\BLL.pdb
-C:\Users\lvdle\source\repos\PBL3\BLL\bin\Debug\BLL.dll.config
-C:\Users\lvdle\source\repos\PBL3\BLL\bin\Debug\DAL.dll.config
-C:\Users\lvdle\source\repos\PBL3\BLL\bin\Debug\DTO.dll.config
 F:\PBL3\BLL\bin\Debug\BLL.dll.config
 F:\PBL3\BLL\bin\Debug\DAL.dll.config
 F:\PBL3\BLL\bin\Debug\DTO.dll.config

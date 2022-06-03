@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using BLL;
 using DTO;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Globalization;
 
 namespace GUI
 {
@@ -369,16 +370,44 @@ namespace GUI
 
         public void SetRevenueChart(DataTable dt)
         {
-
-           
+            DataTable dtnew = new DataTable();
+            dtnew.Clear();
+            dtnew.Columns.Add("X", typeof(string));
+            dtnew.Columns.Add("Y", typeof(int));
+            foreach (DataRow i in dt.Rows)
+            {
+                dtnew.Rows.Add(Convert.ToDateTime(i[0]).ToString("ddMMM", CultureInfo.InvariantCulture), i[1]);
+            }
+            dgv_Profit_Revenue_Chart.DataSource = dtnew;
+            dgv_Profit_Revenue_Chart.Series[0].XValueMember = "X";
+            dgv_Profit_Revenue_Chart.Series[0].YValueMembers = "Y";
+            dgv_Profit_Revenue_Chart.DataBind();
+            /*var enumerableTable = (dt as System.ComponentModel.IListSource).GetList();
+            dgv_Profit_Revenue_Chart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            dgv_Profit_Revenue_Chart.DataBindTable(enumerableTable, "Date");*/
         }
 
-        private void ShowCost()
+       private void ShowCost()
         {
            // MessageBox.Show(dtp_Profit_Date_A.Value.ToString("yyy-MM-dd") + "  " + dtp_Profit_Date_B.Value.ToString("yyy-MM-dd"));
             DataTable dt = Report_BLL.Instance.GetCostByDate(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value);
             dgv_Profit_Cost.DataSource = dt;
-          
+            SetCostChart(dt);
+        }
+        public void SetCostChart(DataTable dt)
+        {
+            DataTable dtnew = new DataTable();
+            dtnew.Clear();
+            dtnew.Columns.Add("X", typeof(string));
+            dtnew.Columns.Add("Y", typeof(int));
+            foreach (DataRow i in dt.Rows)
+            {
+                dtnew.Rows.Add(Convert.ToDateTime(i[0]).ToString("ddMMM", CultureInfo.InvariantCulture), i[1]);
+            }
+            dgv_Profit_Cost_Chart.DataSource = dtnew;
+            dgv_Profit_Cost_Chart.Series[0].XValueMember = "X";
+            dgv_Profit_Cost_Chart.Series[0].YValueMembers = "Y";
+            dgv_Profit_Cost_Chart.DataBind();
         }
 
         ////inventory
