@@ -108,8 +108,6 @@
             this.btnProfit_Year = new Guna.UI2.WinForms.Guna2Button();
             this.btnProfit_Month = new Guna.UI2.WinForms.Guna2Button();
             this.btnProfit_Week = new Guna.UI2.WinForms.Guna2Button();
-            this.lbProfit_A = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.lbRevenue_Profit_A = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lbTotalCost_Profit_A = new System.Windows.Forms.Label();
@@ -864,8 +862,6 @@
             this.tabPage3.Controls.Add(this.btnProfit_Year);
             this.tabPage3.Controls.Add(this.btnProfit_Month);
             this.tabPage3.Controls.Add(this.btnProfit_Week);
-            this.tabPage3.Controls.Add(this.lbProfit_A);
-            this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.lbRevenue_Profit_A);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.lbTotalCost_Profit_A);
@@ -1015,7 +1011,7 @@
             this.dgv_Profit_Cost.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgv_Profit_Cost.EnableHeadersVisualStyles = false;
             this.dgv_Profit_Cost.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv_Profit_Cost.Location = new System.Drawing.Point(178, 630);
+            this.dgv_Profit_Cost.Location = new System.Drawing.Point(180, 542);
             this.dgv_Profit_Cost.Name = "dgv_Profit_Cost";
             this.dgv_Profit_Cost.ReadOnly = true;
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1034,7 +1030,7 @@
             this.dgv_Profit_Cost.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_Profit_Cost.RowTemplate.Height = 30;
             this.dgv_Profit_Cost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Profit_Cost.Size = new System.Drawing.Size(334, 322);
+            this.dgv_Profit_Cost.Size = new System.Drawing.Size(334, 313);
             this.dgv_Profit_Cost.TabIndex = 61;
             this.dgv_Profit_Cost.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_Profit_Cost.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1091,7 +1087,7 @@
             this.dgv_Profit_Revenue.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgv_Profit_Revenue.EnableHeadersVisualStyles = false;
             this.dgv_Profit_Revenue.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv_Profit_Revenue.Location = new System.Drawing.Point(178, 298);
+            this.dgv_Profit_Revenue.Location = new System.Drawing.Point(180, 201);
             this.dgv_Profit_Revenue.Name = "dgv_Profit_Revenue";
             this.dgv_Profit_Revenue.ReadOnly = true;
             dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1213,32 +1209,6 @@
             this.btnProfit_Week.Text = "Week";
             this.btnProfit_Week.UseTransparentBackground = true;
             this.btnProfit_Week.Click += new System.EventHandler(this.btnProfit_Week_Click);
-            // 
-            // lbProfit_A
-            // 
-            this.lbProfit_A.AutoSize = true;
-            this.lbProfit_A.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(205)))), ((int)(((byte)(238)))));
-            this.lbProfit_A.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbProfit_A.ForeColor = System.Drawing.Color.Indigo;
-            this.lbProfit_A.Location = new System.Drawing.Point(242, 184);
-            this.lbProfit_A.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbProfit_A.Name = "lbProfit_A";
-            this.lbProfit_A.Size = new System.Drawing.Size(55, 23);
-            this.lbProfit_A.TabIndex = 24;
-            this.lbProfit_A.Text = "Profit";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(205)))), ((int)(((byte)(238)))));
-            this.label11.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.Color.Indigo;
-            this.label11.Location = new System.Drawing.Point(174, 184);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 23);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "Profit:";
             // 
             // lbRevenue_Profit_A
             // 
@@ -1454,7 +1424,7 @@
             legend3.AutoFitMinFontSize = 5;
             legend3.Name = "Legend1";
             this.dgv_Profit_Revenue_Chart.Legends.Add(legend3);
-            this.dgv_Profit_Revenue_Chart.Location = new System.Drawing.Point(590, 298);
+            this.dgv_Profit_Revenue_Chart.Location = new System.Drawing.Point(592, 201);
             this.dgv_Profit_Revenue_Chart.Name = "dgv_Profit_Revenue_Chart";
             this.dgv_Profit_Revenue_Chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series3.BorderWidth = 2;
@@ -1475,7 +1445,7 @@
             legend2.AutoFitMinFontSize = 5;
             legend2.Name = "Legend1";
             this.dgv_Profit_Cost_Chart.Legends.Add(legend2);
-            this.dgv_Profit_Cost_Chart.Location = new System.Drawing.Point(592, 639);
+            this.dgv_Profit_Cost_Chart.Location = new System.Drawing.Point(592, 542);
             this.dgv_Profit_Cost_Chart.Name = "dgv_Profit_Cost_Chart";
             this.dgv_Profit_Cost_Chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series2.BorderWidth = 2;
@@ -1575,8 +1545,6 @@
         private Guna.UI2.WinForms.Guna2Button btnProfit_Year;
         private Guna.UI2.WinForms.Guna2Button btnProfit_Month;
         private Guna.UI2.WinForms.Guna2Button btnProfit_Week;
-        private System.Windows.Forms.Label lbProfit_A;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lbRevenue_Profit_A;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbTotalCost_Profit_A;
