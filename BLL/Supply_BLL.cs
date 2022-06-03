@@ -47,5 +47,9 @@ namespace BLL
                 return;
             }
         }
+        public DataTable getSupplysByOption(string name, string option)
+        {
+            return Supply_DAL.Instance.getSupplysByOption(name, option);
+        }
     }
 }

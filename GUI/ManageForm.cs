@@ -34,6 +34,7 @@ namespace GUI
             setCBProductsGroups();
             addCbSearchProduct();
             addCbSearchCustomer();
+            addCbSearchSupply();
             setCBBName_Supply();
             setCBBID_Products();
             cbbID_Product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1101,7 +1102,7 @@ namespace GUI
 
         private void txtSearchCustomer_MI_TextChanged(object sender, EventArgs e)
         {
-            if (cbbSearchCustomer.Text!=null)
+            if (cbbSearchCustomer_MI.Text!=null)
             {
                 searchCustomer(cbbSearchCustomer_MI.Text);
             }
@@ -1150,6 +1151,52 @@ namespace GUI
                     break;
             }
             dgv3.DataSource = Customer_BLL.Instance.getCustomersByOption(txtSearchCustomer_MI.Text, option);
+        }
+
+        private void txtSearchSupply_MI_TextChanged(object sender, EventArgs e)
+        {
+            if (cbbSearchSupply_MI.Text != null)
+            {
+                searchSupply(cbbSearchSupply_MI.Text);
+            }
+        }
+        public void addCbSearchSupply()
+        {
+            cbbSearchSupply_MI.Items.Add("ID");
+            cbbSearchSupply_MI.Items.Add("Name Supply");
+            cbbSearchSupply_MI.Items.Add("Address");
+            cbbSearchSupply_MI.Items.Add("Phone number");
+            cbbSearchSupply_MI.Items.Add("Bank Account");
+            cbbSearchSupply_MI.Items.Add("Tax code");
+
+        }
+        private void searchSupply(string option)
+        {
+            switch (option)
+            {
+
+                case "ID":
+                    option = "ID_Supply";
+                    break;
+                case "Name Supply":
+                    option = "Name_Supply";
+                    break;
+                case "Address":
+                    option = "Address_Supply";
+                    break;
+                case "Phone number":
+                    option = "PhoneNumber_Supply";
+                    break;
+                case "Bank Account":
+                    option = "BankAccount";
+                    break;
+                case "Tax code":
+                    option = "TaxCode";
+                    break;
+                default:
+                    break;
+            }
+            dgv4.DataSource = Supply_BLL.Instance.getSupplysByOption(txtSearchSupply_MI.Text, option);
         }
         //report
 

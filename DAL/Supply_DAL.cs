@@ -51,5 +51,18 @@ namespace DAL
             string query = "update Supply set Status = 'false' where ID_Supply = '" + id_supply + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
+        public DataTable getSupplysByOption(string name, string option)
+        {
+            DataTable customersList = new DataTable();
+            string query;
+
+            {
+                query = "select ID_Supply,Name_Supply,Address_Supply,PhoneNumber_Supply,BankAccount,TaxCode " +
+                    " FROM Supply " +
+                    $"where {option} like N'%{name}%'";
+            }
+            customersList = DataProvider.Instance.GetRecords(query);
+            return customersList;
+        }
     }
 }
