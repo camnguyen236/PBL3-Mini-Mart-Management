@@ -106,5 +106,10 @@ namespace BLL
             else if (cbb.Equals(Search.Phonenumber.ToString())) return getCustomerByPhoneNum(txt);
             else return getCustomerByEmail(txt);
         }
+
+        public DataTable getCustomersByOption(string name, string option)
+        {
+            return Customer_DAL.Instance.getCustomersByOption(name, option);
+        }
     }
 }

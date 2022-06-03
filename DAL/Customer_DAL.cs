@@ -84,5 +84,19 @@ namespace DAL
             string query = "update Customer set Status = 'false' where ID_Customer = '" + id_customer + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
+
+        public DataTable getCustomersByOption(string name, string option)
+        {
+            DataTable customersList = new DataTable();
+            string query;
+            
+            {
+                query = "select ID_Customer,Name_Customer,Gender_Customer,Address_Customer,PhoneNumber_Customer,Email_Customer,AccountNumber,TaxCode " +
+                    " FROM Customer " +
+                    $"where {option} like N'%{name}%'";
+            }
+            customersList = DataProvider.Instance.GetRecords(query);
+            return customersList;
+        }
     }
 }

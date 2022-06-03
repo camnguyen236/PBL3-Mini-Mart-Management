@@ -170,7 +170,6 @@ namespace GUI
                     //dvgSales_Profit_A.DataSource = Report_BLL.Instance.GetSalesReportByYear(dtpAnnualy_Profit_A.Value);
                     lbRevenue_Profit_A.Text = totalRevenue(Revenue, "Revenue").ToString() + " VND";
 
-                    lbProfit_A.Text = (totalRevenue(Revenue,"Revenue")-totalCost(Cost,"Cost")).ToString()+"VND";
 
         }
 

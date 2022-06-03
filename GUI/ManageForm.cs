@@ -33,7 +33,7 @@ namespace GUI
             addCbSearch();
             setCBProductsGroups();
             addCbSearchProduct();
-
+            addCbSearchCustomer();
             setCBBName_Supply();
             setCBBID_Products();
             cbbID_Product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -407,7 +407,10 @@ namespace GUI
 
         private void txtSearchProduct_TextChanged(object sender, EventArgs e)
         {
-            searchProduct(cbSearchProduct.Text);
+            if (cbSearchProduct.Text != null)
+            {
+                searchProduct(cbSearchProduct.Text);
+            }
         }
 
         private void dgv2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -1091,6 +1094,63 @@ namespace GUI
             rbTrue_su.Checked = true;
         }
 
+        private void cbSearchProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearchCustomer_MI_TextChanged(object sender, EventArgs e)
+        {
+            if (cbbSearchCustomer.Text!=null)
+            {
+                searchCustomer(cbbSearchCustomer_MI.Text);
+            }
+        }
+        public void addCbSearchCustomer()
+        {
+            cbbSearchCustomer_MI.Items.Add("ID");
+            cbbSearchCustomer_MI.Items.Add("Name Customer");
+            cbbSearchCustomer_MI.Items.Add("Gender");
+            cbbSearchCustomer_MI.Items.Add("Address");
+            cbbSearchCustomer_MI.Items.Add("Phone number");
+            cbbSearchCustomer_MI.Items.Add("Email");
+            cbbSearchCustomer_MI.Items.Add("Account Number");
+            cbbSearchCustomer_MI.Items.Add("Tax code");
+    
+        }
+        private void searchCustomer(string option)
+        {
+            switch (option)
+            {
+                case "ID":
+                    option = "ID_Customer";
+                    break;
+                case "Name Customer":
+                    option = "Name_Customer";
+                    break;
+                case "Gender":
+                    option = "Gender_Customer";
+                    break;
+                case "Address":
+                    option = "Address_Customer";
+                    break;
+                case "Phone number":
+                    option = "PhoneNumber_Customer";
+                    break;
+                case "Email":
+                    option = "Email_Customer";
+                    break;
+                case "Account Number":
+                    option = "AccountNumber";
+                    break;
+                case "Tax code":
+                    option = "TaxCode";
+                    break;
+                default:
+                    break;
+            }
+            dgv3.DataSource = Customer_BLL.Instance.getCustomersByOption(txtSearchCustomer_MI.Text, option);
+        }
         //report
 
     }
