@@ -29,3 +29,4 @@ PBL_3/Connection.cs
 *.cache
 PBL_3/obj/Debug/PBL_3.csproj.FileListAbsolute.txt
 .vs/
+release/

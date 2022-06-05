@@ -18,12 +18,22 @@ namespace GUI
         {
             InitializeComponent();
         }
-        public delegate void Mydel();
+        public delegate void Mydel(bool b = true);
         public Mydel d { get; set; }
 
-        private void btnOK_Customer_Click(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
-            if (tbName.Text.Trim() == "" || tbAccountNumber.Text.Trim() == "" || tbAddress.Text.Trim() == "" || tbPhoneNumber.Text.Trim() == "")
+            tbName.Text = "";
+            tbTaxCode.Text = "";
+            tbAccountNumber.Text = "";
+            tbPhoneNumber.Text = "";
+            tbAddress.Text = "";
+        }
+
+        private void btnOK_Supply_Click(object sender, EventArgs e)
+        {
+            if (tbName.Text.Trim() == "" || tbAccountNumber.Text.Trim() == "" || tbTaxCode.Text.Trim() == ""
+                || tbPhoneNumber.Text.Trim() == "" || tbAddress.Text.Trim() == "")
                 MessageBox.Show("Please fill in the required information!", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             else if (!AccountBLL.Instance.checkPhoneNumber(tbPhoneNumber.Text))
@@ -34,12 +44,12 @@ namespace GUI
             {
                 Supply supply = new Supply
                 {
-                    //ID_Customer = Convert.ToInt32(txtID_Customer.Text),
                     Name_Supply = tbName.Text,
                     Address_Supply = tbAddress.Text,
                     PhoneNumber_Supply = tbPhoneNumber.Text,
                     BankAccount = tbAccountNumber.Text,
-                    Status = rbTrue.Checked
+                    TaxCode = tbTaxCode.Text,
+                    Status = true
                 };
                 Supply_BLL.Instance.ExcuteDB(supply, "Add");
                 //show
@@ -48,15 +58,6 @@ namespace GUI
                 d();
                 this.Close();
             }
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            tbName.Text = "";
-            tbAddress.Text = "";
-            tbAccountNumber.Text = "";
-            tbPhoneNumber.Text = "";
-            rbTrue.Checked = true;
         }
     }
 }

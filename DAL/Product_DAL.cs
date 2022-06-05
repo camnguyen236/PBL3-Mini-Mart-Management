@@ -27,6 +27,12 @@ namespace DAL
         DataTable products = new DataTable();
         public DataTable GetRecords()
         {
+            string query = "select ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P from Products";
+            products = DataProvider.Instance.GetRecords(query);
+            return products;
+        }
+        public DataTable GetTrueRecords()
+        {
             string query = "select ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P from Products where Status = 'true'";
             products = DataProvider.Instance.GetRecords(query);
             return products;
@@ -49,6 +55,14 @@ namespace DAL
         }
 
         public DataTable getProductsByGroupName(string groupName)
+        {
+            string query = "SELECT ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P " +
+                "FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG " +
+                "and g.Name_PG = N'" + groupName;
+            products = DataProvider.Instance.GetRecords(query);
+            return products;
+        }
+        public DataTable getTrueProductsByGroupName(string groupName)
         {
             string query = "SELECT ID_P,Name_P,Unit_P,Price_P,VAT,VAT_Inclusive_P " +
                 "FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG " +
@@ -129,6 +143,30 @@ namespace DAL
                 "from Products where Status = 'true'";
             products = DataProvider.Instance.GetRecords(query);
             return products;
+        }
+        public List<Product> GetAllProduct()
+        {
+            List<Product> list = new List<Product>();
+            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from Products").Rows)
+            {
+                list.Add(GetProductByDataRow(i));
+            }
+            return list;
+        }
+        public Product GetProductByDataRow(DataRow i)
+        {
+            return new Product
+            {
+                ID_P = Convert.ToInt32(i["ID_P"].ToString()),
+                ID_PG = i["ID_PG"].ToString(),
+                Name_P = i["Name_P"].ToString(),
+                Unit_P = i["Unit_P"].ToString(),
+                Price_P = i["Price_P"].ToString(),
+                VAT = i["VAT"].ToString(),
+                VATInclusive_P = Convert.ToInt32(i["VAT_Inclusive_P"].ToString()),
+                IMG_P = Encoding.ASCII.GetBytes(i["IMG_P"].ToString()),
+                Status = Convert.ToBoolean(i["Status"].ToString())
+            };
         }
     }
 }

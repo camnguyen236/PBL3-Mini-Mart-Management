@@ -149,7 +149,6 @@ F:\PBL3\GUI\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 F:\PBL3\GUI\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 F:\PBL3\GUI\obj\Debug\GUI.DetailPaymentBill.resources
 F:\PBL3\GUI\obj\Debug\GUI.ImportHistory.resources
-D:\code\PBL3\GUI\obj\Debug\GUI.DetailPaymentBill.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.ImportHistory.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.ProductDetails.resources
 D:\code\PBL3\GUI\bin\Debug\SqlServerTypes\x64\msvcr120.dll
@@ -167,11 +166,8 @@ D:\code\PBL3\GUI\bin\Debug\MyLibrary.dll
 D:\code\PBL3\GUI\bin\Debug\Product_Library.dll
 D:\code\PBL3\GUI\bin\Debug\EnvDTE.dll
 D:\code\PBL3\GUI\bin\Debug\stdole.dll
-D:\code\PBL3\GUI\bin\Debug\BLL.dll.config
-D:\code\PBL3\GUI\bin\Debug\DTO.dll.config
 D:\code\PBL3\GUI\bin\Debug\MyLibrary.pdb
 D:\code\PBL3\GUI\bin\Debug\Product_Library.pdb
-D:\code\PBL3\GUI\bin\Debug\DAL.dll.config
 D:\code\PBL3\GUI\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
 D:\code\PBL3\GUI\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
 D:\code\PBL3\GUI\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
@@ -280,3 +276,4 @@ C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.exe.config
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.CatalogManagement.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ImportProductsBill.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.InvoiceReport.resources
+D:\code\PBL3\GUI\obj\Debug\GUI.exe.config

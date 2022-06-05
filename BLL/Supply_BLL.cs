@@ -27,6 +27,10 @@ namespace BLL
         private Supply_BLL() { }
         public DataTable getSupply()
         {
+            return Supply_DAL.Instance.GetTrueRecords();
+        }
+        public DataTable getTFSupply()
+        {
             return Supply_DAL.Instance.GetRecords();
         }
         public void ExcuteDB(Supply supply, string id_supply = null) //update, delete
@@ -50,6 +54,32 @@ namespace BLL
         public DataTable getSupplysByOption(string name, string option)
         {
             return Supply_DAL.Instance.getSupplysByOption(name, option);
+        }
+        public List<Supply> getAllSupply()
+        {
+            return Supply_DAL.Instance.GetAllSupply();
+        }
+        public Supply getSupplyByID(string id)
+        {
+            foreach (Supply i in getAllSupply())
+            {
+                if (i.ID_Supply.ToString().Equals(id))
+                {
+                    return i;
+                }
+            }
+            return null;
+        }
+        public Supply getSupplyByName(string name)
+        {
+            foreach (Supply i in getAllSupply())
+            {
+                if (i.Name_Supply.ToString().Equals(name))
+                {
+                    return i;
+                }
+            }
+            return null;
         }
     }
 }

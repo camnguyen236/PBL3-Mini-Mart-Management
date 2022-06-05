@@ -91,7 +91,6 @@ D:\code\PBL3\DTO\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 D:\code\PBL3\DTO\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 D:\code\PBL3\DTO\bin\Debug\SqlServerTypes\x86\msvcr120.dll
 D:\code\PBL3\DTO\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
-D:\code\PBL3\DTO\bin\Debug\DTO.dll.config
 D:\code\PBL3\DTO\bin\Debug\Microsoft.ReportViewer.Common.dll
 D:\code\PBL3\DTO\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
 D:\code\PBL3\DTO\bin\Debug\Microsoft.ReportViewer.Design.dll

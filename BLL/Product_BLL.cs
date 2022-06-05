@@ -26,14 +26,45 @@ namespace BLL
         private Product_BLL() { }
         public DataTable getProducts()
         {
+            return Product_DAL.Instance.GetTrueRecords();
+        }
+        public DataTable getTFProducts()
+        {
             return Product_DAL.Instance.GetRecords();
         }
-
+        public List<Product> getAllProduct()
+        {
+            return Product_DAL.Instance.GetAllProduct();
+        }
+        public List<Product> getAllProductTrue()
+        {
+            List<Product> list = new List<Product>();
+            foreach (Product p in getAllProduct())
+            {
+                if(p.Status) list.Add(p);
+            }
+            return list;
+        }
+        public Product getProductByID(string id)
+        {
+            foreach (Product i in getAllProduct())
+            {
+                if (i.ID_P.ToString().Equals(id))
+                {
+                    return i;
+                }
+            }
+            return null;
+        }
         public DataTable GetProductByID(string id)
         {
             return Product_DAL.Instance.GetProductByID(id);
         }
         public DataTable getProductsByGroupName(string groupName)
+        {
+            return Product_DAL.Instance.getTrueProductsByGroupName(groupName);
+        }
+        public DataTable getTFProductsByGroupName(string groupName)
         {
             return Product_DAL.Instance.getProductsByGroupName(groupName);
         }
@@ -90,5 +121,13 @@ namespace BLL
             //};
         }
         
+        public bool checkID_P(int id)
+        {
+            foreach(var i in getAllProduct())
+            {
+                if(i.ID_P == id) return true;
+            }
+            return false;
+        }
     }
 }

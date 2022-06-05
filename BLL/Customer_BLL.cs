@@ -42,6 +42,10 @@ namespace BLL
             return Customer_DAL.Instance.GetRecords();
             //return accounts;
         }
+        public List<Customer> getAllCustomer()
+        {
+            return Customer_DAL.Instance.GetAllCustomer();
+        }
         public void ExcuteDB(Customer customer, string id_customer = null) //update, delete
         {
             if (id_customer == null)
@@ -64,7 +68,7 @@ namespace BLL
         public List<Customer> getCustomerByName(string name)
         {
             List<Customer> list = new List<Customer> ();
-            foreach (Customer i in Customer_DAL.Instance.GetAllCustomer())
+            foreach (Customer i in getAllCustomer())
             {
                 if (i.Name_Customer.Contains(name))
                 {
@@ -74,10 +78,22 @@ namespace BLL
             return list;
         }
 
+        public Customer getCustomerByID(string id)
+        {
+            foreach (Customer i in getAllCustomer())
+            {
+                if (i.ID_Customer.ToString().Equals(id))
+                {
+                    return i;
+                }
+            }
+            return null;
+        }
+
         public List<Customer> getCustomerByPhoneNum(string phoneNum)
         {
             List<Customer> list = new List<Customer>();
-            foreach (Customer i in Customer_DAL.Instance.GetAllCustomer())
+            foreach (Customer i in getAllCustomer())
             {
                 if (i.PhoneNumber_Customer.Contains(phoneNum))
                 {
@@ -90,9 +106,22 @@ namespace BLL
         public List<Customer> getCustomerByEmail(string email)
         {
             List<Customer> list = new List<Customer>();
-            foreach (Customer i in Customer_DAL.Instance.GetAllCustomer())
+            foreach (Customer i in getAllCustomer())
             {
                 if (i.Email_Customer.Contains(email))
+                {
+                    list.Add(i);
+                }
+            }
+            return list;
+        }
+        public List<Customer> getCustomerByNPM(string txt)
+        {
+            List<Customer> list = new List<Customer>();
+            foreach (Customer i in getAllCustomer())
+            {
+                if (i.Name_Customer.Contains(txt) || i.Email_Customer.Contains(txt) 
+                    || i.PhoneNumber_Customer.Contains(txt))
                 {
                     list.Add(i);
                 }

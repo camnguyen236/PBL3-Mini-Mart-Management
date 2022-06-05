@@ -43,6 +43,12 @@ namespace DAL
         }
         public DataTable GetRecords()
         {
+            string query = "select ID,US,Name,Birthday,Adress,PhoneNumber,Position,Email from Inf_user";
+            accounts = DataProvider.Instance.GetRecords(query);
+            return accounts;
+        }
+        public DataTable GetTrueRecords()
+        {
             string query = "select ID,US,Name,Birthday,Adress,PhoneNumber,Position,Email from Inf_user where Status = 'true'";
             accounts = DataProvider.Instance.GetRecords(query);
             return accounts;
@@ -51,7 +57,7 @@ namespace DAL
         public List<Account> GetAllAccount()
         {
             List<Account> list = new List<Account>();
-            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from Inf_user where Status = 'true'").Rows)
+            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from Inf_user").Rows)
             {
                 list.Add(GetAccountByDataRow(i));
             }
@@ -83,10 +89,11 @@ namespace DAL
         }
         public void updateAccount(Account account)
         {
-            string query = "update Inf_user set US = '" + account.US + "', Name = N'" + account.Name 
-                + "', Birthday = '" + account.Birthday + "', Adress = N'" + account.Adress 
-                + "', PhoneNumber = '" + account.PhoneNumber + "', Email = '" + account.Email
-                + "', Status = '" + account.Status + "' where ID = '" + account.ID + "'";
+            string query = "update Inf_user set US = '" + account.US + "', Name = N'" + account.Name
+                + "', Gender = N'" + account.Gender + "', Birthday = '" + account.Birthday 
+                + "', Adress = N'" + account.Adress + "', PhoneNumber = '" + account.PhoneNumber 
+                + "', Email = '" + account.Email + "', Status = '" + account.Status 
+                + "' where ID = '" + account.ID + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updatePassword(string password, string US)

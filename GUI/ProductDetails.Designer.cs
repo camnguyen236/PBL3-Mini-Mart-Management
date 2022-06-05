@@ -50,18 +50,19 @@
             this.btnAdd_PD = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel_PD = new Guna.UI2.WinForms.Guna2Button();
             this.cbCatagories_PD = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.gbStatus = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.rbFalse = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.rbTrue = new Guna.UI2.WinForms.Guna2RadioButton();
             this.btnEdit_PD = new Guna.UI2.WinForms.Guna2Button();
             this.btnOK_PD = new Guna.UI2.WinForms.Guna2Button();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
+            this.gbStatus = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.rbFalse = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rbTrue = new Guna.UI2.WinForms.Guna2RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.img_PD)).BeginInit();
             this.gbStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // img_PD
             // 
+            this.img_PD.BorderRadius = 6;
             this.img_PD.ImageRotate = 0F;
             this.img_PD.Location = new System.Drawing.Point(27, 59);
             this.img_PD.Margin = new System.Windows.Forms.Padding(2);
@@ -128,7 +129,6 @@
             this.txtUnit_PD.SelectedText = "";
             this.txtUnit_PD.Size = new System.Drawing.Size(157, 29);
             this.txtUnit_PD.TabIndex = 27;
-            this.txtUnit_PD.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
             // txtName_PD
             // 
@@ -161,7 +161,7 @@
             this.txtVATInclusive_PD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtVATInclusive_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtVATInclusive_PD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtVATInclusive_PD.Location = new System.Drawing.Point(381, 377);
+            this.txtVATInclusive_PD.Location = new System.Drawing.Point(381, 380);
             this.txtVATInclusive_PD.Name = "txtVATInclusive_PD";
             this.txtVATInclusive_PD.PasswordChar = '\0';
             this.txtVATInclusive_PD.PlaceholderText = "";
@@ -252,7 +252,7 @@
             // 
             this.VAT_Inclusive.AutoSize = true;
             this.VAT_Inclusive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.VAT_Inclusive.Location = new System.Drawing.Point(379, 361);
+            this.VAT_Inclusive.Location = new System.Drawing.Point(379, 364);
             this.VAT_Inclusive.Name = "VAT_Inclusive";
             this.VAT_Inclusive.Size = new System.Drawing.Size(73, 13);
             this.VAT_Inclusive.TabIndex = 17;
@@ -304,7 +304,7 @@
             this.lbSave.AutoSize = true;
             this.lbSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSave.ForeColor = System.Drawing.Color.White;
-            this.lbSave.Location = new System.Drawing.Point(601, 395);
+            this.lbSave.Location = new System.Drawing.Point(561, 348);
             this.lbSave.Name = "lbSave";
             this.lbSave.Size = new System.Drawing.Size(0, 17);
             this.lbSave.TabIndex = 36;
@@ -312,16 +312,18 @@
             // 
             // btnChangeImg_PD
             // 
+            this.btnChangeImg_PD.BorderRadius = 6;
             this.btnChangeImg_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnChangeImg_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnChangeImg_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnChangeImg_PD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChangeImg_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnChangeImg_PD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnChangeImg_PD.ForeColor = System.Drawing.Color.White;
-            this.btnChangeImg_PD.Location = new System.Drawing.Point(303, 375);
+            this.btnChangeImg_PD.Location = new System.Drawing.Point(285, 412);
             this.btnChangeImg_PD.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangeImg_PD.Name = "btnChangeImg_PD";
-            this.btnChangeImg_PD.Size = new System.Drawing.Size(62, 37);
+            this.btnChangeImg_PD.Size = new System.Drawing.Size(80, 37);
             this.btnChangeImg_PD.TabIndex = 37;
             this.btnChangeImg_PD.Text = "Browse";
             this.btnChangeImg_PD.Visible = false;
@@ -330,7 +332,7 @@
             // btnAdd_PD
             // 
             this.btnAdd_PD.BackColor = System.Drawing.SystemColors.Window;
-            this.btnAdd_PD.BorderRadius = 20;
+            this.btnAdd_PD.BorderRadius = 15;
             this.btnAdd_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAdd_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAdd_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -338,7 +340,7 @@
             this.btnAdd_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnAdd_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd_PD.ForeColor = System.Drawing.Color.White;
-            this.btnAdd_PD.Location = new System.Drawing.Point(630, 426);
+            this.btnAdd_PD.Location = new System.Drawing.Point(587, 430);
             this.btnAdd_PD.Name = "btnAdd_PD";
             this.btnAdd_PD.Size = new System.Drawing.Size(106, 33);
             this.btnAdd_PD.TabIndex = 38;
@@ -348,7 +350,7 @@
             // btnCancel_PD
             // 
             this.btnCancel_PD.BackColor = System.Drawing.SystemColors.Window;
-            this.btnCancel_PD.BorderRadius = 20;
+            this.btnCancel_PD.BorderRadius = 15;
             this.btnCancel_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -356,7 +358,7 @@
             this.btnCancel_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnCancel_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel_PD.ForeColor = System.Drawing.Color.White;
-            this.btnCancel_PD.Location = new System.Drawing.Point(509, 426);
+            this.btnCancel_PD.Location = new System.Drawing.Point(464, 430);
             this.btnCancel_PD.Name = "btnCancel_PD";
             this.btnCancel_PD.Size = new System.Drawing.Size(106, 33);
             this.btnCancel_PD.TabIndex = 39;
@@ -381,17 +383,71 @@
             this.cbCatagories_PD.Size = new System.Drawing.Size(158, 36);
             this.cbCatagories_PD.TabIndex = 43;
             // 
+            // btnEdit_PD
+            // 
+            this.btnEdit_PD.BackColor = System.Drawing.SystemColors.Window;
+            this.btnEdit_PD.BorderRadius = 15;
+            this.btnEdit_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEdit_PD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEdit_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnEdit_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit_PD.ForeColor = System.Drawing.Color.White;
+            this.btnEdit_PD.Location = new System.Drawing.Point(598, 430);
+            this.btnEdit_PD.Name = "btnEdit_PD";
+            this.btnEdit_PD.Size = new System.Drawing.Size(78, 33);
+            this.btnEdit_PD.TabIndex = 33;
+            this.btnEdit_PD.Text = "Save";
+            this.btnEdit_PD.Click += new System.EventHandler(this.btnEdit_PD_Click);
+            // 
+            // btnOK_PD
+            // 
+            this.btnOK_PD.BackColor = System.Drawing.SystemColors.Window;
+            this.btnOK_PD.BorderRadius = 20;
+            this.btnOK_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOK_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOK_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOK_PD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOK_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnOK_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK_PD.ForeColor = System.Drawing.Color.White;
+            this.btnOK_PD.Location = new System.Drawing.Point(478, 430);
+            this.btnOK_PD.Name = "btnOK_PD";
+            this.btnOK_PD.Size = new System.Drawing.Size(78, 33);
+            this.btnOK_PD.TabIndex = 34;
+            this.btnOK_PD.Text = "OK";
+            this.btnOK_PD.Click += new System.EventHandler(this.btnOK_PD_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.SystemColors.Window;
+            this.btnRefresh.BorderRadius = 15;
+            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(708, 430);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(106, 33);
+            this.btnRefresh.TabIndex = 45;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // gbStatus
             // 
             this.gbStatus.Controls.Add(this.rbFalse);
             this.gbStatus.Controls.Add(this.rbTrue);
             this.gbStatus.CustomBorderColor = System.Drawing.Color.WhiteSmoke;
-            this.gbStatus.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gbStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.gbStatus.Location = new System.Drawing.Point(729, 258);
+            this.gbStatus.Location = new System.Drawing.Point(746, 258);
             this.gbStatus.Name = "gbStatus";
-            this.gbStatus.Size = new System.Drawing.Size(157, 113);
-            this.gbStatus.TabIndex = 44;
+            this.gbStatus.Size = new System.Drawing.Size(121, 113);
+            this.gbStatus.TabIndex = 46;
             this.gbStatus.Text = "Status";
             // 
             // rbFalse
@@ -404,9 +460,9 @@
             this.rbFalse.CheckedState.InnerOffset = -4;
             this.rbFalse.Location = new System.Drawing.Point(24, 90);
             this.rbFalse.Name = "rbFalse";
-            this.rbFalse.Size = new System.Drawing.Size(51, 18);
+            this.rbFalse.Size = new System.Drawing.Size(86, 19);
             this.rbFalse.TabIndex = 1;
-            this.rbFalse.Text = "False";
+            this.rbFalse.Text = "Stop selling";
             this.rbFalse.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rbFalse.UncheckedState.BorderThickness = 2;
             this.rbFalse.UncheckedState.FillColor = System.Drawing.Color.Transparent;
@@ -423,77 +479,24 @@
             this.rbTrue.CheckedState.InnerOffset = -4;
             this.rbTrue.Location = new System.Drawing.Point(24, 52);
             this.rbTrue.Name = "rbTrue";
-            this.rbTrue.Size = new System.Drawing.Size(46, 18);
+            this.rbTrue.Size = new System.Drawing.Size(64, 19);
             this.rbTrue.TabIndex = 0;
             this.rbTrue.TabStop = true;
-            this.rbTrue.Text = "True";
+            this.rbTrue.Text = "On sale";
             this.rbTrue.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rbTrue.UncheckedState.BorderThickness = 2;
             this.rbTrue.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbTrue.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             // 
-            // btnEdit_PD
-            // 
-            this.btnEdit_PD.BackColor = System.Drawing.SystemColors.Window;
-            this.btnEdit_PD.BorderRadius = 20;
-            this.btnEdit_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEdit_PD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEdit_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.btnEdit_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit_PD.ForeColor = System.Drawing.Color.White;
-            this.btnEdit_PD.Location = new System.Drawing.Point(643, 426);
-            this.btnEdit_PD.Name = "btnEdit_PD";
-            this.btnEdit_PD.Size = new System.Drawing.Size(78, 33);
-            this.btnEdit_PD.TabIndex = 33;
-            this.btnEdit_PD.Text = "EDIT";
-            this.btnEdit_PD.Click += new System.EventHandler(this.btnEdit_PD_Click);
-            // 
-            // btnOK_PD
-            // 
-            this.btnOK_PD.BackColor = System.Drawing.SystemColors.Window;
-            this.btnOK_PD.BorderRadius = 20;
-            this.btnOK_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnOK_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnOK_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnOK_PD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOK_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.btnOK_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK_PD.ForeColor = System.Drawing.Color.White;
-            this.btnOK_PD.Location = new System.Drawing.Point(523, 426);
-            this.btnOK_PD.Name = "btnOK_PD";
-            this.btnOK_PD.Size = new System.Drawing.Size(78, 33);
-            this.btnOK_PD.TabIndex = 34;
-            this.btnOK_PD.Text = "OK";
-            this.btnOK_PD.Click += new System.EventHandler(this.btnOK_PD_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.SystemColors.Window;
-            this.btnRefresh.BorderRadius = 20;
-            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(753, 426);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(106, 33);
-            this.btnRefresh.TabIndex = 45;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // ProductDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(239)))));
-            this.ClientSize = new System.Drawing.Size(902, 511);
-            this.Controls.Add(this.btnRefresh);
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::GUI.Properties.Resources._84bad9491f2720a4ebe17fedf3690f19;
+            this.ClientSize = new System.Drawing.Size(902, 483);
             this.Controls.Add(this.gbStatus);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.cbCatagories_PD);
             this.Controls.Add(this.btnCancel_PD);
             this.Controls.Add(this.btnAdd_PD);
@@ -521,7 +524,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProductDetails";
             this.Text = "Product Details";
-            this.Load += new System.EventHandler(this.ProductDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.img_PD)).EndInit();
             this.gbStatus.ResumeLayout(false);
             this.gbStatus.PerformLayout();
@@ -554,11 +556,11 @@
         private Guna.UI2.WinForms.Guna2Button btnAdd_PD;
         private Guna.UI2.WinForms.Guna2Button btnCancel_PD;
         private Guna.UI2.WinForms.Guna2ComboBox cbCatagories_PD;
-        private Guna.UI2.WinForms.Guna2GroupBox gbStatus;
-        private Guna.UI2.WinForms.Guna2RadioButton rbFalse;
-        private Guna.UI2.WinForms.Guna2RadioButton rbTrue;
         private Guna.UI2.WinForms.Guna2Button btnEdit_PD;
         private Guna.UI2.WinForms.Guna2Button btnOK_PD;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
+        private Guna.UI2.WinForms.Guna2GroupBox gbStatus;
+        private Guna.UI2.WinForms.Guna2RadioButton rbFalse;
+        private Guna.UI2.WinForms.Guna2RadioButton rbTrue;
     }
 }

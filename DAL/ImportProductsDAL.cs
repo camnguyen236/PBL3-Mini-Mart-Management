@@ -79,14 +79,14 @@ namespace DAL
         }
         public DataTable getAllImport_Product()
         {
-            string query = "select * from ImportProduct";
+            string query = "select ID_IP as ID, Inf_user.Name as \"Staff\'s name\", Supply.Name_Supply as \"Supplier\'s name\", Date_Import as 'Import date' from ImportProduct inner join Inf_user on ImportProduct.ID = Inf_user.ID inner join Supply on ImportProduct.ID_Supply = Supply.ID_Supply";
             importproducts = DataProvider.Instance.GetRecords(query);
             return importproducts;
         }
         public int getID_Supply(string Name_Supply)
         {
-            string query = "select Supply.ID_Supply from Supply inner join ImportProduct on Supply.ID_Supply = ImportProduct.ID_Supply where Name_Supply = '" + Name_Supply + "'";
-            return Convert.ToInt32(DataProvider.Instance.GetRecords(query).Rows[0]["ID_Supply"].ToString());
+            string query = "select Supply.ID_Supply from Supply inner join ImportProduct on Supply.ID_Supply = ImportProduct.ID_Supply where Name_Supply like '%" + Name_Supply + "%'";
+            return Convert.ToInt32(DataProvider.Instance.GetRecords(query).Rows[0][0].ToString());
         }
         public DataTable GetRecordsNewID_IP()
         {
@@ -96,7 +96,9 @@ namespace DAL
         }
         public DataTable getDetailsImportProduct(int ID_IP)
         {
-            string query = "select DetailImportProduct.ID_P,Name_P,IP_Price,Amount_IP,Amount_Price,Discount,Total from DetailImportProduct inner join Products on DetailImportProduct.ID_P = Products.ID_P  where ID_IP = " + ID_IP;
+            string query = "select DetailImportProduct.ID_P,Name_P,IP_Price,Amount_IP,Amount_Price,Discount" +
+                ",Total from DetailImportProduct inner join Products " +
+                "on DetailImportProduct.ID_P = Products.ID_P  where ID_IP = " + ID_IP;
             importproducts = DataProvider.Instance.GetRecords(query);
             return importproducts;
         }
@@ -119,5 +121,24 @@ namespace DAL
             DataProvider.Instance.ExcuteDB(query);
         }
 
+        public List<ImportProducts> GetAllImportProducts()
+        {
+            List<ImportProducts> list = new List<ImportProducts>();
+            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from ImportProduct").Rows)
+            {
+                list.Add(GetImportProductsByDataRow(i));
+            }
+            return list;
+        }
+        public ImportProducts GetImportProductsByDataRow(DataRow i)
+        {
+            return new ImportProducts
+            {
+                ID_IP = Convert.ToInt32(i["ID_IP"].ToString()),
+                ID = Convert.ToInt32(i["ID"].ToString()),
+                ID_Supply = Convert.ToInt32(i["ID_Supply"].ToString()),
+                Date_Import = Convert.ToDateTime(i["Date_Import"].ToString())
+            };
+        }
     }
 }

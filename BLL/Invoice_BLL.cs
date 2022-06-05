@@ -65,5 +65,16 @@ namespace BLL
             }
             return ls;
         }
+        public Invoice getInvoiceByID(string id)
+        {
+            foreach (Invoice i in GetInvoices())
+            {
+                if (i.ID_Invoice.ToString().Equals(id))
+                {
+                    return i;
+                }
+            }
+            return null;
+        }
     }
 }

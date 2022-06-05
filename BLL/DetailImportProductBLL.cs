@@ -60,5 +60,21 @@ namespace BLL
         //{
         //    DetailImportProductDAL.Instance.updateImportProduct2()
         //}
+
+        public List<DetailImportProducts> getAllDetailImportProducts()
+        {
+            return DetailImportProductDAL.Instance.GetAllDetailImportProducts();
+        }
+        public DetailImportProducts getDetailImportProductsByID_IP(string id)
+        {
+            foreach (DetailImportProducts i in getAllDetailImportProducts())
+            {
+                if (i.ID_IP.ToString().Equals(id))
+                {
+                    return i;
+                }
+            }
+            return null;
+        }
     }
 }

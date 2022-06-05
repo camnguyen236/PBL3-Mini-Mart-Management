@@ -46,6 +46,12 @@ namespace DAL
         }
         public DataTable GetRecords()
         {
+            string query = "select ID_PG,Name_PG from ProductGroups";
+            productGroups = DataProvider.Instance.GetRecords(query);
+            return productGroups;
+        }
+        public DataTable GetTrueRecords()
+        {
             string query = "select ID_PG,Name_PG from ProductGroups where Status = 'true'";
             productGroups = DataProvider.Instance.GetRecords(query);
             return productGroups;
