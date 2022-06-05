@@ -98,7 +98,6 @@ D:\code\PBL3\DAL\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 D:\code\PBL3\DAL\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 D:\code\PBL3\DAL\bin\Debug\SqlServerTypes\x86\msvcr120.dll
 D:\code\PBL3\DAL\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
-D:\code\PBL3\DAL\bin\Debug\DAL.dll.config
 D:\code\PBL3\DAL\bin\Debug\Microsoft.ReportViewer.Common.dll
 D:\code\PBL3\DAL\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
 D:\code\PBL3\DAL\bin\Debug\Microsoft.ReportViewer.Design.dll
@@ -107,7 +106,6 @@ D:\code\PBL3\DAL\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 D:\code\PBL3\DAL\bin\Debug\Microsoft.SqlServer.Types.dll
 D:\code\PBL3\DAL\bin\Debug\EnvDTE.dll
 D:\code\PBL3\DAL\bin\Debug\stdole.dll
-D:\code\PBL3\DAL\bin\Debug\DTO.dll.config
 D:\code\PBL3\DAL\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
 D:\code\PBL3\DAL\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
 D:\code\PBL3\DAL\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll

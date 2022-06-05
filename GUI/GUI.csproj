@@ -118,12 +118,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DetailPaymentBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DetailPaymentBill.Designer.cs">
-      <DependentUpon>DetailPaymentBill.cs</DependentUpon>
-    </Compile>
     <Compile Include="ImportHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,31 +134,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ImportProductsDS.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="InformationDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InformationDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="InformationDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InformationDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="InformationDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InformationDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="InformationDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InformationDataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="InformationDataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InformationDataSet4.xsd</DependentUpon>
     </Compile>
     <Compile Include="InvoiceDS.cs">
       <DependentUpon>InvoiceDS.xsd</DependentUpon>
@@ -240,9 +209,6 @@
     <EmbeddedResource Include="CatalogManagement.resx">
       <DependentUpon>CatalogManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DetailPaymentBill.resx">
-      <DependentUpon>DetailPaymentBill.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ImportHistory.resx">
       <DependentUpon>ImportHistory.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,7 +245,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="DetailPaymentBill.rdlc" />
     <EmbeddedResource Include="ResetPassword.resx">
       <DependentUpon>ResetPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,61 +272,6 @@
     </None>
     <None Include="ImportProductsDS.xss">
       <DependentUpon>ImportProductsDS.xsd</DependentUpon>
-    </None>
-    <None Include="InformationDataSet.xsc">
-      <DependentUpon>InformationDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="InformationDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InformationDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InformationDataSet.xss">
-      <DependentUpon>InformationDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="InformationDataSet1.xsc">
-      <DependentUpon>InformationDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="InformationDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InformationDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InformationDataSet1.xss">
-      <DependentUpon>InformationDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="InformationDataSet2.xsc">
-      <DependentUpon>InformationDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="InformationDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InformationDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InformationDataSet2.xss">
-      <DependentUpon>InformationDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="InformationDataSet3.xsc">
-      <DependentUpon>InformationDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="InformationDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InformationDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InformationDataSet3.xss">
-      <DependentUpon>InformationDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="InformationDataSet4.xsc">
-      <DependentUpon>InformationDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="InformationDataSet4.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InformationDataSet4.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InformationDataSet4.xss">
-      <DependentUpon>InformationDataSet4.xsd</DependentUpon>
     </None>
     <None Include="InvoiceDS.xsc">
       <DependentUpon>InvoiceDS.xsd</DependentUpon>

@@ -21,14 +21,14 @@ namespace GUI
         }
         public delegate void Mydel();
         public Mydel d { get; set; }
-        public void showDGV()
+        public void showDGV(bool b = true)
         {
-            dgvCM.DataSource = ProductGroups_BLL.Instance.getProductGroups();
+            dgvCM.DataSource = b ? ProductGroups_BLL.Instance.getProductGroups() : ProductGroups_BLL.Instance.getTFProductGroups();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtID.Text.Trim() == "" || txtName.Text.Trim() == "")
+            if (txtName.Text.Trim() == "")
                 MessageBox.Show("Please fill in the required information!", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
@@ -36,13 +36,13 @@ namespace GUI
                 ProductGroups pg = new ProductGroups
                 {
                     Name_PG = txtName.Text,
-                    Status = rbTrue.Checked
+                    Status = true
                 };
                 ProductGroups_BLL.Instance.ExcuteDB(pg, "Add");
 
                 MessageBox.Show("Added successfully");
                 d();
-                showDGV();
+                showDGV(!cb_PG.Checked);
             }
         }
 
@@ -54,13 +54,13 @@ namespace GUI
                 {
                     ID_PG = txtID.Text,
                     Name_PG = txtName.Text,
-                    Status = rbTrue.Checked
+                    Status = true
                 };
                 ProductGroups_BLL.Instance.ExcuteDB(pg);
 
                 MessageBox.Show("Updated successfully");
                 d();
-                showDGV();
+                showDGV(!cb_PG.Checked);
             }            
         }
 
@@ -70,17 +70,15 @@ namespace GUI
             {
                 ID_PG = txtID.Text,
                 Name_PG = txtName.Text,
-                Status = rbTrue.Checked
+                Status = true
             };
             DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dl == DialogResult.OK)
             {
                 ProductGroups_BLL.Instance.ExcuteDB(pg, txtID.Text);
                 d();
-                showDGV();
+                showDGV(!cb_PG.Checked);
                 txtID.Text = "";
-                txtName.Text = "";
-                rbTrue.Checked = true;
             }
         }
 
@@ -90,7 +88,6 @@ namespace GUI
             { 
                 txtID.Text = ProductGroups_BLL.Instance.getPGByID(dgvCM.SelectedRows[0].Cells["ID_PG"].Value.ToString()).ID_PG;
                 txtName.Text = ProductGroups_BLL.Instance.getPGByID(dgvCM.SelectedRows[0].Cells["ID_PG"].Value.ToString()).Name_PG;
-                rbTrue.Checked = ProductGroups_BLL.Instance.getPGByID(dgvCM.SelectedRows[0].Cells["ID_PG"].Value.ToString()).Status;
             }
             
         }
@@ -99,7 +96,11 @@ namespace GUI
         {
             txtID.Text = "";
             txtName.Text = "";
-            rbTrue.Checked = true;
+        }
+
+        private void cb_PG_CheckedChanged(object sender, EventArgs e)
+        {
+            showDGV(!cb_PG.Checked);
         }
     }
 }

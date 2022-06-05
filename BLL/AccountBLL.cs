@@ -46,8 +46,26 @@ namespace BLL
         }
         public DataTable getAccount()
         {
+            return AccountAccess.Instance.GetTrueRecords();
+        }
+        public DataTable getTFAccount()
+        {
             return AccountAccess.Instance.GetRecords();
-            //return accounts;
+        }
+        public List<Account> getAllAccount()
+        {
+            return AccountAccess.Instance.GetAllAccount();
+        }
+        public Account getAccountByID(string id)
+        {
+            foreach (Account i in getAllAccount())
+            {
+                if (i.ID.ToString().Equals(id))
+                {
+                    return i;
+                }
+            }
+            return null;
         }
         public DataTable getAccountByOption(string name, string option)
         {
@@ -136,6 +154,7 @@ namespace BLL
         {
             return AccountAccess.Instance.getAllUsername();
         }
+
         public bool checkField(string field, string name)
         {
             string s = AccountAccess.Instance.checkField(field, name);

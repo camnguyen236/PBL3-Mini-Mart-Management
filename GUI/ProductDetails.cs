@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class ProductDetails : Form
     {
-        public delegate void MyDel();
+        public delegate void MyDel(string groupName, bool b = true);
         public MyDel d { get; set; }
         public string id_p { get; set; }
         public ProductDetails(string id = null)
@@ -92,7 +92,6 @@ namespace GUI
                 txtPrice_PD.Text = dr["Price_P"].ToString();
                 txtVAT_PD.Text = dr["VAT"].ToString();
                 txtVATInclusive_PD.Text = dr["VAT_Inclusive_P"].ToString();
-                rbTrue.Checked = true;
                 txtID_PD.Enabled = false;
                 cbCatagories_PD.Enabled = false;
                 txtQuantity_PD.Enabled = false;
@@ -104,8 +103,9 @@ namespace GUI
                 byte[] img = (byte[])dr["IMG_P"];
                 MemoryStream ms = new MemoryStream(img);
                 img_PD.Image = Image.FromStream(ms);
-                btnCancel_PD.Hide();
+                //btnCancel_PD.Hide();
                 btnAdd_PD.Hide();
+                btnRefresh.Hide();
             }
             else
             {
@@ -113,18 +113,8 @@ namespace GUI
                 txtID_PD.Enabled = false;
                 txtQuantity_PD.Enabled = false;
                 txtVATInclusive_PD.Enabled=false;
+                gbStatus.Hide();
             }
-        }
-            
-
-        private void ProductDetails_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtAddress_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnEdit_PD_Click(object sender, EventArgs e)
@@ -217,7 +207,7 @@ namespace GUI
 
         private void btnOK_PD_Click(object sender, EventArgs e)
         {
-            d();
+            d("All");
             this.Close();
         }
 
@@ -240,7 +230,7 @@ namespace GUI
         private void btnAdd_PD_Click(object sender, EventArgs e)
         {
             saveBtn();
-            d();
+            d("All");
             this.Close();
         }
 
@@ -285,7 +275,6 @@ namespace GUI
             txtVATInclusive_PD.Text = "";
             txtVAT_PD.Text = "";
             cbCatagories_PD.SelectedIndex = 1;
-            rbTrue.Checked = true;
         }
     }
 }

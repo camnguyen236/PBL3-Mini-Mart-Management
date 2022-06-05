@@ -82,6 +82,20 @@ namespace BLL
                 return;
             }
         }
-
+        public List<ImportProducts> getAllImportProducts()
+        {
+            return ImportProductsDAL.Instance.GetAllImportProducts();
+        }
+        public ImportProducts getImportProductsByID(string id)
+        {
+            foreach (ImportProducts i in getAllImportProducts())
+            {
+                if (i.ID_IP.ToString().Equals(id))
+                {
+                    return i;
+                }
+            }
+            return null;
+        }
     }
 }

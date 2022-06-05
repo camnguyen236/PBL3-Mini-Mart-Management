@@ -27,9 +27,37 @@ namespace DAL
         DataTable supply = new DataTable();
         public DataTable GetRecords()
         {
+            string query = "select ID_Supply,Name_Supply,Address_Supply,PhoneNumber_Supply,BankAccount,TaxCode from Supply";
+            supply = DataProvider.Instance.GetRecords(query);
+            return supply;
+        }
+        public DataTable GetTrueRecords()
+        {
             string query = "select ID_Supply,Name_Supply,Address_Supply,PhoneNumber_Supply,BankAccount,TaxCode from Supply where Status = 'true'";
             supply = DataProvider.Instance.GetRecords(query);
             return supply;
+        }
+        public List<Supply> GetAllSupply()
+        {
+            List<Supply> list = new List<Supply>();
+            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from Supply").Rows)
+            {
+                list.Add(GetSupplyByDataRow(i));
+            }
+            return list;
+        }
+        public Supply GetSupplyByDataRow(DataRow i)
+        {
+            return new Supply
+            {
+                ID_Supply = Convert.ToInt32(i["ID_Supply"].ToString()),
+                Name_Supply = i["Name_Supply"].ToString(),
+                PhoneNumber_Supply = i["PhoneNumber_Supply"].ToString(),
+                Address_Supply = i["Address_Supply"].ToString(),
+                BankAccount = i["BankAccount"].ToString(),
+                TaxCode = i["TaxCode"].ToString(),
+                Status = Convert.ToBoolean(i["Status"].ToString())
+            };
         }
         public void addSupply(Supply supply)
         {

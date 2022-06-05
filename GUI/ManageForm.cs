@@ -29,7 +29,7 @@ namespace GUI
                 TabControlManage.TabPages.Remove(tpSupply);
                 TabControlMain.TabPages.Remove(tpImport);
             }
-
+            
             addCbSearch();
             setCBProductsGroups();
             addCbSearchProduct();
@@ -40,10 +40,14 @@ namespace GUI
             cbbID_Product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cbbID_Product.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbbID_Product.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            setCBBDiscount();
+            //setCBBDiscount();
 
             addTab();
-            ViewCart();
+            Show_Customer();
+            Show();
+            cbProductsGroups.SelectedIndex = 0;
+            Show_Product(getCurrenGroupName());
+            Show_Supply();
             showDgvSH();
         }
         private void Reset()
@@ -54,26 +58,20 @@ namespace GUI
             dpBirthday.Text = "";
             txtAddress.Text = "";
             txtPhone.Text = "";
-            txtRole.Text = "";
             txtEmail.Text = "";
-            rbTrue_us.Checked = true;
         }
-        private void Show()
+        private void Show(bool b = true)
         {
-            dgv1.DataSource = AccountBLL.Instance.getAccount();
+            dgv1.DataSource = b ? AccountBLL.Instance.getAccount() : AccountBLL.Instance.getTFAccount();
             dgv1.Columns[6].Visible = false;
         }
         private void Show_Customer()
         {
             dgv3.DataSource = Customer_BLL.Instance.getCustomer();
         }
-        private void Show_Supply()
+        private void Show_Supply(bool b = true)
         {
-            dgv4.DataSource = Supply_BLL.Instance.getSupply();
-        }
-        private void btnShow_Click(object sender, EventArgs e)
-        {
-            Show();
+            dgv4.DataSource = b ? Supply_BLL.Instance.getSupply() : Supply_BLL.Instance.getTFSupply();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -85,19 +83,20 @@ namespace GUI
 
             this.Close();
         }
-
-        private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtID.ReadOnly = true;
-            int i = dgv1.CurrentRow.Index;
-            txtID.Text = dgv1.Rows[i].Cells[0].Value.ToString();
-            txtUsername.Text = dgv1.Rows[i].Cells[1].Value.ToString();
-            txtName.Text = dgv1.Rows[i].Cells[2].Value.ToString();
-            dpBirthday.Text = dgv1.Rows[i].Cells[3].Value.ToString();
-            txtAddress.Text = dgv1.Rows[i].Cells[4].Value.ToString();
-            txtPhone.Text = dgv1.Rows[i].Cells[5].Value.ToString();
-            txtRole.Text = dgv1.Rows[i].Cells[6].Value.ToString();
-            txtEmail.Text = dgv1.Rows[i].Cells[7].Value.ToString();
+            txtID.Text = AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).ID.ToString();
+            txtUsername.Text = AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).US.ToString();
+            txtName.Text = AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).Name.ToString();
+            dpBirthday.Value = AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).Birthday;
+            txtAddress.Text = AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).Adress.ToString();
+            txtPhone.Text = AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).PhoneNumber.ToString();
+            txtEmail.Text = AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).Email.ToString();
+            rbMale_us.Checked = AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).Gender.ToString().Contains("Nam") ? true : false;
+            rbFemale_us.Checked = AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).Gender.ToString().Contains("Nam") ? false : true;
+            rbTrue_us.Checked = AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).Status;
+            rbFalse_us.Checked = !AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).Status;
         }
         Account account;
         Customer customer;
@@ -107,41 +106,45 @@ namespace GUI
         ImportProducts importProducts;
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
-            account = new Account
+            if (dgv1.SelectedRows.Count == 1)
             {
-                ID = Convert.ToInt32(txtID.Text),
-                US = txtUsername.Text,
-                PW = "null",
-                Name = txtName.Text,
-                Gender = "nữ",
-                Birthday = Convert.ToDateTime(dpBirthday.Text),
-                Adress = txtAddress.Text,
-                PhoneNumber = txtPhone.Text,
-                Position = txtRole.Text,
-                Email = txtEmail.Text,
-                Status = rbTrue_us.Checked
-            };
-            AccountBLL.Instance.ExcuteDB(account);
-            Show();
+                AccountBLL.Instance.ExcuteDB(new Account
+                {
+                    ID = Convert.ToInt32(txtID.Text),
+                    US = txtUsername.Text,
+                    PW = "null",
+                    Name = txtName.Text,
+                    Gender = rbMale_us.Checked ? "Nam" : "Nữ",
+                    Birthday = Convert.ToDateTime(dpBirthday.Text),
+                    Adress = txtAddress.Text,
+                    PhoneNumber = txtPhone.Text,
+                    Position = AccountBLL.Instance.getAccountByID(txtID.Text).Position.ToString(),
+                    Email = txtEmail.Text,
+                    Status = rbTrue_us.Checked
+                });
+                Show(!cb_us.Checked);
+            }       
 
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        { 
-             //vì mã nhân viên là khóa chính
-            DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (dl == DialogResult.OK)
-            {
-                AccountBLL.Instance.ExcuteDB(account, txtID.Text);
-                Show();
-                Reset();
-            }
-            else if (dl == DialogResult.Cancel)
-            {
-                //sthis.Close();
-            }
-        }
+        //private void btnDelete_Click(object sender, EventArgs e)
+        //{
+        //    if (dgv1.SelectedRows.Count > 0)
+        //    {
+        //        DialogResult dl = MessageBox.Show("Are you sure to delete this row?", ""
+        //            , MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+        //        if (dl == DialogResult.OK)
+        //        {
+        //            AccountBLL.Instance.ExcuteDB(account, txtID.Text);
+        //            Show(!cb_us.Checked);
+        //            Reset();
+        //        }
+        //        else if (dl == DialogResult.Cancel)
+        //        {
+        //            //sthis.Close();
+        //        }
+        //    }            
+        //}
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -151,57 +154,58 @@ namespace GUI
         }
 
         //Tap Manage customer
-        private void btnShow_Customer_Click(object sender, EventArgs e)
-        {
-            Show_Customer();
-        }
-        private void dgv3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtID_Customer.ReadOnly = true;
-            int i = dgv3.CurrentRow.Index;
-            txtID_Customer.Text = dgv3.Rows[i].Cells[0].Value.ToString();
-            txtName_Customer.Text = dgv3.Rows[i].Cells[1].Value.ToString();
-            if (dgv3.Rows[i].Cells[2].Value.ToString() == "Nữ") rbtnFemale_cus.Checked = true;
-            else rbtnMale_cus.Checked = true;
-            txtAddress_Customer.Text = dgv3.Rows[i].Cells[3].Value.ToString();
-            txtPhoneNumber_Customer.Text = dgv3.Rows[i].Cells[4].Value.ToString();
-            txtAccountNumber.Text = dgv3.Rows[i].Cells[5].Value.ToString();
+            txtID_Customer.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).ID_Customer.ToString();
+            txtName_Customer.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).Name_Customer.ToString();
+            rbtnMale_cus.Checked = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).Gender_Customer.ToString().Equals("Nam") ? true : false;
+            rbtnFemale_cus.Checked = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).Gender_Customer.ToString().Equals("Nam") ? false : true;
+            txtAddress_Customer.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).Address_Customer.ToString();
+            txtPhoneNumber_Customer.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).PhoneNumber_Customer.ToString();
+            txtAccountNumber.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).AccountNumber.ToString();
+            txtDiscountCustomer.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).Discount.ToString();
+            txtTaxCode_cus.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).TaxCode.ToString();
+            txtEmail_cus.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).Email_Customer.ToString();
         }
 
-        private void btnDelete_Customer_Click(object sender, EventArgs e)
-        {
-            //vì mã nhân viên là khóa chính
-            DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (dl == DialogResult.OK)
-            {
-                Customer_BLL.Instance.ExcuteDB(customer, txtID_Customer.Text);
-                Show_Customer();
-                Reset();
-            }
-            else if (dl == DialogResult.Cancel)
-            {
-                //sthis.Close();
-            }
-        }
+        //private void btnDelete_Customer_Click(object sender, EventArgs e)
+        //{
+        //    if(dgv3.SelectedRows.Count > 0)
+        //    {
+        //        DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+        //        if (dl == DialogResult.OK)
+        //        {
+        //            Customer_BLL.Instance.ExcuteDB(customer, txtID_Customer.Text);
+        //            Show_Customer();
+        //            Reset();
+        //        }
+        //        else if (dl == DialogResult.Cancel)
+        //        {
+        //            //sthis.Close();
+        //        }
+        //    }            
+        //}
 
         private void btnUpdate_Customer_Click(object sender, EventArgs e)
         {
-            customer = new Customer
+            if(dgv3.SelectedRows.Count == 1)
             {
-                ID_Customer = Convert.ToInt32(txtID_Customer.Text),
-                Name_Customer = txtName_Customer.Text,
-                Gender_Customer = rbtnFemale_cus.Checked ? "Nữ" : "Nam",
-                Address_Customer = txtAddress_Customer.Text,
-                PhoneNumber_Customer = txtPhoneNumber_Customer.Text,
-                AccountNumber = txtAccountNumber.Text,
-                Email_Customer = txtEmail_cus.Text,
-                Discount = Convert.ToInt32(txtDiscountCustomer.Text),
-                TaxCode = txtTaxCode_cus.Text,
-                Status = rbTrue_cus.Checked
-            };
-            Customer_BLL.Instance.ExcuteDB(customer);
-            Show_Customer();
-            //MessageBox.Show("Update")
+                Customer_BLL.Instance.ExcuteDB(new Customer
+                {
+                    ID_Customer = Convert.ToInt32(txtID_Customer.Text),
+                    Name_Customer = txtName_Customer.Text,
+                    Gender_Customer = rbtnFemale_cus.Checked ? "Nữ" : "Nam",
+                    Address_Customer = txtAddress_Customer.Text,
+                    PhoneNumber_Customer = txtPhoneNumber_Customer.Text,
+                    AccountNumber = txtAccountNumber.Text,
+                    Email_Customer = txtEmail_cus.Text,
+                    Discount = Convert.ToInt32(txtDiscountCustomer.Text),
+                    TaxCode = txtTaxCode_cus.Text,
+                    Status = true
+                });
+                Show_Customer();
+            }            
         }
 
         private void btnAdd_Customer_Click(object sender, EventArgs e)
@@ -254,10 +258,6 @@ namespace GUI
         }
 
         //Tab Manage Supply
-        private void btnShow_Supply_Click(object sender, EventArgs e)
-        {
-            Show_Supply();
-        }
 
         private void btnAdd_Supply_Click(object sender, EventArgs e)
         {
@@ -268,51 +268,54 @@ namespace GUI
 
         private void btnUpdate_Supply_Click(object sender, EventArgs e)
         {
-            supply = new Supply
+            if(dgv4.SelectedRows.Count == 1)
             {
-                ID_Supply = Convert.ToInt32(txtID_Supply.Text),
-                Name_Supply = txtName_Supply.Text,
-                Address_Supply = txtAddress_Supply.Text,
-                PhoneNumber_Supply = txtPhoneNumber_Supply.Text,
-                BankAccount = txtBankAccount.Text,
-                Status = rbTrue_su.Checked
-            };
-            Supply_BLL.Instance.ExcuteDB(supply);
-            Show_Supply();
+                Supply_BLL.Instance.ExcuteDB(new Supply
+                {
+                    ID_Supply = Convert.ToInt32(txtID_Supply.Text),
+                    Name_Supply = txtName_Supply.Text,
+                    Address_Supply = txtAddress_Supply.Text,
+                    PhoneNumber_Supply = txtPhoneNumber_Supply.Text,
+                    BankAccount = txtBankAccount.Text,
+                    TaxCode = txtTaxCode_su.Text,
+                    Status = rbTrue_sup.Checked
+                });
+                Show_Supply(!cb_supply.Checked);
+            }            
         }
-
-
         
-        private void btnDelete_Supply_Click(object sender, EventArgs e)
-        {
-            //vì mã nhân viên là khóa chính
-            DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (dl == DialogResult.OK)
-            {
-                Supply_BLL.Instance.ExcuteDB(supply, txtID_Supply.Text);
-                Show_Supply();
-                Reset();
-            }
-            else if (dl == DialogResult.Cancel)
-            {
-                //sthis.Close();
-            }
-        }
-
-        private void dgv4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //private void btnDelete_Supply_Click(object sender, EventArgs e)
+        //{
+        //    if(dgv4.SelectedRows.Count > 0)
+        //    {
+        //        DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+        //        if (dl == DialogResult.OK)
+        //        {
+        //            Supply_BLL.Instance.ExcuteDB(supply, txtID_Supply.Text);
+        //            Show_Supply();
+        //            Reset();
+        //        }
+        //        else if (dl == DialogResult.Cancel)
+        //        {
+        //            //sthis.Close();
+        //        }
+        //    }            
+        //}
+        private void dgv4_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtID_Supply.ReadOnly = true;
-            int i = dgv4.CurrentRow.Index;
-            txtID_Supply.Text = dgv4.Rows[i].Cells[0].Value.ToString();
-            txtName_Supply.Text = dgv4.Rows[i].Cells[1].Value.ToString();
-            txtAddress_Supply.Text = dgv4.Rows[i].Cells[2].Value.ToString();
-            txtPhoneNumber_Supply.Text = dgv4.Rows[i].Cells[3].Value.ToString();
-            txtBankAccount.Text = dgv4.Rows[i].Cells[4].Value.ToString();
+            txtID_Supply.Text = Supply_BLL.Instance.getSupplyByID(dgv4.SelectedRows[0].Cells["ID_Supply"].Value.ToString()).ID_Supply.ToString();
+            txtName_Supply.Text = Supply_BLL.Instance.getSupplyByID(dgv4.SelectedRows[0].Cells["ID_Supply"].Value.ToString()).Name_Supply.ToString();
+            txtAddress_Supply.Text = Supply_BLL.Instance.getSupplyByID(dgv4.SelectedRows[0].Cells["ID_Supply"].Value.ToString()).Address_Supply.ToString();
+            txtPhoneNumber_Supply.Text = Supply_BLL.Instance.getSupplyByID(dgv4.SelectedRows[0].Cells["ID_Supply"].Value.ToString()).PhoneNumber_Supply.ToString();
+            txtBankAccount.Text = Supply_BLL.Instance.getSupplyByID(dgv4.SelectedRows[0].Cells["ID_Supply"].Value.ToString()).BankAccount.ToString();
+            txtTaxCode_su.Text = Supply_BLL.Instance.getSupplyByID(dgv4.SelectedRows[0].Cells["ID_Supply"].Value.ToString()).TaxCode.ToString();
+            rbTrue_sup.Checked = Supply_BLL.Instance.getSupplyByID(dgv4.SelectedRows[0].Cells["ID_Supply"].Value.ToString()).Status;
+            rbFalse_sup.Checked = !Supply_BLL.Instance.getSupplyByID(dgv4.SelectedRows[0].Cells["ID_Supply"].Value.ToString()).Status;
         }
 
 
         //manage product
-        private string selectIDProduct;
         private string getCurrenGroupName()
         {
             string groupName = cbProductsGroups.Text;
@@ -341,46 +344,38 @@ namespace GUI
                 dgv2.DataSource = Product_BLL.Instance.getProducts();
         }
 
-        private void Show_Product(string groupName)
+        private void Show_Product(string groupName, bool b = true)
         {
             if (groupName == "All")
             {
-                dgv2.DataSource = Product_BLL.Instance.getProducts();
+                dgv2.DataSource = b ? Product_BLL.Instance.getProducts() : Product_BLL.Instance.getTFProducts();
             }
             else
             {
-                dgv2.DataSource = Product_BLL.Instance.getProductsByGroupName(groupName);
+                dgv2.DataSource = b ? Product_BLL.Instance.getProductsByGroupName(groupName) : Product_BLL.Instance.getTFProductsByGroupName(groupName);
             }
-        }
-        private void btnShowProduct_Click(object sender, EventArgs e)
-        {
-
-            Show_Product(getCurrenGroupName());
         }
 
-        private void btnDelteProduct_Click(object sender, EventArgs e)
-        {
-            DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (dl == DialogResult.OK)
-            {
-                Product_BLL.Instance.ExcuteDB(product, selectIDProduct);
-                Show_Product(getCurrenGroupName());
-            }
-            else if (dl == DialogResult.Cancel)
-            {
-                //sthis.Close();
-            }
-        }
-        private void dgv2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridView dgv = (DataGridView)sender;
-            int i = dgv.CurrentRow.Index;
-            selectIDProduct = dgv.Rows[i].Cells[0].Value.ToString();
-        }
+        //private void btnDelteProduct_Click(object sender, EventArgs e)
+        //{
+        //    if(dgv2.SelectedRows.Count > 0)
+        //    {
+        //        DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+        //        if (dl == DialogResult.OK)
+        //        {
+        //            Product_BLL.Instance.ExcuteDB(product, dgv2.SelectedRows[0].Cells["ID_P"].Value.ToString());
+        //            Show_Product(getCurrenGroupName());
+        //        }
+        //        else if (dl == DialogResult.Cancel)
+        //        {
+        //            //sthis.Close();
+        //        }
+        //    }            
+        //}
 
         private void cbProductsGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Show_Product(getCurrenGroupName());
+            Show_Product(getCurrenGroupName(), !cb_Product.Checked);
         }
 
 
@@ -417,102 +412,63 @@ namespace GUI
         private void dgv2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = sender as DataGridView;
-            int i = dgv.CurrentRow.Index;
-            string id = dgv.Rows[i].Cells["ID_P"].Value.ToString();
-            ProductDetails pd = new ProductDetails(id);
-            //delegate
-            pd.d = new ProductDetails.MyDel(ShowAllProduct);
+            ProductDetails pd = new ProductDetails(dgv.SelectedRows[0].Cells["ID_P"].Value.ToString());
+            cb_Product.Checked = false;
+            pd.d = new ProductDetails.MyDel(Show_Product);
             pd.Show();
         }
 
         private void btnAdd_PG_Click(object sender, EventArgs e)
-        {
-            
+        {            
             ProductDetails pd = new ProductDetails();
-            //deleget
-            pd.d = new ProductDetails.MyDel(ShowAllProduct);
+            cb_Product.Checked = false;
+            pd.d = new ProductDetails.MyDel(Show_Product);
             pd.Show();
         }
 
         private void btnUpdate_PG_Click(object sender, EventArgs e)
         {
-            int i = dgv2.CurrentRow.Index;
-            string id = dgv2.Rows[i].Cells["ID_P"].Value.ToString();
-            ProductDetails pd = new ProductDetails(id);
-            //deleget
-            pd.d = new ProductDetails.MyDel(ShowAllProduct);
-            pd.Show();
+            if(dgv2.SelectedRows.Count == 1)
+            {
+                ProductDetails pd = new ProductDetails(dgv2.SelectedRows[0].Cells["ID_P"].Value.ToString());
+                cb_Product.Checked = false;
+                pd.d = new ProductDetails.MyDel(Show_Product);
+                pd.Show();
+            }
         }
-
-        //Tab Import Product
-        public void showInformationOfBill(int i)
+        public void showInformationNew(int i)
         {
-            dtDate_Import.Text = ImportProductsBLL.Instance.getRecords().Rows[i]["Date_Import"].ToString();
-            cbbName_Supply.SelectedItem = ImportProductsBLL.Instance.getRecords().Rows[i]["Name_Supply"].ToString();
-            txtAddress_InfOfBill.Text = ImportProductsBLL.Instance.getRecords().Rows[i]["Address_Supply"].ToString();
-            txtBankAccountInfOfBill.Text = ImportProductsBLL.Instance.getRecords().Rows[i]["BankAccount"].ToString();
-            txtPhoneNumberSupply.Text = ImportProductsBLL.Instance.getRecords().Rows[i]["PhoneNumber_Supply"].ToString();
-            txtID_Tax.Text = ImportProductsBLL.Instance.getRecords().Rows[i]["TaxCode"].ToString();
-            //txtSymbol.Text = ImportProductsBLL.Instance.getRecords().Rows[i]["Symbol"].ToString();
-        }
-        public void showInformationNew()
-        {
-            cbbName_Supply.SelectedItem = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[0]["Name_Supply"].ToString();
-            txtAddress_InfOfBill.Text = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[0]["Address_Supply"].ToString();
-            txtBankAccountInfOfBill.Text = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[0]["BankAccount"].ToString();
-            txtPhoneNumberSupply.Text = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[0]["PhoneNumber_Supply"].ToString();
-            txtID_Tax.Text = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[0]["TaxCode"].ToString();
+            cbbName_Supply.SelectedItem = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[i]["Name_Supply"].ToString();
+            txtAddress_InfOfBill.Text = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[i]["Address_Supply"].ToString();
+            txtBankAccountInfOfBill.Text = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[i]["BankAccount"].ToString();
+            txtPhoneNumberSupply.Text = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[i]["PhoneNumber_Supply"].ToString();
+            txtID_Tax.Text = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[i]["TaxCode"].ToString();
         }
         public int countRowsImportProduct()
         {
             return ImportProductsBLL.Instance.getAllImport_Product().Rows.Count;
         }
-        //public void setCBBID_IP() //cbb mã phiếu nhập
-        //{
-        //    cbbID_IP.Items.AddRange(ImportProductsBLL.Instance.getAllID_IP().Distinct().ToArray());
-        //}
         public void setCBBName_Supply() //cbb tên ncc
         {
             cbbName_Supply.Items.AddRange(ImportProductsBLL.Instance.getAllName_Supply().Distinct().ToArray());
         }
         public void setCBBID_Products() //cbb mã sp
         {
-            //cbbID_Product.SelectedIndex = 0;
             cbbID_Product.Items.AddRange(ImportProductsBLL.Instance.getAllIP_Product().ToArray());
-            //cbbID_Product.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            //cbbID_Product.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
-        public void setCBBDiscount() //cbb mã sp
-        {
-            cbbDiscount.Items.AddRange(ImportProductsBLL.Instance.getAllDiscount().Distinct().ToArray());
-        }
+        //public void setCBBDiscount() //cbb mã sp
+        //{
+        //    txtDiscount.Items.AddRange(ImportProductsBLL.Instance.getAllDiscount().Distinct().ToArray());
+        //}
         private void showProducts()
         {
-            //showInformationOfBill(cbbID_IP.SelectedIndex);
             int ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID_IP"].ToString()); //láy id phiếu cuối
-            //MessageBox.Show(Convert.ToString(ID_IP));
             dtgvImportProduct.DataSource = ImportProductsBLL.Instance.getDetailsImportProduct(ID_IP);
         }
-        //private void cbbID_IP_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    showProducts();
-        //}
         int amount;
         double total;
-        //private void nmrQuantity_ValueChanged(object sender, EventArgs e)
-        //{
-        //    amount = (Convert.ToInt32(nmrQuantity.Value)) * (Convert.ToInt32(txtImport_Price.Text));
-        //    txtPrice.Text = Convert.ToString(amount);
-
-        //}
-        //private void cbbDiscount_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    total = amount + amount * Convert.ToInt32(cbbDiscount.Text) / 100;5tg
-        //    txtTotal.Text = Convert.ToString(total);
-        //}
         private void btnAdd_InfOfProduct_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(ImportProductsBLL.Instance.getID_Product(cbbID_Product.SelectedItem.ToString()));
             detailImportProducts = new DetailImportProducts
             {
                 ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID_IP"].ToString()),
@@ -520,29 +476,30 @@ namespace GUI
                 IP_Price = Convert.ToInt32(txtImport_Price.Text),
                 Amount_IP = Convert.ToInt32(nmrQuantity.Value),
                 Amount_Price = amount,
-                Discount = Convert.ToInt32(cbbDiscount.Text),
+                Discount = Convert.ToInt32(txtDiscount.Text),
                 Total = total,
             };
             DetailImportProductBLL.Instance.ExcuteDB(detailImportProducts, "Add");
             lbAdd.ForeColor = Color.Green;
             
             showProducts();
+            txtTotalAll.Text = Convert.ToString(totalAll());
         }
         
-
-        private void dtgvImportProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgvImportProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             cbbID_Product.Enabled = false;
             int i = dtgvImportProduct.CurrentRow.Index;
+            //cbbID_Product.Text = ImportProductsBLL.Instance.getImportProductsByID(dtgvImportProduct.SelectedRows[0].Cells["ID_P"].Value.ToString()).ID_IP.ToString();
             cbbID_Product.Text = dtgvImportProduct.Rows[i].Cells[1].Value.ToString();
+            //txtImport_Price.Text = ImportProductsBLL.Instance.getImportProductsByID(dtgvImportProduct.SelectedRows[0].Cells["ID_P"].Value.ToString()).ip
             txtImport_Price.Text = dtgvImportProduct.Rows[i].Cells[2].Value.ToString();
             nmrQuantity.Value = Convert.ToInt32(dtgvImportProduct.Rows[i].Cells[3].Value.ToString());
             amount = (Convert.ToInt32(dtgvImportProduct.Rows[i].Cells[3].Value) * Convert.ToInt32(dtgvImportProduct.Rows[i].Cells[2].Value));
             txtPrice.Text = Convert.ToString(amount);
-            cbbDiscount.Text = dtgvImportProduct.Rows[i].Cells[5].Value.ToString();
-            total = amount + amount * Convert.ToInt32(cbbDiscount.Text) / 100;
+            txtDiscount.Text = dtgvImportProduct.Rows[i].Cells[5].Value.ToString();
+            total = amount + amount * Convert.ToInt32(txtDiscount.Text) / 100;
             txtTotal.Text = Convert.ToString(total);
-
         }
 
         private void btnDeleteImportProduct_Click(object sender, EventArgs e)
@@ -566,7 +523,7 @@ namespace GUI
             txtImport_Price.Text = "";
             nmrQuantity.Value = 0;
             txtPrice.Text = "";
-            cbbDiscount.Text = "";
+            txtDiscount.Text = "";
             txtTotal.Text = "";
             lbAdd.ForeColor = Color.White;
             lbUpdate.ForeColor = Color.White;
@@ -582,28 +539,23 @@ namespace GUI
             txtBankAccountInfOfBill.Text = "";
             txtPhoneNumberSupply.Text = "";
             txtID_Tax.Text = "";
-            //txtSymbol.Text = "";
             dtgvImportProduct.DataSource = empty;
             lbSaveInfOfBill.ForeColor = Color.White;
         }
 
         private void cbbName_Supply_SelectedIndexChanged(object sender, EventArgs e)
         {
-            showInformationNew();
+            showInformationNew(cbbName_Supply.SelectedIndex);
         }
 
         private void btnSave_InfOfBill_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(Convert.ToString(AccountBLL.Instance.getID()));
             importProducts = new ImportProducts
             {
-
                 ID_IP = 0,
                 ID = AccountBLL.Instance.getID(),
-                Date_Import = Convert.ToDateTime(dtDate_Import.Text),
-                //Name_Supply = Convert.ToInt32(txtImport_Price.Text),
+                Date_Import = DateTime.Now,
                 ID_Supply = ImportProductsBLL.Instance.getID_Supply(cbbName_Supply.SelectedItem.ToString()),
-                //Symbol = txtSymbol.Text,
             };
             
             ImportProductsBLL.Instance.ExcuteDB(importProducts, "Add");
@@ -613,24 +565,6 @@ namespace GUI
             DetailImportProductBLL.Instance.get(txtID_IP.Text);
             //setCBBID_IP();
         }
-        //nút update bill
-        //private void btnUpdateInfOfBill_Click(object sender, EventArgs e)
-        //{
-        //    importProducts = new ImportProducts
-        //    {
-
-        //        ID_IP = Convert.ToInt32(cbbID_IP.Text),
-        //        ID = AccountBLL.Instance.getID(),
-        //        Date_Import = Convert.ToDateTime(dtDate_Import.Text),
-        //        //Name_Supply = Convert.ToInt32(txtImport_Price.Text),
-        //        ID_Supply = ImportProductsBLL.Instance.getID_Supply(cbbName_Supply.SelectedItem.ToString()),
-        //        Symbol = txtSymbol.Text,
-        //    };
-
-        //    ImportProductsBLL.Instance.ExcuteDB(importProducts);
-        //    //lbAdd.ForeColor = Color.Green;
-        //    //lbSaveInfOfBill.ForeColor = Color.Green;
-        //}
 
         private void btnDetailImportBill_Click(object sender, EventArgs e)
         {
@@ -638,59 +572,23 @@ namespace GUI
             importProductsBill.ShowDialog();
         }
 
-        //cần sửa chữa
-        private void btnSaveImport_Click(object sender, EventArgs e)
-        {
-            DataTable data = new DataTable();
-            data = ImportProductsBLL.Instance.getDetailsImportProduct(Convert.ToInt32(txtID_IP.Text));
-            MessageBox.Show(Convert.ToString(data.Rows.Count));
-            for (int i = 0; i < data.Rows.Count; i++)
-            {
-                TableImportSql tableImportSql = new TableImportSql
-                {
-                    ID_IP2 = Convert.ToInt32(txtID_IP.Text),//Convert.ToInt32(cbbID_IP.SelectedItem.ToString()),
-                    Date_Import2 = Convert.ToDateTime(dtDate_Import.Text), //OK
-                    //Symbol2 = txtSymbol.Text, //OK
-                    Name_Supply2 = cbbName_Supply.SelectedItem.ToString(), //OK
-                    Address_Supply2 = txtAddress_InfOfBill.Text, //OK
-                    TaxCode2 = txtID_Tax.Text, //OK
-                    PhoneNumber_Supply2 = txtPhoneNumberSupply.Text, //OK
-                    BankAccount2 = txtBankAccountInfOfBill.Text, //OK
-                    Name_Product2 = data.Rows[i]["Name_P"].ToString(),
-                    Amount_IP2 = Convert.ToInt32(data.Rows[i]["Amount_IP"].ToString()),
-                    Price2 = Convert.ToInt32(data.Rows[i]["IP_Price"].ToString()),
-                    Amount_Price2 = Convert.ToInt32(data.Rows[i]["Amount_Price"].ToString()),
-                    Discount2 = Convert.ToInt32(data.Rows[i]["Discount"].ToString()),
-                    Total2 = Convert.ToDouble(data.Rows[i]["Total"].ToString()),
-                };
-                TableImportSqlBLL.Instance.ExcuteDB(tableImportSql, "Add");
-                lbAdd.ForeColor = Color.Red;
-            }
-            TableImportSqlBLL.Instance.get(txtID_IP.Text);
-        }
-
         private void btnUpdateImportProduct_Click(object sender, EventArgs e)
         {
-            //amount = (Convert.ToInt32(nmrQuantity.Value)) * (Convert.ToInt32(txtImport_Price.Text));
-            total = amount + amount * Convert.ToInt32(cbbDiscount.Text) / 100;
+            total = amount - amount * Convert.ToInt32(txtDiscount.Text) / 100;
             detailImportProducts = new DetailImportProducts
             {
-                ID_IP = 0,//Convert.ToInt32(cbbID_IP.SelectedItem.ToString()),
+                ID_IP = 0,
                 ID_P = Convert.ToInt32(cbbID_Product.SelectedItem.ToString()),
                 IP_Price = Convert.ToInt32(txtImport_Price.Text),
                 Amount_IP = Convert.ToInt32(nmrQuantity.Value),
                 Amount_Price = amount,
-                Discount = Convert.ToInt32(cbbDiscount.SelectedItem.ToString()),
+                Discount = Convert.ToInt32(txtDiscount.Text),
                 Total = total,
             };
             DetailImportProductBLL.Instance.ExcuteDB(detailImportProducts);
             lbUpdate.ForeColor = Color.Green;
 
             showProducts();
-        }
-        //Nút ok total
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
             txtTotalAll.Text = Convert.ToString(totalAll());
         }
 
@@ -707,8 +605,7 @@ namespace GUI
             int count = ImportProductsBLL.Instance.getDetailsImportProduct(ID_IP).Rows.Count;
             for(int i=0; i<count; i++)
             {
-                totalall += Convert.ToInt32(ImportProductsBLL.Instance.getDetailsImportProduct(ID_IP).Rows[i]["Total"].ToString());
-
+                totalall += Convert.ToDouble(ImportProductsBLL.Instance.getDetailsImportProduct(ID_IP).Rows[i]["Total"].ToString());
             }
             return totalall;
         }
@@ -738,7 +635,20 @@ namespace GUI
             return uc;
         }
 
-        void addToCard_Click(object sender, EventArgs e)
+        private bool checkID_P(int id, int num)
+        {
+            for(int i = 0; i < productArray.Count; i++)
+            {
+                if(productArray[i].Item1 == id)
+                {
+                    productArray[i] = new Tuple<int, int>(productArray[i].Item1, productArray[i].Item2 + num);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void addToCard_Click(object sender, EventArgs e)
         {
             txtTotal.Text = "";
             UserControl1 us = (UserControl1)sender;
@@ -748,7 +658,7 @@ namespace GUI
                 return;
             }
             MessageBox.Show("Add successful");
-            productArray.Add(new Tuple<int, int>(us.Id_p, us.Number));
+            if (!checkID_P(us.Id_p, us.Number)) productArray.Add(new Tuple<int, int>(us.Id_p, us.Number));
             viewCart();
             us.Number = 0;
         }
@@ -845,58 +755,35 @@ namespace GUI
             dgvCart.Columns[7].HeaderText = "Number";
             txtTotalProduct.Text = Total.ToString();
         }
-        private void ViewCart()
-        {
-
-
-            //DataTable dt = new DataTable();
-            //dt.Columns.AddRange(new DataColumn[]
-            //{
-            //    new DataColumn(columnName: "ID_P", dataType: typeof (string)),
-            //    new DataColumn(columnName: "Name_PG", dataType: typeof (string)),
-            //    new DataColumn(columnName: "Name_P", dataType: typeof(string)),
-            //    new DataColumn(columnName: "Unit_P", dataType: typeof(string)),
-            //    new DataColumn(columnName: "Price_P", dataType: typeof(string)),
-            //    new DataColumn(columnName: "VAT", dataType: typeof(string)),
-            //    new DataColumn(columnName: "VAT_Inclusive_P", dataType: typeof(string)),
-            //    new DataColumn(columnName: "Number", dataType: typeof(int))
-            //});
-            //dgvCart.DataSource = dt;
-        }
 
         private void btnDelProduct_Click(object sender, EventArgs e)
         {
-            DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (dl == DialogResult.OK)
-            {
-                var it = productArray.Single(productArray => productArray.Item1 == Convert.ToInt32(selectIDProduct));
-                productArray.Remove(it);
-                viewCart();
+            if(dgvCart.SelectedRows.Count > 0) { 
+                DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dl == DialogResult.OK)
+                {
+                    var it = productArray.Single(productArray => productArray.Item1 == Convert.ToInt32(dgvCart.SelectedRows[0].Cells["ID_P"].Value.ToString()));
+                    productArray.Remove(it);
+                    viewCart();
+                }
+                else if (dl == DialogResult.Cancel)
+                {
+                    //sthis.Close();
+                }
             }
-            else if (dl == DialogResult.Cancel)
-            {
-                //sthis.Close();
-            }
-
         }
         
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            //if (txtSearchCustomer.Text.Equals(""))
-            //{
-            //    MessageBox.Show("Please enter customer information");
-            //    return;
-            //}
             Invoice inv = new Invoice
             {
                 ID = acc.ID,
-                //ID_Customer = Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text).ID_Customer,
+                ID_Customer = ((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value,
                 Invoice_Date = DateTime.Now
             };
             Invoice_BLL.Instance.ExcuteDB(inv, "Add");
             int id = Convert.ToInt32(Invoice_BLL.Instance.getInvoice().Rows[Invoice_BLL.Instance.getInvoice().Rows.Count - 1]["ID_Invoice"].ToString());
-            MessageBox.Show(id.ToString());
             InvoiceDetail_BLL.Instance.get(id.ToString());
             for (int i = 0; i < productArray.Count; i++)
             {
@@ -909,7 +796,20 @@ namespace GUI
                 };
                 InvoiceDetail_BLL.Instance.ExcuteDB(ind, "Add");
             }
-            
+            Customer_BLL.Instance.ExcuteDB(new Customer
+            {
+                ID_Customer = ((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value,
+                Name_Customer = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Name_Customer,
+                Gender_Customer = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Gender_Customer,
+                Address_Customer = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Address_Customer,
+                PhoneNumber_Customer = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).PhoneNumber_Customer,
+                AccountNumber = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).AccountNumber,
+                Email_Customer = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Email_Customer,
+                Discount = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Discount * 100002 /100000,
+                TaxCode = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).TaxCode,
+                Status = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Status
+            });
+
             showDgvSH();
             DialogResult dl = MessageBox.Show("Are you want to print this bill?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (dl == DialogResult.OK)
@@ -921,7 +821,6 @@ namespace GUI
             {
                 //sthis.Close();
             }
-            //MessageBox.Show("Payment successful");
             btnRefresh.PerformClick();
         }
 
@@ -930,21 +829,6 @@ namespace GUI
             AddCustomer ad = new AddCustomer();
             ad.d = new AddCustomer.Mydel(Show_Customer);
             ad.ShowDialog();
-        }
-
-        private void txtCustomerPhoneNum_TextChanged(object sender, EventArgs e)
-        {
-            //if (AccountBLL.Instance.checkPhoneNumber(txtCustomerPhoneNum.Text))
-            //{
-            //    if (Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text) != null)
-            //    {
-            //        txtNameCustomer.Text = Customer_BLL.Instance.getCustomerByPhoneNum(txtCustomerPhoneNum.Text).Name_Customer;
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("This account does not exist, please re-enter");
-            //    }
-            //}
         }
         private void showDgvSH()
         {
@@ -974,9 +858,9 @@ namespace GUI
         {
             List<int> ls = new List<int>();
             dgvCart.DataSource = ls;
-            //txtCustomerPhoneNum.Text = "";
             txtTotalProduct.Text = "";
-            //txtSearchCustomer.Text = "";
+            txtSearchCustomer.Text = "";
+            cbbResultSearchCustomer.Items.Clear();
         }
 
         private void rbDaily_CheckedChanged(object sender, EventArgs e)
@@ -1023,33 +907,12 @@ namespace GUI
             mf2.ShowDialog();
         }
 
-        private void cbbResultSearchCustomer_MouseClick(object sender, MouseEventArgs e)
-        {
-            cbbResultSearchCustomer.Items.Clear();
-            if (Customer_BLL.Instance.getListCustomer(cbbSearchCustomer.SelectedItem.ToString(), txtSearchCustomer.Text) != null)
-            {
-                foreach (var i in Customer_BLL.Instance.getListCustomer(cbbSearchCustomer.SelectedItem.ToString(), txtSearchCustomer.Text))
-                {
-
-                    cbbResultSearchCustomer.Items.Add((i.Name_Customer == null ? "" : i.Name_Customer + "-")
-                        + (i.PhoneNumber_Customer == null ? "" : i.PhoneNumber_Customer + "-")
-                        + (i.Email_Customer == null ? "" : i.Email_Customer));
-                }
-            }
-        }
-
         private void btnCatalogManagement_Click(object sender, EventArgs e)
         {
             CatalogManagement cm = new CatalogManagement();
             cm.d = new CatalogManagement.Mydel(setCBProductsGroups);
             cm.ShowDialog();
         }
-
-        //private void btnPrintInvoice_Click(object sender, EventArgs e)
-        //{
-        //    InvoiceReport invoiceReport = new InvoiceReport();
-        //    invoiceReport.ShowDialog();
-        //}
 
         private void txtSearchSH_TextChanged(object sender, EventArgs e)
         {
@@ -1067,7 +930,6 @@ namespace GUI
             txtTaxCode_cus.Text = "";
             txtEmail_cus.Text = "";
             rbtnMale_cus.Checked = true;
-            rbTrue_cus.Checked = true;
         }
 
         private void pbRefresh_US_Click(object sender, EventArgs e)
@@ -1078,10 +940,8 @@ namespace GUI
             txtPhone.Text = "";
             txtAddress.Text = "";
             txtUsername.Text = "";
-            txtRole.Text = "";
             dpBirthday.Value = DateTime.Now;
             rbMale_us.Checked = true;
-            rbTrue_us.Checked = true;
         }
 
         private void pbRefresh_Supply_Click(object sender, EventArgs e)
@@ -1092,12 +952,11 @@ namespace GUI
             txtAddress_Supply.Text = "";
             txtPhoneNumber_Supply.Text = "";
             txtBankAccount.Text = "";
-            rbTrue_su.Checked = true;
         }
 
         private void cbSearchProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void txtSearchCustomer_MI_TextChanged(object sender, EventArgs e)
@@ -1198,6 +1057,41 @@ namespace GUI
             }
             dgv4.DataSource = Supply_BLL.Instance.getSupplysByOption(txtSearchSupply_MI.Text, option);
         }
+
+        private void cbbResultSearchCustomer_MouseClick(object sender, MouseEventArgs e)
+        {
+            cbbResultSearchCustomer.Items.Clear();
+            if (txtSearchCustomer.Text != "" && Customer_BLL.Instance.getListCustomer(cbbSearchCustomer.SelectedItem.ToString(), txtSearchCustomer.Text) != null)
+            {
+                foreach (var i in Customer_BLL.Instance.getListCustomer(cbbSearchCustomer.SelectedItem.ToString(), txtSearchCustomer.Text))
+                {
+                    cbbResultSearchCustomer.Items.Add(new CBBGroups
+                    {
+                        Value = i.ID_Customer,
+                        Text = (i.Name_Customer == null ? "" : i.Name_Customer + "-")
+                        + (i.PhoneNumber_Customer == null ? "" : i.PhoneNumber_Customer + "-")
+                        + (i.Email_Customer == null ? "" : i.Email_Customer)
+                    });
+                }
+            }
+        }
+
+        private void cb_us_CheckedChanged(object sender, EventArgs e)
+        {
+            Show(cb_us.Checked ? false : true);
+        }
+
+        private void cb_Product_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_supply_CheckedChanged(object sender, EventArgs e)
+        {
+            Show_Supply(cb_supply.Checked ? false : true);
+        }
+
+
         //report
 
     }

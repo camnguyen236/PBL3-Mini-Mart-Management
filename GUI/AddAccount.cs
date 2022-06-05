@@ -70,7 +70,6 @@ namespace GUI
                     {
                         Account account = new Account
                         {
-                            //ID = Convert.ToInt32(txtID.Text),
                             US = tbUS.Text,
                             PW = HashCode.Instance.hashCode(rd.ToString()),
                             Name = tbName.Text,
@@ -80,7 +79,7 @@ namespace GUI
                             PhoneNumber = tbPhoneNumber.Text,
                             Position = null,
                             Email = tbEmail.Text,
-                            Status = rbTrue.Checked
+                            Status = true
                         };
                         AccountBLL.Instance.ExcuteDB(account, "Add");
                         //show
@@ -104,7 +103,6 @@ namespace GUI
             tbPhoneNumber.Text = "";
             tbUS.Text = "";
             DTPBirthday.Value = DateTime.Now;
-            rbTrue.Checked = true;
             rbtnMale.Checked = true;
         }
     }

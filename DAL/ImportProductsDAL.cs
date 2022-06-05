@@ -96,7 +96,9 @@ namespace DAL
         }
         public DataTable getDetailsImportProduct(int ID_IP)
         {
-            string query = "select DetailImportProduct.ID_P,Name_P,IP_Price,Amount_IP,Amount_Price,Discount,Total from DetailImportProduct inner join Products on DetailImportProduct.ID_P = Products.ID_P  where ID_IP = " + ID_IP;
+            string query = "select DetailImportProduct.ID_P,Name_P,IP_Price,Amount_IP,Amount_Price,Discount" +
+                ",Total from DetailImportProduct inner join Products " +
+                "on DetailImportProduct.ID_P = Products.ID_P  where ID_IP = " + ID_IP;
             importproducts = DataProvider.Instance.GetRecords(query);
             return importproducts;
         }
@@ -119,5 +121,24 @@ namespace DAL
             DataProvider.Instance.ExcuteDB(query);
         }
 
+        public List<ImportProducts> GetAllImportProducts()
+        {
+            List<ImportProducts> list = new List<ImportProducts>();
+            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from ImportProduct").Rows)
+            {
+                list.Add(GetImportProductsByDataRow(i));
+            }
+            return list;
+        }
+        public ImportProducts GetImportProductsByDataRow(DataRow i)
+        {
+            return new ImportProducts
+            {
+                ID_IP = Convert.ToInt32(i["ID_IP"].ToString()),
+                ID = Convert.ToInt32(i["ID"].ToString()),
+                ID_Supply = Convert.ToInt32(i["ID_Supply"].ToString()),
+                Date_Import = Convert.ToDateTime(i["Date_Import"].ToString())
+            };
+        }
     }
 }

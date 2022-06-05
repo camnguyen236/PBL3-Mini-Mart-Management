@@ -23,11 +23,10 @@ namespace GUI
 
         private void btnOK_Customer_Click(object sender, EventArgs e)
         {
-            if (tbName.Text.Trim() == "" || tbAccountNumber.Text.Trim() == "" || tbAddress.Text.Trim() == "" 
-                || tbPhoneNumber.Text.Trim() == "" || txtEmail.Text.Trim() == "" )
-                MessageBox.Show("Please fill in the required information!", "Warning",
+            if (tbName.Text.Trim() == "" )
+                MessageBox.Show("Please enter customer name!", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else if (!AccountBLL.Instance.checkPhoneNumber(tbPhoneNumber.Text))
+            else if (tbPhoneNumber.Text != "" && !AccountBLL.Instance.checkPhoneNumber(tbPhoneNumber.Text))
             {
                 MessageBox.Show("Phone number must have exactly 10 digits");
             }
@@ -35,7 +34,6 @@ namespace GUI
             {
                 Customer customer = new Customer
                 {
-                    //ID_Customer = Convert.ToInt32(txtID_Customer.Text),
                     Name_Customer = tbName.Text,
                     Gender_Customer = rbtnFemale.Checked ? "Nữ" : "Nam",
                     Address_Customer = tbAddress.Text,
@@ -43,7 +41,8 @@ namespace GUI
                     AccountNumber = tbAccountNumber.Text,
                     Email_Customer = txtEmail.Text,
                     TaxCode = txtTaxCode.Text,
-                    Status = rbTrue.Checked
+                    Discount = 0,
+                    Status = true
                 };
                 Customer_BLL.Instance.ExcuteDB(customer,"Add");
                 //show
@@ -63,7 +62,6 @@ namespace GUI
             txtEmail.Text = "";
             txtTaxCode.Text = "";
             rbtnMale.Checked = true;
-            rbTrue.Checked = true;
         }
     }
 }

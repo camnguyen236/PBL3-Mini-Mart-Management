@@ -28,11 +28,26 @@ namespace BLL
 
         public DataTable getProductGroups()
         {
+            return ProductGroups_DAL.Instance.GetTrueRecords();
+        }
+        public DataTable getTFProductGroups()
+        {
             return ProductGroups_DAL.Instance.GetRecords();
         }
         public List<ProductGroups> getAllProductGroups()
         {
             return ProductGroups_DAL.Instance.GetAllProductGroups();
+        }
+        public ProductGroups getProductGroupsByID(string id)
+        {
+            foreach (ProductGroups i in getAllProductGroups())
+            {
+                if (i.ID_PG.Equals(id))
+                {
+                    return i;
+                }
+            }
+            return null;
         }
         public DataTable getNameGroupByID(string id)
         {

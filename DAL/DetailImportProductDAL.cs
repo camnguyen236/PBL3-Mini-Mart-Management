@@ -50,10 +50,40 @@ namespace DAL
         public DataTable getDetailImportProductByID(int ID_IP)
         {
             DataTable data = new DataTable();
-            string query = "SELECT DetailImportProduct.ID_IP, DetailImportProduct.IP_Price, DetailImportProduct.Amount_IP, DetailImportProduct.Amount_Price, DetailImportProduct.Discount, DetailImportProduct.Total, ImportProduct.Date_Import, Inf_user.Name, Products.Name_P, Supply.Name_Supply, Supply.PhoneNumber_Supply, Supply.Address_Supply, Supply.BankAccount, Supply.TaxCode from DetailImportProduct LEFT OUTER JOIN ImportProduct ON DetailImportProduct.ID_IP = ImportProduct.ID_IP LEFT OUTER JOIN Inf_user ON ImportProduct.ID = Inf_user.ID LEFT OUTER JOIN Products ON DetailImportProduct.ID_P = Products.ID_P LEFT OUTER JOIN Supply ON ImportProduct.ID_Supply = Supply.ID_Supply Where ImportProduct.ID_IP = " + ID_IP;
+            string query = "SELECT DetailImportProduct.ID_IP, DetailImportProduct.IP_Price, " +
+                "DetailImportProduct.Amount_IP, DetailImportProduct.Amount_Price, " +
+                "DetailImportProduct.Discount, DetailImportProduct.Total, ImportProduct.Date_Import" +
+                ", Inf_user.Name, Products.Name_P, Supply.Name_Supply, Supply.PhoneNumber_Supply, " +
+                "Supply.Address_Supply, Supply.BankAccount, Supply.TaxCode from DetailImportProduct " +
+                "LEFT OUTER JOIN ImportProduct ON DetailImportProduct.ID_IP = ImportProduct.ID_IP LEFT " +
+                "OUTER JOIN Inf_user ON ImportProduct.ID = Inf_user.ID LEFT OUTER JOIN Products ON " +
+                "DetailImportProduct.ID_P = Products.ID_P LEFT OUTER JOIN Supply " +
+                "ON ImportProduct.ID_Supply = Supply.ID_Supply Where ImportProduct.ID_IP = " + ID_IP;
             data = DataProvider.Instance.GetRecords(query);
             return data;
         }
 
+        public List<DetailImportProducts> GetAllDetailImportProducts()
+        {
+            List<DetailImportProducts> list = new List<DetailImportProducts>();
+            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from DetailImportProducts").Rows)
+            {
+                list.Add(GetDetailImportProductsByDataRow(i));
+            }
+            return list;
+        }
+        public DetailImportProducts GetDetailImportProductsByDataRow(DataRow i)
+        {
+            return new DetailImportProducts
+            {
+                ID_IP = Convert.ToInt32(i["ID_IP"].ToString()),
+                ID_P = Convert.ToInt32(i["ID_P"].ToString()),
+                IP_Price = Convert.ToDouble(i["IP_Price"].ToString()),
+                Amount_IP = Convert.ToInt32(i["Amount_IP"].ToString()),
+                Amount_Price = Convert.ToDouble(i["Amount_Price"].ToString()),
+                Total = Convert.ToDouble(i["Total"].ToString()),
+                Discount = Convert.ToInt32(i["Discount"].ToString())
+            };
+        }
     }
 }
