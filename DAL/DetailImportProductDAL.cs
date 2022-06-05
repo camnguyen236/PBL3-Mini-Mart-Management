@@ -82,7 +82,7 @@ namespace DAL
                 Amount_IP = Convert.ToInt32(i["Amount_IP"].ToString()),
                 Amount_Price = Convert.ToDouble(i["Amount_Price"].ToString()),
                 Total = Convert.ToDouble(i["Total"].ToString()),
-                Discount = Convert.ToInt32(i["Discount"].ToString())
+                Discount = Convert.ToDouble(i["Discount"].ToString())
             };
         }
     }

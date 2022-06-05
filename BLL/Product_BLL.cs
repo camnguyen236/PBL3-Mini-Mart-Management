@@ -36,6 +36,15 @@ namespace BLL
         {
             return Product_DAL.Instance.GetAllProduct();
         }
+        public List<Product> getAllProductTrue()
+        {
+            List<Product> list = new List<Product>();
+            foreach (Product p in getAllProduct())
+            {
+                if(p.Status) list.Add(p);
+            }
+            return list;
+        }
         public Product getProductByID(string id)
         {
             foreach (Product i in getAllProduct())

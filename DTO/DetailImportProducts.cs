@@ -13,7 +13,7 @@ namespace DTO
 		public double IP_Price { get; set; } // giá nhập
 		public int Amount_IP { get; set; }
 		public double Amount_Price { get; set; }
-		public int Discount { get; set; }
+		public double Discount { get; set; }
 		public double Total { get; set; }
 	}
 }

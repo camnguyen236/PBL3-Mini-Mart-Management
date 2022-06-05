@@ -37,9 +37,9 @@ namespace GUI
             addCbSearchSupply();
             setCBBName_Supply();
             setCBBID_Products();
-            cbbID_Product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cbbID_Product.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbbID_Product.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbbName_Product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbbName_Product.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbbName_Product.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             //setCBBDiscount();
 
             addTab();
@@ -49,6 +49,7 @@ namespace GUI
             Show_Product(getCurrenGroupName());
             Show_Supply();
             showDgvSH();
+            cb_point.Hide();
         }
         private void Reset()
         {
@@ -454,7 +455,15 @@ namespace GUI
         }
         public void setCBBID_Products() //cbb mã sp
         {
-            cbbID_Product.Items.AddRange(ImportProductsBLL.Instance.getAllIP_Product().ToArray());
+            //cbbID_Product.Items.AddRange(ImportProductsBLL.Instance.getAllIP_Product().ToArray());
+            foreach(var i in Product_BLL.Instance.getAllProductTrue())
+            {
+                cbbName_Product.Items.Add(new CBBGroups
+                {
+                    Value = i.ID_P,
+                    Text = i.Name_P
+                });
+            }
         }
         //public void setCBBDiscount() //cbb mã sp
         //{
@@ -462,7 +471,7 @@ namespace GUI
         //}
         private void showProducts()
         {
-            int ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID_IP"].ToString()); //láy id phiếu cuối
+            int ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID"].ToString()); //láy id phiếu cuối
             dtgvImportProduct.DataSource = ImportProductsBLL.Instance.getDetailsImportProduct(ID_IP);
         }
         int amount;
@@ -471,12 +480,12 @@ namespace GUI
         {
             detailImportProducts = new DetailImportProducts
             {
-                ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID_IP"].ToString()),
-                ID_P = Convert.ToInt32(ImportProductsBLL.Instance.getID_Product(cbbID_Product.SelectedItem.ToString())),
-                IP_Price = Convert.ToInt32(txtImport_Price.Text),
+                ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID"].ToString()),
+                ID_P = ((CBBGroups)cbbName_Product.SelectedItem).Value,
+                IP_Price = Convert.ToDouble(txtImport_Price.Text),
                 Amount_IP = Convert.ToInt32(nmrQuantity.Value),
                 Amount_Price = amount,
-                Discount = Convert.ToInt32(txtDiscount.Text),
+                Discount = Convert.ToDouble(txtDiscount.Text),
                 Total = total,
             };
             DetailImportProductBLL.Instance.ExcuteDB(detailImportProducts, "Add");
@@ -488,10 +497,10 @@ namespace GUI
         
         private void dtgvImportProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            cbbID_Product.Enabled = false;
+            cbbName_Product.Enabled = false;
             int i = dtgvImportProduct.CurrentRow.Index;
             //cbbID_Product.Text = ImportProductsBLL.Instance.getImportProductsByID(dtgvImportProduct.SelectedRows[0].Cells["ID_P"].Value.ToString()).ID_IP.ToString();
-            cbbID_Product.Text = dtgvImportProduct.Rows[i].Cells[1].Value.ToString();
+            cbbName_Product.Text = dtgvImportProduct.Rows[i].Cells[1].Value.ToString();
             //txtImport_Price.Text = ImportProductsBLL.Instance.getImportProductsByID(dtgvImportProduct.SelectedRows[0].Cells["ID_P"].Value.ToString()).ip
             txtImport_Price.Text = dtgvImportProduct.Rows[i].Cells[2].Value.ToString();
             nmrQuantity.Value = Convert.ToInt32(dtgvImportProduct.Rows[i].Cells[3].Value.ToString());
@@ -507,7 +516,7 @@ namespace GUI
             DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dl == DialogResult.OK)
             {
-                DetailImportProductBLL.Instance.ExcuteDB(detailImportProducts,cbbID_Product.Text);
+                DetailImportProductBLL.Instance.ExcuteDB(detailImportProducts,cbbName_Product.Text);
                 showProducts();
             }
             else if (dl == DialogResult.Cancel)
@@ -518,8 +527,8 @@ namespace GUI
 
         private void btnNewInfOfProduct_Click(object sender, EventArgs e)
         {
-            cbbID_Product.Enabled = true;
-            cbbID_Product.Text = "";
+            cbbName_Product.Enabled = true;
+            cbbName_Product.Text = "";
             txtImport_Price.Text = "";
             nmrQuantity.Value = 0;
             txtPrice.Text = "";
@@ -555,13 +564,13 @@ namespace GUI
                 ID_IP = 0,
                 ID = AccountBLL.Instance.getID(),
                 Date_Import = DateTime.Now,
-                ID_Supply = ImportProductsBLL.Instance.getID_Supply(cbbName_Supply.SelectedItem.ToString()),
+                ID_Supply = Supply_BLL.Instance.getSupplyByName(cbbName_Supply.SelectedItem.ToString()).ID_Supply
             };
             
             ImportProductsBLL.Instance.ExcuteDB(importProducts, "Add");
             //lbAdd.ForeColor = Color.Green;
             lbSaveInfOfBill.ForeColor = Color.Green;
-            txtID_IP.Text = ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID_IP"].ToString();
+            txtID_IP.Text = ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID"].ToString();
             DetailImportProductBLL.Instance.get(txtID_IP.Text);
             //setCBBID_IP();
         }
@@ -578,11 +587,11 @@ namespace GUI
             detailImportProducts = new DetailImportProducts
             {
                 ID_IP = 0,
-                ID_P = Convert.ToInt32(cbbID_Product.SelectedItem.ToString()),
-                IP_Price = Convert.ToInt32(txtImport_Price.Text),
+                ID_P = ((CBBGroups)cbbName_Product.SelectedItem).Value,
+                IP_Price = Convert.ToDouble(txtImport_Price.Text),
                 Amount_IP = Convert.ToInt32(nmrQuantity.Value),
                 Amount_Price = amount,
-                Discount = Convert.ToInt32(txtDiscount.Text),
+                Discount = Convert.ToDouble(txtDiscount.Text),
                 Total = total,
             };
             DetailImportProductBLL.Instance.ExcuteDB(detailImportProducts);
@@ -601,7 +610,7 @@ namespace GUI
         public double totalAll()
         {
             double totalall = 0;
-            int ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID_IP"].ToString());
+            int ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID"].ToString());
             int count = ImportProductsBLL.Instance.getDetailsImportProduct(ID_IP).Rows.Count;
             for(int i=0; i<count; i++)
             {
@@ -1089,6 +1098,11 @@ namespace GUI
         private void cb_supply_CheckedChanged(object sender, EventArgs e)
         {
             Show_Supply(cb_supply.Checked ? false : true);
+        }
+
+        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            //if(cb_point.Checked) 
         }
 
 

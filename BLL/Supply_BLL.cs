@@ -70,5 +70,16 @@ namespace BLL
             }
             return null;
         }
+        public Supply getSupplyByName(string name)
+        {
+            foreach (Supply i in getAllSupply())
+            {
+                if (i.Name_Supply.ToString().Equals(name))
+                {
+                    return i;
+                }
+            }
+            return null;
+        }
     }
 }

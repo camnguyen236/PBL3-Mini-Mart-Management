@@ -121,6 +121,7 @@
             this.txtSearchSH = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tpViewCart = new System.Windows.Forms.TabPage();
+            this.cb_point = new Guna.UI2.WinForms.Guna2CheckBox();
             this.txtSearchCustomer = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbbResultSearchCustomer = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -153,7 +154,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.txtPrice = new Guna.UI2.WinForms.Guna2TextBox();
             this.nmrQuantity = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.cbbID_Product = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cbbName_Product = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtImport_Price = new Guna.UI2.WinForms.Guna2TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -288,7 +289,6 @@
             this.guna2PictureBox12 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox8 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnBack_TR = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -1415,7 +1415,7 @@
             // 
             // tpViewCart
             // 
-            this.tpViewCart.Controls.Add(this.guna2CheckBox1);
+            this.tpViewCart.Controls.Add(this.cb_point);
             this.tpViewCart.Controls.Add(this.txtSearchCustomer);
             this.tpViewCart.Controls.Add(this.cbbResultSearchCustomer);
             this.tpViewCart.Controls.Add(this.guna2HtmlLabel3);
@@ -1436,6 +1436,28 @@
             this.tpViewCart.TabIndex = 3;
             this.tpViewCart.Text = "View Cart";
             this.tpViewCart.UseVisualStyleBackColor = true;
+            // 
+            // cb_point
+            // 
+            this.cb_point.AutoSize = true;
+            this.cb_point.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(205)))), ((int)(((byte)(238)))));
+            this.cb_point.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_point.CheckedState.BorderRadius = 0;
+            this.cb_point.CheckedState.BorderThickness = 0;
+            this.cb_point.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_point.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_point.ForeColor = System.Drawing.Color.DarkCyan;
+            this.cb_point.Location = new System.Drawing.Point(14, 377);
+            this.cb_point.Name = "cb_point";
+            this.cb_point.Size = new System.Drawing.Size(158, 19);
+            this.cb_point.TabIndex = 38;
+            this.cb_point.Text = "Use accumulated points";
+            this.cb_point.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cb_point.UncheckedState.BorderRadius = 0;
+            this.cb_point.UncheckedState.BorderThickness = 0;
+            this.cb_point.UncheckedState.FillColor = System.Drawing.Color.White;
+            this.cb_point.UseVisualStyleBackColor = false;
+            this.cb_point.CheckedChanged += new System.EventHandler(this.guna2CheckBox1_CheckedChanged);
             // 
             // txtSearchCustomer
             // 
@@ -1856,7 +1878,7 @@
             this.guna2GroupBox5.Controls.Add(this.label23);
             this.guna2GroupBox5.Controls.Add(this.txtPrice);
             this.guna2GroupBox5.Controls.Add(this.nmrQuantity);
-            this.guna2GroupBox5.Controls.Add(this.cbbID_Product);
+            this.guna2GroupBox5.Controls.Add(this.cbbName_Product);
             this.guna2GroupBox5.Controls.Add(this.txtImport_Price);
             this.guna2GroupBox5.Controls.Add(this.label27);
             this.guna2GroupBox5.Controls.Add(this.label28);
@@ -2063,20 +2085,20 @@
             this.nmrQuantity.TabIndex = 28;
             this.nmrQuantity.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(190)))));
             // 
-            // cbbID_Product
+            // cbbName_Product
             // 
-            this.cbbID_Product.BackColor = System.Drawing.Color.Transparent;
-            this.cbbID_Product.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbID_Product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbID_Product.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbID_Product.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbID_Product.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbbID_Product.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbbID_Product.ItemHeight = 30;
-            this.cbbID_Product.Location = new System.Drawing.Point(14, 57);
-            this.cbbID_Product.Name = "cbbID_Product";
-            this.cbbID_Product.Size = new System.Drawing.Size(224, 36);
-            this.cbbID_Product.TabIndex = 27;
+            this.cbbName_Product.BackColor = System.Drawing.Color.Transparent;
+            this.cbbName_Product.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbName_Product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbName_Product.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbName_Product.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbName_Product.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbbName_Product.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbbName_Product.ItemHeight = 30;
+            this.cbbName_Product.Location = new System.Drawing.Point(14, 57);
+            this.cbbName_Product.Name = "cbbName_Product";
+            this.cbbName_Product.Size = new System.Drawing.Size(224, 36);
+            this.cbbName_Product.TabIndex = 27;
             // 
             // txtImport_Price
             // 
@@ -4409,27 +4431,6 @@
             this.btnBack_TR.UseTransparentBackground = true;
             this.btnBack_TR.Click += new System.EventHandler(this.btnBack_TR_Click);
             // 
-            // guna2CheckBox1
-            // 
-            this.guna2CheckBox1.AutoSize = true;
-            this.guna2CheckBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(205)))), ((int)(((byte)(238)))));
-            this.guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CheckBox1.CheckedState.BorderRadius = 0;
-            this.guna2CheckBox1.CheckedState.BorderThickness = 0;
-            this.guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2CheckBox1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.guna2CheckBox1.Location = new System.Drawing.Point(14, 377);
-            this.guna2CheckBox1.Name = "guna2CheckBox1";
-            this.guna2CheckBox1.Size = new System.Drawing.Size(158, 19);
-            this.guna2CheckBox1.TabIndex = 38;
-            this.guna2CheckBox1.Text = "Use accumulated points";
-            this.guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CheckBox1.UncheckedState.BorderRadius = 0;
-            this.guna2CheckBox1.UncheckedState.BorderThickness = 0;
-            this.guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.White;
-            this.guna2CheckBox1.UseVisualStyleBackColor = false;
-            // 
             // ManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4617,7 +4618,7 @@
         private System.Windows.Forms.Label label23;
         private Guna.UI2.WinForms.Guna2TextBox txtPrice;
         private Guna.UI2.WinForms.Guna2NumericUpDown nmrQuantity;
-        private Guna.UI2.WinForms.Guna2ComboBox cbbID_Product;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbName_Product;
         private Guna.UI2.WinForms.Guna2TextBox txtImport_Price;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
@@ -4749,6 +4750,6 @@
         private Guna.UI2.WinForms.Guna2RadioButton rbFalse_sup;
         private Guna.UI2.WinForms.Guna2RadioButton rbTrue_sup;
         private Guna.UI2.WinForms.Guna2TextBox txtDiscount;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
+        private Guna.UI2.WinForms.Guna2CheckBox cb_point;
     }
 }

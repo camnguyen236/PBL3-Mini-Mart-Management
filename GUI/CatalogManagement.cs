@@ -36,7 +36,7 @@ namespace GUI
                 ProductGroups pg = new ProductGroups
                 {
                     Name_PG = txtName.Text,
-                    Status = true
+                    Status = rbTrue.Checked
                 };
                 ProductGroups_BLL.Instance.ExcuteDB(pg, "Add");
 
@@ -54,7 +54,7 @@ namespace GUI
                 {
                     ID_PG = txtID.Text,
                     Name_PG = txtName.Text,
-                    Status = true
+                    Status = rbTrue.Checked,
                 };
                 ProductGroups_BLL.Instance.ExcuteDB(pg);
 
@@ -64,23 +64,23 @@ namespace GUI
             }            
         }
 
-        private void btnDel_Click(object sender, EventArgs e)
-        {
-            ProductGroups pg = new ProductGroups
-            {
-                ID_PG = txtID.Text,
-                Name_PG = txtName.Text,
-                Status = true
-            };
-            DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (dl == DialogResult.OK)
-            {
-                ProductGroups_BLL.Instance.ExcuteDB(pg, txtID.Text);
-                d();
-                showDGV(!cb_PG.Checked);
-                txtID.Text = "";
-            }
-        }
+        //private void btnDel_Click(object sender, EventArgs e)
+        //{
+        //    ProductGroups pg = new ProductGroups
+        //    {
+        //        ID_PG = txtID.Text,
+        //        Name_PG = txtName.Text,
+        //        Status = rbTrue.Checked,
+        //    };
+        //    DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+        //    if (dl == DialogResult.OK)
+        //    {
+        //        ProductGroups_BLL.Instance.ExcuteDB(pg, txtID.Text);
+        //        d();
+        //        showDGV(!cb_PG.Checked);
+        //        txtID.Text = "";
+        //    }
+        //}
 
         private void dgvCM_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -88,6 +88,8 @@ namespace GUI
             { 
                 txtID.Text = ProductGroups_BLL.Instance.getPGByID(dgvCM.SelectedRows[0].Cells["ID_PG"].Value.ToString()).ID_PG;
                 txtName.Text = ProductGroups_BLL.Instance.getPGByID(dgvCM.SelectedRows[0].Cells["ID_PG"].Value.ToString()).Name_PG;
+                rbTrue.Checked = ProductGroups_BLL.Instance.getPGByID(dgvCM.SelectedRows[0].Cells["ID_PG"].Value.ToString()).Status;
+                rbFalse.Checked = !ProductGroups_BLL.Instance.getPGByID(dgvCM.SelectedRows[0].Cells["ID_PG"].Value.ToString()).Status;
             }
             
         }
