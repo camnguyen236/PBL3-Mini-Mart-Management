@@ -46,7 +46,7 @@
             this.btnAddToCard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddToCard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddToCard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.btnAddToCard.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddToCard.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToCard.ForeColor = System.Drawing.Color.White;
             this.btnAddToCard.Location = new System.Drawing.Point(9, 206);
             this.btnAddToCard.Name = "btnAddToCard";
@@ -72,19 +72,19 @@
             // lbUnit
             // 
             this.lbUnit.BackColor = System.Drawing.Color.Transparent;
-            this.lbUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUnit.ForeColor = System.Drawing.Color.Black;
+            this.lbUnit.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUnit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.lbUnit.Location = new System.Drawing.Point(13, 185);
             this.lbUnit.Name = "lbUnit";
-            this.lbUnit.Size = new System.Drawing.Size(28, 17);
+            this.lbUnit.Size = new System.Drawing.Size(30, 17);
             this.lbUnit.TabIndex = 9;
             this.lbUnit.Text = "Unit:";
             // 
             // lbPrice
             // 
             this.lbPrice.BackColor = System.Drawing.Color.Transparent;
-            this.lbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPrice.ForeColor = System.Drawing.Color.Black;
+            this.lbPrice.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.lbPrice.Location = new System.Drawing.Point(13, 164);
             this.lbPrice.Name = "lbPrice";
             this.lbPrice.Size = new System.Drawing.Size(34, 17);
@@ -94,11 +94,11 @@
             // lbName
             // 
             this.lbName.BackColor = System.Drawing.Color.Transparent;
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.ForeColor = System.Drawing.Color.Black;
+            this.lbName.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(200)))));
             this.lbName.Location = new System.Drawing.Point(13, 133);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(37, 17);
+            this.lbName.Size = new System.Drawing.Size(40, 20);
             this.lbName.TabIndex = 7;
             this.lbName.Text = "Name";
             // 

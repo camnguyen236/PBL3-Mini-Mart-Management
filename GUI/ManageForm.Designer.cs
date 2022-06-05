@@ -2208,7 +2208,7 @@
             // lbSaveInfOfBill
             // 
             this.lbSaveInfOfBill.AutoSize = true;
-            this.lbSaveInfOfBill.Location = new System.Drawing.Point(887, 122);
+            this.lbSaveInfOfBill.Location = new System.Drawing.Point(797, 107);
             this.lbSaveInfOfBill.Name = "lbSaveInfOfBill";
             this.lbSaveInfOfBill.Size = new System.Drawing.Size(116, 18);
             this.lbSaveInfOfBill.TabIndex = 39;
@@ -2247,7 +2247,7 @@
             this.txtNew.ForeColor = System.Drawing.Color.White;
             this.txtNew.Image = ((System.Drawing.Image)(resources.GetObject("txtNew.Image")));
             this.txtNew.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtNew.Location = new System.Drawing.Point(652, 60);
+            this.txtNew.Location = new System.Drawing.Point(651, 60);
             this.txtNew.Name = "txtNew";
             this.txtNew.Size = new System.Drawing.Size(112, 35);
             this.txtNew.TabIndex = 25;
