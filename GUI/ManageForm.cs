@@ -65,6 +65,7 @@ namespace GUI
         {
             dgv1.DataSource = b ? AccountBLL.Instance.getAccount() : AccountBLL.Instance.getTFAccount();
         }
+
         private void Show_Customer()
         {
             dgv3.DataSource = Customer_BLL.Instance.getCustomer();
