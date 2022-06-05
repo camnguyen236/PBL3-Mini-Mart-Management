@@ -32,7 +32,9 @@ namespace GUI
             //if (!listUS.checkUserName(txtUserName.Text)) MessageBox.Show("Username does not exist");
             //else
             //{
-            if (sendMail.Instance.checkMail(tbEmail.Text) != "OK") MessageBox.Show(sendMail.Instance.checkMail(tbEmail.Text) + "\nPlease re-enter your email");
+            string check = sendMail.Instance.checkMail(tbEmail.Text);
+            if (!check.Contains("OKk")) 
+                MessageBox.Show(check + "\nPlease re-enter your email");
             else
             {
                 MessageBox.Show(sendMail.Instance.Send(tbEmail.Text, "DCD Supermarkets - Password recovery", "Hello " + tbName.Text

@@ -40,7 +40,7 @@
             // btnOK
             // 
             this.btnOK.BackColor = System.Drawing.Color.Transparent;
-            this.btnOK.BorderRadius = 20;
+            this.btnOK.BorderRadius = 15;
             this.btnOK.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnOK.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnOK.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -104,7 +104,7 @@
             // btnSend
             // 
             this.btnSend.BackColor = System.Drawing.Color.Transparent;
-            this.btnSend.BorderRadius = 20;
+            this.btnSend.BorderRadius = 15;
             this.btnSend.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSend.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSend.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));

@@ -53,7 +53,7 @@ namespace BLL
                     case EmailValidationResult.NoMailForDomain:
                         return "Emails are not configured for domain (no MX records)";
                 }
-                return "OK";
+                return "OKk";
             }
             catch (Exception ex)
             {

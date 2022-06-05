@@ -64,7 +64,6 @@ namespace GUI
         private void Show(bool b = true)
         {
             dgv1.DataSource = b ? AccountBLL.Instance.getAccount() : AccountBLL.Instance.getTFAccount();
-            dgv1.Columns[6].Visible = false;
         }
         private void Show_Customer()
         {
