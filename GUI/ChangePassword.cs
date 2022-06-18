@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
@@ -58,7 +59,28 @@ namespace GUI
 
         private void txtNewPw_TextChanged(object sender, EventArgs e)
         {
-            
+
+            string pw = txtNewPw.Text;
+            lbUpper.ForeColor = Color.FromArgb(255, 128, 128);
+            lbSpecial.ForeColor = Color.FromArgb(255, 128, 128);
+            lbLength.ForeColor = Color.FromArgb(255, 128, 128);
+            for (int i = 0; i < pw.Length; i++)
+            {
+                if (pw[i] >= 'A' && pw[i] <= 'Z')
+                {
+                    lbUpper.ForeColor = Color.Green;
+                }
+
+                if (pw[i] >= '0' && pw[i] <= '9')
+                {
+                    lbSpecial.ForeColor = Color.Green;
+                }
+
+                if (pw.Length > 8)
+                {
+                    lbLength.ForeColor = Color.Green;
+                }
+            }
         }
     }
 }

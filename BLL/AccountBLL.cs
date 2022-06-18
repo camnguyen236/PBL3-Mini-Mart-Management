@@ -45,12 +45,12 @@ namespace BLL
                     upcase = true;
                 }
 
-                if ((pw[i] < 'A' || pw[i] > 'Z') && (pw[i] < 'a' || pw[i] > 'z'))
+                if (pw[i] >= '0' && pw[i] <= '9')
                 {
                     special = true;
                 }
 
-                if (pw.Length<8)
+                if (pw.Length>8)
                 {
                     lenght = true;
                 }

@@ -36,9 +36,9 @@
             this.txtNewPw = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtConfirmNewPw = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnUpdatePw = new Guna.UI2.WinForms.Guna2Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbUpper = new System.Windows.Forms.Label();
+            this.lbSpecial = new System.Windows.Forms.Label();
+            this.lbLength = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtCurrentw
@@ -172,41 +172,41 @@
             this.btnUpdatePw.UseTransparentBackground = true;
             this.btnUpdatePw.Click += new System.EventHandler(this.btnUpdatePw_Click);
             // 
-            // label4
+            // lbUpper
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(471, 139);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(306, 24);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "At least 1 uppercase letter (A-Z)";
+            this.lbUpper.AutoSize = true;
+            this.lbUpper.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUpper.ForeColor = System.Drawing.Color.White;
+            this.lbUpper.Location = new System.Drawing.Point(471, 139);
+            this.lbUpper.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbUpper.Name = "lbUpper";
+            this.lbUpper.Size = new System.Drawing.Size(306, 24);
+            this.lbUpper.TabIndex = 11;
+            this.lbUpper.Text = "At least 1 uppercase letter (A-Z)";
             // 
-            // label5
+            // lbSpecial
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(471, 188);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(222, 24);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "At least 1 number (0-9)";
+            this.lbSpecial.AutoSize = true;
+            this.lbSpecial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSpecial.ForeColor = System.Drawing.Color.White;
+            this.lbSpecial.Location = new System.Drawing.Point(471, 188);
+            this.lbSpecial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSpecial.Name = "lbSpecial";
+            this.lbSpecial.Size = new System.Drawing.Size(222, 24);
+            this.lbSpecial.TabIndex = 11;
+            this.lbSpecial.Text = "At least 1 number (0-9)";
             // 
-            // label7
+            // lbLength
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(471, 233);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(198, 24);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "At least 8 characters";
+            this.lbLength.AutoSize = true;
+            this.lbLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLength.ForeColor = System.Drawing.Color.White;
+            this.lbLength.Location = new System.Drawing.Point(471, 233);
+            this.lbLength.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbLength.Name = "lbLength";
+            this.lbLength.Size = new System.Drawing.Size(198, 24);
+            this.lbLength.TabIndex = 11;
+            this.lbLength.Text = "At least 8 characters";
             // 
             // ChangePassword
             // 
@@ -221,9 +221,9 @@
             this.Controls.Add(this.txtConfirmNewPw);
             this.Controls.Add(this.txtNewPw);
             this.Controls.Add(this.txtCurrentw);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbLength);
+            this.Controls.Add(this.lbSpecial);
+            this.Controls.Add(this.lbUpper);
             this.Controls.Add(this.label6);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "ChangePassword";
@@ -243,8 +243,8 @@
         private Guna.UI2.WinForms.Guna2TextBox txtNewPw;
         private Guna.UI2.WinForms.Guna2TextBox txtConfirmNewPw;
         private Guna.UI2.WinForms.Guna2Button btnUpdatePw;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbUpper;
+        private System.Windows.Forms.Label lbSpecial;
+        private System.Windows.Forms.Label lbLength;
     }
 }
