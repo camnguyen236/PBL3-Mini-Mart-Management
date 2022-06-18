@@ -261,7 +261,6 @@ C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\pt\Microsoft.ReportViewer.WinForm
 C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.DetailPaymentBill.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ImportHistory.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.Analyze.resources
 F:\PBL3\GUI\bin\Debug\Product_Library.dll
@@ -277,3 +276,4 @@ C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.CatalogManagement.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ImportProductsBill.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.InvoiceReport.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.exe.config
+C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ChangePassword.resources

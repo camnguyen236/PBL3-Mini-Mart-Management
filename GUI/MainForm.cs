@@ -107,5 +107,10 @@ namespace GUI
             Analyze l = new Analyze();
             l.ShowDialog();
         }
+
+        private void btnChangePw_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

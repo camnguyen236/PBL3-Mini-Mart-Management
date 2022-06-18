@@ -1092,6 +1092,11 @@ namespace GUI
             //if(cb_point.Checked) 
         }
 
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         //report
 
