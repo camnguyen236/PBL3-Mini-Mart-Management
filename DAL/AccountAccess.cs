@@ -89,11 +89,13 @@ namespace DAL
         }
         public void updateAccount(Account account)
         {
-            string query = "update Inf_user set US = '" + account.US + "', Name = N'" + account.Name
-                + "', Gender = N'" + account.Gender + "', Birthday = '" + account.Birthday 
-                + "', Adress = N'" + account.Adress + "', PhoneNumber = '" + account.PhoneNumber 
-                + "', Email = '" + account.Email + "', Status = '" + account.Status 
-                + "' where ID = '" + account.ID + "'";
+            string query = $"update Inf_user set US = '{account.US}', " +
+                $"PW = N'{account.PW}', " +
+                $"Name = N'{account.Name}', " +
+                $"Gender = N'{account.Gender}', Birthday = '{account.Birthday.ToString("yyyy - MM - dd")}', " +
+                $"Adress = N'{account.Adress}', PhoneNumber = '{account.PhoneNumber}', " +
+                $"Email = '{account.Email}', Status = '{account.Status}' " +
+                $"where ID = '{account.ID}'";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updatePassword(string password, string US)

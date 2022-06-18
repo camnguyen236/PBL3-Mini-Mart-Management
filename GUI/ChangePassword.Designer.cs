@@ -60,6 +60,7 @@
             this.txtCurrentw.SelectedText = "";
             this.txtCurrentw.Size = new System.Drawing.Size(245, 33);
             this.txtCurrentw.TabIndex = 12;
+            this.txtCurrentw.TextChanged += new System.EventHandler(this.txtCurrentw_TextChanged);
             // 
             // label6
             // 
@@ -128,6 +129,7 @@
             this.txtNewPw.SelectedText = "";
             this.txtNewPw.Size = new System.Drawing.Size(245, 33);
             this.txtNewPw.TabIndex = 12;
+            this.txtNewPw.TextChanged += new System.EventHandler(this.txtNewPw_TextChanged);
             // 
             // txtConfirmNewPw
             // 
@@ -175,36 +177,36 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(527, 140);
+            this.label4.Location = new System.Drawing.Point(471, 139);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(158, 24);
+            this.label4.Size = new System.Drawing.Size(306, 24);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Reset password";
+            this.label4.Text = "At least 1 uppercase letter (A-Z)";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(527, 188);
+            this.label5.Location = new System.Drawing.Point(471, 188);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 24);
+            this.label5.Size = new System.Drawing.Size(222, 24);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Reset password";
+            this.label5.Text = "At least 1 number (0-9)";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(527, 234);
+            this.label7.Location = new System.Drawing.Point(471, 233);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(158, 24);
+            this.label7.Size = new System.Drawing.Size(198, 24);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Reset password";
+            this.label7.Text = "At least 8 characters";
             // 
             // ChangePassword
             // 

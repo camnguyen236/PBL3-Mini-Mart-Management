@@ -113,7 +113,7 @@ namespace GUI
                 {
                     ID = Convert.ToInt32(txtID.Text),
                     US = txtUsername.Text,
-                    PW = "null",
+                    PW = AccountBLL.Instance.getAccountByID(txtID.Text).PW,
                     Name = txtName.Text,
                     Gender = rbMale_us.Checked ? "Nam" : "Nữ",
                     Birthday = Convert.ToDateTime(dpBirthday.Text),

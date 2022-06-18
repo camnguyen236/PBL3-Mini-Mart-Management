@@ -35,9 +35,9 @@
             this.btnSystem = new Guna.UI2.WinForms.Guna2Button();
             this.btnList = new Guna.UI2.WinForms.Guna2Button();
             this.pnAccountDropDown = new System.Windows.Forms.Panel();
+            this.btnChangePw = new Guna.UI2.WinForms.Guna2Button();
             this.btnSignout = new Guna.UI2.WinForms.Guna2Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnChangePw = new Guna.UI2.WinForms.Guna2Button();
             this.ptAvatar = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -83,7 +83,7 @@
             this.txtNameNV.ForeColor = System.Drawing.Color.Gray;
             this.txtNameNV.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNameNV.Location = new System.Drawing.Point(735, 18);
-            this.txtNameNV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNameNV.Margin = new System.Windows.Forms.Padding(4);
             this.txtNameNV.Name = "txtNameNV";
             this.txtNameNV.PasswordChar = '\0';
             this.txtNameNV.PlaceholderText = "";
@@ -103,7 +103,7 @@
             this.btnAnalyze.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnAnalyze.ForeColor = System.Drawing.Color.White;
             this.btnAnalyze.Location = new System.Drawing.Point(784, 425);
-            this.btnAnalyze.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnalyze.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnalyze.Name = "btnAnalyze";
             this.btnAnalyze.Size = new System.Drawing.Size(135, 44);
             this.btnAnalyze.TabIndex = 24;
@@ -123,7 +123,7 @@
             this.btnHelp.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnHelp.ForeColor = System.Drawing.Color.White;
             this.btnHelp.Location = new System.Drawing.Point(573, 425);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(4);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(135, 44);
             this.btnHelp.TabIndex = 23;
@@ -142,7 +142,7 @@
             this.btnSystem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnSystem.ForeColor = System.Drawing.Color.White;
             this.btnSystem.Location = new System.Drawing.Point(357, 425);
-            this.btnSystem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSystem.Margin = new System.Windows.Forms.Padding(4);
             this.btnSystem.Name = "btnSystem";
             this.btnSystem.Size = new System.Drawing.Size(135, 44);
             this.btnSystem.TabIndex = 22;
@@ -162,7 +162,7 @@
             this.btnList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnList.ForeColor = System.Drawing.Color.White;
             this.btnList.Location = new System.Drawing.Point(145, 425);
-            this.btnList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnList.Margin = new System.Windows.Forms.Padding(4);
             this.btnList.Name = "btnList";
             this.btnList.Size = new System.Drawing.Size(139, 44);
             this.btnList.TabIndex = 21;
@@ -179,10 +179,28 @@
             this.pnAccountDropDown.Controls.Add(this.btnSignout);
             this.pnAccountDropDown.Location = new System.Drawing.Point(843, 55);
             this.pnAccountDropDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnAccountDropDown.MaximumSize = new System.Drawing.Size(213, 129);
             this.pnAccountDropDown.MinimumSize = new System.Drawing.Size(213, 9);
             this.pnAccountDropDown.Name = "pnAccountDropDown";
             this.pnAccountDropDown.Size = new System.Drawing.Size(213, 129);
             this.pnAccountDropDown.TabIndex = 25;
+            // 
+            // btnChangePw
+            // 
+            this.btnChangePw.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangePw.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangePw.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnChangePw.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChangePw.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnChangePw.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePw.ForeColor = System.Drawing.Color.White;
+            this.btnChangePw.Location = new System.Drawing.Point(0, 13);
+            this.btnChangePw.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnChangePw.Name = "btnChangePw";
+            this.btnChangePw.Size = new System.Drawing.Size(212, 46);
+            this.btnChangePw.TabIndex = 8;
+            this.btnChangePw.Text = "Change password";
+            this.btnChangePw.Click += new System.EventHandler(this.btnChangePw_Click);
             // 
             // btnSignout
             // 
@@ -205,23 +223,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btnChangePw
-            // 
-            this.btnChangePw.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnChangePw.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnChangePw.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnChangePw.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnChangePw.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.btnChangePw.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePw.ForeColor = System.Drawing.Color.White;
-            this.btnChangePw.Location = new System.Drawing.Point(0, 13);
-            this.btnChangePw.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnChangePw.Name = "btnChangePw";
-            this.btnChangePw.Size = new System.Drawing.Size(212, 46);
-            this.btnChangePw.TabIndex = 8;
-            this.btnChangePw.Text = "Change password";
-            this.btnChangePw.Click += new System.EventHandler(this.btnChangePw_Click);
             // 
             // ptAvatar
             // 
@@ -417,7 +418,7 @@
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.pnAccountDropDown.ResumeLayout(false);

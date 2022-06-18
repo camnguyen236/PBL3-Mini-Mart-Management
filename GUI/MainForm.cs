@@ -110,7 +110,8 @@ namespace GUI
 
         private void btnChangePw_Click(object sender, EventArgs e)
         {
-
+            ChangePassword cp = new ChangePassword(mAccount);
+            cp.ShowDialog();
         }
     }
 }
