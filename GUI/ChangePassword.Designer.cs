@@ -55,7 +55,7 @@
             this.txtCurrentw.Location = new System.Drawing.Point(90, 108);
             this.txtCurrentw.Margin = new System.Windows.Forms.Padding(4);
             this.txtCurrentw.Name = "txtCurrentw";
-            this.txtCurrentw.PasswordChar = '\0';
+            this.txtCurrentw.PasswordChar = '●';
             this.txtCurrentw.PlaceholderText = "";
             this.txtCurrentw.SelectedText = "";
             this.txtCurrentw.Size = new System.Drawing.Size(245, 33);
@@ -124,7 +124,7 @@
             this.txtNewPw.Location = new System.Drawing.Point(90, 188);
             this.txtNewPw.Margin = new System.Windows.Forms.Padding(4);
             this.txtNewPw.Name = "txtNewPw";
-            this.txtNewPw.PasswordChar = '\0';
+            this.txtNewPw.PasswordChar = '●';
             this.txtNewPw.PlaceholderText = "";
             this.txtNewPw.SelectedText = "";
             this.txtNewPw.Size = new System.Drawing.Size(245, 33);
@@ -145,7 +145,7 @@
             this.txtConfirmNewPw.Location = new System.Drawing.Point(90, 275);
             this.txtConfirmNewPw.Margin = new System.Windows.Forms.Padding(4);
             this.txtConfirmNewPw.Name = "txtConfirmNewPw";
-            this.txtConfirmNewPw.PasswordChar = '\0';
+            this.txtConfirmNewPw.PasswordChar = '●';
             this.txtConfirmNewPw.PlaceholderText = "";
             this.txtConfirmNewPw.SelectedText = "";
             this.txtConfirmNewPw.Size = new System.Drawing.Size(245, 33);
