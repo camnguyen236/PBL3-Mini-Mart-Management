@@ -23,30 +23,34 @@ namespace GUI
         private void btnUpdatePw_Click(object sender, EventArgs e)
         {
             string curPw= HashCode.Instance.hashCode(txtCurrentw.Text);
-            if (txtNewPw.Text==txtConfirmNewPw.Text)
+            if (AccountBLL.Instance.perfectPassword(txtNewPw.Text))
             {
-                if (curPw == account.PW)
+                if (txtNewPw.Text == txtConfirmNewPw.Text)
                 {
-                    account.PW = HashCode.Instance.hashCode(txtNewPw.Text);
-                    AccountBLL.Instance.ExcuteDB(account);
-                    MessageBox.Show("đồi mk rùi!");
+                    if (curPw == account.PW)
+                    {
+                        account.PW = HashCode.Instance.hashCode(txtNewPw.Text);
+                        AccountBLL.Instance.ExcuteDB(account);
+                        MessageBox.Show("đồi mk rùi!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("mk sai rùi!");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("mk sai rùi!");
+                    MessageBox.Show("Nhập lại mk mới đi ko giống!");
                 }
             }
             else
             {
-                MessageBox.Show("Nhập lại mk mới đi ko giống!");
+                MessageBox.Show("Sai định dạng gòi:)))!");
             }
             
         }
 
-        private bool perfectPassword(string pw)
-        {
-            return true;
-        }
+        
         private void txtCurrentw_TextChanged(object sender, EventArgs e)
         {
 

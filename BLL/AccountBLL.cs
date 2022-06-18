@@ -32,6 +32,38 @@ namespace BLL
         }
         private AccountBLL() { }
         DataTable accounts = new DataTable();
+        public bool perfectPassword(string pw)
+        {
+            //check upcase
+            bool upcase = false;
+            bool special = false;
+            bool lenght = false;
+            for (int i = 0; i < pw.Length; i++)
+            {
+                if (pw[i] >= 'A' && pw[i] <= 'Z')
+                {
+                    upcase = true;
+                }
+
+                if ((pw[i] < 'A' || pw[i] > 'Z') && (pw[i] < 'a' || pw[i] > 'z'))
+                {
+                    special = true;
+                }
+
+                if (pw.Length<8)
+                {
+                    lenght = true;
+                }
+            }
+            if (upcase && special && lenght)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public string checkLogin(Account account)
         {
             //kiểm tra nghiệp vụ
