@@ -13,5 +13,6 @@ namespace DTO
         public int Unit_Price { get; set; }
         public int Quantity { get; set; }
         public int Amount { get; set; }
+        public string Name_product { get; set; }
     }
 }

@@ -26,8 +26,8 @@ namespace BLL
             private set { } //chỉ nội bộ lớp này mới đc set dữ liệu vào
         }
         private sendMail() { }
-        private static readonly string _from = "236camnguyen@gmail.com"; // Email của Sender (của bạn)
-        private static readonly string _pass = "Camnguyen236@"; // Mật khẩu Email của Sender (của bạn)
+        private static readonly string _from = "dcd.minimart@gmail.com"; //"236camnguyen@gmail.com"; // Email của Sender (của bạn)
+        private static readonly string _pass = "DCD@PBL3"; //"Camnguyen236@"; // Mật khẩu Email của Sender (của bạn)
 
         public string checkMail(string mail)
         {

@@ -12,5 +12,7 @@ namespace DTO
         public int ID { get; set; }
         public int ID_Customer { get; set; }
         public DateTime Invoice_Date { get; set; }
+        public string Name_staff { get; set; }
+        public string Name_Customer { get; set; }
     }
 }
