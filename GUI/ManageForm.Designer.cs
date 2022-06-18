@@ -194,8 +194,6 @@
             this.txtTaxCode_cus = new Guna.UI2.WinForms.Guna2TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.txtEmail_cus = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtDiscountCustomer = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.gbGender = new Guna.UI2.WinForms.Guna2GroupBox();
             this.rbtnFemale_cus = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -2550,7 +2548,7 @@
             this.dgv3.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgv3.EnableHeadersVisualStyles = false;
             this.dgv3.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv3.Location = new System.Drawing.Point(21, 44);
+            this.dgv3.Location = new System.Drawing.Point(15, 44);
             this.dgv3.Name = "dgv3";
             this.dgv3.RowHeadersVisible = false;
             this.dgv3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2682,8 +2680,6 @@
             this.guna2GroupBox2.Controls.Add(this.txtTaxCode_cus);
             this.guna2GroupBox2.Controls.Add(this.label40);
             this.guna2GroupBox2.Controls.Add(this.txtEmail_cus);
-            this.guna2GroupBox2.Controls.Add(this.txtDiscountCustomer);
-            this.guna2GroupBox2.Controls.Add(this.label19);
             this.guna2GroupBox2.Controls.Add(this.label3);
             this.guna2GroupBox2.Controls.Add(this.gbGender);
             this.guna2GroupBox2.Controls.Add(this.txtPhoneNumber_Customer);
@@ -2760,7 +2756,7 @@
             this.txtEmail_cus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail_cus.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtEmail_cus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmail_cus.Location = new System.Drawing.Point(523, 131);
+            this.txtEmail_cus.Location = new System.Drawing.Point(517, 66);
             this.txtEmail_cus.Name = "txtEmail_cus";
             this.txtEmail_cus.PasswordChar = '\0';
             this.txtEmail_cus.PlaceholderText = "";
@@ -2768,40 +2764,11 @@
             this.txtEmail_cus.Size = new System.Drawing.Size(160, 27);
             this.txtEmail_cus.TabIndex = 26;
             // 
-            // txtDiscountCustomer
-            // 
-            this.txtDiscountCustomer.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDiscountCustomer.DefaultText = "";
-            this.txtDiscountCustomer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDiscountCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDiscountCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDiscountCustomer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDiscountCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDiscountCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtDiscountCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDiscountCustomer.Location = new System.Drawing.Point(523, 66);
-            this.txtDiscountCustomer.Name = "txtDiscountCustomer";
-            this.txtDiscountCustomer.PasswordChar = '\0';
-            this.txtDiscountCustomer.PlaceholderText = "";
-            this.txtDiscountCustomer.SelectedText = "";
-            this.txtDiscountCustomer.Size = new System.Drawing.Size(102, 27);
-            this.txtDiscountCustomer.TabIndex = 34;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.label19.Location = new System.Drawing.Point(520, 45);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(105, 18);
-            this.label19.TabIndex = 33;
-            this.label19.Text = "Discount(point)";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.label3.Location = new System.Drawing.Point(521, 110);
+            this.label3.Location = new System.Drawing.Point(515, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 18);
             this.label3.TabIndex = 25;
@@ -4722,8 +4689,6 @@
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox8;
         private Guna.UI2.WinForms.Guna2RadioButton rbFemale_us;
         private Guna.UI2.WinForms.Guna2RadioButton rbMale_us;
-        private Guna.UI2.WinForms.Guna2TextBox txtDiscountCustomer;
-        private System.Windows.Forms.Label label19;
         private Guna.UI2.WinForms.Guna2TextBox txtTaxCode_cus;
         private System.Windows.Forms.Label label40;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pbRefresh_Cus;

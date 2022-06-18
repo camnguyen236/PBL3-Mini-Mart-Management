@@ -28,7 +28,7 @@ namespace DAL
         public DataTable GetRecords()
         {
             string query = "select ID_Customer,Name_Customer,Gender_Customer,Address_Customer," +
-                "PhoneNumber_Customer,Email_Customer,AccountNumber,TaxCode,Discount from Customer " +
+                "PhoneNumber_Customer,Email_Customer,AccountNumber,TaxCode from Customer " +
                 "where Status = 'true'";
             customers = DataProvider.Instance.GetRecords(query);
             return customers;
@@ -54,17 +54,16 @@ namespace DAL
                 AccountNumber = i["AccountNumber"].ToString(),
                 Address_Customer = i["Address_Customer"].ToString(),
                 TaxCode = i["TaxCode"].ToString(),
-                Discount = Convert.ToInt32(i["Discount"].ToString()),
                 Status = Convert.ToBoolean(i["Status"].ToString())
             };
         }
         public void addCustomer(Customer customer)
         {
             string query = "insert into Customer(Name_Customer,Gender_Customer,Address_Customer" +
-                ",PhoneNumber_Customer,Email_Customer,AccountNumber,TaxCode,Discount,Status) " + "values (N'" 
+                ",PhoneNumber_Customer,Email_Customer,AccountNumber,TaxCode,Status) " + "values (N'" 
                 + customer.Name_Customer + "',N'" + customer.Gender_Customer  + "',N'" + customer.Address_Customer 
                 + "','" + customer.PhoneNumber_Customer + "','" + customer.Email_Customer + "','" 
-                + customer.AccountNumber + "','" + customer.TaxCode + "','" + customer.Discount 
+                + customer.AccountNumber + "','" + customer.TaxCode  
                 + "','" + customer.Status + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
@@ -74,9 +73,8 @@ namespace DAL
                 + "', Gender_Customer = N'" + customer.Gender_Customer + "', Address_Customer = N'" 
                 + customer.Address_Customer + "', PhoneNumber_Customer = '" + customer.PhoneNumber_Customer 
                 + "', Email_Customer = '" + customer.Email_Customer + "', AccountNumber = '" 
-                + customer.AccountNumber + "', TaxCode = '" + customer.TaxCode + "', Discount = '" 
-                + customer.Discount + "', Status = '" + customer.Status
-                + "' where ID_Customer = '" + customer.ID_Customer + "'";
+                + customer.AccountNumber + "', TaxCode = '" + customer.TaxCode + "', Status = '" 
+                + customer.Status + "' where ID_Customer = '" + customer.ID_Customer + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void deleteCustomer(string id_customer)

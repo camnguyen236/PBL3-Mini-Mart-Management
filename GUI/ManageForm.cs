@@ -165,7 +165,6 @@ namespace GUI
             txtAddress_Customer.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).Address_Customer.ToString();
             txtPhoneNumber_Customer.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).PhoneNumber_Customer.ToString();
             txtAccountNumber.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).AccountNumber.ToString();
-            txtDiscountCustomer.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).Discount.ToString();
             txtTaxCode_cus.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).TaxCode.ToString();
             txtEmail_cus.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).Email_Customer.ToString();
         }
@@ -201,7 +200,6 @@ namespace GUI
                     PhoneNumber_Customer = txtPhoneNumber_Customer.Text,
                     AccountNumber = txtAccountNumber.Text,
                     Email_Customer = txtEmail_cus.Text,
-                    Discount = Convert.ToInt32(txtDiscountCustomer.Text),
                     TaxCode = txtTaxCode_cus.Text,
                     Status = true
                 });
@@ -789,7 +787,9 @@ namespace GUI
             {
                 ID = acc.ID,
                 ID_Customer = ((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value,
-                Invoice_Date = DateTime.Now
+                Invoice_Date = DateTime.Now,
+                Name_Customer = ((CBBGroups)cbbResultSearchCustomer.SelectedItem).Text,
+                Name_staff = AccountBLL.Instance.getAccountByID(acc.ID.ToString()).Name
             };
             Invoice_BLL.Instance.ExcuteDB(inv, "Add");
             int id = Convert.ToInt32(Invoice_BLL.Instance.getInvoice().Rows[Invoice_BLL.Instance.getInvoice().Rows.Count - 1]["ID_Invoice"].ToString());
@@ -800,24 +800,12 @@ namespace GUI
                 {
                     ID_Invoice = id,
                     ID_P = productArray[i].Item1,
-                    Unit_Price = Convert.ToInt32(Product_BLL.Instance.getProductByID(productArray[i].Item1)["VAT_Inclusive_P"].ToString()),
-                    Quantity = productArray[i].Item2
+                    Unit_Price = Convert.ToInt32(Product_BLL.Instance.getProductByID(productArray[i].Item1.ToString()).VATInclusive_P),
+                    Quantity = productArray[i].Item2,
+                    Name_product = Product_BLL.Instance.getProductByID(productArray[i].Item1.ToString()).Name_P,
                 };
                 InvoiceDetail_BLL.Instance.ExcuteDB(ind, "Add");
             }
-            Customer_BLL.Instance.ExcuteDB(new Customer
-            {
-                ID_Customer = ((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value,
-                Name_Customer = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Name_Customer,
-                Gender_Customer = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Gender_Customer,
-                Address_Customer = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Address_Customer,
-                PhoneNumber_Customer = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).PhoneNumber_Customer,
-                AccountNumber = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).AccountNumber,
-                Email_Customer = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Email_Customer,
-                Discount = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Discount * 100002 /100000,
-                TaxCode = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).TaxCode,
-                Status = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Status
-            });
 
             showDgvSH();
             DialogResult dl = MessageBox.Show("Are you want to print this bill?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -935,7 +923,6 @@ namespace GUI
             txtPhoneNumber_Customer.Text = "";
             txtAccountNumber.Text = "";
             txtAddress_Customer.Text = "";
-            txtDiscountCustomer.Text = "";
             txtTaxCode_cus.Text = "";
             txtEmail_cus.Text = "";
             rbtnMale_cus.Checked = true;

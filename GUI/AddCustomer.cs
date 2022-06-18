@@ -41,7 +41,6 @@ namespace GUI
                     AccountNumber = tbAccountNumber.Text,
                     Email_Customer = txtEmail.Text,
                     TaxCode = txtTaxCode.Text,
-                    Discount = 0,
                     Status = true
                 };
                 Customer_BLL.Instance.ExcuteDB(customer,"Add");

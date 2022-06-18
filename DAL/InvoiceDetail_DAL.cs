@@ -54,7 +54,8 @@ namespace DAL
                 ID_P = Convert.ToInt32(i["ID_P"].ToString()),
                 Unit_Price = Convert.ToInt32(i["Unit_Price"].ToString()),
                 Quantity = Convert.ToInt32(i["Quantity"].ToString()),
-                Amount = Convert.ToInt32(i["Amount"].ToString())
+                Amount = Convert.ToInt32(i["Amount"].ToString()),
+                Name_product = i["Name_product"].ToString()
             };
         }
         public void addInvoiceDetail(InvoiceDetail invoiceDetail)

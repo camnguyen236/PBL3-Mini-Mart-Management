@@ -54,19 +54,23 @@ namespace DAL
                 ID = Convert.ToInt32(i["ID"].ToString()),
                 ID_Customer = Convert.ToInt32(i["ID_Customer"].ToString()),
                 Invoice_Date = Convert.ToDateTime(i["Invoice_Date"].ToString()),
+                Name_staff = i["Name_staff"].ToString(),
+                Name_Customer = i["Name_Customer"].ToString()
             };
         }
         public void addInvoice(Invoice invoice)
         {
             string query = "insert into Invoice " + "values ('" + invoice.ID + "','"
-                + invoice.ID_Customer + "','" + invoice.Invoice_Date + "')";
+                + invoice.ID_Customer + "','" + invoice.Invoice_Date + "','" + invoice.Name_staff +
+                "','" + invoice.Name_Customer + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateInvoice(Invoice invoice)
         {
             string query = "update Invoice set ID = N'" + invoice.ID + "', ID_Customer = N'"
-                + invoice.ID_Customer + "', Invoice_Date = '" + invoice.Invoice_Date
-                + "' where ID_Invoice = '" + invoice.ID_Invoice + "'";
+                + invoice.ID_Customer + "', Invoice_Date = '" + invoice.Invoice_Date 
+                + "', Name_staff = '" + invoice.Name_staff + "', Name_Customer = '"
+                + invoice.Name_Customer + "' where ID_Invoice = '" + invoice.ID_Invoice + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void deleteInvoice(int id_invoice)
