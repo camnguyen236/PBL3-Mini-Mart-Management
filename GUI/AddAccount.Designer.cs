@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAccount));
             this.gbGender = new Guna.UI2.WinForms.Guna2GroupBox();
             this.rbtnFemale = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbtnMale = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -50,10 +51,12 @@
             // 
             // gbGender
             // 
+            this.gbGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
+            this.gbGender.BorderRadius = 6;
             this.gbGender.Controls.Add(this.rbtnFemale);
             this.gbGender.Controls.Add(this.rbtnMale);
             this.gbGender.CustomBorderColor = System.Drawing.Color.WhiteSmoke;
-            this.gbGender.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gbGender.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.gbGender.Location = new System.Drawing.Point(523, 217);
             this.gbGender.Name = "gbGender";
@@ -64,6 +67,7 @@
             // rbtnFemale
             // 
             this.rbtnFemale.AutoSize = true;
+            this.rbtnFemale.BackColor = System.Drawing.Color.Transparent;
             this.rbtnFemale.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rbtnFemale.CheckedState.BorderThickness = 0;
             this.rbtnFemale.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -78,10 +82,12 @@
             this.rbtnFemale.UncheckedState.BorderThickness = 2;
             this.rbtnFemale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbtnFemale.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbtnFemale.UseVisualStyleBackColor = false;
             // 
             // rbtnMale
             // 
             this.rbtnMale.AutoSize = true;
+            this.rbtnMale.BackColor = System.Drawing.Color.Transparent;
             this.rbtnMale.Checked = true;
             this.rbtnMale.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rbtnMale.CheckedState.BorderThickness = 0;
@@ -98,10 +104,11 @@
             this.rbtnMale.UncheckedState.BorderThickness = 2;
             this.rbtnMale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbtnMale.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbtnMale.UseVisualStyleBackColor = false;
             // 
             // btnOK
             // 
-            this.btnOK.BackColor = System.Drawing.SystemColors.Window;
+            this.btnOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
             this.btnOK.BorderRadius = 15;
             this.btnOK.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnOK.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -119,7 +126,7 @@
             // 
             // tbPhoneNumber
             // 
-            this.tbPhoneNumber.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tbPhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
             this.tbPhoneNumber.BorderRadius = 15;
             this.tbPhoneNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbPhoneNumber.DefaultText = "";
@@ -142,7 +149,7 @@
             // 
             // tbAddress
             // 
-            this.tbAddress.BackColor = System.Drawing.SystemColors.Window;
+            this.tbAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
             this.tbAddress.BorderRadius = 15;
             this.tbAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbAddress.DefaultText = "";
@@ -166,9 +173,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
             this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.label1.ForeColor = System.Drawing.Color.DarkCyan;
             this.label1.Location = new System.Drawing.Point(289, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 33);
@@ -177,7 +184,7 @@
             // 
             // tbName
             // 
-            this.tbName.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tbName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
             this.tbName.BorderRadius = 15;
             this.tbName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbName.DefaultText = "";
@@ -210,7 +217,7 @@
             // 
             // tbUS
             // 
-            this.tbUS.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tbUS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
             this.tbUS.BorderRadius = 15;
             this.tbUS.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbUS.DefaultText = "";
@@ -233,7 +240,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::GUI.Properties.Resources.resetform;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(736, 418);
@@ -243,7 +250,7 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.tbEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
             this.tbEmail.BorderRadius = 15;
             this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbEmail.DefaultText = "";
@@ -266,6 +273,7 @@
             // 
             // DTPBirthday
             // 
+            this.DTPBirthday.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
             this.DTPBirthday.BorderRadius = 15;
             this.DTPBirthday.Checked = true;
             this.DTPBirthday.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
@@ -283,8 +291,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(270, 199);
+            this.label2.Location = new System.Drawing.Point(270, 201);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 29;
@@ -292,7 +301,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.BackColor = System.Drawing.SystemColors.Window;
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
             this.btnRefresh.BorderRadius = 15;
             this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;

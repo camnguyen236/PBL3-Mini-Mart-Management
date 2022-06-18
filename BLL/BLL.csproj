@@ -86,7 +86,7 @@
     <Compile Include="Report_BLL.cs" />
     <Compile Include="sendMail.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Supply_BLL.cs" />
+    <Compile Include="Supplier_BLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

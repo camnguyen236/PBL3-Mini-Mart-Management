@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class AddSupply
+    partial class AddSupplier
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@
             this.tbPhoneNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbName = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbTaxCode = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnOK_Supply = new Guna.UI2.WinForms.Guna2Button();
+            this.btnOK_Supplier = new Guna.UI2.WinForms.Guna2Button();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.tbAddress = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -58,9 +58,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.label1.Location = new System.Drawing.Point(280, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 33);
+            this.label1.Size = new System.Drawing.Size(158, 33);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Add Supply";
+            this.label1.Text = "Add Supplier";
             // 
             // tbAccountNumber
             // 
@@ -154,23 +154,23 @@
             this.tbTaxCode.Size = new System.Drawing.Size(200, 36);
             this.tbTaxCode.TabIndex = 30;
             // 
-            // btnOK_Supply
+            // btnOK_Supplier
             // 
-            this.btnOK_Supply.BackColor = System.Drawing.SystemColors.Window;
-            this.btnOK_Supply.BorderRadius = 15;
-            this.btnOK_Supply.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnOK_Supply.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnOK_Supply.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnOK_Supply.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOK_Supply.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.btnOK_Supply.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK_Supply.ForeColor = System.Drawing.Color.White;
-            this.btnOK_Supply.Location = new System.Drawing.Point(619, 211);
-            this.btnOK_Supply.Name = "btnOK_Supply";
-            this.btnOK_Supply.Size = new System.Drawing.Size(92, 37);
-            this.btnOK_Supply.TabIndex = 32;
-            this.btnOK_Supply.Text = "OK";
-            this.btnOK_Supply.Click += new System.EventHandler(this.btnOK_Supply_Click);
+            this.btnOK_Supplier.BackColor = System.Drawing.SystemColors.Window;
+            this.btnOK_Supplier.BorderRadius = 15;
+            this.btnOK_Supplier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOK_Supplier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOK_Supplier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOK_Supplier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOK_Supplier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnOK_Supplier.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK_Supplier.ForeColor = System.Drawing.Color.White;
+            this.btnOK_Supplier.Location = new System.Drawing.Point(619, 211);
+            this.btnOK_Supplier.Name = "btnOK_Supplier";
+            this.btnOK_Supplier.Size = new System.Drawing.Size(92, 37);
+            this.btnOK_Supplier.TabIndex = 32;
+            this.btnOK_Supplier.Text = "OK";
+            this.btnOK_Supplier.Click += new System.EventHandler(this.btnOK_Supplier_Click);
             // 
             // btnRefresh
             // 
@@ -220,7 +220,7 @@
             this.ClientSize = new System.Drawing.Size(733, 335);
             this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.btnOK_Supply);
+            this.Controls.Add(this.btnOK_Supplier);
             this.Controls.Add(this.tbTaxCode);
             this.Controls.Add(this.tbAccountNumber);
             this.Controls.Add(this.tbPhoneNumber);
@@ -229,7 +229,7 @@
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AddSupply";
-            this.Text = "AddSupply";
+            this.Text = "AddSupplier";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -244,7 +244,7 @@
         private Guna.UI2.WinForms.Guna2TextBox tbPhoneNumber;
         private Guna.UI2.WinForms.Guna2TextBox tbName;
         private Guna.UI2.WinForms.Guna2TextBox tbTaxCode;
-        private Guna.UI2.WinForms.Guna2Button btnOK_Supply;
+        private Guna.UI2.WinForms.Guna2Button btnOK_Supplier;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
         private Guna.UI2.WinForms.Guna2TextBox tbAddress;
     }

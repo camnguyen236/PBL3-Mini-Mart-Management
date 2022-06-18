@@ -35,13 +35,13 @@ namespace DAL
             }
             return data;
         }
-        public List<string> getAllName_Supply()
+        public List<string> getAllName_Supplier()
         {
             List<string> data = new List<string>();
-            string query = "select Name_Supply from Supply";
+            string query = "select Name_Supplier from Supplier";
             foreach (DataRow i in DataProvider.Instance.GetRecords(query).Rows)
             {
-                data.Add(i["Name_Supply"].ToString());
+                data.Add(i["Name_Supplier"].ToString());
             }
             return data;
         }
@@ -73,24 +73,24 @@ namespace DAL
         }
         public DataTable GetRecords()
         {
-            string query = "select Date_Import,Name_Supply,Address_Supply,BankAccount,PhoneNumber_Supply,TaxCode,Symbol from Supply inner join ImportProduct on Supply.ID_Supply = ImportProduct.ID_Supply";
+            string query = "select Date_Import,Name_Supplier,Address_Supplier,BankAccount,PhoneNumber_Supplier,TaxCode,Symbol from Supplier inner join ImportProduct on Supplier.ID_Supplier = ImportProduct.ID_Supplier";
             importproducts = DataProvider.Instance.GetRecords(query);
             return importproducts;
         }
         public DataTable getAllImport_Product()
         {
-            string query = "select ID_IP as ID, Inf_user.Name as \"Staff\'s name\", Supply.Name_Supply as \"Supplier\'s name\", Date_Import as 'Import date' from ImportProduct inner join Inf_user on ImportProduct.ID = Inf_user.ID inner join Supply on ImportProduct.ID_Supply = Supply.ID_Supply";
+            string query = "select ID_IP as ID, Inf_user.Name as \"Staff\'s name\", Supplier.Name_Supplier as \"Supplier\'s name\", Date_Import as 'Import date' from ImportProduct inner join Inf_user on ImportProduct.ID = Inf_user.ID inner join Supplier on ImportProduct.ID_Supplier = Supplier.ID_Supplier";
             importproducts = DataProvider.Instance.GetRecords(query);
             return importproducts;
         }
-        public int getID_Supply(string Name_Supply)
+        public int getID_Supplier(string Name_Supplier)
         {
-            string query = "select Supply.ID_Supply from Supply inner join ImportProduct on Supply.ID_Supply = ImportProduct.ID_Supply where Name_Supply like '%" + Name_Supply + "%'";
+            string query = "select Supplier.ID_Supplier from Supplier inner join ImportProduct on Supplier.ID_Supplier = ImportProduct.ID_Supplier where Name_Supplier like '%" + Name_Supplier + "%'";
             return Convert.ToInt32(DataProvider.Instance.GetRecords(query).Rows[0][0].ToString());
         }
         public DataTable GetRecordsNewID_IP()
         {
-            string query = "select Name_Supply,Address_Supply,BankAccount,PhoneNumber_Supply,TaxCode from Supply ";
+            string query = "select Name_Supplier,Address_Supplier,BankAccount,PhoneNumber_Supplier,TaxCode from Supplier ";
             importproducts = DataProvider.Instance.GetRecords(query);
             return importproducts;
         }
@@ -105,14 +105,14 @@ namespace DAL
         public DataTable getBillImportProductByDate(string datee)
         {
             //DataTable accountsList = new DataTable();
-            string query = $"select ID_IP,ID,ID_Supply,Symbol,Date_Import from ImportProduct where Date_Import like N'%{datee}%'";
+            string query = $"select ID_IP,ID,ID_Supplier,Symbol,Date_Import from ImportProduct where Date_Import like N'%{datee}%'";
             importproducts = DataProvider.Instance.GetRecords(query);
             return importproducts;
         }
         public void addProducts(ImportProducts importProducts)
         {
-            string query = "insert into ImportProduct(ID,ID_Supply,Date_Import) " + "values ('"
-                + importProducts.ID + "','" + importProducts.ID_Supply + "','" + importProducts.Date_Import + "')";
+            string query = "insert into ImportProduct(ID,ID_Supplier,Date_Import) " + "values ('"
+                + importProducts.ID + "','" + importProducts.ID_Supplier + "','" + importProducts.Date_Import + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateImportProduct(ImportProducts importProducts)
@@ -136,7 +136,7 @@ namespace DAL
             {
                 ID_IP = Convert.ToInt32(i["ID_IP"].ToString()),
                 ID = Convert.ToInt32(i["ID"].ToString()),
-                ID_Supply = Convert.ToInt32(i["ID_Supply"].ToString()),
+                ID_Supplier = Convert.ToInt32(i["ID_Supplier"].ToString()),
                 Date_Import = Convert.ToDateTime(i["Date_Import"].ToString())
             };
         }
