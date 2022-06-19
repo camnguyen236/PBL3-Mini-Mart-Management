@@ -29,9 +29,9 @@ namespace BLL
         {
             return ImportProductsDAL.Instance.getAllID_IP();
         }
-        public List<string> getAllName_Supply() //nha cc
+        public List<string> getAllName_Supplier() //nha cc
         {
-            return ImportProductsDAL.Instance.getAllName_Supply();
+            return ImportProductsDAL.Instance.getAllName_Supplier();
         }
         public List<string> getAllIP_Product() //nha cc
         {
@@ -53,9 +53,9 @@ namespace BLL
         {
             return ImportProductsDAL.Instance.getAllImport_Product();
         }
-        public int getID_Supply(string Name_Supply)
+        public int getID_Supplier(string Name_Supplier)
         {
-            return ImportProductsDAL.Instance.getID_Supply(Name_Supply);
+            return ImportProductsDAL.Instance.getID_Supplier(Name_Supplier);
         }
         public DataTable getRecordsNewID_IP()
         {

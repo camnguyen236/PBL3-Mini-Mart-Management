@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductDetails));
             this.img_PD = new Guna.UI2.WinForms.Guna2PictureBox();
             this.txtQuantity_PD = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtVAT_PD = new Guna.UI2.WinForms.Guna2TextBox();
@@ -62,6 +63,7 @@
             // 
             // img_PD
             // 
+            this.img_PD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
             this.img_PD.BorderRadius = 6;
             this.img_PD.ImageRotate = 0F;
             this.img_PD.Location = new System.Drawing.Point(27, 59);
@@ -74,6 +76,8 @@
             // 
             // txtQuantity_PD
             // 
+            this.txtQuantity_PD.BackColor = System.Drawing.Color.Transparent;
+            this.txtQuantity_PD.BorderRadius = 6;
             this.txtQuantity_PD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtQuantity_PD.DefaultText = "";
             this.txtQuantity_PD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -93,6 +97,8 @@
             // 
             // txtVAT_PD
             // 
+            this.txtVAT_PD.BackColor = System.Drawing.Color.Transparent;
+            this.txtVAT_PD.BorderRadius = 6;
             this.txtVAT_PD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtVAT_PD.DefaultText = "";
             this.txtVAT_PD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -113,6 +119,8 @@
             // 
             // txtUnit_PD
             // 
+            this.txtUnit_PD.BackColor = System.Drawing.Color.Transparent;
+            this.txtUnit_PD.BorderRadius = 6;
             this.txtUnit_PD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUnit_PD.DefaultText = "";
             this.txtUnit_PD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -132,6 +140,8 @@
             // 
             // txtName_PD
             // 
+            this.txtName_PD.BackColor = System.Drawing.Color.Transparent;
+            this.txtName_PD.BorderRadius = 6;
             this.txtName_PD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtName_PD.DefaultText = "";
             this.txtName_PD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -152,6 +162,8 @@
             // 
             // txtVATInclusive_PD
             // 
+            this.txtVATInclusive_PD.BackColor = System.Drawing.Color.Transparent;
+            this.txtVATInclusive_PD.BorderRadius = 6;
             this.txtVATInclusive_PD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtVATInclusive_PD.DefaultText = "";
             this.txtVATInclusive_PD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -171,6 +183,8 @@
             // 
             // txtID_PD
             // 
+            this.txtID_PD.BackColor = System.Drawing.Color.Transparent;
+            this.txtID_PD.BorderRadius = 6;
             this.txtID_PD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtID_PD.DefaultText = "";
             this.txtID_PD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -191,85 +205,103 @@
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbEmail.BackColor = System.Drawing.Color.Transparent;
+            this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEmail.ForeColor = System.Drawing.Color.DarkCyan;
             this.lbEmail.Location = new System.Drawing.Point(726, 183);
             this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(57, 13);
+            this.lbEmail.Size = new System.Drawing.Size(67, 13);
             this.lbEmail.TabIndex = 23;
             this.lbEmail.Text = "Catagories";
             // 
             // lbRole
             // 
             this.lbRole.AutoSize = true;
-            this.lbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbRole.BackColor = System.Drawing.Color.Transparent;
+            this.lbRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRole.ForeColor = System.Drawing.Color.DarkCyan;
             this.lbRole.Location = new System.Drawing.Point(554, 241);
             this.lbRole.Name = "lbRole";
-            this.lbRole.Size = new System.Drawing.Size(46, 13);
+            this.lbRole.Size = new System.Drawing.Size(54, 13);
             this.lbRole.TabIndex = 22;
             this.lbRole.Text = "Quantity";
             // 
             // lbVAT_PD
             // 
             this.lbVAT_PD.AutoSize = true;
-            this.lbVAT_PD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbVAT_PD.BackColor = System.Drawing.Color.Transparent;
+            this.lbVAT_PD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVAT_PD.ForeColor = System.Drawing.Color.DarkCyan;
             this.lbVAT_PD.Location = new System.Drawing.Point(554, 301);
             this.lbVAT_PD.Name = "lbVAT_PD";
-            this.lbVAT_PD.Size = new System.Drawing.Size(28, 13);
+            this.lbVAT_PD.Size = new System.Drawing.Size(31, 13);
             this.lbVAT_PD.TabIndex = 21;
             this.lbVAT_PD.Text = "VAT";
             // 
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
-            this.lbAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbAddress.BackColor = System.Drawing.Color.Transparent;
+            this.lbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAddress.ForeColor = System.Drawing.Color.DarkCyan;
             this.lbAddress.Location = new System.Drawing.Point(379, 241);
             this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(26, 13);
+            this.lbAddress.Size = new System.Drawing.Size(30, 13);
             this.lbAddress.TabIndex = 20;
             this.lbAddress.Text = "Unit";
             // 
             // lbPrice_PD
             // 
             this.lbPrice_PD.AutoSize = true;
-            this.lbPrice_PD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbPrice_PD.BackColor = System.Drawing.Color.Transparent;
+            this.lbPrice_PD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrice_PD.ForeColor = System.Drawing.Color.DarkCyan;
             this.lbPrice_PD.Location = new System.Drawing.Point(379, 301);
             this.lbPrice_PD.Name = "lbPrice_PD";
-            this.lbPrice_PD.Size = new System.Drawing.Size(31, 13);
+            this.lbPrice_PD.Size = new System.Drawing.Size(36, 13);
             this.lbPrice_PD.TabIndex = 19;
             this.lbPrice_PD.Text = "Price";
             // 
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbName.BackColor = System.Drawing.Color.Transparent;
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.ForeColor = System.Drawing.Color.DarkCyan;
             this.lbName.Location = new System.Drawing.Point(554, 183);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(75, 13);
+            this.lbName.Size = new System.Drawing.Size(87, 13);
             this.lbName.TabIndex = 18;
             this.lbName.Text = "Name Product";
             // 
             // VAT_Inclusive
             // 
             this.VAT_Inclusive.AutoSize = true;
-            this.VAT_Inclusive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.VAT_Inclusive.BackColor = System.Drawing.Color.Transparent;
+            this.VAT_Inclusive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VAT_Inclusive.ForeColor = System.Drawing.Color.DarkCyan;
             this.VAT_Inclusive.Location = new System.Drawing.Point(379, 364);
             this.VAT_Inclusive.Name = "VAT_Inclusive";
-            this.VAT_Inclusive.Size = new System.Drawing.Size(73, 13);
+            this.VAT_Inclusive.Size = new System.Drawing.Size(86, 13);
             this.VAT_Inclusive.TabIndex = 17;
             this.VAT_Inclusive.Text = "VAT-Inclusive";
             // 
             // lbID
             // 
             this.lbID.AutoSize = true;
-            this.lbID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbID.BackColor = System.Drawing.Color.Transparent;
+            this.lbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbID.ForeColor = System.Drawing.Color.DarkCyan;
             this.lbID.Location = new System.Drawing.Point(379, 183);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(18, 13);
+            this.lbID.Size = new System.Drawing.Size(20, 13);
             this.lbID.TabIndex = 16;
             this.lbID.Text = "ID";
             // 
             // txtPrice_PD
             // 
+            this.txtPrice_PD.BackColor = System.Drawing.Color.Transparent;
+            this.txtPrice_PD.BorderRadius = 6;
             this.txtPrice_PD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPrice_PD.DefaultText = "";
             this.txtPrice_PD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -291,8 +323,9 @@
             // lbNameProduct_PD
             // 
             this.lbNameProduct_PD.AutoSize = true;
+            this.lbNameProduct_PD.BackColor = System.Drawing.Color.Transparent;
             this.lbNameProduct_PD.Font = new System.Drawing.Font("Microsoft Sans Serif", 27F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNameProduct_PD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.lbNameProduct_PD.ForeColor = System.Drawing.Color.DarkCyan;
             this.lbNameProduct_PD.Location = new System.Drawing.Point(392, 116);
             this.lbNameProduct_PD.Name = "lbNameProduct_PD";
             this.lbNameProduct_PD.Size = new System.Drawing.Size(247, 40);
@@ -312,6 +345,7 @@
             // 
             // btnChangeImg_PD
             // 
+            this.btnChangeImg_PD.BackColor = System.Drawing.Color.Transparent;
             this.btnChangeImg_PD.BorderRadius = 6;
             this.btnChangeImg_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnChangeImg_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -331,7 +365,7 @@
             // 
             // btnAdd_PD
             // 
-            this.btnAdd_PD.BackColor = System.Drawing.SystemColors.Window;
+            this.btnAdd_PD.BackColor = System.Drawing.Color.Transparent;
             this.btnAdd_PD.BorderRadius = 15;
             this.btnAdd_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAdd_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -340,7 +374,7 @@
             this.btnAdd_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnAdd_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd_PD.ForeColor = System.Drawing.Color.White;
-            this.btnAdd_PD.Location = new System.Drawing.Point(587, 430);
+            this.btnAdd_PD.Location = new System.Drawing.Point(586, 430);
             this.btnAdd_PD.Name = "btnAdd_PD";
             this.btnAdd_PD.Size = new System.Drawing.Size(106, 33);
             this.btnAdd_PD.TabIndex = 38;
@@ -349,7 +383,7 @@
             // 
             // btnCancel_PD
             // 
-            this.btnCancel_PD.BackColor = System.Drawing.SystemColors.Window;
+            this.btnCancel_PD.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel_PD.BorderRadius = 15;
             this.btnCancel_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -358,9 +392,9 @@
             this.btnCancel_PD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnCancel_PD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel_PD.ForeColor = System.Drawing.Color.White;
-            this.btnCancel_PD.Location = new System.Drawing.Point(464, 430);
+            this.btnCancel_PD.Location = new System.Drawing.Point(478, 430);
             this.btnCancel_PD.Name = "btnCancel_PD";
-            this.btnCancel_PD.Size = new System.Drawing.Size(106, 33);
+            this.btnCancel_PD.Size = new System.Drawing.Size(93, 33);
             this.btnCancel_PD.TabIndex = 39;
             this.btnCancel_PD.Text = "Cancel";
             this.btnCancel_PD.Click += new System.EventHandler(this.btnCancel_PD_Click);
@@ -369,6 +403,7 @@
             // 
             this.cbCatagories_PD.BackColor = System.Drawing.Color.Transparent;
             this.cbCatagories_PD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.cbCatagories_PD.BorderRadius = 6;
             this.cbCatagories_PD.BorderThickness = 2;
             this.cbCatagories_PD.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbCatagories_PD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -385,7 +420,7 @@
             // 
             // btnEdit_PD
             // 
-            this.btnEdit_PD.BackColor = System.Drawing.SystemColors.Window;
+            this.btnEdit_PD.BackColor = System.Drawing.Color.Transparent;
             this.btnEdit_PD.BorderRadius = 15;
             this.btnEdit_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -403,8 +438,8 @@
             // 
             // btnOK_PD
             // 
-            this.btnOK_PD.BackColor = System.Drawing.SystemColors.Window;
-            this.btnOK_PD.BorderRadius = 20;
+            this.btnOK_PD.BackColor = System.Drawing.Color.Transparent;
+            this.btnOK_PD.BorderRadius = 15;
             this.btnOK_PD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnOK_PD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnOK_PD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -421,7 +456,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.BackColor = System.Drawing.SystemColors.Window;
+            this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
             this.btnRefresh.BorderRadius = 15;
             this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -432,18 +467,20 @@
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Location = new System.Drawing.Point(708, 430);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(106, 33);
+            this.btnRefresh.Size = new System.Drawing.Size(85, 33);
             this.btnRefresh.TabIndex = 45;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // gbStatus
             // 
+            this.gbStatus.BackColor = System.Drawing.Color.Transparent;
+            this.gbStatus.BorderRadius = 6;
             this.gbStatus.Controls.Add(this.rbFalse);
             this.gbStatus.Controls.Add(this.rbTrue);
             this.gbStatus.CustomBorderColor = System.Drawing.Color.WhiteSmoke;
-            this.gbStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gbStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.gbStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbStatus.ForeColor = System.Drawing.Color.DarkCyan;
             this.gbStatus.Location = new System.Drawing.Point(746, 258);
             this.gbStatus.Name = "gbStatus";
             this.gbStatus.Size = new System.Drawing.Size(121, 113);
@@ -460,7 +497,7 @@
             this.rbFalse.CheckedState.InnerOffset = -4;
             this.rbFalse.Location = new System.Drawing.Point(24, 90);
             this.rbFalse.Name = "rbFalse";
-            this.rbFalse.Size = new System.Drawing.Size(86, 19);
+            this.rbFalse.Size = new System.Drawing.Size(87, 19);
             this.rbFalse.TabIndex = 1;
             this.rbFalse.Text = "Stop selling";
             this.rbFalse.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -493,7 +530,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::GUI.Properties.Resources._84bad9491f2720a4ebe17fedf3690f19;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(902, 483);
             this.Controls.Add(this.gbStatus);
             this.Controls.Add(this.btnRefresh);

@@ -104,7 +104,8 @@ namespace GUI
 
         private void btnAnalyze_Click(object sender, EventArgs e)
         {
-            Analyze l = new Analyze();
+            Analyze l = new Analyze(mAccount);
+            l.rs = txtNameNV.Text;
             l.ShowDialog();
         }
 

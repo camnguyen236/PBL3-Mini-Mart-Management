@@ -12,9 +12,9 @@ using DTO;
 
 namespace GUI
 {
-    public partial class AddSupply : Form
+    public partial class AddSupplier : Form
     {
-        public AddSupply()
+        public AddSupplier()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace GUI
             tbAddress.Text = "";
         }
 
-        private void btnOK_Supply_Click(object sender, EventArgs e)
+        private void btnOK_Supplier_Click(object sender, EventArgs e)
         {
             if (tbName.Text.Trim() == "" || tbAccountNumber.Text.Trim() == "" || tbTaxCode.Text.Trim() == ""
                 || tbPhoneNumber.Text.Trim() == "" || tbAddress.Text.Trim() == "")
@@ -42,16 +42,16 @@ namespace GUI
             }
             else
             {
-                Supply supply = new Supply
+                Supplier Supplier = new Supplier
                 {
-                    Name_Supply = tbName.Text,
-                    Address_Supply = tbAddress.Text,
-                    PhoneNumber_Supply = tbPhoneNumber.Text,
+                    Name_Supplier = tbName.Text,
+                    Address_Supplier = tbAddress.Text,
+                    PhoneNumber_Supplier = tbPhoneNumber.Text,
                     BankAccount = tbAccountNumber.Text,
                     TaxCode = tbTaxCode.Text,
                     Status = true
                 };
-                Supply_BLL.Instance.ExcuteDB(supply, "Add");
+                Supplier_BLL.Instance.ExcuteDB(Supplier, "Add");
                 //show
 
                 MessageBox.Show("Added successfully");

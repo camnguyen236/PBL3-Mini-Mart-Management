@@ -18,8 +18,11 @@ namespace GUI
 {
     public partial class Analyze : Form
     {
-        public Analyze()
+        public string rs;
+        Account acc;
+        public Analyze(Account acc)
         {
+            this.acc = acc;
             InitializeComponent();
             setCBProductsGroups();
         }
@@ -71,11 +74,6 @@ namespace GUI
             }
             
         }
-
-        private void GrafCategories()
-        {
-
-        }
         public int totalRevenue(DataTable dt, string nameColumn)
         {
             int s = 0;
@@ -126,9 +124,6 @@ namespace GUI
                 MessageBox.Show("Chọn cách thống kê", "",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-
         }
         public int totalCost(DataTable dt, string nameColumn)
         {
@@ -141,17 +136,7 @@ namespace GUI
             }
             return s;
         }
-
-        private void guna2PictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //profit/////////////////////////////////////////////////////
-        public void GUI_Profit()
-        {
-            btnProfit_Custom.BackColor = Color.FromArgb(50, 100, 115);
-        }
+                
         private void btnShow_Profit_A_Click(object sender, EventArgs e)
         {
             showProfitReport();
@@ -161,16 +146,12 @@ namespace GUI
 
         public void showProfitReport()
         {
-
-
             DataTable Cost = Report_BLL.Instance.GetCostByDate(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value);
             DataTable Revenue = Report_BLL.Instance.GetRevenueByDate(dtp_Profit_Date_A.Value, dtp_Profit_Date_B.Value);
             //dvgImport_Profit_A.DataSource = Report_BLL.Instance.GetImportReportByYear(dtpAnnualy_Profit_A.Value);
                     lbTotalCost_Profit_A.Text = totalCost(Cost,"Cost").ToString() + " VND";
                     //dvgSales_Profit_A.DataSource = Report_BLL.Instance.GetSalesReportByYear(dtpAnnualy_Profit_A.Value);
                     lbRevenue_Profit_A.Text = totalRevenue(Revenue, "Revenue").ToString() + " VND";
-
-
         }
 
         private void btnProfit_Year_Click(object sender, EventArgs e)
@@ -409,17 +390,12 @@ namespace GUI
             dgv_Profit_Cost_Chart.DataBind();
         }
 
-        ////inventory
-        
+        ////inventory       
 
         public void setCBProductsGroups()
         {
             cbProductsGroups.Items.Add(new CBBGroups { Value = 0, Text = "All" });
             cbProductsGroups.Items.AddRange(ProductGroups_BLL.Instance.GetListCBB().ToArray());
-        }
-
-        private void guna2TabControl1_Click(object sender, EventArgs e)
-        {
         }
 
         private void ShowProduct(int ID)
@@ -447,15 +423,20 @@ namespace GUI
             ShowProduct(IDGroup);
         }
 
-        private void dgv_Analyze_Inventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void cbProductsGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             int IDGroup = ((CBBGroups)cbProductsGroups.SelectedItem).Value;
             ShowProduct(IDGroup);
+        }
+
+        private void PBBackSR_Click(object sender, EventArgs e)
+        {
+            MainForm mf2 = new MainForm(acc);
+            this.Hide();
+            mf2.mName(rs);
+            mf2.ShowDialog();
+
+            this.Close();
         }
     }
 }

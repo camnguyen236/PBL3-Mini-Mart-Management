@@ -10,7 +10,7 @@ namespace DTO
     {
 		public int ID_IP { get; set; }
 		public int ID { get; set; } //mã nv
-		public int ID_Supply { get; set; }
+		public int ID_Supplier { get; set; }
 		public DateTime Date_Import { get; set; }
 
 

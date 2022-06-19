@@ -55,9 +55,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.label1.Location = new System.Drawing.Point(144, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 41);
+            this.label1.Size = new System.Drawing.Size(97, 41);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Login";
+            this.label1.Text = "Log in";
             // 
             // txtUsername
             // 
@@ -125,7 +125,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(133, 35);
             this.btnLogin.TabIndex = 7;
-            this.btnLogin.Text = "Login";
+            this.btnLogin.Text = "Log in";
             this.btnLogin.UseTransparentBackground = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -134,11 +134,11 @@
             this.cb1.AutoSize = true;
             this.cb1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.cb1.Location = new System.Drawing.Point(205, 318);
+            this.cb1.Location = new System.Drawing.Point(205, 313);
             this.cb1.Name = "cb1";
             this.cb1.Size = new System.Drawing.Size(104, 17);
             this.cb1.TabIndex = 12;
-            this.cb1.Text = "show password?";
+            this.cb1.Text = "Show password?";
             this.cb1.UseVisualStyleBackColor = true;
             this.cb1.CheckedChanged += new System.EventHandler(this.cb1_CheckedChanged);
             // 

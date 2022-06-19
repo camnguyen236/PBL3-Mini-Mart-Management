@@ -85,7 +85,6 @@ D:\code\PBL3\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 D:\code\PBL3\GUI\obj\Debug\GUI.csproj.CopyComplete
 D:\code\PBL3\GUI\obj\Debug\GUI.exe
 D:\code\PBL3\GUI\obj\Debug\GUI.pdb
-D:\code\PBL3\GUI\obj\Debug\GUI.AddSupply.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.AddSupply.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ProductDetails.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\GUI.exe.config
@@ -277,3 +276,5 @@ C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ImportProductsBill.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.InvoiceReport.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.exe.config
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ChangePassword.resources
+D:\code\PBL3\GUI\obj\Debug\GUI.AddSupplier.resources
+D:\code\PBL3\GUI\obj\Debug\GUI.ChangePassword.resources
