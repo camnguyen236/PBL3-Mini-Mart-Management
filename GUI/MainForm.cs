@@ -114,5 +114,11 @@ namespace GUI
             ChangePassword cp = new ChangePassword(mAccount);
             cp.ShowDialog();
         }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            Help f_help = new Help();
+            f_help.ShowDialog();
+        }
     }
 }

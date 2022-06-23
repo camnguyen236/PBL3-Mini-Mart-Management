@@ -16,5 +16,15 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void Help_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHow_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.facebook.com");
+        }
     }
 }
