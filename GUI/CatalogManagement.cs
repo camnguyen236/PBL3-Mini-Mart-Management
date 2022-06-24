@@ -64,23 +64,23 @@ namespace GUI
             }            
         }
 
-        //private void btnDel_Click(object sender, EventArgs e)
-        //{
-        //    ProductGroups pg = new ProductGroups
-        //    {
-        //        ID_PG = txtID.Text,
-        //        Name_PG = txtName.Text,
-        //        Status = rbTrue.Checked,
-        //    };
-        //    DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-        //    if (dl == DialogResult.OK)
-        //    {
-        //        ProductGroups_BLL.Instance.ExcuteDB(pg, txtID.Text);
-        //        d();
-        //        showDGV(!cb_PG.Checked);
-        //        txtID.Text = "";
-        //    }
-        //}
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            ProductGroups pg = new ProductGroups
+            {
+                ID_PG = txtID.Text,
+                Name_PG = txtName.Text,
+                Status = rbTrue.Checked,
+            };
+            DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dl == DialogResult.OK)
+            {
+                ProductGroups_BLL.Instance.ExcuteDB(pg, txtID.Text);
+                d();
+                showDGV(!cb_PG.Checked);
+                txtID.Text = "";
+            }
+        }
 
         private void dgvCM_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

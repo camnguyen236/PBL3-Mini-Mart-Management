@@ -210,6 +210,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tpUS = new System.Windows.Forms.TabPage();
+            this.btnDelus = new Guna.UI2.WinForms.Guna2Button();
             this.cb_us = new Guna.UI2.WinForms.Guna2CheckBox();
             this.dgv1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cbSearch = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -241,6 +242,7 @@
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tpProduct = new System.Windows.Forms.TabPage();
+            this.btnDelPro = new Guna.UI2.WinForms.Guna2Button();
             this.cb_Product = new Guna.UI2.WinForms.Guna2CheckBox();
             this.dgv2 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnCatalogManagement = new Guna.UI2.WinForms.Guna2Button();
@@ -253,6 +255,7 @@
             this.cbSearchProduct = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tpSupplier = new System.Windows.Forms.TabPage();
+            this.btnDelSupplier = new Guna.UI2.WinForms.Guna2Button();
             this.cb_supplier = new Guna.UI2.WinForms.Guna2CheckBox();
             this.dgv4 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.txtSearchSupplier_MI = new Guna.UI2.WinForms.Guna2TextBox();
@@ -1067,7 +1070,6 @@
             this.rbDaily.UncheckedState.BorderThickness = 2;
             this.rbDaily.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbDaily.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rbDaily.CheckedChanged += new System.EventHandler(this.rbDaily_CheckedChanged);
             // 
             // rbAnnual
             // 
@@ -1087,7 +1089,6 @@
             this.rbAnnual.UncheckedState.BorderThickness = 2;
             this.rbAnnual.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbAnnual.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rbAnnual.CheckedChanged += new System.EventHandler(this.rbAnnual_CheckedChanged);
             // 
             // rbQuarterly
             // 
@@ -1107,7 +1108,6 @@
             this.rbQuarterly.UncheckedState.BorderThickness = 2;
             this.rbQuarterly.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbQuarterly.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rbQuarterly.CheckedChanged += new System.EventHandler(this.rbQuarterly_CheckedChanged);
             // 
             // dtDaily
             // 
@@ -1455,7 +1455,6 @@
             this.cb_point.UncheckedState.BorderThickness = 0;
             this.cb_point.UncheckedState.FillColor = System.Drawing.Color.White;
             this.cb_point.UseVisualStyleBackColor = false;
-            this.cb_point.CheckedChanged += new System.EventHandler(this.guna2CheckBox1_CheckedChanged);
             // 
             // txtSearchCustomer
             // 
@@ -1899,6 +1898,7 @@
             this.txtDiscount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtDiscount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtDiscount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDiscount.Enabled = false;
             this.txtDiscount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDiscount.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDiscount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -2075,6 +2075,7 @@
             // 
             this.nmrQuantity.BackColor = System.Drawing.Color.Transparent;
             this.nmrQuantity.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nmrQuantity.Enabled = false;
             this.nmrQuantity.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nmrQuantity.ForeColor = System.Drawing.Color.Black;
             this.nmrQuantity.Location = new System.Drawing.Point(277, 57);
@@ -2088,6 +2089,7 @@
             this.cbbName_Product.BackColor = System.Drawing.Color.Transparent;
             this.cbbName_Product.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbbName_Product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbName_Product.Enabled = false;
             this.cbbName_Product.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbName_Product.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbName_Product.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -2106,6 +2108,7 @@
             this.txtImport_Price.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtImport_Price.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtImport_Price.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtImport_Price.Enabled = false;
             this.txtImport_Price.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtImport_Price.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtImport_Price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -2629,7 +2632,7 @@
             this.btnUpdate_Customer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnUpdate_Customer.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnUpdate_Customer.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate_Customer.Location = new System.Drawing.Point(507, 456);
+            this.btnUpdate_Customer.Location = new System.Drawing.Point(495, 456);
             this.btnUpdate_Customer.Name = "btnUpdate_Customer";
             this.btnUpdate_Customer.Size = new System.Drawing.Size(94, 35);
             this.btnUpdate_Customer.TabIndex = 12;
@@ -2648,9 +2651,9 @@
             this.btnAdd_Customer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnAdd_Customer.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnAdd_Customer.ForeColor = System.Drawing.Color.White;
-            this.btnAdd_Customer.Location = new System.Drawing.Point(374, 456);
+            this.btnAdd_Customer.Location = new System.Drawing.Point(370, 456);
             this.btnAdd_Customer.Name = "btnAdd_Customer";
-            this.btnAdd_Customer.Size = new System.Drawing.Size(107, 35);
+            this.btnAdd_Customer.Size = new System.Drawing.Size(99, 35);
             this.btnAdd_Customer.TabIndex = 11;
             this.btnAdd_Customer.Text = "Add";
             this.btnAdd_Customer.UseTransparentBackground = true;
@@ -2667,9 +2670,9 @@
             this.btnBack_Customer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnBack_Customer.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnBack_Customer.ForeColor = System.Drawing.Color.White;
-            this.btnBack_Customer.Location = new System.Drawing.Point(241, 456);
+            this.btnBack_Customer.Location = new System.Drawing.Point(243, 456);
             this.btnBack_Customer.Name = "btnBack_Customer";
-            this.btnBack_Customer.Size = new System.Drawing.Size(107, 35);
+            this.btnBack_Customer.Size = new System.Drawing.Size(98, 35);
             this.btnBack_Customer.TabIndex = 10;
             this.btnBack_Customer.Text = "Back";
             this.btnBack_Customer.UseTransparentBackground = true;
@@ -2982,10 +2985,10 @@
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 1;
             this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // tpUS
             // 
+            this.tpUS.Controls.Add(this.btnDelus);
             this.tpUS.Controls.Add(this.cb_us);
             this.tpUS.Controls.Add(this.dgv1);
             this.tpUS.Controls.Add(this.cbSearch);
@@ -3003,6 +3006,25 @@
             this.tpUS.TabIndex = 0;
             this.tpUS.Text = "Manage Employee";
             this.tpUS.UseVisualStyleBackColor = true;
+            // 
+            // btnDelus
+            // 
+            this.btnDelus.AutoRoundedCorners = true;
+            this.btnDelus.BorderRadius = 16;
+            this.btnDelus.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelus.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDelus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDelus.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnDelus.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnDelus.ForeColor = System.Drawing.Color.White;
+            this.btnDelus.Location = new System.Drawing.Point(595, 456);
+            this.btnDelus.Name = "btnDelus";
+            this.btnDelus.Size = new System.Drawing.Size(94, 35);
+            this.btnDelus.TabIndex = 46;
+            this.btnDelus.Text = "Delete";
+            this.btnDelus.UseTransparentBackground = true;
+            this.btnDelus.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // cb_us
             // 
@@ -3480,7 +3502,7 @@
             this.btnUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnUpdate.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(506, 456);
+            this.btnUpdate.Location = new System.Drawing.Point(478, 456);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(95, 35);
             this.btnUpdate.TabIndex = 4;
@@ -3499,7 +3521,7 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(386, 456);
+            this.btnAdd.Location = new System.Drawing.Point(358, 456);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(96, 35);
             this.btnAdd.TabIndex = 3;
@@ -3518,7 +3540,7 @@
             this.btnBack.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnBack.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(274, 456);
+            this.btnBack.Location = new System.Drawing.Point(246, 456);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(87, 35);
             this.btnBack.TabIndex = 2;
@@ -3539,6 +3561,7 @@
             // 
             // tpProduct
             // 
+            this.tpProduct.Controls.Add(this.btnDelPro);
             this.tpProduct.Controls.Add(this.cb_Product);
             this.tpProduct.Controls.Add(this.dgv2);
             this.tpProduct.Controls.Add(this.btnCatalogManagement);
@@ -3558,6 +3581,25 @@
             this.tpProduct.TabIndex = 1;
             this.tpProduct.Text = " Manage Product";
             this.tpProduct.UseVisualStyleBackColor = true;
+            // 
+            // btnDelPro
+            // 
+            this.btnDelPro.AutoRoundedCorners = true;
+            this.btnDelPro.BorderRadius = 16;
+            this.btnDelPro.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelPro.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelPro.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDelPro.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDelPro.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnDelPro.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnDelPro.ForeColor = System.Drawing.Color.White;
+            this.btnDelPro.Location = new System.Drawing.Point(609, 458);
+            this.btnDelPro.Name = "btnDelPro";
+            this.btnDelPro.Size = new System.Drawing.Size(94, 35);
+            this.btnDelPro.TabIndex = 49;
+            this.btnDelPro.Text = "Delete";
+            this.btnDelPro.UseTransparentBackground = true;
+            this.btnDelPro.Click += new System.EventHandler(this.btnDelteProduct_Click);
             // 
             // cb_Product
             // 
@@ -3580,7 +3622,6 @@
             this.cb_Product.UncheckedState.BorderThickness = 0;
             this.cb_Product.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.cb_Product.UseVisualStyleBackColor = false;
-            this.cb_Product.CheckedChanged += new System.EventHandler(this.cb_Product_CheckedChanged);
             // 
             // dgv2
             // 
@@ -3670,7 +3711,7 @@
             this.btnUpdate_PG.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnUpdate_PG.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnUpdate_PG.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate_PG.Location = new System.Drawing.Point(509, 458);
+            this.btnUpdate_PG.Location = new System.Drawing.Point(479, 458);
             this.btnUpdate_PG.Name = "btnUpdate_PG";
             this.btnUpdate_PG.Size = new System.Drawing.Size(97, 35);
             this.btnUpdate_PG.TabIndex = 45;
@@ -3689,7 +3730,7 @@
             this.btnAdd_PG.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnAdd_PG.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnAdd_PG.ForeColor = System.Drawing.Color.White;
-            this.btnAdd_PG.Location = new System.Drawing.Point(380, 458);
+            this.btnAdd_PG.Location = new System.Drawing.Point(350, 458);
             this.btnAdd_PG.Name = "btnAdd_PG";
             this.btnAdd_PG.Size = new System.Drawing.Size(97, 35);
             this.btnAdd_PG.TabIndex = 44;
@@ -3742,7 +3783,7 @@
             this.btnBackProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnBackProduct.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnBackProduct.ForeColor = System.Drawing.Color.White;
-            this.btnBackProduct.Location = new System.Drawing.Point(259, 458);
+            this.btnBackProduct.Location = new System.Drawing.Point(229, 458);
             this.btnBackProduct.Name = "btnBackProduct";
             this.btnBackProduct.Size = new System.Drawing.Size(87, 35);
             this.btnBackProduct.TabIndex = 33;
@@ -3786,7 +3827,6 @@
             this.cbSearchProduct.Name = "cbSearchProduct";
             this.cbSearchProduct.Size = new System.Drawing.Size(159, 36);
             this.cbSearchProduct.TabIndex = 41;
-            this.cbSearchProduct.SelectedIndexChanged += new System.EventHandler(this.cbSearchProduct_SelectedIndexChanged);
             // 
             // guna2PictureBox4
             // 
@@ -3801,6 +3841,7 @@
             // 
             // tpSupplier
             // 
+            this.tpSupplier.Controls.Add(this.btnDelSupplier);
             this.tpSupplier.Controls.Add(this.cb_supplier);
             this.tpSupplier.Controls.Add(this.dgv4);
             this.tpSupplier.Controls.Add(this.txtSearchSupplier_MI);
@@ -3818,6 +3859,25 @@
             this.tpSupplier.TabIndex = 3;
             this.tpSupplier.Text = "  Manage Supplier";
             this.tpSupplier.UseVisualStyleBackColor = true;
+            // 
+            // btnDelSupplier
+            // 
+            this.btnDelSupplier.AutoRoundedCorners = true;
+            this.btnDelSupplier.BorderRadius = 16;
+            this.btnDelSupplier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelSupplier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelSupplier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDelSupplier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDelSupplier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnDelSupplier.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnDelSupplier.ForeColor = System.Drawing.Color.White;
+            this.btnDelSupplier.Location = new System.Drawing.Point(624, 457);
+            this.btnDelSupplier.Name = "btnDelSupplier";
+            this.btnDelSupplier.Size = new System.Drawing.Size(94, 35);
+            this.btnDelSupplier.TabIndex = 48;
+            this.btnDelSupplier.Text = "Delete";
+            this.btnDelSupplier.UseTransparentBackground = true;
+            this.btnDelSupplier.Click += new System.EventHandler(this.btnDelete_Supplier_Click);
             // 
             // cb_supplier
             // 
@@ -3950,7 +4010,7 @@
             this.btnUpdate_Supplier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnUpdate_Supplier.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnUpdate_Supplier.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate_Supplier.Location = new System.Drawing.Point(522, 457);
+            this.btnUpdate_Supplier.Location = new System.Drawing.Point(486, 457);
             this.btnUpdate_Supplier.Name = "btnUpdate_Supplier";
             this.btnUpdate_Supplier.Size = new System.Drawing.Size(107, 35);
             this.btnUpdate_Supplier.TabIndex = 17;
@@ -3969,7 +4029,7 @@
             this.btnAdd_Supplier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnAdd_Supplier.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnAdd_Supplier.ForeColor = System.Drawing.Color.White;
-            this.btnAdd_Supplier.Location = new System.Drawing.Point(384, 457);
+            this.btnAdd_Supplier.Location = new System.Drawing.Point(348, 457);
             this.btnAdd_Supplier.Name = "btnAdd_Supplier";
             this.btnAdd_Supplier.Size = new System.Drawing.Size(107, 35);
             this.btnAdd_Supplier.TabIndex = 16;
@@ -3988,7 +4048,7 @@
             this.btnBack_Supplier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnBack_Supplier.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnBack_Supplier.ForeColor = System.Drawing.Color.White;
-            this.btnBack_Supplier.Location = new System.Drawing.Point(252, 457);
+            this.btnBack_Supplier.Location = new System.Drawing.Point(216, 457);
             this.btnBack_Supplier.Name = "btnBack_Supplier";
             this.btnBack_Supplier.Size = new System.Drawing.Size(107, 35);
             this.btnBack_Supplier.TabIndex = 15;
@@ -4400,7 +4460,6 @@
             this.btnBack_TR.TabIndex = 21;
             this.btnBack_TR.TabStop = false;
             this.btnBack_TR.UseTransparentBackground = true;
-            this.btnBack_TR.Click += new System.EventHandler(this.btnBack_TR_Click);
             // 
             // ManageForm
             // 
@@ -4720,5 +4779,8 @@
         private Guna.UI2.WinForms.Guna2RadioButton rbTrue_sup;
         private Guna.UI2.WinForms.Guna2TextBox txtDiscount;
         private Guna.UI2.WinForms.Guna2CheckBox cb_point;
+        private Guna.UI2.WinForms.Guna2Button btnDelus;
+        private Guna.UI2.WinForms.Guna2Button btnDelPro;
+        private Guna.UI2.WinForms.Guna2Button btnDelSupplier;
     }
 }

@@ -46,6 +46,7 @@
             this.lbID = new System.Windows.Forms.Label();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             this.cb_PG = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.btnDelPG = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCM)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
@@ -76,7 +77,7 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(94, 358);
+            this.btnAdd.Location = new System.Drawing.Point(47, 358);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(95, 35);
             this.btnAdd.TabIndex = 54;
@@ -297,7 +298,7 @@
             this.btnUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnUpdate.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(195, 358);
+            this.btnUpdate.Location = new System.Drawing.Point(148, 358);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(91, 35);
             this.btnUpdate.TabIndex = 57;
@@ -326,11 +327,32 @@
             this.cb_PG.UseVisualStyleBackColor = false;
             this.cb_PG.CheckedChanged += new System.EventHandler(this.cb_PG_CheckedChanged);
             // 
+            // btnDelPG
+            // 
+            this.btnDelPG.AutoRoundedCorners = true;
+            this.btnDelPG.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelPG.BorderRadius = 16;
+            this.btnDelPG.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelPG.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelPG.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDelPG.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDelPG.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
+            this.btnDelPG.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnDelPG.ForeColor = System.Drawing.Color.White;
+            this.btnDelPG.Location = new System.Drawing.Point(245, 358);
+            this.btnDelPG.Name = "btnDelPG";
+            this.btnDelPG.Size = new System.Drawing.Size(94, 35);
+            this.btnDelPG.TabIndex = 59;
+            this.btnDelPG.Text = "Delete";
+            this.btnDelPG.UseTransparentBackground = true;
+            this.btnDelPG.Click += new System.EventHandler(this.btnDel_Click);
+            // 
             // CatalogManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 405);
+            this.Controls.Add(this.btnDelPG);
             this.Controls.Add(this.cb_PG);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.guna2GroupBox1);
@@ -367,5 +389,6 @@
         private Guna.UI2.WinForms.Guna2RadioButton rbFalse;
         private Guna.UI2.WinForms.Guna2RadioButton rbTrue;
         private Guna.UI2.WinForms.Guna2CheckBox cb_PG;
+        private Guna.UI2.WinForms.Guna2Button btnDelPG;
     }
 }

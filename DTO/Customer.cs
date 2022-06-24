@@ -16,6 +16,5 @@ namespace DTO
         public string Email_Customer { get; set; }  
         public string AccountNumber { get; set; }
         public string TaxCode { get; set; }
-        public bool Status { get; set; }
     }
 }

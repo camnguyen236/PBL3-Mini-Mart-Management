@@ -36,15 +36,6 @@ namespace BLL
         {
             return Product_DAL.Instance.GetAllProduct();
         }
-        public List<Product> getAllProductTrue()
-        {
-            List<Product> list = new List<Product>();
-            foreach (Product p in getAllProduct())
-            {
-                if(p.Status) list.Add(p);
-            }
-            return list;
-        }
         public Product getProductByID(string id)
         {
             foreach (Product i in getAllProduct())
@@ -128,6 +119,19 @@ namespace BLL
                 if(i.ID_P == id) return true;
             }
             return false;
+        }
+        public List<CBBGroups> getAllNameProduct()
+        {
+            List<CBBGroups> data = new List<CBBGroups> ();
+            foreach(var i in getAllProduct())
+            {
+                data.Add(new CBBGroups
+                {
+                    Value = i.ID_P,
+                    Text = i.Name_P
+                });
+            }
+            return data;
         }
     }
 }

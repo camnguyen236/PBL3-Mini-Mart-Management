@@ -25,68 +25,11 @@ namespace DAL
         }
         private ImportProductsDAL() { }
         DataTable importproducts = new DataTable();
-        public List<string> getAllID_IP()
-        {
-            List<string> data = new List<string>();
-            string query = "select ID_IP from ImportProduct";
-            foreach (DataRow i in DataProvider.Instance.GetRecords(query).Rows)
-            {
-                data.Add(i["ID_IP"].ToString());
-            }
-            return data;
-        }
-        public List<string> getAllName_Supplier()
-        {
-            List<string> data = new List<string>();
-            string query = "select Name_Supplier from Supplier";
-            foreach (DataRow i in DataProvider.Instance.GetRecords(query).Rows)
-            {
-                data.Add(i["Name_Supplier"].ToString());
-            }
-            return data;
-        }
-        public List<string> getAllIP_Product()
-        {
-            List<string> data = new List<string>();
-            string query = "select Name_P from Products";
-            foreach (DataRow i in DataProvider.Instance.GetRecords(query).Rows)
-            {
-                data.Add(i["Name_P"].ToString());
-            }
-            return data;
-        }
-        public String getID_Product(string Name_P)
-        {
-            string query = "select ID_P from Products where Name_P = N'" + Name_P + "'";
-            return DataProvider.Instance.GetRecords(query).Rows[0]["ID_P"].ToString();
-
-        }
-        public List<string> getAllDiscount()
-        {
-            List<string> data = new List<string>();
-            string query = "select Discount from DetailImportProduct";
-            foreach (DataRow i in DataProvider.Instance.GetRecords(query).Rows)
-            {
-                data.Add(i["Discount"].ToString());
-            }
-            return data;
-        }
-        public DataTable GetRecords()
-        {
-            string query = "select Date_Import,Name_Supplier,Address_Supplier,BankAccount,PhoneNumber_Supplier,TaxCode,Symbol from Supplier inner join ImportProduct on Supplier.ID_Supplier = ImportProduct.ID_Supplier";
-            importproducts = DataProvider.Instance.GetRecords(query);
-            return importproducts;
-        }
         public DataTable getAllImport_Product()
         {
             string query = "select ID_IP as ID, Inf_user.Name as \"Staff\'s name\", Supplier.Name_Supplier as \"Supplier\'s name\", Date_Import as 'Import date' from ImportProduct inner join Inf_user on ImportProduct.ID = Inf_user.ID inner join Supplier on ImportProduct.ID_Supplier = Supplier.ID_Supplier";
             importproducts = DataProvider.Instance.GetRecords(query);
             return importproducts;
-        }
-        public int getID_Supplier(string Name_Supplier)
-        {
-            string query = "select Supplier.ID_Supplier from Supplier inner join ImportProduct on Supplier.ID_Supplier = ImportProduct.ID_Supplier where Name_Supplier like '%" + Name_Supplier + "%'";
-            return Convert.ToInt32(DataProvider.Instance.GetRecords(query).Rows[0][0].ToString());
         }
         public DataTable GetRecordsNewID_IP()
         {
@@ -111,8 +54,9 @@ namespace DAL
         }
         public void addProducts(ImportProducts importProducts)
         {
-            string query = "insert into ImportProduct(ID,ID_Supplier,Date_Import) " + "values ('"
-                + importProducts.ID + "','" + importProducts.ID_Supplier + "','" + importProducts.Date_Import + "')";
+            string query = "insert into ImportProduct(ID,ID_Supplier,Date_Import,Name_Staff,Name_Supplier) " + "values ('"
+                + importProducts.ID + "','" + importProducts.ID_Supplier + "','" + importProducts.Date_Import
+                + "','" + importProducts.Name_Staff + "','" + importProducts.Name_Supplier + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateImportProduct(ImportProducts importProducts)
@@ -137,7 +81,9 @@ namespace DAL
                 ID_IP = Convert.ToInt32(i["ID_IP"].ToString()),
                 ID = Convert.ToInt32(i["ID"].ToString()),
                 ID_Supplier = Convert.ToInt32(i["ID_Supplier"].ToString()),
-                Date_Import = Convert.ToDateTime(i["Date_Import"].ToString())
+                Date_Import = Convert.ToDateTime(i["Date_Import"].ToString()),
+                Name_Staff = i["Name_Staff"].ToString(),
+                Name_Supplier = i["Name_Supplier"].ToString()
             };
         }
     }

@@ -26,8 +26,10 @@ namespace DAL
         private DetailImportProductDAL() { }
         public void addProducts(DetailImportProducts detailImportProducts)
         {
-            string query = "insert into DetailImportProduct(ID_IP,ID_P,IP_Price,Amount_IP,Discount) " + "values ('"
-                + detailImportProducts.ID_IP + "','" + detailImportProducts.ID_P + "','" + detailImportProducts.IP_Price  +"','" + detailImportProducts.Amount_IP+ "','" + detailImportProducts.Discount + "')";
+            string query = "insert into DetailImportProduct(ID_IP,ID_P,IP_Price,Amount_IP,Discount,Name_Product) " + "values ('"
+                + detailImportProducts.ID_IP + "','" + detailImportProducts.ID_P + "','" 
+                + detailImportProducts.IP_Price  + "','" + detailImportProducts.Amount_IP + "','" 
+                + detailImportProducts.Discount + "','" + detailImportProducts.Name_Product + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateImportProduct(DetailImportProducts detailImportProducts)
@@ -35,11 +37,6 @@ namespace DAL
             string query = $"update DetailImportProduct set IP_Price = '{detailImportProducts.IP_Price}',Amount_IP = N'{detailImportProducts.Amount_IP}', Discount = '{detailImportProducts.Discount}' where ID_P = '{detailImportProducts.ID_P}'";
             DataProvider.Instance.ExcuteDB(query);
         }
-        //public void updateImportProduct2(int quantity, int ID_P)
-        //{
-        //    string query = $"update DetailImportProduct set Amount_IP = '{quantity}' where ID_P = '{ID_P}'";
-        //    DataProvider.Instance.ExcuteDB(query);
-        //}
         public void deleteImportProduct(DetailImportProducts detailImportProducts,string id_product)
         {
             string query = "select ID_P from Products where Name_P = N'" + id_product + "'";
@@ -66,7 +63,7 @@ namespace DAL
         public List<DetailImportProducts> GetAllDetailImportProducts()
         {
             List<DetailImportProducts> list = new List<DetailImportProducts>();
-            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from DetailImportProducts").Rows)
+            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from DetailImportProduct").Rows)
             {
                 list.Add(GetDetailImportProductsByDataRow(i));
             }
@@ -82,7 +79,8 @@ namespace DAL
                 Amount_IP = Convert.ToInt32(i["Amount_IP"].ToString()),
                 Amount_Price = Convert.ToDouble(i["Amount_Price"].ToString()),
                 Total = Convert.ToDouble(i["Total"].ToString()),
-                Discount = Convert.ToDouble(i["Discount"].ToString())
+                Discount = Convert.ToDouble(i["Discount"].ToString()),
+                Name_Product = i["Name_Product"].ToString()
             };
         }
     }

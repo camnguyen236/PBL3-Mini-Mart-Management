@@ -40,8 +40,7 @@ namespace GUI
                     PhoneNumber_Customer = tbPhoneNumber.Text,
                     AccountNumber = tbAccountNumber.Text,
                     Email_Customer = txtEmail.Text,
-                    TaxCode = txtTaxCode.Text,
-                    Status = true
+                    TaxCode = txtTaxCode.Text
                 };
                 Customer_BLL.Instance.ExcuteDB(customer,"Add");
                 //show

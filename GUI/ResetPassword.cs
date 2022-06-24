@@ -40,8 +40,9 @@ namespace GUI
                 MessageBox.Show(sendMail.Instance.Send(tbEmail.Text, "DCD Supermarkets - Password recovery", "Hello " + tbName.Text
                         + ",<br>Your OTP: " + rd.ToString() + ". Don't share your OTP with anyone.<br>The DCD team"));
                 flag = true;
+                tbCode.Enabled = true;
             }
-            //}
+            //}            
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -67,6 +68,6 @@ namespace GUI
                 np.ShowDialog();
                 this.Close();
             }
-        }      
+        }
     }
 }

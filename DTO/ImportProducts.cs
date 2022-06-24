@@ -12,7 +12,8 @@ namespace DTO
 		public int ID { get; set; } //mã nv
 		public int ID_Supplier { get; set; }
 		public DateTime Date_Import { get; set; }
+		public string Name_Staff { get; set; }
+		public string Name_Supplier { get; set; }
 
-
-    }
+	}
 }

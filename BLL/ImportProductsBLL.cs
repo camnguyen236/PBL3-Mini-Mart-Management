@@ -25,37 +25,9 @@ namespace BLL
             private set { } //chỉ nội bộ lớp này mới đc set dữ liệu vào
         }
         private ImportProductsBLL() { }
-        public List<string> getAllID_IP() //max phieu nhap
-        {
-            return ImportProductsDAL.Instance.getAllID_IP();
-        }
-        public List<string> getAllName_Supplier() //nha cc
-        {
-            return ImportProductsDAL.Instance.getAllName_Supplier();
-        }
-        public List<string> getAllIP_Product() //nha cc
-        {
-            return ImportProductsDAL.Instance.getAllIP_Product();
-        }
-        public string getID_Product(string Name_P)
-        {
-            return ImportProductsDAL.Instance.getID_Product(Name_P);
-        }
-        public List<string> getAllDiscount() //nha cc
-        {
-            return ImportProductsDAL.Instance.getAllDiscount();
-        }
-        public DataTable getRecords()
-        {
-            return ImportProductsDAL.Instance.GetRecords();
-        }
         public DataTable getAllImport_Product()
         {
             return ImportProductsDAL.Instance.getAllImport_Product();
-        }
-        public int getID_Supplier(string Name_Supplier)
-        {
-            return ImportProductsDAL.Instance.getID_Supplier(Name_Supplier);
         }
         public DataTable getRecordsNewID_IP()
         {

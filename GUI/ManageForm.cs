@@ -65,7 +65,6 @@ namespace GUI
         {
             dgv1.DataSource = b ? AccountBLL.Instance.getAccount() : AccountBLL.Instance.getTFAccount();
         }
-
         private void Show_Customer()
         {
             dgv3.DataSource = Customer_BLL.Instance.getCustomer();
@@ -74,7 +73,6 @@ namespace GUI
         {
             dgv4.DataSource = b ? Supplier_BLL.Instance.getSupplier() : Supplier_BLL.Instance.getTFSupplier();
         }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             MainForm mf2 = new MainForm(acc);
@@ -128,30 +126,81 @@ namespace GUI
 
         }
 
-        //private void btnDelete_Click(object sender, EventArgs e)
-        //{
-        //    if (dgv1.SelectedRows.Count > 0)
-        //    {
-        //        DialogResult dl = MessageBox.Show("Are you sure to delete this row?", ""
-        //            , MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-        //        if (dl == DialogResult.OK)
-        //        {
-        //            AccountBLL.Instance.ExcuteDB(account, txtID.Text);
-        //            Show(!cb_us.Checked);
-        //            Reset();
-        //        }
-        //        else if (dl == DialogResult.Cancel)
-        //        {
-        //            //sthis.Close();
-        //        }
-        //    }            
-        //}
-
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgv1.SelectedRows.Count > 0)
+            {
+                DialogResult dl = MessageBox.Show("Are you sure to delete this row?", ""
+                    , MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dl == DialogResult.OK)
+                {
+                    AccountBLL.Instance.ExcuteDB(account, txtID.Text);
+                    Show(!cb_us.Checked);
+                    Reset();
+                }
+                else if (dl == DialogResult.Cancel)
+                {
+                    //sthis.Close();
+                }
+            }
+        }
+        private static Random rnd = new Random();
+        private int rd = rnd.Next(100000, 999999);
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddAccount ad = new AddAccount();
-            ad.d = new AddAccount.Mydel(Show);
-            ad.ShowDialog();
+            //AddAccount ad = new AddAccount();
+            //ad.d = new AddAccount.Mydel(Show);
+            //ad.ShowDialog();
+            if (txtName.Text.Trim() == "" || txtEmail.Text.Trim() == "" || txtUsername.Text.Trim() == "")
+                MessageBox.Show("Please fill in the required information!", "Warning",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (!AccountBLL.Instance.checkUS(txtUsername.Text))
+            {
+                MessageBox.Show("Your username:\n Must be between six and 24 characters long.\n Can contain any letters from a to z and any numbers from 0 through 9.");
+            }
+            else if (AccountBLL.Instance.checkField("US", txtUsername.Text))
+            {
+                MessageBox.Show("This username already exists. Please re-enter your username");
+            }
+            else if (!AccountBLL.Instance.IsValidEmail(txtEmail.Text))
+            {
+                MessageBox.Show("Invalid email format");
+            }
+            else if (AccountBLL.Instance.checkField("Email", txtEmail.Text))
+            {
+                MessageBox.Show("This email already exists. Please re-enter your email");
+            }
+            else
+            {
+                if (sendMail.Instance.checkMail(txtEmail.Text) != "OK") MessageBox.Show(sendMail.Instance.checkMail(txtEmail.Text) + "\nPlease re-enter your email");
+                else
+                {
+                    string mess = sendMail.Instance.Send(txtEmail.Text, "DCD Supermarkets", "Hello " + txtName.Text
+                        + ",<br>You have been created a new account by the administrator, your password is: " + rd.ToString() +
+                        ". You should change your password the first time you log in. Do not share your password with anyone for any reason.<br>The DCD team.");
+                    if (mess.Equals("Sent Successfully"))
+                    {
+                        AccountBLL.Instance.ExcuteDB(new Account
+                        {
+                            US = txtUsername.Text,
+                            PW = HashCode.Instance.hashCode(rd.ToString()),
+                            Name = txtName.Text,
+                            Gender = rbTrue_us.Checked ? "Nữ" : "Nam",
+                            Birthday = Convert.ToDateTime(dpBirthday.Text),
+                            Adress = txtAddress.Text,
+                            PhoneNumber = txtPhone.Text,
+                            Position = null,
+                            Email = txtEmail.Text,
+                            Status = true
+                        }, "Add");
+                        MessageBox.Show("Added successfully");
+                        Show(!cb_us.Checked);
+                    }
+                    else MessageBox.Show(mess);
+
+                }
+
+            }
         }
 
         //Tap Manage customer
@@ -169,23 +218,23 @@ namespace GUI
             txtEmail_cus.Text = Customer_BLL.Instance.getCustomerByID(dgv3.SelectedRows[0].Cells["ID_Customer"].Value.ToString()).Email_Customer.ToString();
         }
 
-        //private void btnDelete_Customer_Click(object sender, EventArgs e)
-        //{
-        //    if(dgv3.SelectedRows.Count > 0)
-        //    {
-        //        DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-        //        if (dl == DialogResult.OK)
-        //        {
-        //            Customer_BLL.Instance.ExcuteDB(customer, txtID_Customer.Text);
-        //            Show_Customer();
-        //            Reset();
-        //        }
-        //        else if (dl == DialogResult.Cancel)
-        //        {
-        //            //sthis.Close();
-        //        }
-        //    }            
-        //}
+        private void btnDelete_Customer_Click(object sender, EventArgs e)
+        {
+            if (dgv3.SelectedRows.Count > 0)
+            {
+                DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dl == DialogResult.OK)
+                {
+                    Customer_BLL.Instance.ExcuteDB(customer, txtID_Customer.Text);
+                    Show_Customer();
+                    Reset();
+                }
+                else if (dl == DialogResult.Cancel)
+                {
+                    //sthis.Close();
+                }
+            }
+        }
 
         private void btnUpdate_Customer_Click(object sender, EventArgs e)
         {
@@ -200,8 +249,7 @@ namespace GUI
                     PhoneNumber_Customer = txtPhoneNumber_Customer.Text,
                     AccountNumber = txtAccountNumber.Text,
                     Email_Customer = txtEmail_cus.Text,
-                    TaxCode = txtTaxCode_cus.Text,
-                    Status = true
+                    TaxCode = txtTaxCode_cus.Text
                 });
                 Show_Customer();
             }            
@@ -209,9 +257,33 @@ namespace GUI
 
         private void btnAdd_Customer_Click(object sender, EventArgs e)
         {
-            AddCustomer ad = new AddCustomer();
-            ad.d = new AddCustomer.Mydel(Show_Customer);
-            ad.ShowDialog();
+            //AddCustomer ad = new AddCustomer();
+            //ad.d = new AddCustomer.Mydel(Show_Customer);
+            //ad.ShowDialog();
+            if (txtName_Customer.Text.Trim() == "")
+                MessageBox.Show("Please enter customer name!", "Warning",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (txtPhoneNumber_Customer.Text != "" && !AccountBLL.Instance.checkPhoneNumber(txtPhoneNumber_Customer.Text))
+            {
+                MessageBox.Show("Phone number must have exactly 10 digits");
+            }
+            else
+            {
+                Customer_BLL.Instance.ExcuteDB(new Customer
+                {
+                    Name_Customer = txtName_Customer.Text,
+                    Gender_Customer = rbtnFemale_cus.Checked ? "Nữ" : "Nam",
+                    Address_Customer = txtAddress_Customer.Text,
+                    PhoneNumber_Customer = txtPhoneNumber_Customer.Text,
+                    AccountNumber = txtAccountNumber.Text,
+                    Email_Customer = txtEmail.Text,
+                    TaxCode = txtTaxCode_cus.Text
+                }, "Add");
+                //show
+
+                MessageBox.Show("Added successfully");
+                Show_Customer();
+            }
         }
 
         private void cbSearch_SelectedIndexChanged(object sender, EventArgs e)
@@ -260,9 +332,32 @@ namespace GUI
 
         private void btnAdd_Supplier_Click(object sender, EventArgs e)
         {
-            AddSupplier ad = new AddSupplier();
-            ad.d = new AddSupplier.Mydel(Show_Supplier);
-            ad.ShowDialog();
+            //AddSupplier ad = new AddSupplier();
+            //ad.d = new AddSupplier.Mydel(Show_Supplier);
+            //ad.ShowDialog();
+            if (txtName_Supplier.Text.Trim() == "" || txtPhoneNumberSupplier.Text.Trim() == "")
+                MessageBox.Show("Please fill in the required information!", "Warning",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (!AccountBLL.Instance.checkPhoneNumber(txtPhoneNumberSupplier.Text))
+            {
+                MessageBox.Show("Phone number must have exactly 10 digits");
+            }
+            else
+            {
+                Supplier_BLL.Instance.ExcuteDB(new Supplier
+                {
+                    Name_Supplier = txtName_Supplier.Text,
+                    Address_Supplier = txtAddress_Supplier.Text,
+                    PhoneNumber_Supplier = txtPhoneNumberSupplier.Text,
+                    BankAccount = txtBankAccount.Text,
+                    TaxCode = txtTaxCode_su.Text,
+                    Status = true
+                }, "Add");
+                //show
+
+                MessageBox.Show("Added successfully");
+                Show_Supplier(!cb_supplier.Checked);
+            }
         }
 
         private void btnUpdate_Supplier_Click(object sender, EventArgs e)
@@ -282,24 +377,24 @@ namespace GUI
                 Show_Supplier(!cb_supplier.Checked);
             }            
         }
-        
-        //private void btnDelete_Supplier_Click(object sender, EventArgs e)
-        //{
-        //    if(dgv4.SelectedRows.Count > 0)
-        //    {
-        //        DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-        //        if (dl == DialogResult.OK)
-        //        {
-        //            Supplier_BLL.Instance.ExcuteDB(Supplier, txtID_Supplier.Text);
-        //            Show_Supplier();
-        //            Reset();
-        //        }
-        //        else if (dl == DialogResult.Cancel)
-        //        {
-        //            //sthis.Close();
-        //        }
-        //    }            
-        //}
+
+        private void btnDelete_Supplier_Click(object sender, EventArgs e)
+        {
+            if (dgv4.SelectedRows.Count > 0)
+            {
+                DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dl == DialogResult.OK)
+                {
+                    Supplier_BLL.Instance.ExcuteDB(Supplier, txtID_Supplier.Text);
+                    Show_Supplier();
+                    Reset();
+                }
+                else if (dl == DialogResult.Cancel)
+                {
+                    //sthis.Close();
+                }
+            }
+        }
         private void dgv4_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtID_Supplier.ReadOnly = true;
@@ -355,22 +450,22 @@ namespace GUI
             }
         }
 
-        //private void btnDelteProduct_Click(object sender, EventArgs e)
-        //{
-        //    if(dgv2.SelectedRows.Count > 0)
-        //    {
-        //        DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-        //        if (dl == DialogResult.OK)
-        //        {
-        //            Product_BLL.Instance.ExcuteDB(product, dgv2.SelectedRows[0].Cells["ID_P"].Value.ToString());
-        //            Show_Product(getCurrenGroupName());
-        //        }
-        //        else if (dl == DialogResult.Cancel)
-        //        {
-        //            //sthis.Close();
-        //        }
-        //    }            
-        //}
+        private void btnDelteProduct_Click(object sender, EventArgs e)
+        {
+            if (dgv2.SelectedRows.Count > 0)
+            {
+                DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dl == DialogResult.OK)
+                {
+                    Product_BLL.Instance.ExcuteDB(product, dgv2.SelectedRows[0].Cells["ID_P"].Value.ToString());
+                    Show_Product(getCurrenGroupName());
+                }
+                else if (dl == DialogResult.Cancel)
+                {
+                    //sthis.Close();
+                }
+            }
+        }
 
         private void cbProductsGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -435,44 +530,24 @@ namespace GUI
                 pd.Show();
             }
         }
-        public void showInformationNew(int i)
-        {
-            cbbName_Supplier.SelectedItem = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[i]["Name_Supplier"].ToString();
-            txtAddress_InfOfBill.Text = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[i]["Address_Supplier"].ToString();
-            txtBankAccountInfOfBill.Text = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[i]["BankAccount"].ToString();
-            txtPhoneNumberSupplier.Text = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[i]["PhoneNumber_Supplier"].ToString();
-            txtID_Tax.Text = ImportProductsBLL.Instance.getRecordsNewID_IP().Rows[i]["TaxCode"].ToString();
-        }
         public int countRowsImportProduct()
         {
             return ImportProductsBLL.Instance.getAllImport_Product().Rows.Count;
         }
         public void setCBBName_Supplier() //cbb tên ncc
         {
-            cbbName_Supplier.Items.AddRange(ImportProductsBLL.Instance.getAllName_Supplier().Distinct().ToArray());
+            cbbName_Supplier.Items.AddRange(Supplier_BLL.Instance.getAllNameSupplier().ToArray());
         }
         public void setCBBID_Products() //cbb mã sp
         {
-            //cbbID_Product.Items.AddRange(ImportProductsBLL.Instance.getAllIP_Product().ToArray());
-            foreach(var i in Product_BLL.Instance.getAllProductTrue())
-            {
-                cbbName_Product.Items.Add(new CBBGroups
-                {
-                    Value = i.ID_P,
-                    Text = i.Name_P
-                });
-            }
+            cbbName_Product.Items.AddRange(Product_BLL.Instance.getAllNameProduct().ToArray());
         }
-        //public void setCBBDiscount() //cbb mã sp
-        //{
-        //    txtDiscount.Items.AddRange(ImportProductsBLL.Instance.getAllDiscount().Distinct().ToArray());
-        //}
         private void showProducts()
         {
             int ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID"].ToString()); //láy id phiếu cuối
             dtgvImportProduct.DataSource = ImportProductsBLL.Instance.getDetailsImportProduct(ID_IP);
         }
-        int amount;
+        double amount;
         double total;
         private void btnAdd_InfOfProduct_Click(object sender, EventArgs e)
         {
@@ -485,6 +560,7 @@ namespace GUI
                 Amount_Price = amount,
                 Discount = Convert.ToDouble(txtDiscount.Text),
                 Total = total,
+                Name_Product = ((CBBGroups)cbbName_Product.SelectedItem).Text
             };
             DetailImportProductBLL.Instance.ExcuteDB(detailImportProducts, "Add");
             lbAdd.ForeColor = Color.Green;
@@ -495,16 +571,16 @@ namespace GUI
         
         private void dtgvImportProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            string id_ip = ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct() - 1]["ID"].ToString()
+                , id_p = dtgvImportProduct.SelectedRows[0].Cells["ID_P"].Value.ToString();
             cbbName_Product.Enabled = false;
             int i = dtgvImportProduct.CurrentRow.Index;
-            //cbbID_Product.Text = ImportProductsBLL.Instance.getImportProductsByID(dtgvImportProduct.SelectedRows[0].Cells["ID_P"].Value.ToString()).ID_IP.ToString();
-            cbbName_Product.Text = dtgvImportProduct.Rows[i].Cells[1].Value.ToString();
-            //txtImport_Price.Text = ImportProductsBLL.Instance.getImportProductsByID(dtgvImportProduct.SelectedRows[0].Cells["ID_P"].Value.ToString()).ip
-            txtImport_Price.Text = dtgvImportProduct.Rows[i].Cells[2].Value.ToString();
-            nmrQuantity.Value = Convert.ToInt32(dtgvImportProduct.Rows[i].Cells[3].Value.ToString());
-            amount = (Convert.ToInt32(dtgvImportProduct.Rows[i].Cells[3].Value) * Convert.ToInt32(dtgvImportProduct.Rows[i].Cells[2].Value));
+            ((CBBGroups)cbbName_Product.SelectedItem).Value = DetailImportProductBLL.Instance.getDetailImportProductsByID_IPAndID_P(id_ip, id_p).ID_P;
+            txtImport_Price.Text = DetailImportProductBLL.Instance.getDetailImportProductsByID_IPAndID_P(id_ip, id_p).IP_Price.ToString();
+            nmrQuantity.Value = DetailImportProductBLL.Instance.getDetailImportProductsByID_IPAndID_P(id_ip, id_p).Amount_IP;
+            amount = DetailImportProductBLL.Instance.getDetailImportProductsByID_IPAndID_P(id_ip, id_p).IP_Price * DetailImportProductBLL.Instance.getDetailImportProductsByID_IPAndID_P(id_ip, id_p).Amount_IP;
             txtPrice.Text = Convert.ToString(amount);
-            txtDiscount.Text = dtgvImportProduct.Rows[i].Cells[5].Value.ToString();
+            txtDiscount.Text = DetailImportProductBLL.Instance.getDetailImportProductsByID_IPAndID_P(id_ip, id_p).Discount.ToString();
             total = amount + amount * Convert.ToInt32(txtDiscount.Text) / 100;
             txtTotal.Text = Convert.ToString(total);
         }
@@ -534,13 +610,10 @@ namespace GUI
             txtTotal.Text = "";
             lbAdd.ForeColor = Color.White;
             lbUpdate.ForeColor = Color.White;
-            //dtgvImportProduct.DataSource = empty;
         }
-        //Form inf ở trên
         List<ImportProducts> empty = new List<ImportProducts>();
         private void txtNew_Click(object sender, EventArgs e)
         {
-            //cbbID_IP.Text = "";
             cbbName_Supplier.Text = "";
             txtAddress_InfOfBill.Text = "";
             txtBankAccountInfOfBill.Text = "";
@@ -552,25 +625,28 @@ namespace GUI
 
         private void cbbName_Supplier_SelectedIndexChanged(object sender, EventArgs e)
         {
-            showInformationNew(cbbName_Supplier.SelectedIndex);
+            txtAddress_InfOfBill.Text = Supplier_BLL.Instance.getSupplierByID(Convert.ToString(((CBBGroups)cbbName_Supplier.SelectedItem).Value)).Address_Supplier;
+            txtBankAccountInfOfBill.Text = Supplier_BLL.Instance.getSupplierByID(Convert.ToString(((CBBGroups)cbbName_Supplier.SelectedItem).Value)).BankAccount;
+            txtPhoneNumberSupplier.Text = Supplier_BLL.Instance.getSupplierByID(Convert.ToString(((CBBGroups)cbbName_Supplier.SelectedItem).Value)).PhoneNumber_Supplier;
+            txtID_Tax.Text = Supplier_BLL.Instance.getSupplierByID(Convert.ToString(((CBBGroups)cbbName_Supplier.SelectedItem).Value)).TaxCode;
         }
 
         private void btnSave_InfOfBill_Click(object sender, EventArgs e)
-        {
-            importProducts = new ImportProducts
+        {            
+            ImportProductsBLL.Instance.ExcuteDB(new ImportProducts
             {
-                ID_IP = 0,
-                ID = AccountBLL.Instance.getID(),
+                ID = acc.ID,
                 Date_Import = DateTime.Now,
-                ID_Supplier = Supplier_BLL.Instance.getSupplierByName(cbbName_Supplier.SelectedItem.ToString()).ID_Supplier
-            };
-            
-            ImportProductsBLL.Instance.ExcuteDB(importProducts, "Add");
-            //lbAdd.ForeColor = Color.Green;
+                ID_Supplier = Supplier_BLL.Instance.getSupplierByName(cbbName_Supplier.SelectedItem.ToString()).ID_Supplier,
+                Name_Staff = acc.Name,
+                Name_Supplier = Supplier_BLL.Instance.getSupplierByName(cbbName_Supplier.SelectedItem.ToString()).Name_Supplier
+            }, "Add");
             lbSaveInfOfBill.ForeColor = Color.Green;
             txtID_IP.Text = ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID"].ToString();
-            DetailImportProductBLL.Instance.get(txtID_IP.Text);
-            //setCBBID_IP();
+            cbbName_Product.Enabled = true;
+            nmrQuantity.Enabled = true;
+            txtDiscount.Enabled = true;
+            txtImport_Price.Enabled = true;
         }
 
         private void btnDetailImportBill_Click(object sender, EventArgs e)
@@ -582,7 +658,7 @@ namespace GUI
         private void btnUpdateImportProduct_Click(object sender, EventArgs e)
         {
             total = amount - amount * Convert.ToInt32(txtDiscount.Text) / 100;
-            detailImportProducts = new DetailImportProducts
+            DetailImportProductBLL.Instance.ExcuteDB(new DetailImportProducts
             {
                 ID_IP = 0,
                 ID_P = ((CBBGroups)cbbName_Product.SelectedItem).Value,
@@ -591,8 +667,8 @@ namespace GUI
                 Amount_Price = amount,
                 Discount = Convert.ToDouble(txtDiscount.Text),
                 Total = total,
-            };
-            DetailImportProductBLL.Instance.ExcuteDB(detailImportProducts);
+                Name_Product = ((CBBGroups)cbbName_Product.SelectedItem).Text
+            });
             lbUpdate.ForeColor = Color.Green;
 
             showProducts();
@@ -712,13 +788,13 @@ namespace GUI
             }
         }
 
-        private void updateTP(TabPage tp, string productGroup)
+        private void updateTP(string productGroup)
         {
-            if (tp.Name.Equals("tpAllProducts") || tp.Name.Equals("tp" + productGroup))
-            {
-                while (tp.Controls.Count > 0) tp.Controls[0].Dispose();
-                createTab(tp, productGroup);
-            }
+            //if (tp.Name.Equals("tpAllProducts") || tp.Name.Equals("tp" + productGroup))
+            //{
+            //    while (tp.Controls.Count > 0) tp.Controls[0].Dispose();
+            //    createTab(tp, productGroup);
+            //}
         }
 
         private void viewCart()
@@ -778,8 +854,7 @@ namespace GUI
                     //sthis.Close();
                 }
             }
-        }
-        
+        }      
 
         private void btnPay_Click(object sender, EventArgs e)
         {
@@ -859,51 +934,6 @@ namespace GUI
             txtSearchCustomer.Text = "";
             cbbResultSearchCustomer.Items.Clear();
         }
-
-        private void rbDaily_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbDaily.Checked)
-            {
-                dtDaily.Enabled = rbDaily.Checked;
-                rbAnnual.Checked = false;
-                rbQuarterly.Checked = false;
-            }
-            dtQuarterly.Enabled = rbQuarterly.Checked;
-            dtAnnual.Enabled = rbAnnual.Checked;
-        }
-
-        private void rbQuarterly_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbQuarterly.Checked)
-            {
-                dtQuarterly.Enabled = rbQuarterly.Checked;
-                rbAnnual.Checked = rbAnnual.Checked;
-                rbDaily.Checked = false;
-            }
-            dtAnnual.Enabled = rbAnnual.Checked;
-            dtDaily.Enabled = rbDaily.Checked;
-        }
-
-        private void rbAnnual_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbAnnual.Checked)
-            {
-                dtAnnual.Enabled = rbAnnual.Checked;
-                rbQuarterly.Checked = false;
-                rbDaily.Checked = false;
-            }
-            dtQuarterly.Enabled = rbQuarterly.Checked;
-            dtDaily.Enabled = rbDaily.Checked;
-        }
-
-        private void btnBack_TR_Click(object sender, EventArgs e)
-        {
-            MainForm mf2 = new MainForm(acc);
-            this.Hide();
-            mf2.mName(rs);
-            mf2.ShowDialog();
-        }
-
         private void btnCatalogManagement_Click(object sender, EventArgs e)
         {
             CatalogManagement cm = new CatalogManagement();
@@ -948,11 +978,6 @@ namespace GUI
             txtAddress_Supplier.Text = "";
             txtPhoneNumber_Supplier.Text = "";
             txtBankAccount.Text = "";
-        }
-
-        private void cbSearchProduct_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void txtSearchCustomer_MI_TextChanged(object sender, EventArgs e)
@@ -1076,29 +1101,9 @@ namespace GUI
         {
             Show(cb_us.Checked ? false : true);
         }
-
-        private void cb_Product_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cb_Supplier_CheckedChanged(object sender, EventArgs e)
         {
             Show_Supplier(cb_supplier.Checked ? false : true);
         }
-
-        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            //if(cb_point.Checked) 
-        }
-
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        //report
-
     }
 }

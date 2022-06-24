@@ -28,15 +28,14 @@ namespace DAL
         public DataTable GetRecords()
         {
             string query = "select ID_Customer,Name_Customer,Gender_Customer,Address_Customer," +
-                "PhoneNumber_Customer,Email_Customer,AccountNumber,TaxCode from Customer " +
-                "where Status = 'true'";
+                "PhoneNumber_Customer,Email_Customer,AccountNumber,TaxCode from Customer ";
             customers = DataProvider.Instance.GetRecords(query);
             return customers;
         }
         public List<Customer> GetAllCustomer()
         {
             List<Customer> list = new List<Customer>();
-            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from Customer where Status = 'true'").Rows)
+            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from Customer").Rows)
             {
                 list.Add(GetCustomerByDataRow(i));
             }
@@ -53,18 +52,16 @@ namespace DAL
                 Email_Customer = i["Email_Customer"].ToString(),
                 AccountNumber = i["AccountNumber"].ToString(),
                 Address_Customer = i["Address_Customer"].ToString(),
-                TaxCode = i["TaxCode"].ToString(),
-                Status = Convert.ToBoolean(i["Status"].ToString())
+                TaxCode = i["TaxCode"].ToString()
             };
         }
         public void addCustomer(Customer customer)
         {
             string query = "insert into Customer(Name_Customer,Gender_Customer,Address_Customer" +
-                ",PhoneNumber_Customer,Email_Customer,AccountNumber,TaxCode,Status) " + "values (N'" 
+                ",PhoneNumber_Customer,Email_Customer,AccountNumber,TaxCode) " + "values (N'" 
                 + customer.Name_Customer + "',N'" + customer.Gender_Customer  + "',N'" + customer.Address_Customer 
                 + "','" + customer.PhoneNumber_Customer + "','" + customer.Email_Customer + "','" 
-                + customer.AccountNumber + "','" + customer.TaxCode  
-                + "','" + customer.Status + "')";
+                + customer.AccountNumber + "','" + customer.TaxCode + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateCustomer(Customer customer)
@@ -73,13 +70,13 @@ namespace DAL
                 + "', Gender_Customer = N'" + customer.Gender_Customer + "', Address_Customer = N'" 
                 + customer.Address_Customer + "', PhoneNumber_Customer = '" + customer.PhoneNumber_Customer 
                 + "', Email_Customer = '" + customer.Email_Customer + "', AccountNumber = '" 
-                + customer.AccountNumber + "', TaxCode = '" + customer.TaxCode + "', Status = '" 
-                + customer.Status + "' where ID_Customer = '" + customer.ID_Customer + "'";
+                + customer.AccountNumber + "', TaxCode = '" + customer.TaxCode
+                + "' where ID_Customer = '" + customer.ID_Customer + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void deleteCustomer(string id_customer)
         {
-            string query = "update Customer set Status = 'false' where ID_Customer = '" + id_customer + "'";
+            string query = "delete from Customer where ID_Customer = '" + id_customer + "'";
             DataProvider.Instance.ExcuteDB(query);
         }
 

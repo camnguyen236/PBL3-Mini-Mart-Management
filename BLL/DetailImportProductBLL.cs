@@ -56,20 +56,15 @@ namespace BLL
         {
             return DetailImportProductDAL.Instance.getDetailImportProductByID(ID_IP);
         }
-        //public void updateImportProduct()
-        //{
-        //    DetailImportProductDAL.Instance.updateImportProduct2()
-        //}
-
         public List<DetailImportProducts> getAllDetailImportProducts()
         {
             return DetailImportProductDAL.Instance.GetAllDetailImportProducts();
         }
-        public DetailImportProducts getDetailImportProductsByID_IP(string id)
+        public DetailImportProducts getDetailImportProductsByID_IPAndID_P(string id_ip, string id_p)
         {
             foreach (DetailImportProducts i in getAllDetailImportProducts())
             {
-                if (i.ID_IP.ToString().Equals(id))
+                if (i.ID_IP.ToString().Equals(id_ip) && i.ID_P.ToString().Equals(id_p))
                 {
                     return i;
                 }

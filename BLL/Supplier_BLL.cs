@@ -81,5 +81,14 @@ namespace BLL
             }
             return null;
         }
+        public List<CBBGroups> getAllNameSupplier()
+        {
+            List<CBBGroups> data = new List<CBBGroups>();
+            foreach(Supplier i in getAllSupplier())
+            {
+                data.Add(new CBBGroups { Value = i.ID_Supplier, Text = i.Name_Supplier});
+            }
+            return data;
+        }
     }
 }

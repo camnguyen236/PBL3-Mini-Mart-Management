@@ -32,8 +32,7 @@ namespace GUI
 
         private void btnOK_Supplier_Click(object sender, EventArgs e)
         {
-            if (tbName.Text.Trim() == "" || tbAccountNumber.Text.Trim() == "" || tbTaxCode.Text.Trim() == ""
-                || tbPhoneNumber.Text.Trim() == "" || tbAddress.Text.Trim() == "")
+            if (tbName.Text.Trim() == "" || tbPhoneNumber.Text.Trim() == "")
                 MessageBox.Show("Please fill in the required information!", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             else if (!AccountBLL.Instance.checkPhoneNumber(tbPhoneNumber.Text))

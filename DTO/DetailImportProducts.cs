@@ -15,5 +15,6 @@ namespace DTO
 		public double Amount_Price { get; set; }
 		public double Discount { get; set; }
 		public double Total { get; set; }
+		public string Name_Product { get; set; }
 	}
 }

@@ -147,7 +147,7 @@ namespace DAL
         public List<Product> GetAllProduct()
         {
             List<Product> list = new List<Product>();
-            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from Products").Rows)
+            foreach (DataRow i in DataProvider.Instance.GetRecords("select * from Products where Status = 'true'").Rows)
             {
                 list.Add(GetProductByDataRow(i));
             }

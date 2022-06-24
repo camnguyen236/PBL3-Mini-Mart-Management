@@ -43,10 +43,9 @@
             this.btnSystem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnSystem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnSystem.ForeColor = System.Drawing.Color.White;
-            this.btnSystem.Location = new System.Drawing.Point(130, 190);
-            this.btnSystem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSystem.Location = new System.Drawing.Point(98, 154);
             this.btnSystem.Name = "btnSystem";
-            this.btnSystem.Size = new System.Drawing.Size(254, 44);
+            this.btnSystem.Size = new System.Drawing.Size(190, 36);
             this.btnSystem.TabIndex = 23;
             this.btnSystem.Text = "Report  a problem";
             this.btnSystem.UseTransparentBackground = true;
@@ -62,10 +61,9 @@
             this.btnHow.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnHow.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnHow.ForeColor = System.Drawing.Color.White;
-            this.btnHow.Location = new System.Drawing.Point(423, 190);
-            this.btnHow.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHow.Location = new System.Drawing.Point(317, 154);
             this.btnHow.Name = "btnHow";
-            this.btnHow.Size = new System.Drawing.Size(254, 44);
+            this.btnHow.Size = new System.Drawing.Size(190, 36);
             this.btnHow.TabIndex = 23;
             this.btnHow.Text = "How to use this app";
             this.btnHow.UseTransparentBackground = true;
@@ -73,11 +71,13 @@
             // 
             // Help
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(198)))), ((int)(((byte)(208)))));
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnHow);
             this.Controls.Add(this.btnSystem);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Help";
             this.Text = "Help";
             this.Load += new System.EventHandler(this.Help_Load);
