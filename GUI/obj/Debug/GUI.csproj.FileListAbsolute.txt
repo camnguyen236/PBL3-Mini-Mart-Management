@@ -279,3 +279,5 @@ C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ChangePassword.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.AddSupplier.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.ChangePassword.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.Help.resources
+D:\code\PBL3\GUI\obj\Debug\GUI.ChangeProfile.resources
+D:\code\PBL3\GUI\obj\Debug\GUI.Profile.resources

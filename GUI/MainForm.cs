@@ -15,7 +15,6 @@ namespace GUI
 {
     public partial class MainForm : Form
     {
-        public Login cur_login;
         public delegate void MyDelName(string s);
         public MyDelName mName;
         Account mAccount;
@@ -23,28 +22,18 @@ namespace GUI
         public MainForm(Account acc)
         {
             InitializeComponent();
-            
-            mName = new MyDelName(show);
             btnSystem.Enabled = AccountBLL.Instance.checkRole("Admin");
             btnAnalyze.Enabled = AccountBLL.Instance.checkRole("Admin");
             mAccount = acc;
             pnAccountDropDown.Hide();
             pnAccountDropDown.Size = pnAccountDropDown.MinimumSize;
-        }
-        public void load_data(string str)
-        {
-            txtNameNV.Text = str;
-        }
-        public void show(string s)
-        {
-            txtNameNV.Text = s;
+            txtNameNV.Text = acc.US + "/" + acc.Position;
         }
 
         private void btnList_Click(object sender, EventArgs e)
         {
             ManageForm l = new ManageForm(mAccount);
-            this.Hide();
-            l.rs = txtNameNV.Text;
+            this.Close();
             l.ShowDialog();
         }
 
@@ -62,7 +51,7 @@ namespace GUI
             if (isCollapsed)
             {
                 pnAccountDropDown.Show();
-                pnAccountDropDown.Height += 50;
+                pnAccountDropDown.Height += 200;
                 if (pnAccountDropDown.Size == pnAccountDropDown.MaximumSize)
                 {
                     timer1.Stop();
@@ -70,9 +59,8 @@ namespace GUI
                 }
             }
             else
-            {
-                
-                pnAccountDropDown.Height -= 50;
+            {                
+                pnAccountDropDown.Height -= 200;
                 if (pnAccountDropDown.Size == pnAccountDropDown.MinimumSize)
                 {
                     timer1.Stop();
@@ -90,14 +78,10 @@ namespace GUI
         {
             btnSignout.BackColor = Color.FromArgb(192, 0, 0);
         }
-        private void btnSignout_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void btnSignout_Click_1(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
             Login login = new Login();
             login.ShowDialog();
         }
@@ -105,7 +89,7 @@ namespace GUI
         private void btnAnalyze_Click(object sender, EventArgs e)
         {
             Analyze l = new Analyze(mAccount);
-            l.rs = txtNameNV.Text;
+            this.Close();
             l.ShowDialog();
         }
 
@@ -119,6 +103,12 @@ namespace GUI
         {
             Help f_help = new Help();
             f_help.ShowDialog();
+        }
+
+        private void btnChangeProfile_Click(object sender, EventArgs e)
+        {
+            ChangeProfile cp = new ChangeProfile(mAccount);
+            cp.ShowDialog();
         }
     }
 }

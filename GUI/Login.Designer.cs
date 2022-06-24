@@ -81,8 +81,6 @@
             this.txtUsername.SelectedText = "";
             this.txtUsername.Size = new System.Drawing.Size(241, 36);
             this.txtUsername.TabIndex = 5;
-            this.txtUsername.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtUsername_DragEnter);
-            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
             this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // txtPassword
@@ -244,7 +242,6 @@
             this.Name = "Login";
             this.Text = "Login";
             this.TransparencyKey = System.Drawing.Color.WhiteSmoke;
-            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();

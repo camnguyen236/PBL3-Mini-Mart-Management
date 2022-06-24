@@ -84,8 +84,7 @@ namespace GUI
                 if (numberOfRecords!=0)
                 {
                     if (!(string.IsNullOrEmpty(dt.Rows[n][nameColumn].ToString())))
-                    {
-                        
+                    {                        
                         s += Convert.ToInt32(dt.Rows[n][nameColumn]);
                     }
                     n++;
@@ -432,11 +431,8 @@ namespace GUI
         private void PBBackSR_Click(object sender, EventArgs e)
         {
             MainForm mf2 = new MainForm(acc);
-            this.Hide();
-            mf2.mName(rs);
-            mf2.ShowDialog();
-
             this.Close();
+            mf2.ShowDialog();
         }
     }
 }

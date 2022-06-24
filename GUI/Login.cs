@@ -37,16 +37,11 @@ namespace GUI
                     MessageBox.Show("Login Failed!");
                     break;
                 default:
-                    //MessageBox.Show("Login Successed!");
                     account = AccountBLL.Instance.getAccountByUS(txtUsername.Text);
                     MainForm mf = new MainForm(account);
-                    mf.cur_login = this;
-                    //mf.load_data(txtUsername.Text);
-                    string rs = txtUsername.Text + " / " + AccountBLL.Instance.getRole();
-                    mf.mName(rs);
-                    this.Hide();
-                    mf.ShowDialog();
                     this.Close();
+                    mf.ShowDialog();
+                    //this.Close();
                     break;
             }
             
@@ -63,20 +58,6 @@ namespace GUI
         {
             ResetPassword rs = new ResetPassword();
             rs.ShowDialog();
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUsername_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void txtUsername_DragEnter(object sender, DragEventArgs e)
-        {
-
         }
 
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)

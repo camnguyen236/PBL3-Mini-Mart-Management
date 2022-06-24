@@ -40,8 +40,7 @@ namespace GUI
             cbbName_Product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cbbName_Product.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbbName_Product.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            //setCBBDiscount();
-
+            
             addTab();
             Show_Customer();
             Show();
@@ -76,11 +75,8 @@ namespace GUI
         private void btnBack_Click(object sender, EventArgs e)
         {
             MainForm mf2 = new MainForm(acc);
-            this.Hide();
-            mf2.mName(rs);
-            mf2.ShowDialog();
-
             this.Close();
+            mf2.ShowDialog();
         }
         private void dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -97,50 +93,52 @@ namespace GUI
             rbTrue_us.Checked = AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).Status;
             rbFalse_us.Checked = !AccountBLL.Instance.getAccountByID(dgv1.SelectedRows[0].Cells["ID"].Value.ToString()).Status;
         }
-        Account account;
-        Customer customer;
-        Supplier Supplier;
-        Product product;
-        DetailImportProducts detailImportProducts;
-        ImportProducts importProducts;
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(acc.ID + " " + txtID.Text);
             if (dgv1.SelectedRows.Count == 1)
             {
-                AccountBLL.Instance.ExcuteDB(new Account
+                if (acc.ID == Convert.ToInt32(txtID.Text)) MessageBox.Show("You are currently logged in to this account");
+                else
                 {
-                    ID = Convert.ToInt32(txtID.Text),
-                    US = txtUsername.Text,
-                    PW = AccountBLL.Instance.getAccountByID(txtID.Text).PW,
-                    Name = txtName.Text,
-                    Gender = rbMale_us.Checked ? "Nam" : "Nữ",
-                    Birthday = Convert.ToDateTime(dpBirthday.Text),
-                    Adress = txtAddress.Text,
-                    PhoneNumber = txtPhone.Text,
-                    Position = AccountBLL.Instance.getAccountByID(txtID.Text).Position.ToString(),
-                    Email = txtEmail.Text,
-                    Status = rbTrue_us.Checked
-                });
-                Show(!cb_us.Checked);
-            }       
-
+                    AccountBLL.Instance.ExcuteDB(new Account
+                    {
+                        ID = Convert.ToInt32(txtID.Text),
+                        US = txtUsername.Text,
+                        PW = AccountBLL.Instance.getAccountByID(txtID.Text).PW,
+                        Name = txtName.Text,
+                        Gender = rbMale_us.Checked ? "Nam" : "Nữ",
+                        Birthday = Convert.ToDateTime(dpBirthday.Text),
+                        Adress = txtAddress.Text,
+                        PhoneNumber = txtPhone.Text,
+                        Position = AccountBLL.Instance.getAccountByID(txtID.Text).Position.ToString(),
+                        Email = txtEmail.Text,
+                        Status = rbTrue_us.Checked
+                    });
+                    Show(!cb_us.Checked);
+                }
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgv1.SelectedRows.Count > 0)
             {
-                DialogResult dl = MessageBox.Show("Are you sure to delete this row?", ""
+                if (acc.ID == Convert.ToInt32(txtID.Text)) MessageBox.Show("You are currently logged in to this account");
+                else
+                {
+                    DialogResult dl = MessageBox.Show("Are you sure to delete this row?", ""
                     , MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (dl == DialogResult.OK)
-                {
-                    AccountBLL.Instance.ExcuteDB(account, txtID.Text);
-                    Show(!cb_us.Checked);
-                    Reset();
-                }
-                else if (dl == DialogResult.Cancel)
-                {
-                    //sthis.Close();
+                    if (dl == DialogResult.OK)
+                    {
+                        AccountBLL.Instance.ExcuteDB(new Account(), txtID.Text);
+                        Show(!cb_us.Checked);
+                        Reset();
+                    }
+                    else if (dl == DialogResult.Cancel)
+                    {
+                        //sthis.Close();
+                    }
                 }
             }
         }
@@ -151,6 +149,11 @@ namespace GUI
             //AddAccount ad = new AddAccount();
             //ad.d = new AddAccount.Mydel(Show);
             //ad.ShowDialog();
+            if(txtID.Text != "")
+            {
+                MessageBox.Show("no");
+                return;
+            }
             if (txtName.Text.Trim() == "" || txtEmail.Text.Trim() == "" || txtUsername.Text.Trim() == "")
                 MessageBox.Show("Please fill in the required information!", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -225,7 +228,7 @@ namespace GUI
                 DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (dl == DialogResult.OK)
                 {
-                    Customer_BLL.Instance.ExcuteDB(customer, txtID_Customer.Text);
+                    Customer_BLL.Instance.ExcuteDB(new Customer(), txtID_Customer.Text);
                     Show_Customer();
                     Reset();
                 }
@@ -385,7 +388,7 @@ namespace GUI
                 DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (dl == DialogResult.OK)
                 {
-                    Supplier_BLL.Instance.ExcuteDB(Supplier, txtID_Supplier.Text);
+                    Supplier_BLL.Instance.ExcuteDB(new Supplier(), txtID_Supplier.Text);
                     Show_Supplier();
                     Reset();
                 }
@@ -457,7 +460,7 @@ namespace GUI
                 DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (dl == DialogResult.OK)
                 {
-                    Product_BLL.Instance.ExcuteDB(product, dgv2.SelectedRows[0].Cells["ID_P"].Value.ToString());
+                    Product_BLL.Instance.ExcuteDB(new Product(), dgv2.SelectedRows[0].Cells["ID_P"].Value.ToString());
                     Show_Product(getCurrenGroupName());
                 }
                 else if (dl == DialogResult.Cancel)
@@ -552,9 +555,9 @@ namespace GUI
         double total;
         private void btnAdd_InfOfProduct_Click(object sender, EventArgs e)
         {
-            detailImportProducts = new DetailImportProducts
+            DetailImportProductBLL.Instance.ExcuteDB(new DetailImportProducts
             {
-                ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct()-1]["ID"].ToString()),
+                ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct() - 1]["ID"].ToString()),
                 ID_P = ((CBBGroups)cbbName_Product.SelectedItem).Value,
                 IP_Price = Convert.ToDouble(txtImport_Price.Text),
                 Amount_IP = Convert.ToInt32(nmrQuantity.Value),
@@ -562,8 +565,7 @@ namespace GUI
                 Discount = Convert.ToDouble(txtDiscount.Text),
                 Total = total,
                 Name_Product = ((CBBGroups)cbbName_Product.SelectedItem).Text
-            };
-            DetailImportProductBLL.Instance.ExcuteDB(detailImportProducts, "Add");
+            }, "Add");
             lbAdd.ForeColor = Color.Green;
             
             showProducts();
@@ -591,7 +593,7 @@ namespace GUI
             DialogResult dl = MessageBox.Show("Are you sure to delete this row?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dl == DialogResult.OK)
             {
-                DetailImportProductBLL.Instance.ExcuteDB(detailImportProducts,cbbName_Product.Text);
+                DetailImportProductBLL.Instance.ExcuteDB(new DetailImportProducts(),cbbName_Product.Text);
                 showProducts();
             }
             else if (dl == DialogResult.Cancel)
@@ -704,7 +706,7 @@ namespace GUI
             if (PG.Value != 0) dc = Product_BLL.Instance.getProductByID_PG(Convert.ToString(PG.Value))[i];
             else dc = Product_BLL.Instance.getAllProduct()[i];
             uc = new UserControl1(Convert.ToInt32(dc.ID_P.ToString()));
-            uc.Name = "uc" + dc.Name_P;
+            //uc.Name = "uc" + dc.Name_P;
             uc.AddToCard_Click += new UserControl1.AddToCard_ClickHandler(addToCard_Click);
 
             MemoryStream mem = new MemoryStream(dc.IMG_P);
