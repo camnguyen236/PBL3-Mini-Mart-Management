@@ -24,7 +24,7 @@ namespace GUI
 
         private void btnHow_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.facebook.com");
+            System.Diagnostics.Process.Start("https://dcd-help.netlify.app/");
         }
     }
 }
