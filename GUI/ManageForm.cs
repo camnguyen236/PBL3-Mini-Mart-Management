@@ -517,6 +517,7 @@ namespace GUI
             ProductDetails pd = new ProductDetails();
             cb_Product.Checked = false;
             pd.d = new ProductDetails.MyDel(Show_Product);
+            pd.up = new ProductDetails.Update(updateTP);
             pd.Show();
         }
 
@@ -697,26 +698,41 @@ namespace GUI
         List<Tuple<int, int>> productArray;
         UserControl1 products;
         double Total;
-        private UserControl1 populateItems(UserControl1 uc, string groupName, int i)
+        private void populateItems(FlowLayoutPanel fl, UserControl1 uc, CBBGroups PG, int i)
         {
-            DataRow dc;
-            if (!groupName.Equals("All products")) dc = Product_BLL.Instance.getAllProductsByGroupName(groupName).Rows[i];
-            else dc = Product_BLL.Instance.getAllProducts().Rows[i];
-
-            uc = new UserControl1(Convert.ToInt32(dc["ID_P"].ToString()));
+            Product dc;
+            if (PG.Value != 0) dc = Product_BLL.Instance.getProductByID_PG(Convert.ToString(PG.Value))[i];
+            else dc = Product_BLL.Instance.getAllProduct()[i];
+            uc = new UserControl1(Convert.ToInt32(dc.ID_P.ToString()));
+            uc.Name = "uc" + dc.Name_P;
             uc.AddToCard_Click += new UserControl1.AddToCard_ClickHandler(addToCard_Click);
 
-            Byte[] data = new Byte[0];
-            data = (Byte[])(dc["IMG_P"]);
-            MemoryStream mem = new MemoryStream(data);
+            MemoryStream mem = new MemoryStream(dc.IMG_P);
             uc.Picture = Image.FromStream(mem);
 
-            uc.Name = dc["Name_P"].ToString();
-            uc.Price = "Price: " + dc["Price_P"].ToString();
-            uc.Unit = "Unit: " + dc["Unit_P"].ToString();
+            uc.name = dc.Name_P;
+            uc.Price = "Price: " + dc.Price_P.ToString();
+            uc.Unit = "Unit: " + dc.Unit_P.ToString();
             uc.Number = 0;
-            return uc;
+            fl.Controls.Add(uc);
         }
+        //private void updateItems(FlowLayoutPanel fl, UserControl1 uc, CBBGroups PG, int id)
+        //{
+        //    Product dc;
+        //    if (PG.Value != 0) dc = Product_BLL.Instance.getProductByID_PG(Convert.ToString(PG.Value))[i];
+        //    else dc = Product_BLL.Instance.getAllProduct()[i];
+        //    uc = new UserControl1(Convert.ToInt32(dc.ID_P.ToString()));
+        //    uc.AddToCard_Click += new UserControl1.AddToCard_ClickHandler(addToCard_Click);
+
+        //    MemoryStream mem = new MemoryStream(dc.IMG_P);
+        //    uc.Picture = Image.FromStream(mem);
+
+        //    uc.Name = dc.Name_P.ToString();
+        //    uc.Price = "Price: " + dc.Price_P.ToString();
+        //    uc.Unit = "Unit: " + dc.Unit_P.ToString();
+        //    uc.Number = 0;
+        //    fl.Controls.Add(uc);
+        //}
 
         private bool checkID_P(int id, int num)
         {
@@ -746,24 +762,23 @@ namespace GUI
             us.Number = 0;
         }
 
-        private void addItems(FlowLayoutPanel fl, string groupName)
+        private void addItems(FlowLayoutPanel fl, CBBGroups PG)
         {
             productArray = new List<Tuple<int, int>>();
             int numOfProduct;
-            if (groupName.Equals("All products")) numOfProduct = Product_BLL.Instance.getAllProducts().Rows.Count;
-            else numOfProduct = Product_BLL.Instance.getAllProductsByGroupName(groupName).Rows.Count;
+            if (PG.Value == 0) numOfProduct = Product_BLL.Instance.getAllProduct().Count;
+            else numOfProduct = Product_BLL.Instance.getProductByID_PG(Convert.ToString(PG.Value)).Count;
             fl.Controls.Clear();
             for (int i = 0; i < numOfProduct; i++)
             {
-                products = populateItems(products, groupName, i);
-                fl.Controls.Add(products);
+                populateItems(fl, products, PG, i);                
             }
         }
 
-        private void createTab(TabPage myTabPage, string product)
+        private void createTab(TabPage myTabPage, CBBGroups PG)
         {
             tabControlSellP.TabPages.Add(myTabPage);
-            myTabPage.Text = product;
+            myTabPage.Text = PG.ToString();
 
             FlowLayoutPanel fl_panel = new FlowLayoutPanel();
             myTabPage.Controls.Add(fl_panel);
@@ -771,30 +786,46 @@ namespace GUI
             fl_panel.BackgroundImage = global::GUI.Properties.Resources._277293806_1451411541982748_8799551172936554219_n__1_;
             fl_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             fl_panel.Location = new System.Drawing.Point(0, 0);
-            fl_panel.Name = "flowLayoutPanel";
+            fl_panel.Name = "fl" + PG.ToString();
             fl_panel.Size = new System.Drawing.Size(908, 508);
-            addItems(fl_panel, product);
+            addItems(fl_panel, PG);
         }
 
         private void addTab()
         {
             TabPage myTabPage = new TabPage("tpAllProducts");
-            createTab(myTabPage, "All products");
-            List<string> listProductsGroups = ProductGroups_BLL.Instance.getProductGroups().Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Name_PG")).ToList();
+            myTabPage.Name = "tpAllProducts";
+            createTab(myTabPage, new CBBGroups { Value = 0, Text = "All products" });
+            //List<string> listProductsGroups = ProductGroups_BLL.Instance.getProductGroups().Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Name_PG")).ToList();
+            List<CBBGroups> listProductsGroups = ProductGroups_BLL.Instance.GetListCBB();
             for (int i = 0; i < listProductsGroups.Count; i++)
             {
-                myTabPage = new TabPage("tp" + listProductsGroups[i]);
+                myTabPage = new TabPage("tp" + listProductsGroups[i].ToString());
+                myTabPage.Name = "tp" + listProductsGroups[i].ToString();
                 createTab(myTabPage, listProductsGroups[i]);
             }
         }
 
-        private void updateTP(string productGroup)
+        private void updateTP(CBBGroups PG, bool au, int id = 0)
         {
-            //if (tp.Name.Equals("tpAllProducts") || tp.Name.Equals("tp" + productGroup))
-            //{
-            //    while (tp.Controls.Count > 0) tp.Controls[0].Dispose();
-            //    createTab(tp, productGroup);
-            //}
+            int numOfProductAll = 0, numOfProduct = 0;
+            TabPage tpAll = tabControlSellP.TabPages["tpAllProducts"];
+            TabPage tp = tabControlSellP.TabPages["tp" + PG.ToString()];
+            MessageBox.Show(tp.Name);
+            FlowLayoutPanel flAll = (FlowLayoutPanel)tpAll.Controls[0];
+            FlowLayoutPanel fl = (FlowLayoutPanel)tp.Controls[0];
+            //UserControl1 UC = fl.Controls["ok"];
+            if (au)
+            {
+                numOfProductAll = Product_BLL.Instance.getAllProduct().Count;
+                numOfProduct = Product_BLL.Instance.getProductByID_PG(Convert.ToString(PG.Value)).Count;
+                populateItems(flAll, products, PG, numOfProductAll - 1);
+                populateItems(fl, products, PG, numOfProduct - 1);
+            }
+            else
+            {
+
+            }
         }
 
         private void viewCart()

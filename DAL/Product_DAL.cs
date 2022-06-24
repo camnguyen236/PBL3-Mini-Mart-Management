@@ -164,7 +164,7 @@ namespace DAL
                 Price_P = i["Price_P"].ToString(),
                 VAT = i["VAT"].ToString(),
                 VATInclusive_P = Convert.ToInt32(i["VAT_Inclusive_P"].ToString()),
-                IMG_P = Encoding.ASCII.GetBytes(i["IMG_P"].ToString()),
+                IMG_P = (byte[])(i["IMG_P"]),
                 Status = Convert.ToBoolean(i["Status"].ToString())
             };
         }

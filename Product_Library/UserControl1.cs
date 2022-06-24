@@ -35,7 +35,7 @@ namespace Product_Library
         }
 
         [Category("Product Props")]
-        public string Name
+        public string name
         {
             get { return _name; }
             set { _name = value; lbName.Text = value; }

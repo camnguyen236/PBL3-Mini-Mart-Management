@@ -56,19 +56,6 @@ namespace DAL
             productGroups = DataProvider.Instance.GetRecords(query);
             return productGroups;
         }
-        public DataTable getIDByGroupName(string groupName)
-        {
-            string query = $"SELECT ID_PG,Name_PG FROM ProductGroups where Name_PG = N'{groupName}' and Status = 'true'";
-            productGroups = DataProvider.Instance.GetRecords(query);
-            return productGroups;
-        }
-        public DataTable getNameGroupByID(string id)
-        {
-            string query = $"SELECT g.ID_PG , Name_PG FROM ProductGroups as g inner JOIN Products as p ON p.ID_PG = g.ID_PG and p.ID_P = {id} where g.Status = 'true'";
-            productGroups = DataProvider.Instance.GetRecords(query);
-            return productGroups;
-        }
-
         public ProductGroups GetGroup(DataRow i)
         {
             return new ProductGroups

@@ -49,14 +49,6 @@ namespace BLL
             }
             return null;
         }
-        public DataTable getNameGroupByID(string id)
-        {
-            return ProductGroups_DAL.Instance.getNameGroupByID(id);
-        }
-        public DataTable getIDByGroupName(string groupName)
-        {
-            return ProductGroups_DAL.Instance.getIDByGroupName(groupName);
-        }
 
         public List<CBBGroups> GetListCBB()
         {

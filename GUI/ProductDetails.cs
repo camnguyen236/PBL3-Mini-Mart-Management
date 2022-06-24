@@ -16,6 +16,8 @@ namespace GUI
     {
         public delegate void MyDel(string groupName, bool b = true);
         public MyDel d { get; set; }
+        public delegate void Update(CBBGroups PG, bool au, int id = 0);
+        public Update up { get; set; }
         public string id_p { get; set; }
         public ProductDetails(string id = null)
         {
@@ -24,6 +26,7 @@ namespace GUI
             loadData(id_p);
             setCBcbCatagories_PD();
             setCBCatagoriesSelectItem_PDByID(id);
+            btnEdit_PD.Text = "Edit";
         }
 
         
@@ -35,32 +38,7 @@ namespace GUI
 
         private void setCBcbCatagories_PD()
         {
-            List<string> listProductsGroups = ProductGroups_BLL.Instance.getProductGroups().Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Name_PG")).ToList();
-            foreach (string i in listProductsGroups)
-            {
-                cbCatagories_PD.Items.Add(i);
-            }
-        }
-        private string getNameGroupByID(string id)
-        {
-            DataTable db = ProductGroups_BLL.Instance.getNameGroupByID(id_p);
-            DataRow dr = db.Rows[0];
-            return dr["Name_PG"].ToString();
-        }
-        private string getIDByGroupName(string name)
-        {
-            try
-            {
-                DataTable db = ProductGroups_BLL.Instance.getIDByGroupName(name);
-                DataRow dr = db.Rows[0];
-                return dr["ID_PG"].ToString();
-            }
-            catch (Exception e)
-            {
-
-                MessageBox.Show(e.Message);
-            }
-            return "";
+            cbCatagories_PD.Items.AddRange(ProductGroups_BLL.Instance.GetListCBB().ToArray());
         }
         private void setCBCatagoriesSelectItem_PDByID(string id)
         {
@@ -68,7 +46,7 @@ namespace GUI
             if(id!=null){
                 foreach (var item in cbCatagories_PD.Items)
                 {
-                    if (item.ToString() == getNameGroupByID(id))
+                    if (item.ToString() == ProductGroups_BLL.Instance.getPGByID(id).Name_PG)
                     {
                         cbCatagories_PD.SelectedIndex = index;
                     }
@@ -86,7 +64,7 @@ namespace GUI
                 lbNameProduct_PD.Text = dr["Name_P"].ToString();
 
                 txtID_PD.Text = dr["ID_P"].ToString();
-                cbCatagories_PD.Text = getNameGroupByID(dr["ID_PG"].ToString());
+                cbCatagories_PD.Text = ProductGroups_BLL.Instance.getPGByID(dr["ID_PG"].ToString()).Name_PG;
                 txtName_PD.Text = dr["Name_P"].ToString();
                 txtUnit_PD.Text = dr["Unit_P"].ToString();
                 txtPrice_PD.Text = dr["Price_P"].ToString();
@@ -157,20 +135,6 @@ namespace GUI
             img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
             return ms.ToArray();
         }
-        public byte[] PathToByteArray(string path)
-        {
-            MemoryStream ms = new MemoryStream();
-            Image img = Image.FromFile(path);
-            img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-            return ms.ToArray();
-        }
-
-        public Image ByteArrayToImg(byte[] b)
-        {
-            MemoryStream ms = new MemoryStream(b);
-
-            return Image.FromStream(ms);
-        }
         private void saveBtn()
         {
             //check
@@ -185,7 +149,7 @@ namespace GUI
                     Unit_P = txtUnit_PD.Text,
                     Price_P = txtPrice_PD.Text,
                     VAT = txtVAT_PD.Text,
-                    ID_PG = getIDByGroupName(cbCatagories_PD.Text),
+                    ID_PG = ((CBBGroups)cbCatagories_PD.SelectedItem).Text,
                     IMG_P = ImgToByteArray(img_PD.Image),
                     Status = rbTrue.Checked
                     //ok
@@ -231,6 +195,7 @@ namespace GUI
         {
             saveBtn();
             d("All");
+            up((CBBGroups)cbCatagories_PD.SelectedItem, true);
             this.Close();
         }
 

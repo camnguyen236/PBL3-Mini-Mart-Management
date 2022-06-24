@@ -47,6 +47,18 @@ namespace BLL
             }
             return null;
         }
+        public List<Product> getProductByID_PG(string id)
+        {
+            List<Product> products = new List<Product>();
+            foreach (Product i in getAllProduct())
+            {
+                if (i.ID_PG.ToString().Equals(id))
+                {
+                    products.Add(i);
+                }
+            }
+            return products;
+        }
         public DataTable GetProductByID(string id)
         {
             return Product_DAL.Instance.GetProductByID(id);
