@@ -184,6 +184,7 @@ namespace GUI
                         ". You should change your password the first time you log in. Do not share your password with anyone for any reason.<br>The DCD team.");
                     if (mess.Equals("Sent Successfully"))
                     {
+                        MessageBox.Show("Your email has been successfully sent !", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         AccountBLL.Instance.ExcuteDB(new Account
                         {
                             US = txtUsername.Text,

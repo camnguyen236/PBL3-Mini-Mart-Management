@@ -101,7 +101,7 @@ namespace BLL
                 var msg = new Google.Apis.Gmail.v1.Data.Message();
                 msg.Raw = Base64UrlEncode(message.ToString());
                 service.Users.Messages.Send(msg, "me").Execute();
-                MessageBox.Show("Your email has been successfully sent !", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 return "Sent Successfully";
             }
             catch (Exception ex)
