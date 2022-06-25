@@ -26,5 +26,15 @@ namespace GUI
         {
             System.Diagnostics.Process.Start("https://dcd-help.netlify.app/");
         }
+
+        
+
+        private void btnProblem_Click(object sender, EventArgs e)
+        {
+            ReportProblem rp = new ReportProblem();
+            rp.ShowDialog();
+        }
+
+        
     }
 }
