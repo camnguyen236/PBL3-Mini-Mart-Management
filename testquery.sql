@@ -1,1 +1,0 @@
-﻿select ID_P,Name_P,Unit_P,Cost_P,Price_P,VAT FROM Products as p inner JOIN ProductGroups as g ON p.ID_PG = g.ID_PG and g.Name_PG = N'Rau-Củ-Trái cây'where Name_P like N'%i%'

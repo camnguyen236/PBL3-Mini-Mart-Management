@@ -1,1 +1,0 @@
-﻿SELECT * FROM ProductGroups where Name_PG = N'Rau-Củ-Trái cây'
