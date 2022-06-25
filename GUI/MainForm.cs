@@ -33,8 +33,9 @@ namespace GUI
         private void btnList_Click(object sender, EventArgs e)
         {
             ManageForm l = new ManageForm(mAccount);
+            this.Hide();
+            l.ShowDialog(); 
             this.Close();
-            l.ShowDialog();
         }
 
         private void btnSystem_Click(object sender, EventArgs e)
@@ -89,8 +90,9 @@ namespace GUI
         private void btnAnalyze_Click(object sender, EventArgs e)
         {
             Analyze l = new Analyze(mAccount);
-            this.Close();
+            this.Hide();
             l.ShowDialog();
+            this.Close();
         }
 
         private void btnChangePw_Click(object sender, EventArgs e)

@@ -71,7 +71,6 @@ D:\code\PBL3\GUI\bin\Debug\ARSoft.Tools.Net.xml
 D:\code\PBL3\GUI\bin\Debug\DAL.pdb
 D:\code\PBL3\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
 D:\code\PBL3\GUI\obj\Debug\GUI.csproj.SuggestedBindingRedirects.cache
-D:\code\PBL3\GUI\obj\Debug\GUI.AddAccount.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.AddCustomer.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.Login.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.MainForm.resources

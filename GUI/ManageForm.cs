@@ -75,8 +75,9 @@ namespace GUI
         private void btnBack_Click(object sender, EventArgs e)
         {
             MainForm mf2 = new MainForm(acc);
-            this.Close();
+            this.Hide();
             mf2.ShowDialog();
+            this.Close();
         }
         private void dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -712,7 +713,7 @@ namespace GUI
             MemoryStream mem = new MemoryStream(dc.IMG_P);
             uc.Picture = Image.FromStream(mem);
 
-            uc.name = dc.Name_P;
+            uc.Name = dc.Name_P;
             uc.Price = "Price: " + dc.Price_P.ToString();
             uc.Unit = "Unit: " + dc.Unit_P.ToString();
             uc.Number = 0;
@@ -896,7 +897,7 @@ namespace GUI
                 ID = acc.ID,
                 ID_Customer = ((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value,
                 Invoice_Date = DateTime.Now,
-                Name_Customer = ((CBBGroups)cbbResultSearchCustomer.SelectedItem).Text,
+                Name_Customer = Customer_BLL.Instance.getCustomerByID(((CBBGroups)cbbResultSearchCustomer.SelectedItem).Value.ToString()).Name_Customer,
                 Name_staff = AccountBLL.Instance.getAccountByID(acc.ID.ToString()).Name
             };
             Invoice_BLL.Instance.ExcuteDB(inv, "Add");

@@ -431,8 +431,9 @@ namespace GUI
         private void PBBackSR_Click(object sender, EventArgs e)
         {
             MainForm mf2 = new MainForm(acc);
-            this.Close();
+            this.Hide();
             mf2.ShowDialog();
+            this.Close();
         }
     }
 }

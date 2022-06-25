@@ -39,9 +39,9 @@ namespace GUI
                 default:
                     account = AccountBLL.Instance.getAccountByUS(txtUsername.Text);
                     MainForm mf = new MainForm(account);
-                    this.Close();
+                    this.Hide();
                     mf.ShowDialog();
-                    //this.Close();
+                    this.Close();
                     break;
             }
             
