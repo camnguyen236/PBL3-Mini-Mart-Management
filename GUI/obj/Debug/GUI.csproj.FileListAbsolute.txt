@@ -24,7 +24,6 @@ F:\PBL3\GUI\obj\Debug\GUI.MainForm.resources
 F:\PBL3\GUI\obj\Debug\GUI.ManageForm.resources
 F:\PBL3\GUI\obj\Debug\GUI.NewPassword.resources
 F:\PBL3\GUI\obj\Debug\GUI.ResetPassword.resources
-F:\PBL3\GUI\obj\Debug\GUI.AddAccount.resources
 F:\PBL3\GUI\obj\Debug\GUI.Systems.resources
 F:\PBL3\GUI\obj\Debug\GUI.AddCustomer.resources
 C:\Users\lvdle\Source\Repos\PBL3\GUI\bin\Debug\GUI.exe
@@ -88,11 +87,7 @@ C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.AddSupply.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\obj\Debug\GUI.ProductDetails.resources
 C:\Users\lvdle\source\repos\PBL3\GUI\bin\Debug\GUI.exe.config
 F:\PBL3\GUI\bin\Debug\GUI.exe.config
-F:\PBL3\GUI\obj\Debug\GUI.AddSupply.resources
 F:\PBL3\GUI\obj\Debug\GUI.ProductDetails.resources
-F:\PBL3\GUI\bin\Debug\BLL.dll.config
-F:\PBL3\GUI\bin\Debug\DTO.dll.config
-F:\PBL3\GUI\bin\Debug\DAL.dll.config
 F:\PBL3\GUI\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 F:\PBL3\GUI\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 F:\PBL3\GUI\bin\Debug\SqlServerTypes\x86\msvcr120.dll
@@ -145,7 +140,6 @@ F:\PBL3\GUI\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
 F:\PBL3\GUI\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 F:\PBL3\GUI\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 F:\PBL3\GUI\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-F:\PBL3\GUI\obj\Debug\GUI.DetailPaymentBill.resources
 F:\PBL3\GUI\obj\Debug\GUI.ImportHistory.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.ImportHistory.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.ProductDetails.resources
@@ -280,3 +274,10 @@ D:\code\PBL3\GUI\obj\Debug\GUI.ChangePassword.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.Help.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.ChangeProfile.resources
 D:\code\PBL3\GUI\obj\Debug\GUI.Profile.resources
+F:\PBL3\GUI\bin\Debug\Product_Library.pdb
+F:\PBL3\GUI\obj\Debug\GUI.ChangeProfile.resources
+F:\PBL3\GUI\obj\Debug\GUI.AddSupplier.resources
+F:\PBL3\GUI\obj\Debug\GUI.CatalogManagement.resources
+F:\PBL3\GUI\obj\Debug\GUI.ChangePassword.resources
+F:\PBL3\GUI\obj\Debug\GUI.Help.resources
+F:\PBL3\GUI\obj\Debug\GUI.Profile.resources

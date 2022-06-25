@@ -14,9 +14,11 @@ namespace GUI
 {
     public partial class InvoiceReport : Form
     {
+        //private int ID_Invoice;
         public InvoiceReport()
         {
             InitializeComponent();
+           // ID_Invoice = i;
         }
 
         private void InvoiceReport_Load(object sender, EventArgs e)
@@ -26,7 +28,7 @@ namespace GUI
                 reportViewer1.LocalReport.ReportEmbeddedResource = "GUI.Invoice.rdlc";
                 ReportDataSource reportDataSource = new ReportDataSource();
                 reportDataSource.Name = "InvoiceDS";
-                reportDataSource.Value = InvoiceDetail_BLL.Instance.getInvoiceDetailByID(Convert.ToInt32(InvoiceDetail_BLL.Instance.getID_Invoice())); //
+                reportDataSource.Value = InvoiceDetail_BLL.Instance.getInvoiceDetailByID(Convert.ToInt32(InvoiceDetail_BLL.Instance.getID_Invoice())); //InvoiceDetail_BLL.Instance.getID_Invoice()
                 reportViewer1.LocalReport.DataSources.Add(reportDataSource);
                 this.reportViewer1.RefreshReport();
             }

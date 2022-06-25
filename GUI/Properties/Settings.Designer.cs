@@ -32,5 +32,15 @@ namespace GUI.Properties {
                 return ((string)(this["InformationConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K9NDIH8;Initial Catalog=pbl3_3;Integrated Security=True")]
+        public string pbl3_3ConnectionString {
+            get {
+                return ((string)(this["pbl3_3ConnectionString"]));
+            }
+        }
     }
 }
