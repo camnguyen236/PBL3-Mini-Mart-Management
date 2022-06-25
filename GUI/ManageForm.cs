@@ -36,12 +36,12 @@ namespace GUI
             addCbSearchCustomer();
             addCbSearchSupplier();
             setCBBName_Supplier();
-            setCBBID_Products();
+            //setCBBID_Products();//lvd
             cbbName_Product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cbbName_Product.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbbName_Product.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             
-            addTab();
+            //addTab();//lvd
             Show_Customer();
             Show();
             cbProductsGroups.SelectedIndex = 0;

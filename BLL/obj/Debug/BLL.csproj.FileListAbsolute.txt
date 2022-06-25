@@ -270,3 +270,16 @@ C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\obj\Debug\BLL.csproj.CopyComplet
 C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\obj\Debug\BLL.dll
 C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\obj\Debug\BLL.pdb
 C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\DAL.pdb
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\BLL.dll.config
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.Auth.dll
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.Auth.PlatformServices.dll
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.Core.dll
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.dll
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.Gmail.v1.dll
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.xml
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.Auth.xml
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.Core.xml
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.Gmail.v1.xml
+C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Newtonsoft.Json.xml

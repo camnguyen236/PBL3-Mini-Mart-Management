@@ -292,7 +292,7 @@
     <EmbeddedResource Include="Systems.resx">
       <DependentUpon>Systems.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.config" />
+    <None Include="app.config" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
