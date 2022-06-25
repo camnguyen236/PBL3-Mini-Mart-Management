@@ -33,7 +33,9 @@ namespace DAL
         }
         public DataTable GetRecordsView()
         {
-            string query = "select ID_Invoice, Inf_user.Name, Customer.Name_Customer, Invoice_Date from Invoice inner join Inf_user on Invoice.ID = Inf_user.ID inner join Customer on Customer.ID_Customer = Invoice.ID_Customer";
+            string query = "select ID_Invoice, Name_staff, Name_Customer, Invoice_Date " +
+                "from Invoice";// inner join Inf_user on Invoice.ID = Inf_user.ID inner join Customer " +
+            //"on Customer.ID_Customer = Invoice.ID_Customer
             invoice = DataProvider.Instance.GetRecords(query);
             return invoice;
         }
@@ -61,8 +63,8 @@ namespace DAL
         public void addInvoice(Invoice invoice)
         {
             string query = "insert into Invoice " + "values ('" + invoice.ID + "','"
-                + invoice.ID_Customer + "','" + invoice.Invoice_Date + "','" + invoice.Name_staff +
-                "','" + invoice.Name_Customer + "')";
+                + invoice.ID_Customer + "','" + invoice.Invoice_Date + "',N'" + invoice.Name_staff +
+                "',N'" + invoice.Name_Customer + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateInvoice(Invoice invoice)

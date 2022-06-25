@@ -27,7 +27,11 @@ namespace DAL
         DataTable importproducts = new DataTable();
         public DataTable getAllImport_Product()
         {
-            string query = "select ID_IP as ID, Inf_user.Name as \"Staff\'s name\", Supplier.Name_Supplier as \"Supplier\'s name\", Date_Import as 'Import date' from ImportProduct inner join Inf_user on ImportProduct.ID = Inf_user.ID inner join Supplier on ImportProduct.ID_Supplier = Supplier.ID_Supplier";
+            string query = "select ID_IP as ID, Name_Staff as \"Staff\'s name\", " +
+                "Name_Supplier as \"Supplier\'s name\", Date_Import as 'Import date' " +
+                "from ImportProduct";
+            //inner join Inf_user on ImportProduct.ID = Inf_user.ID inner join " +
+            //    "Supplier on ImportProduct.ID_Supplier = Supplier.ID_Supplier
             importproducts = DataProvider.Instance.GetRecords(query);
             return importproducts;
         }
@@ -39,9 +43,10 @@ namespace DAL
         }
         public DataTable getDetailsImportProduct(int ID_IP)
         {
-            string query = "select DetailImportProduct.ID_P,Name_P,IP_Price,Amount_IP,Amount_Price,Discount" +
-                ",Total from DetailImportProduct inner join Products " +
-                "on DetailImportProduct.ID_P = Products.ID_P  where ID_IP = " + ID_IP;
+            string query = "select DetailImportProduct.ID_P,Name_Product,IP_Price,Amount_IP,Amount_Price,Discount" +
+                ",Total from DetailImportProduct  where ID_IP = " + ID_IP;
+            // inner join Products " +
+            //"on DetailImportProduct.ID_P = Products.ID_P
             importproducts = DataProvider.Instance.GetRecords(query);
             return importproducts;
         }
@@ -56,7 +61,7 @@ namespace DAL
         {
             string query = "insert into ImportProduct(ID,ID_Supplier,Date_Import,Name_Staff,Name_Supplier) " + "values ('"
                 + importProducts.ID + "','" + importProducts.ID_Supplier + "','" + importProducts.Date_Import
-                + "','" + importProducts.Name_Staff + "','" + importProducts.Name_Supplier + "')";
+                + "',N'" + importProducts.Name_Staff + "',N'" + importProducts.Name_Supplier + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateImportProduct(ImportProducts importProducts)

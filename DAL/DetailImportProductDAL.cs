@@ -29,7 +29,7 @@ namespace DAL
             string query = "insert into DetailImportProduct(ID_IP,ID_P,IP_Price,Amount_IP,Discount,Name_Product) " + "values ('"
                 + detailImportProducts.ID_IP + "','" + detailImportProducts.ID_P + "','" 
                 + detailImportProducts.IP_Price  + "','" + detailImportProducts.Amount_IP + "','" 
-                + detailImportProducts.Discount + "','" + detailImportProducts.Name_Product + "')";
+                + detailImportProducts.Discount + "',N'" + detailImportProducts.Name_Product + "')";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void updateImportProduct(DetailImportProducts detailImportProducts)
