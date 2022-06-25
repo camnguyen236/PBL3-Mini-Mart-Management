@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ImportProductsDTS" targetNamespace="http://tempuri.org/ImportProductsDTS.xsd" xmlns:mstns="http://tempuri.org/ImportProductsDTS.xsd" xmlns="http://tempuri.org/ImportProductsDTS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="pbl3_3ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="pbl3_3ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GUI.Properties.Settings.GlobalReference.Default.pbl3_3ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="pbl3_3ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ImportProduct.ID_IP, Inf_user.Name, DetailImportProduct.IP_Price, DetailImportProduct.Amount_IP, DetailImportProduct.Amount_Price, DetailImportProduct.Discount, DetailImportProduct.Total, Products.Name_P, 
+                         Supplier.Name_Supplier, Supplier.Address_Supplier, Supplier.PhoneNumber_Supplier, Supplier.BankAccount, Supplier.TaxCode, ImportProduct.Date_Import
+FROM            DetailImportProduct LEFT OUTER JOIN
+                         ImportProduct ON DetailImportProduct.ID_IP = ImportProduct.ID_IP LEFT OUTER JOIN
+                         Inf_user ON ImportProduct.ID = Inf_user.ID LEFT OUTER JOIN
+                         Products ON DetailImportProduct.ID_P = Products.ID_P LEFT OUTER JOIN
+                         Supplier ON ImportProduct.ID_Supplier = Supplier.ID_Supplier</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_IP" DataSetColumn="ID_IP" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="IP_Price" DataSetColumn="IP_Price" />
+              <Mapping SourceColumn="Amount_IP" DataSetColumn="Amount_IP" />
+              <Mapping SourceColumn="Amount_Price" DataSetColumn="Amount_Price" />
+              <Mapping SourceColumn="Discount" DataSetColumn="Discount" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Name_P" DataSetColumn="Name_P" />
+              <Mapping SourceColumn="Name_Supplier" DataSetColumn="Name_Supplier" />
+              <Mapping SourceColumn="Address_Supplier" DataSetColumn="Address_Supplier" />
+              <Mapping SourceColumn="PhoneNumber_Supplier" DataSetColumn="PhoneNumber_Supplier" />
+              <Mapping SourceColumn="BankAccount" DataSetColumn="BankAccount" />
+              <Mapping SourceColumn="TaxCode" DataSetColumn="TaxCode" />
+              <Mapping SourceColumn="Date_Import" DataSetColumn="Date_Import" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ImportProductsDTS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="ImportProductsDTS" msprop:Generator_DataSetName="ImportProductsDTS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_UserTableName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_IP" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID_IP" msprop:Generator_ColumnPropNameInTable="ID_IPColumn" msprop:Generator_ColumnVarNameInTable="columnID_IP" msprop:Generator_UserColumnName="ID_IP" type="xs:int" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IP_Price" msprop:Generator_ColumnPropNameInRow="IP_Price" msprop:Generator_ColumnPropNameInTable="IP_PriceColumn" msprop:Generator_ColumnVarNameInTable="columnIP_Price" msprop:Generator_UserColumnName="IP_Price" type="xs:double" minOccurs="0" />
+              <xs:element name="Amount_IP" msprop:Generator_ColumnPropNameInRow="Amount_IP" msprop:Generator_ColumnPropNameInTable="Amount_IPColumn" msprop:Generator_ColumnVarNameInTable="columnAmount_IP" msprop:Generator_UserColumnName="Amount_IP" type="xs:decimal" />
+              <xs:element name="Amount_Price" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Amount_Price" msprop:Generator_ColumnPropNameInTable="Amount_PriceColumn" msprop:Generator_ColumnVarNameInTable="columnAmount_Price" msprop:Generator_UserColumnName="Amount_Price" type="xs:double" minOccurs="0" />
+              <xs:element name="Discount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_UserColumnName="Discount" type="xs:double" minOccurs="0" />
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_UserColumnName="Total" type="xs:double" minOccurs="0" />
+              <xs:element name="Name_P" msprop:Generator_ColumnPropNameInRow="Name_P" msprop:Generator_ColumnPropNameInTable="Name_PColumn" msprop:Generator_ColumnVarNameInTable="columnName_P" msprop:Generator_UserColumnName="Name_P" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name_Supplier" msprop:Generator_ColumnPropNameInRow="Name_Supplier" msprop:Generator_ColumnPropNameInTable="Name_SupplierColumn" msprop:Generator_ColumnVarNameInTable="columnName_Supplier" msprop:Generator_UserColumnName="Name_Supplier" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address_Supplier" msprop:Generator_ColumnPropNameInRow="Address_Supplier" msprop:Generator_ColumnPropNameInTable="Address_SupplierColumn" msprop:Generator_ColumnVarNameInTable="columnAddress_Supplier" msprop:Generator_UserColumnName="Address_Supplier" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PhoneNumber_Supplier" msprop:Generator_ColumnPropNameInRow="PhoneNumber_Supplier" msprop:Generator_ColumnPropNameInTable="PhoneNumber_SupplierColumn" msprop:Generator_ColumnVarNameInTable="columnPhoneNumber_Supplier" msprop:Generator_UserColumnName="PhoneNumber_Supplier" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BankAccount" msprop:Generator_ColumnPropNameInRow="BankAccount" msprop:Generator_ColumnPropNameInTable="BankAccountColumn" msprop:Generator_ColumnVarNameInTable="columnBankAccount" msprop:Generator_UserColumnName="BankAccount" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaxCode" msprop:Generator_ColumnPropNameInRow="TaxCode" msprop:Generator_ColumnPropNameInTable="TaxCodeColumn" msprop:Generator_ColumnVarNameInTable="columnTaxCode" msprop:Generator_UserColumnName="TaxCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date_Import" msprop:Generator_ColumnPropNameInRow="Date_Import" msprop:Generator_ColumnPropNameInTable="Date_ImportColumn" msprop:Generator_ColumnVarNameInTable="columnDate_Import" msprop:Generator_UserColumnName="Date_Import" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:ID_IP" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

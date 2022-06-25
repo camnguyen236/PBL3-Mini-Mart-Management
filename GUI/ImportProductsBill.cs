@@ -28,7 +28,7 @@ namespace GUI
                 reportViewer1.LocalReport.ReportEmbeddedResource = "GUI.ImportProductsBill.rdlc";
                 ReportDataSource reportDataSource = new ReportDataSource();
                 reportDataSource.Name = "ImportProductsBill";
-                reportDataSource.Value = DetailImportProductBLL.Instance.getDetailImportProductByID(Convert.ToInt32(DetailImportProductBLL.Instance.getID_IP()));
+                reportDataSource.Value = DetailImportProductBLL.Instance.getDetailImportProductByID(Convert.ToInt32(DetailImportProductBLL.Instance.getID_IP())); //
                 reportViewer1.LocalReport.DataSources.Add(reportDataSource);
                 this.reportViewer1.RefreshReport();
             }

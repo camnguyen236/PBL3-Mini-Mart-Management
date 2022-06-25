@@ -705,6 +705,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -774,83 +775,45 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Name">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!Name.Value, "ImportProductsBill")</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Name</rd:DefaultName>
-        <Top>3.17708in</Top>
-        <Left>4.94097in</Left>
-        <Height>0.25in</Height>
-        <Width>1.31375in</Width>
+      <Line Name="Line1">
+        <Top>4.375in</Top>
+        <Height>0in</Height>
+        <Width>7.57167in</Width>
         <ZIndex>9</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
         </Style>
-      </Textbox>
-      <Textbox Name="Name_Supply">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!Name_Supply.Value, "ImportProductsBill")</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Name_Supply</rd:DefaultName>
-        <Top>0.30208in</Top>
-        <Left>2.09028in</Left>
-        <Height>0.25in</Height>
-        <Width>1in</Width>
+      </Line>
+      <Line Name="Line3">
+        <Top>0.04167in</Top>
+        <Height>0in</Height>
+        <Width>7.57167in</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
         </Style>
-      </Textbox>
-      <Textbox Name="PhoneNumber_Supply">
+      </Line>
+      <Textbox Name="Textbox45">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!PhoneNumber_Supply.Value, "ImportProductsBill")</Value>
+                <Value>VNĐ</Value>
                 <Style />
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>PhoneNumber_Supply</rd:DefaultName>
-        <Top>0.31249in</Top>
-        <Left>5.29042in</Left>
+        <rd:DefaultName>Textbox45</rd:DefaultName>
+        <Top>2.80902in</Top>
+        <Left>5.77431in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>11</ZIndex>
@@ -864,26 +827,56 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Address_Supply">
+      <Textbox Name="Name_Supplier">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!Address_Supply.Value, "ImportProductsBill")</Value>
+                <Value>=First(Fields!Name_Supplier.Value, "ImportProductsBill")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Address_Supply</rd:DefaultName>
-        <Top>0.78124in</Top>
+        <rd:DefaultName>Name_Supplier</rd:DefaultName>
+        <Top>0.31249in</Top>
         <Left>2.09028in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Address_Supplier">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Address_Supplier.Value, "ImportProductsBill")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Address_Supplier</rd:DefaultName>
+        <Top>0.78124in</Top>
+        <Left>2.09028in</Left>
+        <Height>0.25in</Height>
+        <Width>1in</Width>
+        <ZIndex>13</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -913,7 +906,37 @@
         <Left>2.09028in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
-        <ZIndex>13</ZIndex>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="PhoneNumber_Supplier">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!PhoneNumber_Supplier.Value, "ImportProductsBill")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>PhoneNumber_Supplier</rd:DefaultName>
+        <Top>0.31249in</Top>
+        <Left>5.29042in</Left>
+        <Height>0.25in</Height>
+        <Width>1in</Width>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -943,7 +966,7 @@
         <Left>5.29042in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
-        <ZIndex>14</ZIndex>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -954,47 +977,23 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Line Name="Line1">
-        <Top>4.375in</Top>
-        <Left>0in</Left>
-        <Height>0in</Height>
-        <Width>7.57167in</Width>
-        <ZIndex>15</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Line>
-      <Line Name="Line3">
-        <Top>0.04167in</Top>
-        <Left>0in</Left>
-        <Height>0in</Height>
-        <Width>7.57167in</Width>
-        <ZIndex>16</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Line>
-      <Textbox Name="Textbox45">
+      <Textbox Name="Name">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>VNĐ</Value>
+                <Value>=First(Fields!Name.Value, "ImportProductsBill")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox45</rd:DefaultName>
-        <Top>2.80902in</Top>
-        <Left>5.77431in</Left>
+        <rd:DefaultName>Name</rd:DefaultName>
+        <Top>3.21875in</Top>
+        <Left>5.07167in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>17</ZIndex>
@@ -1117,36 +1116,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Date_Import">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!Date_Import.Value, "ImportProductsBill")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Date_Import</rd:DefaultName>
-          <Top>0.65562in</Top>
-          <Left>5.01042in</Left>
-          <Height>0.25in</Height>
-          <Width>1in</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
         <Textbox Name="ID_IP">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -1163,7 +1132,37 @@
           </Paragraphs>
           <rd:DefaultName>ID_IP</rd:DefaultName>
           <Top>0.66382in</Top>
-          <Left>1.94667in</Left>
+          <Left>2.01042in</Left>
+          <Height>0.25in</Height>
+          <Width>1in</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Date_Import">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!Date_Import.Value, "ImportProductsBill")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Date_Import</rd:DefaultName>
+          <Top>0.65562in</Top>
+          <Left>4.94097in</Left>
           <Height>0.25in</Height>
           <Width>1in</Width>
           <ZIndex>4</ZIndex>
@@ -1206,11 +1205,18 @@
       </ConnectionProperties>
       <rd:DataSourceID>f76bdb68-8328-436b-8361-97e811aad7f0</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="ImportProductsDTS">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>ec7ba048-8a76-4692-892b-e236aaed012e</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="ImportProductsBill">
       <Query>
-        <DataSourceName>ImportProductsDS</DataSourceName>
+        <DataSourceName>ImportProductsDTS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1218,9 +1224,13 @@
           <DataField>ID_IP</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="IP_Price">
           <DataField>IP_Price</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="Amount_IP">
           <DataField>Amount_IP</DataField>
@@ -1228,38 +1238,30 @@
         </Field>
         <Field Name="Amount_Price">
           <DataField>Amount_Price</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="Discount">
           <DataField>Discount</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="Total">
           <DataField>Total</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Date_Import">
-          <DataField>Date_Import</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="Name_P">
           <DataField>Name_P</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Name_Supply">
-          <DataField>Name_Supply</DataField>
+        <Field Name="Name_Supplier">
+          <DataField>Name_Supplier</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PhoneNumber_Supply">
-          <DataField>PhoneNumber_Supply</DataField>
+        <Field Name="Address_Supplier">
+          <DataField>Address_Supplier</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Address_Supply">
-          <DataField>Address_Supply</DataField>
+        <Field Name="PhoneNumber_Supplier">
+          <DataField>PhoneNumber_Supplier</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="BankAccount">
@@ -1270,14 +1272,18 @@
           <DataField>TaxCode</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Date_Import">
+          <DataField>Date_Import</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>ImportProductsDS</rd:DataSetName>
-        <rd:SchemaPath>F:\PBL3\GUI\ImportProductsDS.xsd</rd:SchemaPath>
-        <rd:TableName>dtImportProductsDS</rd:TableName>
+        <rd:DataSetName>ImportProductsDTS</rd:DataSetName>
+        <rd:SchemaPath>F:\PBL3\GUI\ImportProductsDTS.xsd</rd:SchemaPath>
+        <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>dtImportProductsDSTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>DataTable1TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

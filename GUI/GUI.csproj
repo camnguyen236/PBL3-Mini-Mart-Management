@@ -142,10 +142,10 @@
     <Compile Include="ImportProductsBill.Designer.cs">
       <DependentUpon>ImportProductsBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImportProductsDS.Designer.cs">
+    <Compile Include="ImportProductsDTS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ImportProductsDS.xsd</DependentUpon>
+      <DependentUpon>ImportProductsDTS.xsd</DependentUpon>
     </Compile>
     <Compile Include="InvoiceDS.cs">
       <DependentUpon>InvoiceDS.xsd</DependentUpon>
@@ -154,6 +154,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InvoiceDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceDTS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceDTS.xsd</DependentUpon>
     </Compile>
     <Compile Include="InvoiceReport.cs">
       <SubType>Form</SubType>
@@ -278,6 +283,7 @@
     <EmbeddedResource Include="Systems.resx">
       <DependentUpon>Systems.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -289,16 +295,16 @@
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="ImportProductsDS.xsc">
-      <DependentUpon>ImportProductsDS.xsd</DependentUpon>
+    <None Include="ImportProductsDTS.xsc">
+      <DependentUpon>ImportProductsDTS.xsd</DependentUpon>
     </None>
-    <None Include="ImportProductsDS.xsd">
+    <None Include="ImportProductsDTS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ImportProductsDS.Designer.cs</LastGenOutput>
+      <LastGenOutput>ImportProductsDTS.Designer.cs</LastGenOutput>
     </None>
-    <None Include="ImportProductsDS.xss">
-      <DependentUpon>ImportProductsDS.xsd</DependentUpon>
+    <None Include="ImportProductsDTS.xss">
+      <DependentUpon>ImportProductsDTS.xsd</DependentUpon>
     </None>
     <None Include="InvoiceDS.xsc">
       <DependentUpon>InvoiceDS.xsd</DependentUpon>
@@ -310,6 +316,17 @@
     </None>
     <None Include="InvoiceDS.xss">
       <DependentUpon>InvoiceDS.xsd</DependentUpon>
+    </None>
+    <None Include="InvoiceDTS.xsc">
+      <DependentUpon>InvoiceDTS.xsd</DependentUpon>
+    </None>
+    <None Include="InvoiceDTS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvoiceDTS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="InvoiceDTS.xss">
+      <DependentUpon>InvoiceDTS.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

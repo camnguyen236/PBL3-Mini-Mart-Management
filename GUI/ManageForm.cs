@@ -655,6 +655,7 @@ namespace GUI
 
         private void btnDetailImportBill_Click(object sender, EventArgs e)
         {
+            DetailImportProductBLL.Instance.get(txtID_IP.Text);
             ImportProductsBill importProductsBill = new ImportProductsBill();
             importProductsBill.ShowDialog();
         }
@@ -902,7 +903,7 @@ namespace GUI
             };
             Invoice_BLL.Instance.ExcuteDB(inv, "Add");
             int id = Convert.ToInt32(Invoice_BLL.Instance.getInvoice().Rows[Invoice_BLL.Instance.getInvoice().Rows.Count - 1]["ID_Invoice"].ToString());
-            InvoiceDetail_BLL.Instance.get(id.ToString());
+            InvoiceDetail_BLL.Instance.get(Convert.ToString(id));
             for (int i = 0; i < productArray.Count; i++)
             {
                 InvoiceDetail ind = new InvoiceDetail
@@ -920,6 +921,8 @@ namespace GUI
             DialogResult dl = MessageBox.Show("Are you want to print this bill?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (dl == DialogResult.OK)
             {
+                //MessageBox.Show(Convert.ToString(id));
+                //InvoiceDetail_BLL.Instance.get(id);
                 InvoiceReport invoiceReport = new InvoiceReport();
                 invoiceReport.ShowDialog();
             }

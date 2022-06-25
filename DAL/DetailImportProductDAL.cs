@@ -47,15 +47,7 @@ namespace DAL
         public DataTable getDetailImportProductByID(int ID_IP)
         {
             DataTable data = new DataTable();
-            string query = "SELECT DetailImportProduct.ID_IP, DetailImportProduct.IP_Price, " +
-                "DetailImportProduct.Amount_IP, DetailImportProduct.Amount_Price, " +
-                "DetailImportProduct.Discount, DetailImportProduct.Total, ImportProduct.Date_Import" +
-                ", Inf_user.Name, Products.Name_P, Supply.Name_Supply, Supply.PhoneNumber_Supply, " +
-                "Supply.Address_Supply, Supply.BankAccount, Supply.TaxCode from DetailImportProduct " +
-                "LEFT OUTER JOIN ImportProduct ON DetailImportProduct.ID_IP = ImportProduct.ID_IP LEFT " +
-                "OUTER JOIN Inf_user ON ImportProduct.ID = Inf_user.ID LEFT OUTER JOIN Products ON " +
-                "DetailImportProduct.ID_P = Products.ID_P LEFT OUTER JOIN Supply " +
-                "ON ImportProduct.ID_Supply = Supply.ID_Supply Where ImportProduct.ID_IP = " + ID_IP;
+            string query = "SELECT ImportProduct.ID_IP, Inf_user.Name, DetailImportProduct.IP_Price, DetailImportProduct.Amount_IP, DetailImportProduct.Amount_Price, DetailImportProduct.Discount, DetailImportProduct.Total, Products.Name_P, Supplier.Name_Supplier, Supplier.Address_Supplier, Supplier.PhoneNumber_Supplier, Supplier.BankAccount, Supplier.TaxCode, ImportProduct.Date_Import FROM DetailImportProduct LEFT OUTER JOIN ImportProduct ON DetailImportProduct.ID_IP = ImportProduct.ID_IP LEFT OUTER JOIN Inf_user ON ImportProduct.ID = Inf_user.ID LEFT OUTER JOIN Products ON DetailImportProduct.ID_P = Products.ID_P LEFT OUTER JOIN Supplier ON ImportProduct.ID_Supplier = Supplier.ID_Supplier where ImportProduct.ID_IP = " + ID_IP;
             data = DataProvider.Instance.GetRecords(query);
             return data;
         }
