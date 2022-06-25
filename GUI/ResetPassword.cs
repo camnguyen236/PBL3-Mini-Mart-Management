@@ -33,8 +33,8 @@ namespace GUI
             //else
             //{
             string check = sendMail.Instance.checkMail(tbEmail.Text);
-            if (!check.Contains("OKk")) 
-                MessageBox.Show(check + "\nPlease re-enter your email");
+            if (check!="OK")
+                MessageBox.Show("\nPlease re-enter your email");
             else
             {
                 MessageBox.Show(sendMail.Instance.Send(tbEmail.Text, "DCD Supermarkets - Password recovery", "Hello " + tbName.Text
