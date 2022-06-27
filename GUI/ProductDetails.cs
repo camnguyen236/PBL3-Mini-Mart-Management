@@ -42,15 +42,15 @@ namespace GUI
         }
         private void setCBCatagoriesSelectItem_PDByID(string id)
         {
-            int index = 0;
+            //int index = 0;
             if(id!=null){
                 foreach (var item in cbCatagories_PD.Items)
                 {
-                    if (item.ToString() == ProductGroups_BLL.Instance.getPGByID(id).Name_PG)
+                    if (item.ToString().Equals(ProductGroups_BLL.Instance.getPGByID(id).Name_PG))
                     {
-                        cbCatagories_PD.SelectedIndex = index;
+                        cbCatagories_PD.SelectedItem = item;
                     }
-                    index++;
+                    //index++;
                 }
             }
             
@@ -149,7 +149,7 @@ namespace GUI
                     Unit_P = txtUnit_PD.Text,
                     Price_P = txtPrice_PD.Text,
                     VAT = txtVAT_PD.Text,
-                    ID_PG = ((CBBGroups)cbCatagories_PD.SelectedItem).Text,
+                    ID_PG = Convert.ToString(((CBBGroups)cbCatagories_PD.SelectedItem).Value),
                     IMG_P = ImgToByteArray(img_PD.Image),
                     Status = rbTrue.Checked
                     //ok

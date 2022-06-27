@@ -73,16 +73,17 @@ namespace BLL
         {
             return InvoiceDetail_DAL.Instance.GetAllInvoiceDetail();
         }
-        public InvoiceDetail getInvoiceDetailByID_invoice(string id)
+        public List<InvoiceDetail> getInvoiceDetailByID_P(string id)
         {
+            List<InvoiceDetail> data = new List<InvoiceDetail>();
             foreach (InvoiceDetail i in getAllInvoiceDetail())
             {
-                if (i.ID_Invoice.ToString().Equals(id))
+                if (i.ID_P.ToString().Equals(id))
                 {
-                    return i;
+                    data.Add(i);
                 }
             }
-            return null;
+            return data;
         }
     }
 }

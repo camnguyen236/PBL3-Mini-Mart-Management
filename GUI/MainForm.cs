@@ -27,7 +27,7 @@ namespace GUI
             mAccount = acc;
             pnAccountDropDown.Hide();
             pnAccountDropDown.Size = pnAccountDropDown.MinimumSize;
-            txtNameNV.Text = acc.US + "/" + acc.Position;
+            txtNameNV.Text = acc.US + " / " + acc.Position;
         }
 
         private void btnList_Click(object sender, EventArgs e)

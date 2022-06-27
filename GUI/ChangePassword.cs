@@ -32,21 +32,21 @@ namespace GUI
                     {
                         account.PW = HashCode.Instance.hashCode(txtNewPw.Text);
                         AccountBLL.Instance.ExcuteDB(account);
-                        MessageBox.Show("đồi mk rùi!");
+                        MessageBox.Show("Change password successfully!");
                     }
                     else
                     {
-                        MessageBox.Show("mk sai rùi!");
+                        MessageBox.Show("Old password incorrect!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Nhập lại mk mới đi ko giống!");
+                    MessageBox.Show("Password and confirm password does not match!");
                 }
             }
             else
             {
-                MessageBox.Show("Sai định dạng gòi:)))!");
+                MessageBox.Show("New password is not formatted correctly!");
             }
             
         }

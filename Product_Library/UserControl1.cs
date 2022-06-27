@@ -19,13 +19,15 @@ namespace Product_Library
         }
 
         #region Properties
-
+        
         private Image _picture;
         private string _name;
         private string _price;
         private string _unit;
         private int _number;
         private int id_p;
+        private int _inventory;
+        private int _maxValue;
 
         [Category("Product Props")]
         public Image Picture
@@ -62,6 +64,20 @@ namespace Product_Library
             set { _number = value; number.Value = value; }
         }
 
+        [Category("Product Props")]
+        public int Inventory
+        {
+            get { return _inventory; }
+            set { _inventory = value; lbInventory.Text = Convert.ToString(value); }
+        }
+
+        [Category("Product Props")]
+        public int MaxValue
+        {
+            get { return _maxValue; }
+            set { _maxValue = value; number.Maximum = _maxValue; }
+        }
+
         public int Id_p
         {
             get { return id_p; }
@@ -72,21 +88,9 @@ namespace Product_Library
         public delegate void AddToCard_ClickHandler(object sender, EventArgs e);
         public event AddToCard_ClickHandler AddToCard_Click;
 
-        public void OnAddToCard_ClickClick(EventArgs e)
-        {
-            if (AddToCard_Click != null)
-            {
-                AddToCard_Click(this, e);
-            }
-        }
-        public void add()
-        {
-            OnAddToCard_ClickClick(EventArgs.Empty);
-        }
-
         private void btnAddToCard_Click(object sender, EventArgs e)
         {
-            add();
+            if (this.AddToCard_Click != null) this.AddToCard_Click(this, e);
         }
 
         private void number_ValueChanged(object sender, EventArgs e)

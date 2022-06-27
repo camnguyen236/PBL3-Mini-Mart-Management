@@ -26,6 +26,7 @@ namespace GUI
             InitializeComponent();
             btnRefresh.Hide();
             this.acc = acc;
+            GUI();
         }
         public delegate void Mydel();
         public Mydel d { get; set; }
@@ -109,6 +110,18 @@ namespace GUI
             rbtnMale.Checked = true;
         }
 
+        public void GUI()
+        {
+            tbName.Text = acc.Name;
+            tbEmail.Text = acc.Email;
+            tbAddress.Text = acc.Adress;
+            tbPhoneNumber.Text = acc.PhoneNumber;
+            tbUS.Text = acc.US;
+            DTPBirthday.Value = acc.Birthday;
+            if (acc.Gender.Equals("Nam")) rbtnMale.Checked = true; 
+            else rbtnFemale.Checked = true;
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (tbName.Text.Trim() == "" || tbEmail.Text.Trim() == "" || tbUS.Text.Trim() == "")
@@ -118,7 +131,7 @@ namespace GUI
             {
                 MessageBox.Show("Your username:\n Must be between six and 24 characters long.\n Can contain any letters from a to z and any numbers from 0 through 9.");
             }
-            else if (AccountBLL.Instance.checkField("US", tbUS.Text))
+            else if (!tbUS.Text.Equals(acc.US) && AccountBLL.Instance.checkField("US", tbUS.Text))
             {
                 MessageBox.Show("This username already exists. Please re-enter your username");
             }
@@ -126,7 +139,7 @@ namespace GUI
             {
                 MessageBox.Show("Invalid email format");
             }
-            else if (AccountBLL.Instance.checkField("Email", tbEmail.Text))
+            else if (!tbEmail.Text.Equals(acc.Email) && AccountBLL.Instance.checkField("Email", tbEmail.Text))
             {
                 MessageBox.Show("This email already exists. Please re-enter your email");
             }            
@@ -144,9 +157,10 @@ namespace GUI
                     PhoneNumber = tbPhoneNumber.Text,
                     Position = AccountBLL.Instance.getAccountByID(Convert.ToString(acc.ID)).Position,
                     Email = tbEmail.Text,
-                    Status = true
+                    Status = AccountBLL.Instance.getAccountByID(Convert.ToString(acc.ID)).Status
                 });
                 MessageBox.Show("Updated successfully");
+                GUI();
             }
         }
     }

@@ -8,3 +8,4 @@ D:\code\PBL3\Product_Library\obj\Debug\Product_Library.csproj.CoreCompileInputs.
 D:\code\PBL3\Product_Library\obj\Debug\Product_Library.csproj.CopyComplete
 D:\code\PBL3\Product_Library\obj\Debug\Product_Library.dll
 D:\code\PBL3\Product_Library\obj\Debug\Product_Library.pdb
+D:\code\PBL3\Product_Library\obj\Debug\Product_Library.Properties.Resources.resources

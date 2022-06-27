@@ -76,5 +76,27 @@ namespace BLL
         {
             return Report_DAL.Instance.GetInventoryByGroupID(ID);
         }
+        public int getQuantityImport(string id)
+        {
+            int quantity = 0;
+            foreach(var i in DetailImportProductBLL.Instance.getDetailImportProductsByID_P(id))
+            {
+                quantity += i.Amount_IP;
+            }
+            return quantity;
+        }
+        public int getQuantitySell(string id)
+        {
+            int quantity = 0;
+            foreach (var i in InvoiceDetail_BLL.Instance.getInvoiceDetailByID_P(id))
+            {
+                quantity += i.Quantity;
+            }
+            return quantity;
+        }
+        public int getInventoryByID_P(string id)
+        {            
+            return getQuantityImport(id) - getQuantitySell(id);
+        }
     }
 }

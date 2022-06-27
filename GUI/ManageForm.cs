@@ -716,9 +716,10 @@ namespace GUI
             uc.Picture = Image.FromStream(mem);
 
             uc.Name = dc.Name_P;
-            uc.Price = "Price: " + dc.Price_P.ToString();
+            uc.Price = dc.Price_P.ToString() + " đ";
             uc.Unit = "Unit: " + dc.Unit_P.ToString();
             uc.Number = 0;
+            uc.Inventory = uc.MaxValue = Report_BLL.Instance.getInventoryByID_P(dc.ID_P.ToString());
             fl.Controls.Add(uc);
         }
         //private void updateItems(FlowLayoutPanel fl, UserControl1 uc, CBBGroups PG, int id)
@@ -816,7 +817,6 @@ namespace GUI
             int numOfProductAll = 0, numOfProduct = 0;
             TabPage tpAll = tabControlSellP.TabPages["tpAllProducts"];
             TabPage tp = tabControlSellP.TabPages["tp" + PG.ToString()];
-            MessageBox.Show(tp.Name);
             FlowLayoutPanel flAll = (FlowLayoutPanel)tpAll.Controls[0];
             FlowLayoutPanel fl = (FlowLayoutPanel)tp.Controls[0];
             //UserControl1 UC = fl.Controls["ok"];
@@ -824,7 +824,7 @@ namespace GUI
             {
                 numOfProductAll = Product_BLL.Instance.getAllProduct().Count;
                 numOfProduct = Product_BLL.Instance.getProductByID_PG(Convert.ToString(PG.Value)).Count;
-                populateItems(flAll, products, PG, numOfProductAll - 1);
+                populateItems(flAll, products, new CBBGroups { Value = 0, Text = "All products" }, numOfProductAll - 1);
                 populateItems(fl, products, PG, numOfProduct - 1);
             }
             else

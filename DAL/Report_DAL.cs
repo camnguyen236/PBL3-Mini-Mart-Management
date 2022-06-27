@@ -144,25 +144,22 @@ namespace DAL
             string query = "";
             if (ID==0)
             {
-                query = "select Products.ID_P, Products.Name_P, sum(DetailImportproduct.Amount_IP) as Import, sum(InvoiceDetail.Quantity) as Sale,(sum(DetailImportproduct.Amount_IP)-sum(InvoiceDetail.Quantity)) as Inventory " +
-                "from  Products " +
-                "left join InvoiceDetail " +
-                "on InvoiceDetail.ID_P = Products.ID_P " +
-                "left " +
-                "join DetailImportproduct " +
-                "on DetailImportproduct.ID_P = Products.ID_P " +
-                "Group by Products.ID_P, Products.Name_P";
+                query = "select Products.ID_P, Products.Name_P, sum(DetailImportproduct.Amount_IP) as Import" +
+                    ", sum(InvoiceDetail.Quantity) as Sale" +
+                    ",(sum(DetailImportproduct.Amount_IP)-sum(InvoiceDetail.Quantity)) as Inventory " + 
+                    "from  Products " + "left join InvoiceDetail " + "on InvoiceDetail.ID_P = Products.ID_P " + 
+                    "left " + "join DetailImportproduct " + "on DetailImportproduct.ID_P = Products.ID_P " + 
+                    "Group by Products.ID_P, Products.Name_P";
             }
             else
             {
-                query = "select Products.ID_P, Products.Name_P, sum(DetailImportproduct.Amount_IP) as Import, sum(InvoiceDetail.Quantity) as Sale,(sum(DetailImportproduct.Amount_IP)-sum(InvoiceDetail.Quantity)) as Inventory " +
-                $"from  (select * from Products where Products.ID_PG={ID}) as Products " +
-                "left join InvoiceDetail " +
-                "on InvoiceDetail.ID_P = Products.ID_P " +
-                "left " +
-                "join DetailImportproduct " +
-                "on DetailImportproduct.ID_P = Products.ID_P " +
-                "Group by Products.ID_P, Products.Name_P";
+                query = "select Products.ID_P, Products.Name_P, sum(DetailImportproduct.Amount_IP) as Import" +
+                    ", sum(InvoiceDetail.Quantity) as Sale" +
+                    ",(sum(DetailImportproduct.Amount_IP)-sum(InvoiceDetail.Quantity)) as Inventory " + 
+                    $"from  (select * from Products where Products.ID_PG={ID}) as Products " + 
+                    "left join InvoiceDetail " + "on InvoiceDetail.ID_P = Products.ID_P " + "left " + 
+                    "join DetailImportproduct " + "on DetailImportproduct.ID_P = Products.ID_P " + 
+                    "Group by Products.ID_P, Products.Name_P";
             }
             
             report = DataProvider.Instance.GetRecords(query);

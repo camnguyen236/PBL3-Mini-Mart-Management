@@ -385,3 +385,15 @@ C:\Users\lvdle\Desktop\pbl\source code\PBL3\GUI\bin\Debug\Google.Apis.Gmail.v1.x
 C:\Users\lvdle\Desktop\pbl\source code\PBL3\GUI\bin\Debug\Google.Apis.xml
 C:\Users\lvdle\Desktop\pbl\source code\PBL3\GUI\bin\Debug\Google.Apis.Core.xml
 C:\Users\lvdle\Desktop\pbl\source code\PBL3\GUI\bin\Debug\Newtonsoft.Json.xml
+D:\code\PBL3\GUI\bin\Debug\Google.Apis.Auth.dll
+D:\code\PBL3\GUI\bin\Debug\Google.Apis.Gmail.v1.dll
+D:\code\PBL3\GUI\bin\Debug\Google.Apis.dll
+D:\code\PBL3\GUI\bin\Debug\Google.Apis.Core.dll
+D:\code\PBL3\GUI\bin\Debug\Newtonsoft.Json.dll
+D:\code\PBL3\GUI\bin\Debug\BLL.dll.config
+D:\code\PBL3\GUI\bin\Debug\Google.Apis.Auth.xml
+D:\code\PBL3\GUI\bin\Debug\Google.Apis.Gmail.v1.xml
+D:\code\PBL3\GUI\bin\Debug\Google.Apis.xml
+D:\code\PBL3\GUI\bin\Debug\Google.Apis.Core.xml
+D:\code\PBL3\GUI\bin\Debug\Newtonsoft.Json.xml
+D:\code\PBL3\GUI\obj\Debug\GUI.ReportProblem.resources

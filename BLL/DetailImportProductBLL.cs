@@ -71,5 +71,17 @@ namespace BLL
             }
             return null;
         }
+        public List<DetailImportProducts> getDetailImportProductsByID_P(string id_p)
+        {
+            List<DetailImportProducts> data = new List<DetailImportProducts>();
+            foreach (DetailImportProducts i in getAllDetailImportProducts())
+            {
+                if (i.ID_P.ToString().Equals(id_p))
+                {
+                    data.Add(i);
+                }
+            }
+            return data;
+        }
     }
 }
