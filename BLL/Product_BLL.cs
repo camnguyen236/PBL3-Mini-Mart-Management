@@ -96,33 +96,6 @@ namespace BLL
                 return;
             }
         }
-
-        public DataTable getAllProductsByGroupName(string groupName)
-        {
-            return Product_DAL.Instance.getAllProductsByGroupName(groupName);
-        }
-
-        public DataTable getAllProducts()
-        {
-            return Product_DAL.Instance.GetAllRecords();
-        }
-
-        public DataRow getProductByID(int id)
-        {
-            DataRow dr = Product_DAL.Instance.getProductByID(id.ToString()).Rows[0];
-            return dr;
-            //return new Product
-            //{
-            //    ID_P = Convert.ToInt32(dr["ID_P"].ToString()),
-            //    ID_PG = dr["ID_PG"].ToString(),
-            //    Name_P = dr["Name_P"].ToString(),
-            //    Unit_P = dr["Unit_P"].ToString(),
-            //    Price_P = dr["Price_P"].ToString(),
-            //    VAT = dr["VAT"].ToString(),
-            //    VATInclusive_P = Convert.ToInt32(dr["VAT_Inclusive_P"].ToString()),
-            //    IMG_P = null
-            //};
-        }
         
         public bool checkID_P(int id)
         {
@@ -144,6 +117,27 @@ namespace BLL
                 });
             }
             return data;
+        }
+        public int getNumberOfProduct(int id_p, string id_pg)
+        {
+            int count = 0;
+            if(id_pg == "")
+            {
+                foreach(var i in getAllProduct())
+                {
+                    if (i.ID_P == id_p) break;
+                    count++;
+                }
+            }
+            else
+            {
+                foreach(var i in getProductByID_PG(id_pg))
+                {
+                    if (i.ID_P == id_p) break;
+                    count++;
+                }
+            }
+            return count;
         }
     }
 }

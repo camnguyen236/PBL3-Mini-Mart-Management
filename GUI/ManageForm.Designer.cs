@@ -121,13 +121,11 @@
             this.txtSearchSH = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tpViewCart = new System.Windows.Forms.TabPage();
-            this.cb_point = new Guna.UI2.WinForms.Guna2CheckBox();
             this.txtSearchCustomer = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbbResultSearchCustomer = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cbbSearchCustomer = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAddCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.txtTotalProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnDelProduct = new Guna.UI2.WinForms.Guna2Button();
@@ -290,6 +288,7 @@
             this.guna2PictureBox12 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox8 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnBack_TR = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -1413,13 +1412,12 @@
             // 
             // tpViewCart
             // 
-            this.tpViewCart.Controls.Add(this.cb_point);
+            this.tpViewCart.Controls.Add(this.guna2HtmlLabel4);
             this.tpViewCart.Controls.Add(this.txtSearchCustomer);
             this.tpViewCart.Controls.Add(this.cbbResultSearchCustomer);
             this.tpViewCart.Controls.Add(this.guna2HtmlLabel3);
             this.tpViewCart.Controls.Add(this.cbbSearchCustomer);
             this.tpViewCart.Controls.Add(this.btnRefresh);
-            this.tpViewCart.Controls.Add(this.btnAddCustomer);
             this.tpViewCart.Controls.Add(this.txtTotalProduct);
             this.tpViewCart.Controls.Add(this.guna2HtmlLabel1);
             this.tpViewCart.Controls.Add(this.btnDelProduct);
@@ -1434,27 +1432,6 @@
             this.tpViewCart.TabIndex = 3;
             this.tpViewCart.Text = "View Cart";
             this.tpViewCart.UseVisualStyleBackColor = true;
-            // 
-            // cb_point
-            // 
-            this.cb_point.AutoSize = true;
-            this.cb_point.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(205)))), ((int)(((byte)(238)))));
-            this.cb_point.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cb_point.CheckedState.BorderRadius = 0;
-            this.cb_point.CheckedState.BorderThickness = 0;
-            this.cb_point.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cb_point.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_point.ForeColor = System.Drawing.Color.DarkCyan;
-            this.cb_point.Location = new System.Drawing.Point(14, 377);
-            this.cb_point.Name = "cb_point";
-            this.cb_point.Size = new System.Drawing.Size(158, 19);
-            this.cb_point.TabIndex = 38;
-            this.cb_point.Text = "Use accumulated points";
-            this.cb_point.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cb_point.UncheckedState.BorderRadius = 0;
-            this.cb_point.UncheckedState.BorderThickness = 0;
-            this.cb_point.UncheckedState.FillColor = System.Drawing.Color.White;
-            this.cb_point.UseVisualStyleBackColor = false;
             // 
             // txtSearchCustomer
             // 
@@ -1540,25 +1517,6 @@
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseTransparentBackground = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnAddCustomer
-            // 
-            this.btnAddCustomer.AutoRoundedCorners = true;
-            this.btnAddCustomer.BorderRadius = 16;
-            this.btnAddCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddCustomer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.btnAddCustomer.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnAddCustomer.ForeColor = System.Drawing.Color.White;
-            this.btnAddCustomer.Location = new System.Drawing.Point(131, 452);
-            this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(143, 35);
-            this.btnAddCustomer.TabIndex = 29;
-            this.btnAddCustomer.Text = "Add New Customer";
-            this.btnAddCustomer.UseTransparentBackground = true;
-            this.btnAddCustomer.Click += new System.EventHandler(this.btnAdd_Customer_Click);
             // 
             // txtTotalProduct
             // 
@@ -4461,6 +4419,17 @@
             this.btnBack_TR.TabStop = false;
             this.btnBack_TR.UseTransparentBackground = true;
             // 
+            // guna2HtmlLabel4
+            // 
+            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(205)))), ((int)(((byte)(238)))));
+            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.DarkCyan;
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(241, 461);
+            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(48, 23);
+            this.guna2HtmlLabel4.TabIndex = 38;
+            this.guna2HtmlLabel4.Text = "Result";
+            // 
             // ManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4621,7 +4590,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
         private System.Windows.Forms.TabPage tpViewCart;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
-        private Guna.UI2.WinForms.Guna2Button btnAddCustomer;
         private Guna.UI2.WinForms.Guna2TextBox txtTotalProduct;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Button btnDelProduct;
@@ -4778,9 +4746,9 @@
         private Guna.UI2.WinForms.Guna2RadioButton rbFalse_sup;
         private Guna.UI2.WinForms.Guna2RadioButton rbTrue_sup;
         private Guna.UI2.WinForms.Guna2TextBox txtDiscount;
-        private Guna.UI2.WinForms.Guna2CheckBox cb_point;
         private Guna.UI2.WinForms.Guna2Button btnDelus;
         private Guna.UI2.WinForms.Guna2Button btnDelPro;
         private Guna.UI2.WinForms.Guna2Button btnDelSupplier;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
     }
 }
