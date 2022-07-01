@@ -41,7 +41,9 @@ namespace GUI
         private void btnSystem_Click(object sender, EventArgs e)
         {
             Systems s = new Systems(mAccount);
+            this.Hide();
             s.ShowDialog();
+            this.Close();
         }
 
 

@@ -220,7 +220,7 @@ namespace GUI
             try
             {
                 double price = Convert.ToDouble(txtPrice_PD.Text);
-                int vat = Convert.ToInt32(txtVAT_PD.Text);
+                double vat = Convert.ToDouble(txtVAT_PD.Text);
                 txtVATInclusive_PD.Text = (price * (1 + (vat / 100))).ToString();
             }
             catch (Exception ex)
@@ -233,8 +233,8 @@ namespace GUI
         {
             try
             {
-                double price = Convert.ToInt32(txtPrice_PD.Text);
-                double vat = Convert.ToInt32(txtVAT_PD.Text);
+                double price = Convert.ToDouble(txtPrice_PD.Text);
+                double vat = Convert.ToDouble(txtVAT_PD.Text);
                 txtVATInclusive_PD.Text = (price * (1 + (vat / 100))).ToString();
             }
             catch (Exception ex)

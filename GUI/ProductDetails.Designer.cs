@@ -199,9 +199,9 @@
             this.lbVAT_PD.ForeColor = System.Drawing.Color.DarkCyan;
             this.lbVAT_PD.Location = new System.Drawing.Point(554, 256);
             this.lbVAT_PD.Name = "lbVAT_PD";
-            this.lbVAT_PD.Size = new System.Drawing.Size(31, 13);
+            this.lbVAT_PD.Size = new System.Drawing.Size(48, 13);
             this.lbVAT_PD.TabIndex = 21;
-            this.lbVAT_PD.Text = "VAT";
+            this.lbVAT_PD.Text = "VAT(%)";
             // 
             // lbAddress
             // 
@@ -304,7 +304,7 @@
             this.lbSave.ForeColor = System.Drawing.Color.White;
             this.lbSave.Location = new System.Drawing.Point(557, 381);
             this.lbSave.Name = "lbSave";
-            this.lbSave.Size = new System.Drawing.Size(99, 17);
+            this.lbSave.Size = new System.Drawing.Size(0, 17);
             this.lbSave.TabIndex = 36;
             this.lbSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

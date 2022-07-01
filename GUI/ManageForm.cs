@@ -114,6 +114,7 @@ namespace GUI
                         Email = txtEmail.Text,
                         Status = rbTrue_us.Checked
                     });
+                    MessageBox.Show("Updated successfully");
                     Show(!cb_us.Checked);
                 }
             }
@@ -254,6 +255,7 @@ namespace GUI
                     Email_Customer = txtEmail_cus.Text,
                     TaxCode = txtTaxCode_cus.Text
                 });
+                MessageBox.Show("Updated successfully");
                 Show_Customer();
             }            
         }
@@ -377,6 +379,7 @@ namespace GUI
                     TaxCode = txtTaxCode_su.Text,
                     Status = rbTrue_sup.Checked
                 });
+                MessageBox.Show("Updated successfully");
                 Show_Supplier(!cb_supplier.Checked);
             }            
         }
