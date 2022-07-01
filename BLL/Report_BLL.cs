@@ -95,8 +95,18 @@ namespace BLL
             return quantity;
         }
         public int getInventoryByID_P(string id)
-        {            
-            return getQuantityImport(id) - getQuantitySell(id);
+        {
+            //return getQuantityImport(id) - getQuantitySell(id);
+            try
+            {
+                return Convert.ToInt32(Report_DAL.Instance.GetInventoryByID(Convert.ToInt32(id)).Rows[0][0]);
+
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
         }
     }
 }

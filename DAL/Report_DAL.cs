@@ -176,5 +176,29 @@ namespace DAL
             report = DataProvider.Instance.GetRecords(query);
             return report;
         }
+        public DataTable GetInventoryByID(int ID)
+        {
+            string query = "";
+            query = " select Inventory" +
+                " from(" +
+                "    select a.ID_P, a.Name_P, a.Import, b.Sale, (a.Import - b.Sale) as Inventory" +
+                "    from(" +
+                "         select Products.ID_P, Products.Name_P, sum(case when(DetailImportproduct.Amount_IP) is null then 0  else (DetailImportproduct.Amount_IP)end ) as Import" +
+                " from Products" +
+                " left join DetailImportproduct on DetailImportproduct.ID_P = Products.ID_P group by Products.ID_P, Products.Name_P" +
+                " ) a" +
+                " left join" +
+                "        (" +
+                "        select Products.ID_P, Products.Name_P, sum(case when(InvoiceDetail.Quantity) is null then 0  else (InvoiceDetail.Quantity)end) as Sale" +
+                " from Products" +
+                "         left join InvoiceDetail on InvoiceDetail.ID_P = Products.ID_P group by Products.ID_P, Products.Name_P" +
+                "         ) b" +
+                "      on a.ID_P = b.ID_P" +
+                "  ) as inventory" +
+                $"  where ID_P = { ID }";
+
+            report = DataProvider.Instance.GetRecords(query);
+            return report;
+        }
     }
 }

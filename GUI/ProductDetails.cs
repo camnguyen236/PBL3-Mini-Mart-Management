@@ -16,7 +16,7 @@ namespace GUI
     {
         public delegate void MyDel(string groupName, bool b = true);
         public MyDel d { get; set; }
-        public delegate void update(CBBGroups PG, bool au, int id = 0);
+        public delegate void update(CBBGroups PG, bool au, int id);
         public update up { get; set; }
         public string id_p { get; set; }
         public CBBGroups cbb { get; set; }
@@ -129,8 +129,10 @@ namespace GUI
                     btnEdit_PD.Text = "Edit";
                     btnChangeImg_PD.Hide();
                     saveBtn();
-                    MessageBox.Show(cbb.Text + " " + id_p.ToString());
-                    //up(cbb, false, Convert.ToInt32(id_p));
+                    int t = Convert.ToInt32(id_p);
+                    //MessageBox.Show(cbb.Text + " " + id_p, t.ToString());
+                    
+                    //up((CBBGroups)cbb, false, t);
                 }
             }
             catch (Exception ex)
@@ -205,7 +207,7 @@ namespace GUI
         {
             saveBtn();
             d("All");
-            up((CBBGroups)cbCatagories_PD.SelectedItem, true);
+            up((CBBGroups)cbCatagories_PD.SelectedItem, true,0);
             //this.Close();
         }
 

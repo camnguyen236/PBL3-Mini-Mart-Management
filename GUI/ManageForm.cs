@@ -577,7 +577,6 @@ namespace GUI
                 }
                 else
                 {
-                    MessageBox.Show("hello");
                     DetailImportProductBLL.Instance.ExcuteDB(new DetailImportProducts
                     {
                         ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct() - 1]["ID"].ToString()),
@@ -589,19 +588,18 @@ namespace GUI
                         Total = total,
                         Name_Product = ((CBBGroups)cbbName_Product.SelectedItem).Text
                     }, "Add");
-                    lbAdd.ForeColor = Color.Green;
-                    updateTP(new CBBGroups
-                    {
-                        Value = Convert.ToInt32(Product_BLL.Instance.getProductByID(((CBBGroups)cbbName_Product.SelectedItem).Value.ToString()).ID_PG)
-                    ,
-                        Text = ProductGroups_BLL.Instance.getPGByID(Product_BLL.Instance.getProductByID(((CBBGroups)cbbName_Product.SelectedItem).Value.ToString()).ID_PG).Name_PG
-                    }
-                , false, ((CBBGroups)cbbName_Product.SelectedItem).Value);
+                    lbAdd.ForeColor = Color.Green;                    
                 }
 
                 showProducts();
                 txtTotalAll.Text = Convert.ToString(totalAll());
-                
+                updateTP(new CBBGroups
+                {
+                    Value = Convert.ToInt32(Product_BLL.Instance.getProductByID(((CBBGroups)cbbName_Product.SelectedItem).Value.ToString()).ID_PG)
+                    ,
+                    Text = ProductGroups_BLL.Instance.getPGByID(Product_BLL.Instance.getProductByID(((CBBGroups)cbbName_Product.SelectedItem).Value.ToString()).ID_PG).Name_PG
+                }
+                , false, ((CBBGroups)cbbName_Product.SelectedItem).Value);
             }
             catch (Exception ex)
             {
@@ -701,7 +699,7 @@ namespace GUI
             total = amount - amount * Convert.ToInt32(txtDiscount.Text) / 100;
             DetailImportProductBLL.Instance.ExcuteDB(new DetailImportProducts
             {
-                ID_IP = 0,
+                ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct() - 1]["ID"]),
                 ID_P = ((CBBGroups)cbbName_Product.SelectedItem).Value,
                 IP_Price = Convert.ToDouble(txtImport_Price.Text),
                 Amount_IP = Convert.ToInt32(nmrQuantity.Value),
@@ -848,7 +846,6 @@ namespace GUI
             TabPage myTabPage = new TabPage("tpAllProducts");
             myTabPage.Name = "tpAllProducts";
             createTab(myTabPage, new CBBGroups { Value = 0, Text = "All products" });
-            //List<string> listProductsGroups = ProductGroups_BLL.Instance.getProductGroups().Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Name_PG")).ToList();
             List<CBBGroups> listProductsGroups = ProductGroups_BLL.Instance.GetListCBB();
             for (int i = 0; i < listProductsGroups.Count; i++)
             {
@@ -858,7 +855,7 @@ namespace GUI
             }
         }
 
-        public void updateTP(CBBGroups PG, bool au, int id = 0)
+        public void updateTP(CBBGroups PG, bool au, int id)
         {
             Product product = new Product();
             int numOfProductAll = 0, numOfProduct = 0;

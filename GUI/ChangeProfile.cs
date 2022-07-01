@@ -145,7 +145,7 @@ namespace GUI
             }            
             else
             {
-                AccountBLL.Instance.ExcuteDB(new Account
+                AccountBLL.Instance.ExcuteDB(acc = new Account
                 {
                     ID = acc.ID,
                     US = tbUS.Text,
@@ -159,6 +159,7 @@ namespace GUI
                     Email = tbEmail.Text,
                     Status = AccountBLL.Instance.getAccountByID(Convert.ToString(acc.ID)).Status
                 });
+
                 MessageBox.Show("Updated successfully");
                 GUI();
             }

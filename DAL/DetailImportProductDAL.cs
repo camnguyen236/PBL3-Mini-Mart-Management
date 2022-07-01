@@ -34,7 +34,7 @@ namespace DAL
         }
         public void updateImportProduct(DetailImportProducts detailImportProducts)
         {
-            string query = $"update DetailImportProduct set IP_Price = '{detailImportProducts.IP_Price}',Amount_IP = N'{detailImportProducts.Amount_IP}', Discount = '{detailImportProducts.Discount}' where ID_P = '{detailImportProducts.ID_P}'";
+            string query = $"update DetailImportProduct set IP_Price = '{detailImportProducts.IP_Price}',Amount_IP = N'{detailImportProducts.Amount_IP}', Discount = '{detailImportProducts.Discount}' where ID_P = '{detailImportProducts.ID_P}' and ID_IP = '{detailImportProducts.ID_IP}'";
             DataProvider.Instance.ExcuteDB(query);
         }
         public void deleteImportProduct(DetailImportProducts detailImportProducts,string id_product)

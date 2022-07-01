@@ -283,7 +283,6 @@ C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.Auth.xml
 C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.Core.xml
 C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Google.Apis.Gmail.v1.xml
 C:\Users\lvdle\Desktop\pbl\source code\PBL3\BLL\bin\Debug\Newtonsoft.Json.xml
-D:\code\PBL3\BLL\bin\Debug\BLL.dll.config
 D:\code\PBL3\BLL\bin\Debug\Google.Apis.Auth.dll
 D:\code\PBL3\BLL\bin\Debug\Google.Apis.Auth.PlatformServices.dll
 D:\code\PBL3\BLL\bin\Debug\Google.Apis.Core.dll
