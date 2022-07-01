@@ -33,7 +33,6 @@ namespace GUI
             else newRole = "Staff";
             AccountBLL.Instance.updateRole(cbbAccount.Text, newRole);
             MessageBox.Show("Successfully!");
-            this.Close();
         }
 
         private void cbbAccount_SelectedIndexChanged(object sender, EventArgs e)

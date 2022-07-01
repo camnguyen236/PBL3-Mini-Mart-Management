@@ -73,7 +73,7 @@ namespace GUI
                 txtVATInclusive_PD.Text = dr["VAT_Inclusive_P"].ToString();
                 txtID_PD.Enabled = false;
                 cbCatagories_PD.Enabled = false;
-                txtQuantity_PD.Enabled = false;
+                //txtQuantity_PD.Enabled = false;
                 txtName_PD.Enabled = false;
                 txtUnit_PD.Enabled = false;
                 txtVATInclusive_PD.Enabled = false;
@@ -82,7 +82,6 @@ namespace GUI
                 byte[] img = (byte[])dr["IMG_P"];
                 MemoryStream ms = new MemoryStream(img);
                 img_PD.Image = Image.FromStream(ms);
-                //btnCancel_PD.Hide();
                 btnAdd_PD.Hide();
                 btnRefresh.Hide();
             }
@@ -90,7 +89,7 @@ namespace GUI
             {
                 btnChangeImg_PD.Show();
                 txtID_PD.Enabled = false;
-                txtQuantity_PD.Enabled = false;
+                //txtQuantity_PD.Enabled = false;
                 txtVATInclusive_PD.Enabled=false;
                 gbStatus.Hide();
             }
@@ -117,7 +116,7 @@ namespace GUI
                 {
                     txtID_PD.Enabled = false;
                     cbCatagories_PD.Enabled = false;
-                    txtQuantity_PD.Enabled = false;
+                    //txtQuantity_PD.Enabled = false;
                     txtName_PD.Enabled = false;
                     txtUnit_PD.Enabled = false;
                     txtVATInclusive_PD.Enabled = false;
@@ -129,10 +128,8 @@ namespace GUI
                     btnEdit_PD.Text = "Edit";
                     btnChangeImg_PD.Hide();
                     saveBtn();
-                    int t = Convert.ToInt32(id_p);
-                    //MessageBox.Show(cbb.Text + " " + id_p, t.ToString());
-                    
-                    //up((CBBGroups)cbb, false, t);
+                    d("All");
+                    //up((CBBGroups)cbb, false, Convert.ToInt32(id_p));
                 }
             }
             catch (Exception ex)
@@ -150,7 +147,9 @@ namespace GUI
         private void saveBtn()
         {
             //check
-            if (cbCatagories_PD.Text.Trim() == "" || txtName_PD.Text.Trim() == "" || txtUnit_PD.Text.Trim() == "" || txtPrice_PD.Text.Trim() == "" || txtVAT_PD.Text.Trim() == ""|| cbCatagories_PD.Text == "")
+            if (cbCatagories_PD.Text.Trim() == "" || txtName_PD.Text.Trim() == "" 
+                || txtUnit_PD.Text.Trim() == "" || txtPrice_PD.Text.Trim() == "" 
+                || txtVAT_PD.Text.Trim() == ""|| cbCatagories_PD.Text == "")
                 MessageBox.Show("Please fill in the required information!", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
@@ -220,7 +219,7 @@ namespace GUI
         {
             try
             {
-                int price = Convert.ToInt32(txtPrice_PD.Text);
+                double price = Convert.ToDouble(txtPrice_PD.Text);
                 int vat = Convert.ToInt32(txtVAT_PD.Text);
                 txtVATInclusive_PD.Text = (price * (1 + (vat / 100))).ToString();
             }
@@ -249,7 +248,7 @@ namespace GUI
             txtName_PD.Text = "";
             txtID_PD.Text = "";
             txtPrice_PD.Text = "";
-            txtQuantity_PD.Text = "";
+            //txtQuantity_PD.Text = "";
             txtUnit_PD.Text = "";
             txtVATInclusive_PD.Text = "";
             txtVAT_PD.Text = "";

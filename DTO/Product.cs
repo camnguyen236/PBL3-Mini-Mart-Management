@@ -15,7 +15,7 @@ namespace DTO
         public string Unit_P { get; set; }
         public string Price_P { get; set; }
         public string VAT { get; set; }
-        public int VATInclusive_P { get; set; }
+        public double VATInclusive_P { get; set; }
         public byte[] IMG_P { get; set; }
         public bool Status { get; set; }
     }
