@@ -95,7 +95,6 @@ namespace GUI
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(acc.ID + " " + txtID.Text);
             if (dgv1.SelectedRows.Count == 1)
             {
                 if (acc.ID == Convert.ToInt32(txtID.Text)) MessageBox.Show("You are currently logged in to this account");
@@ -619,7 +618,7 @@ namespace GUI
             amount = DetailImportProductBLL.Instance.getDetailImportProductsByID_IPAndID_P(id_ip, id_p).IP_Price * DetailImportProductBLL.Instance.getDetailImportProductsByID_IPAndID_P(id_ip, id_p).Amount_IP;
             txtPrice.Text = Convert.ToString(amount);
             txtDiscount.Text = DetailImportProductBLL.Instance.getDetailImportProductsByID_IPAndID_P(id_ip, id_p).Discount.ToString();
-            total = amount + amount * Convert.ToInt32(txtDiscount.Text) / 100;
+            total = amount - amount * Convert.ToInt32(txtDiscount.Text) / 100;
             txtTotal.Text = Convert.ToString(total);
         }
 
@@ -693,7 +692,16 @@ namespace GUI
             ImportProductsBill importProductsBill = new ImportProductsBill();
             importProductsBill.ShowDialog();
         }
-
+        private void txtImport_Price_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                amount = Convert.ToDouble(txtImport_Price.Text) * Convert.ToInt32(nmrQuantity.Value);
+                txtPrice.Text = amount.ToString();
+                txtTotal.Text = (amount - amount * Convert.ToInt32(txtDiscount.Text) / 100).ToString();
+            }
+            catch (Exception) { }
+        }
         private void btnUpdateImportProduct_Click(object sender, EventArgs e)
         {
             total = amount - amount * Convert.ToInt32(txtDiscount.Text) / 100;
@@ -854,6 +862,17 @@ namespace GUI
                 createTab(myTabPage, listProductsGroups[i]);
             }
         }
+        private void UpdateTab(CBBGroups PG, CBBGroups PGNew)
+        {
+            TabPage tp = tabControlSellP.TabPages["tp" + PG.ToString()];
+            tp.Text = PGNew.ToString();
+        }
+        private void RemoveTab(CBBGroups PG)
+        {
+            TabPage tp = tabControlSellP.TabPages["tp" + PG.ToString()];
+            tabControlSellP.Controls.Remove(tp);
+            tp.Dispose();
+        }
 
         public void updateTP(CBBGroups PG, bool au, int id)
         {
@@ -918,7 +937,7 @@ namespace GUI
                 Product product = Product_BLL.Instance.getProductByID(Convert.ToString(productArray[i].Item1));
                 DataRow row1 = dt.NewRow();
                 row1["ID_P"] = product.ID_P;
-                row1["Name_PG"] = ProductGroups_BLL.Instance.getProductGroupsByID(product.ID_PG).Name_PG;
+                row1["Name_PG"] = ProductGroups_BLL.Instance.getPGByID(product.ID_PG).Name_PG;
                 row1["Name_P"] = product.Name_P;
                 row1["Unit_P"] = product.Unit_P;
                 row1["Price_P"] = product.Price_P;
@@ -959,6 +978,11 @@ namespace GUI
 
         private void btnPay_Click(object sender, EventArgs e)
         {
+            if (productArray.Count < 0)
+            {
+                MessageBox.Show("Please select product before payment");
+                return;
+            }
             Invoice inv = new Invoice
             {
                 ID = acc.ID,
@@ -1000,7 +1024,6 @@ namespace GUI
                 //sthis.Close();
             }
             btnRefresh.PerformClick();
-            
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -1036,6 +1059,7 @@ namespace GUI
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             List<int> ls = new List<int>();
+            productArray.Clear();
             dgvCart.DataSource = ls;
             txtTotalProduct.Text = "";
             txtSearchCustomer.Text = "";
@@ -1045,6 +1069,9 @@ namespace GUI
         {
             CatalogManagement cm = new CatalogManagement();
             cm.d = new CatalogManagement.Mydel(setCBProductsGroups);
+            cm.tp = new CatalogManagement.CreateTP(createTab);
+            cm.up = new CatalogManagement.updateTP(UpdateTab);
+            cm.remove = new CatalogManagement.removeTP(RemoveTab);
             cm.ShowDialog();
         }
 
@@ -1211,6 +1238,10 @@ namespace GUI
         private void cb_Supplier_CheckedChanged(object sender, EventArgs e)
         {
             Show_Supplier(cb_supplier.Checked ? false : true);
+        }
+        private void cb_Product_CheckedChanged(object sender, EventArgs e)
+        {
+            Show_Product(getCurrenGroupName(), !cb_Product.Checked);
         }
     }
 }

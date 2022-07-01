@@ -37,6 +37,7 @@ namespace GUI
                 {
                     AccountBLL.Instance.updatePassword(HashCode.Instance.hashCode(tbConfirmNewPass.Text), US);
                     MessageBox.Show("Reset Successful!");
+                    this.Close();
                 }
             }
         }

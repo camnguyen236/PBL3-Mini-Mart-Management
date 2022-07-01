@@ -46,7 +46,6 @@
             this.lbID = new System.Windows.Forms.Label();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             this.cb_PG = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.btnDelPG = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCM)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
@@ -58,9 +57,10 @@
             // 
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(-2, 0);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(398, 404);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(597, 622);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
@@ -69,7 +69,7 @@
             // 
             this.btnAdd.AutoRoundedCorners = true;
             this.btnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.BorderRadius = 16;
+            this.btnAdd.BorderRadius = 26;
             this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -77,9 +77,10 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(47, 358);
+            this.btnAdd.Location = new System.Drawing.Point(131, 551);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(95, 35);
+            this.btnAdd.Size = new System.Drawing.Size(142, 54);
             this.btnAdd.TabIndex = 54;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseTransparentBackground = true;
@@ -113,11 +114,13 @@
             this.dgvCM.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCM.EnableHeadersVisualStyles = false;
             this.dgvCM.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvCM.Location = new System.Drawing.Point(16, 31);
+            this.dgvCM.Location = new System.Drawing.Point(24, 48);
+            this.dgvCM.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvCM.Name = "dgvCM";
             this.dgvCM.RowHeadersVisible = false;
+            this.dgvCM.RowHeadersWidth = 62;
             this.dgvCM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCM.Size = new System.Drawing.Size(367, 143);
+            this.dgvCM.Size = new System.Drawing.Size(550, 220);
             this.dgvCM.TabIndex = 49;
             this.dgvCM.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvCM.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -153,9 +156,10 @@
             this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.guna2GroupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.White;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(33, 180);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(50, 277);
+            this.guna2GroupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(322, 163);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(483, 251);
             this.guna2GroupBox1.TabIndex = 56;
             this.guna2GroupBox1.Text = "Information";
             // 
@@ -166,9 +170,10 @@
             this.guna2GroupBox11.CustomBorderColor = System.Drawing.Color.WhiteSmoke;
             this.guna2GroupBox11.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.guna2GroupBox11.Location = new System.Drawing.Point(191, 43);
+            this.guna2GroupBox11.Location = new System.Drawing.Point(286, 66);
+            this.guna2GroupBox11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2GroupBox11.Name = "guna2GroupBox11";
-            this.guna2GroupBox11.Size = new System.Drawing.Size(121, 113);
+            this.guna2GroupBox11.Size = new System.Drawing.Size(182, 174);
             this.guna2GroupBox11.TabIndex = 27;
             this.guna2GroupBox11.Text = "Status";
             // 
@@ -180,9 +185,10 @@
             this.rbFalse.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rbFalse.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rbFalse.CheckedState.InnerOffset = -4;
-            this.rbFalse.Location = new System.Drawing.Point(24, 90);
+            this.rbFalse.Location = new System.Drawing.Point(36, 138);
+            this.rbFalse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbFalse.Name = "rbFalse";
-            this.rbFalse.Size = new System.Drawing.Size(87, 19);
+            this.rbFalse.Size = new System.Drawing.Size(135, 29);
             this.rbFalse.TabIndex = 1;
             this.rbFalse.Text = "Stop selling";
             this.rbFalse.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -199,9 +205,10 @@
             this.rbTrue.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rbTrue.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rbTrue.CheckedState.InnerOffset = -4;
-            this.rbTrue.Location = new System.Drawing.Point(24, 52);
+            this.rbTrue.Location = new System.Drawing.Point(36, 80);
+            this.rbTrue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbTrue.Name = "rbTrue";
-            this.rbTrue.Size = new System.Drawing.Size(64, 19);
+            this.rbTrue.Size = new System.Drawing.Size(99, 29);
             this.rbTrue.TabIndex = 0;
             this.rbTrue.TabStop = true;
             this.rbTrue.Text = "On sale";
@@ -216,10 +223,11 @@
             this.pbRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.pbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("pbRefresh.Image")));
             this.pbRefresh.ImageRotate = 0F;
-            this.pbRefresh.Location = new System.Drawing.Point(281, 0);
+            this.pbRefresh.Location = new System.Drawing.Point(422, 0);
+            this.pbRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbRefresh.Name = "pbRefresh";
             this.pbRefresh.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pbRefresh.Size = new System.Drawing.Size(40, 40);
+            this.pbRefresh.Size = new System.Drawing.Size(60, 62);
             this.pbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbRefresh.TabIndex = 26;
             this.pbRefresh.TabStop = false;
@@ -236,12 +244,13 @@
             this.txtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtName.Location = new System.Drawing.Point(20, 123);
+            this.txtName.Location = new System.Drawing.Point(30, 189);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
             this.txtName.PlaceholderText = "";
             this.txtName.SelectedText = "";
-            this.txtName.Size = new System.Drawing.Size(156, 27);
+            this.txtName.Size = new System.Drawing.Size(234, 42);
             this.txtName.TabIndex = 10;
             // 
             // txtID
@@ -256,12 +265,13 @@
             this.txtID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtID.Location = new System.Drawing.Point(19, 69);
+            this.txtID.Location = new System.Drawing.Point(28, 106);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtID.Name = "txtID";
             this.txtID.PasswordChar = '\0';
             this.txtID.PlaceholderText = "";
             this.txtID.SelectedText = "";
-            this.txtID.Size = new System.Drawing.Size(89, 27);
+            this.txtID.Size = new System.Drawing.Size(134, 42);
             this.txtID.TabIndex = 8;
             // 
             // lbName
@@ -269,9 +279,10 @@
             this.lbName.AutoSize = true;
             this.lbName.BackColor = System.Drawing.Color.Transparent;
             this.lbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbName.Location = new System.Drawing.Point(20, 102);
+            this.lbName.Location = new System.Drawing.Point(30, 157);
+            this.lbName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(45, 18);
+            this.lbName.Size = new System.Drawing.Size(69, 28);
             this.lbName.TabIndex = 2;
             this.lbName.Text = "Name";
             // 
@@ -280,9 +291,10 @@
             this.lbID.AutoSize = true;
             this.lbID.BackColor = System.Drawing.Color.Transparent;
             this.lbID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.lbID.Location = new System.Drawing.Point(20, 48);
+            this.lbID.Location = new System.Drawing.Point(30, 74);
+            this.lbID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(21, 18);
+            this.lbID.Size = new System.Drawing.Size(33, 28);
             this.lbID.TabIndex = 0;
             this.lbID.Text = "ID";
             // 
@@ -290,7 +302,7 @@
             // 
             this.btnUpdate.AutoRoundedCorners = true;
             this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.btnUpdate.BorderRadius = 16;
+            this.btnUpdate.BorderRadius = 26;
             this.btnUpdate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnUpdate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUpdate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -298,9 +310,10 @@
             this.btnUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnUpdate.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(148, 358);
+            this.btnUpdate.Location = new System.Drawing.Point(283, 551);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(91, 35);
+            this.btnUpdate.Size = new System.Drawing.Size(136, 54);
             this.btnUpdate.TabIndex = 57;
             this.btnUpdate.Text = "Save";
             this.btnUpdate.UseTransparentBackground = true;
@@ -315,9 +328,10 @@
             this.cb_PG.CheckedState.BorderThickness = 0;
             this.cb_PG.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.cb_PG.ForeColor = System.Drawing.Color.Teal;
-            this.cb_PG.Location = new System.Drawing.Point(12, 8);
+            this.cb_PG.Location = new System.Drawing.Point(18, 12);
+            this.cb_PG.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cb_PG.Name = "cb_PG";
-            this.cb_PG.Size = new System.Drawing.Size(365, 17);
+            this.cb_PG.Size = new System.Drawing.Size(540, 24);
             this.cb_PG.TabIndex = 58;
             this.cb_PG.Text = "Show all product categories (including discontinued product categories )";
             this.cb_PG.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -327,32 +341,11 @@
             this.cb_PG.UseVisualStyleBackColor = false;
             this.cb_PG.CheckedChanged += new System.EventHandler(this.cb_PG_CheckedChanged);
             // 
-            // btnDelPG
-            // 
-            this.btnDelPG.AutoRoundedCorners = true;
-            this.btnDelPG.BackColor = System.Drawing.Color.Transparent;
-            this.btnDelPG.BorderRadius = 16;
-            this.btnDelPG.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDelPG.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDelPG.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDelPG.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDelPG.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
-            this.btnDelPG.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnDelPG.ForeColor = System.Drawing.Color.White;
-            this.btnDelPG.Location = new System.Drawing.Point(245, 358);
-            this.btnDelPG.Name = "btnDelPG";
-            this.btnDelPG.Size = new System.Drawing.Size(94, 35);
-            this.btnDelPG.TabIndex = 59;
-            this.btnDelPG.Text = "Delete";
-            this.btnDelPG.UseTransparentBackground = true;
-            this.btnDelPG.Click += new System.EventHandler(this.btnDel_Click);
-            // 
             // CatalogManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 405);
-            this.Controls.Add(this.btnDelPG);
+            this.ClientSize = new System.Drawing.Size(592, 623);
             this.Controls.Add(this.cb_PG);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.guna2GroupBox1);
@@ -360,6 +353,7 @@
             this.Controls.Add(this.dgvCM);
             this.Controls.Add(this.guna2PictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CatalogManagement";
             this.Text = "CatalogManagement";
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
@@ -390,6 +384,5 @@
         private Guna.UI2.WinForms.Guna2RadioButton rbFalse;
         private Guna.UI2.WinForms.Guna2RadioButton rbTrue;
         private Guna.UI2.WinForms.Guna2CheckBox cb_PG;
-        private Guna.UI2.WinForms.Guna2Button btnDelPG;
     }
 }

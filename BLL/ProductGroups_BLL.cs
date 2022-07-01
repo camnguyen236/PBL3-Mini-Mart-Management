@@ -89,5 +89,13 @@ namespace BLL
             }
             return null;
         }
+        public bool checkNumOfProduct(string id_pg)
+        {
+            foreach(var i in Product_BLL.Instance.getProductByID_PG(id_pg))
+            {
+                if(Report_BLL.Instance.getInventoryByID_P(i.ID_P.ToString()) > 0) return true;
+            }
+            return false;
+        }
     }
 }
