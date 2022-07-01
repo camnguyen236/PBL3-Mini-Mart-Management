@@ -618,7 +618,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>2.08854in</Top>
-            <Left>4.66084in</Left>
+            <Left>3.93422in</Left>
             <Height>0.25in</Height>
             <Width>0.64583in</Width>
             <ZIndex>5</ZIndex>
@@ -647,8 +647,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>2.08854in</Top>
-            <Left>5.39695in</Left>
+            <Top>2.10243in</Top>
+            <Left>4.80666in</Left>
             <Height>0.25in</Height>
             <Width>0.97916in</Width>
             <ZIndex>6</ZIndex>
@@ -681,9 +681,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>2.40799in</Top>
-            <Left>4.66084in</Left>
+            <Left>3.93422in</Left>
             <Height>0.25in</Height>
-            <Width>0.95833in</Width>
+            <Width>0.87244in</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -732,9 +732,9 @@
             </Paragraphs>
             <rd:DefaultName>Name</rd:DefaultName>
             <Top>2.40799in</Top>
-            <Left>5.39695in</Left>
+            <Left>4.80666in</Left>
             <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Width>1.71528in</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -856,6 +856,39 @@
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>14</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox11">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>VNĐ</Value>
+                    <Style>
+                      <FontStyle>Italic</FontStyle>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>2.10243in</Top>
+            <Left>5.87611in</Left>
+            <Height>0.25in</Height>
+            <Width>0.64583in</Width>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1007,7 +1040,9 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=First(Fields!Invoice_Date.Value, "InvoiceDS")</Value>
-                      <Style />
+                      <Style>
+                        <Format>M/d/yyyy</Format>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
