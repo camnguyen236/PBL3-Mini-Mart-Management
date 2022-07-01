@@ -705,7 +705,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -1154,7 +1153,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!Date_Import.Value, "ImportProductsBill")</Value>
-                  <Style />
+                  <Style>
+                    <Format>M/d/yyyy</Format>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
