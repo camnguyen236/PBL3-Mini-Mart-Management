@@ -359,6 +359,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvCM);
             this.Controls.Add(this.guna2PictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "CatalogManagement";
             this.Text = "CatalogManagement";
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();

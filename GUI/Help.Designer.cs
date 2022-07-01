@@ -38,10 +38,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label2.Location = new System.Drawing.Point(110, 64);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(82, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 30);
+            this.label2.Size = new System.Drawing.Size(147, 25);
             this.label2.TabIndex = 35;
             this.label2.Text = "May I help you?";
             // 
@@ -56,10 +55,9 @@
             this.btnProblem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnProblem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnProblem.ForeColor = System.Drawing.Color.White;
-            this.btnProblem.Location = new System.Drawing.Point(67, 165);
-            this.btnProblem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProblem.Location = new System.Drawing.Point(50, 134);
             this.btnProblem.Name = "btnProblem";
-            this.btnProblem.Size = new System.Drawing.Size(254, 44);
+            this.btnProblem.Size = new System.Drawing.Size(190, 36);
             this.btnProblem.TabIndex = 34;
             this.btnProblem.Text = "Report a bug !";
             this.btnProblem.UseTransparentBackground = true;
@@ -76,10 +74,9 @@
             this.btnHow.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(192)))));
             this.btnHow.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnHow.ForeColor = System.Drawing.Color.White;
-            this.btnHow.Location = new System.Drawing.Point(67, 239);
-            this.btnHow.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHow.Location = new System.Drawing.Point(50, 194);
             this.btnHow.Name = "btnHow";
-            this.btnHow.Size = new System.Drawing.Size(254, 44);
+            this.btnHow.Size = new System.Drawing.Size(190, 36);
             this.btnHow.TabIndex = 33;
             this.btnHow.Text = "How to use this app ?";
             this.btnHow.UseTransparentBackground = true;
@@ -87,14 +84,15 @@
             // 
             // Help
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(398, 356);
+            this.ClientSize = new System.Drawing.Size(298, 289);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnProblem);
             this.Controls.Add(this.btnHow);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Help";
             this.Text = "Help";
             this.Load += new System.EventHandler(this.Help_Load);

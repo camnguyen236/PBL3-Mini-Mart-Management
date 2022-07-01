@@ -320,6 +320,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.pictureBox2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Profile";
             this.Text = "Profile";
             this.gbGender.ResumeLayout(false);

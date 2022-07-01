@@ -44,7 +44,7 @@ namespace DAL
         public DataTable getDetailsImportProduct(int ID_IP)
         {
             string query = "select DetailImportProduct.ID_P,Name_Product,IP_Price,Amount_IP,Amount_Price,Discount" +
-                ",Total from DetailImportProduct  where ID_IP = " + ID_IP;
+                ",Total from DetailImportProduct where ID_IP = " + ID_IP;
             // inner join Products " +
             //"on DetailImportProduct.ID_P = Products.ID_P
             importproducts = DataProvider.Instance.GetRecords(query);
@@ -53,7 +53,7 @@ namespace DAL
         public DataTable getBillImportProductByDate(string datee)
         {
             //DataTable accountsList = new DataTable();
-            string query = $"select ID_IP,ID,ID_Supplier,Symbol,Date_Import from ImportProduct where Date_Import like N'%{datee}%'";
+            string query = $"select ID_IP,ID,ID_Supplier,Date_Import from ImportProduct where Date_Import like N'%{datee}%'";
             importproducts = DataProvider.Instance.GetRecords(query);
             return importproducts;
         }

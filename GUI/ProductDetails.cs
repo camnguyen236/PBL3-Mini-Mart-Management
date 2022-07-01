@@ -16,16 +16,18 @@ namespace GUI
     {
         public delegate void MyDel(string groupName, bool b = true);
         public MyDel d { get; set; }
-        public delegate void Update(CBBGroups PG, bool au, int id = 0);
-        public Update up { get; set; }
+        public delegate void update(CBBGroups PG, bool au, int id = 0);
+        public update up { get; set; }
         public string id_p { get; set; }
+        public CBBGroups cbb { get; set; }
         public ProductDetails(string id = null)
         {
             InitializeComponent();
             id_p = id;
             loadData(id_p);
             setCBcbCatagories_PD();
-            setCBCatagoriesSelectItem_PDByID(id);
+            cbb = new CBBGroups();
+            if(id != null) setCBCatagoriesSelectItem_PDByID(Product_BLL.Instance.getProductByID(id_p).ID_PG);
             btnEdit_PD.Text = "Edit";
         }
 
@@ -42,15 +44,14 @@ namespace GUI
         }
         private void setCBCatagoriesSelectItem_PDByID(string id)
         {
-            //int index = 0;
             if(id!=null){
                 foreach (var item in cbCatagories_PD.Items)
                 {
                     if (item.ToString().Equals(ProductGroups_BLL.Instance.getPGByID(id).Name_PG))
                     {
                         cbCatagories_PD.SelectedItem = item;
+                        cbb = (CBBGroups)cbCatagories_PD.SelectedItem;
                     }
-                    //index++;
                 }
             }
             
@@ -97,35 +98,44 @@ namespace GUI
 
         private void btnEdit_PD_Click(object sender, EventArgs e)
         {
-            cbCatagories_PD.Enabled = true;
-            txtName_PD.Enabled = true;
-            txtUnit_PD.Enabled = true;
-            txtPrice_PD.Enabled = true;
-            txtVAT_PD.Enabled = true;
-            if (btnEditEnabled == true)
+            try
             {
-                btnEdit_PD.Text = "Save";
-                lbSave.Text = "Changing...";
-                lbSave.ForeColor = Color.FromArgb(220, 3, 49);
-                btnEditEnabled = false;
-                btnChangeImg_PD.Show();
+                cbCatagories_PD.Enabled = true;
+                txtName_PD.Enabled = true;
+                txtUnit_PD.Enabled = true;
+                txtPrice_PD.Enabled = true;
+                txtVAT_PD.Enabled = true;
+                if (btnEditEnabled == true)
+                {
+                    btnEdit_PD.Text = "Save";
+                    lbSave.Text = "Changing...";
+                    lbSave.ForeColor = Color.FromArgb(220, 3, 49);
+                    btnEditEnabled = false;
+                    btnChangeImg_PD.Show();
+                }
+                else
+                {
+                    txtID_PD.Enabled = false;
+                    cbCatagories_PD.Enabled = false;
+                    txtQuantity_PD.Enabled = false;
+                    txtName_PD.Enabled = false;
+                    txtUnit_PD.Enabled = false;
+                    txtVATInclusive_PD.Enabled = false;
+                    txtPrice_PD.Enabled = false;
+                    txtVAT_PD.Enabled = false;
+                    lbSave.Text = "Saved✓";
+                    lbSave.ForeColor = Color.FromArgb(39, 216, 102);
+                    btnEditEnabled = true;
+                    btnEdit_PD.Text = "Edit";
+                    btnChangeImg_PD.Hide();
+                    saveBtn();
+                    MessageBox.Show(cbb.Text + " " + id_p.ToString());
+                    //up(cbb, false, Convert.ToInt32(id_p));
+                }
             }
-            else
+            catch (Exception ex)
             {
-                txtID_PD.Enabled = false;
-                cbCatagories_PD.Enabled = false;
-                txtQuantity_PD.Enabled = false;
-                txtName_PD.Enabled = false;
-                txtUnit_PD.Enabled = false;
-                txtVATInclusive_PD.Enabled = false;
-                txtPrice_PD.Enabled = false;
-                txtVAT_PD.Enabled = false;
-                lbSave.Text = "Saved✓";
-                lbSave.ForeColor = Color.FromArgb(39, 216, 102);
-                btnEditEnabled = true;
-                btnEdit_PD.Text = "Edit";
-                btnChangeImg_PD.Hide();
-                saveBtn();
+                MessageBox.Show(ex.Message);
             }
         }
         //chuyển đổi ảnh
@@ -196,7 +206,7 @@ namespace GUI
             saveBtn();
             d("All");
             up((CBBGroups)cbCatagories_PD.SelectedItem, true);
-            this.Close();
+            //this.Close();
         }
 
         private void txtName_PD_TextChanged(object sender, EventArgs e)
@@ -212,8 +222,9 @@ namespace GUI
                 int vat = Convert.ToInt32(txtVAT_PD.Text);
                 txtVATInclusive_PD.Text = (price * (1 + (vat / 100))).ToString();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                //MessageBox.Show(ex.Message);
             }
         }
 
@@ -225,8 +236,9 @@ namespace GUI
                 double vat = Convert.ToInt32(txtVAT_PD.Text);
                 txtVATInclusive_PD.Text = (price * (1 + (vat / 100))).ToString();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                //MessageBox.Show(ex.Message);
             }
         }
 

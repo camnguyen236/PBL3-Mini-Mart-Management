@@ -182,7 +182,8 @@
             this.Controls.Add(this.lbUpper);
             this.Controls.Add(this.label6);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ChangePassword";
             this.Text = "ChangePassword";
             this.ResumeLayout(false);
