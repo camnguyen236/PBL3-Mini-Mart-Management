@@ -558,6 +558,7 @@
             this.Controls.Add(this.VAT_Inclusive);
             this.Controls.Add(this.lbID);
             this.Controls.Add(this.img_PD);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProductDetails";
             this.Text = "Product Details";

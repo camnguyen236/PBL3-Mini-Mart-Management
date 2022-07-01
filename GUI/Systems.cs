@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DTO;
 
 namespace GUI
 {
     public partial class Systems : Form
     {
-        public Systems()
+        Account acc;
+        public Systems(Account acc)
         {
+            this.acc = acc; 
             InitializeComponent();
             setCBBAccount();
         }
@@ -36,6 +39,14 @@ namespace GUI
         private void cbbAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2PictureBox4_Click(object sender, EventArgs e)
+        {
+            MainForm mf2 = new MainForm(acc);
+            this.Hide();
+            mf2.ShowDialog();
+            this.Close();
         }
     }
 }

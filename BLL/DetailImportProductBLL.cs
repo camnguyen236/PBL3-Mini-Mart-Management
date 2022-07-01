@@ -83,5 +83,13 @@ namespace BLL
             }
             return data;
         }
+        public bool checkID_PByIP_IP(int id_p, int id_ip)
+        {
+            foreach (var i in getAllProduct())
+            {
+                if (i.ID_P == id) return true;
+            }
+            return false;
+        }
     }
 }

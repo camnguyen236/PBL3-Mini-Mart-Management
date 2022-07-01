@@ -557,24 +557,56 @@ namespace GUI
         double total;
         private void btnAdd_InfOfProduct_Click(object sender, EventArgs e)
         {
-            DetailImportProductBLL.Instance.ExcuteDB(new DetailImportProducts
+            try
             {
-                ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct() - 1]["ID"].ToString()),
-                ID_P = ((CBBGroups)cbbName_Product.SelectedItem).Value,
-                IP_Price = Convert.ToDouble(txtImport_Price.Text),
-                Amount_IP = Convert.ToInt32(nmrQuantity.Value),
-                Amount_Price = amount,
-                Discount = Convert.ToDouble(txtDiscount.Text),
-                Total = total,
-                Name_Product = ((CBBGroups)cbbName_Product.SelectedItem).Text
-            }, "Add");
-            lbAdd.ForeColor = Color.Green;
-            
-            showProducts();
-            txtTotalAll.Text = Convert.ToString(totalAll());
-            updateTP(new CBBGroups { Value = Convert.ToInt32(Product_BLL.Instance.getProductByID(((CBBGroups)cbbName_Product.SelectedItem).Value.ToString()).ID_PG)
-                , Text = ProductGroups_BLL.Instance.getPGByID(Product_BLL.Instance.getProductByID(((CBBGroups)cbbName_Product.SelectedItem).Value.ToString()).ID_PG).Name_PG }
-            , false, ((CBBGroups)cbbName_Product.SelectedItem).Value);
+                string id_ip = ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct() - 1]["ID"].ToString()
+                , id_p = ((CBBGroups)cbbName_Product.SelectedItem).Value.ToString();
+                if (DetailImportProductBLL.Instance.getDetailImportProductsByID_IPAndID_P(id_ip, id_p) != null)
+                {
+                    DetailImportProductBLL.Instance.ExcuteDB(new DetailImportProducts
+                    {
+                        ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct() - 1]["ID"].ToString()),
+                        ID_P = ((CBBGroups)cbbName_Product.SelectedItem).Value,
+                        IP_Price = Convert.ToDouble(txtImport_Price.Text),
+                        Amount_IP = DetailImportProductBLL.Instance.getDetailImportProductsByID_IPAndID_P(id_ip, id_p).Amount_IP + Convert.ToInt32(nmrQuantity.Value),
+                        Amount_Price = amount,
+                        Discount = Convert.ToDouble(txtDiscount.Text),
+                        Total = total,
+                        Name_Product = ((CBBGroups)cbbName_Product.SelectedItem).Text
+                    });
+                }
+                else
+                {
+                    MessageBox.Show("hello");
+                    DetailImportProductBLL.Instance.ExcuteDB(new DetailImportProducts
+                    {
+                        ID_IP = Convert.ToInt32(ImportProductsBLL.Instance.getAllImport_Product().Rows[countRowsImportProduct() - 1]["ID"].ToString()),
+                        ID_P = ((CBBGroups)cbbName_Product.SelectedItem).Value,
+                        IP_Price = Convert.ToDouble(txtImport_Price.Text),
+                        Amount_IP = Convert.ToInt32(nmrQuantity.Value),
+                        Amount_Price = amount,
+                        Discount = Convert.ToDouble(txtDiscount.Text),
+                        Total = total,
+                        Name_Product = ((CBBGroups)cbbName_Product.SelectedItem).Text
+                    }, "Add");
+                    lbAdd.ForeColor = Color.Green;
+                    updateTP(new CBBGroups
+                    {
+                        Value = Convert.ToInt32(Product_BLL.Instance.getProductByID(((CBBGroups)cbbName_Product.SelectedItem).Value.ToString()).ID_PG)
+                    ,
+                        Text = ProductGroups_BLL.Instance.getPGByID(Product_BLL.Instance.getProductByID(((CBBGroups)cbbName_Product.SelectedItem).Value.ToString()).ID_PG).Name_PG
+                    }
+                , false, ((CBBGroups)cbbName_Product.SelectedItem).Value);
+                }
+
+                showProducts();
+                txtTotalAll.Text = Convert.ToString(totalAll());
+                
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
         }
         
         private void dtgvImportProduct_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -682,11 +714,11 @@ namespace GUI
 
             showProducts();
             txtTotalAll.Text = Convert.ToString(totalAll());
-            //updateTP(new CBBGroups
-            //{
-            //    Value = Convert.ToInt32(Product_BLL.Instance.getProductByID(((CBBGroups)cbbName_Product.SelectedItem).Value.ToString()).ID_PG),
-            //    Text = ProductGroups_BLL.Instance.getPGByID(Product_BLL.Instance.getProductByID(((CBBGroups)cbbName_Product.SelectedItem).Value.ToString()).ID_PG).Name_PG
-            //}, false, ((CBBGroups)cbbName_Product.SelectedItem).Value);
+            updateTP(new CBBGroups
+            {
+                Value = Convert.ToInt32(Product_BLL.Instance.getProductByID(((CBBGroups)cbbName_Product.SelectedItem).Value.ToString()).ID_PG),
+                Text = ProductGroups_BLL.Instance.getPGByID(Product_BLL.Instance.getProductByID(((CBBGroups)cbbName_Product.SelectedItem).Value.ToString()).ID_PG).Name_PG
+            }, false, ((CBBGroups)cbbName_Product.SelectedItem).Value);
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
@@ -952,6 +984,9 @@ namespace GUI
                     Name_product = Product_BLL.Instance.getProductByID(productArray[i].Item1.ToString()).Name_P,
                 };
                 InvoiceDetail_BLL.Instance.ExcuteDB(ind, "Add");
+                updateTP(new CBBGroups { Value = Convert.ToInt32(Product_BLL.Instance.getProductByID(productArray[i].Item1.ToString()).ID_PG)
+                    , Text = ProductGroups_BLL.Instance.getPGByID(Product_BLL.Instance.getProductByID(productArray[i].Item1.ToString()).ID_PG).Name_PG }
+                , false, productArray[i].Item1);
             }
 
             showDgvSH();
@@ -968,6 +1003,7 @@ namespace GUI
                 //sthis.Close();
             }
             btnRefresh.PerformClick();
+            
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)

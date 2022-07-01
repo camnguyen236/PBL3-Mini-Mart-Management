@@ -130,7 +130,7 @@ namespace GUI
                     btnChangeImg_PD.Hide();
                     saveBtn();
                     MessageBox.Show(cbb.Text + " " + id_p.ToString());
-                    up(cbb, false, Convert.ToInt32(id_p));
+                    //up(cbb, false, Convert.ToInt32(id_p));
                 }
             }
             catch (Exception ex)

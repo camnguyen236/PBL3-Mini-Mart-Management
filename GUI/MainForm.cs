@@ -40,7 +40,7 @@ namespace GUI
 
         private void btnSystem_Click(object sender, EventArgs e)
         {
-            Systems s = new Systems();
+            Systems s = new Systems(mAccount);
             s.ShowDialog();
         }
 
@@ -82,9 +82,10 @@ namespace GUI
 
         private void btnSignout_Click_1(object sender, EventArgs e)
         {
-            this.Close();
             Login login = new Login();
+            this.Hide();
             login.ShowDialog();
+            this.Close();
         }
 
         private void btnAnalyze_Click(object sender, EventArgs e)
