@@ -21,7 +21,7 @@ namespace BLL
                 }
                 return _Instance;
             }
-            private set { } 
+            private set { }
         }
         private Report_BLL() { }
         public DataTable getCustomer()
@@ -64,7 +64,7 @@ namespace BLL
         //Profit
         public DataTable GetRevenueByDate(DateTime date1, DateTime date2)
         {
-            return Report_DAL.Instance.GetRevenueByDate(date1,date2);
+            return Report_DAL.Instance.GetRevenueByDate(date1, date2);
         }
         public DataTable GetCostByDate(DateTime date1, DateTime date2)
         {
@@ -79,7 +79,7 @@ namespace BLL
         public int getQuantityImport(string id)
         {
             int quantity = 0;
-            foreach(var i in DetailImportProductBLL.Instance.getDetailImportProductsByID_P(id))
+            foreach (var i in DetailImportProductBLL.Instance.getDetailImportProductsByID_P(id))
             {
                 quantity += i.Amount_IP;
             }
@@ -96,17 +96,7 @@ namespace BLL
         }
         public int getInventoryByID_P(string id)
         {
-            //return getQuantityImport(id) - getQuantitySell(id);
-            try
-            {
-                return Convert.ToInt32(Report_DAL.Instance.GetInventoryByID(Convert.ToInt32(id)).Rows[0][0]);
-
-            }
-            catch (Exception)
-            {
-
-                return 0;
-            }
+            return getQuantityImport(id) - getQuantitySell(id);
         }
     }
 }
