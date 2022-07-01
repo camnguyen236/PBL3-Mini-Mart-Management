@@ -364,7 +364,7 @@
             this.dtpCustomB_Sales_A.Name = "dtpCustomB_Sales_A";
             this.dtpCustomB_Sales_A.Size = new System.Drawing.Size(193, 33);
             this.dtpCustomB_Sales_A.TabIndex = 26;
-            this.dtpCustomB_Sales_A.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            this.dtpCustomB_Sales_A.Value = new System.DateTime(2022, 7, 1, 0, 0, 0, 0);
             // 
             // dtpCustomA_Sales_A
             // 
@@ -381,7 +381,7 @@
             this.dtpCustomA_Sales_A.Name = "dtpCustomA_Sales_A";
             this.dtpCustomA_Sales_A.Size = new System.Drawing.Size(159, 33);
             this.dtpCustomA_Sales_A.TabIndex = 25;
-            this.dtpCustomA_Sales_A.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            this.dtpCustomA_Sales_A.Value = new System.DateTime(2022, 7, 1, 0, 0, 0, 0);
             // 
             // rbCustom_Sales
             // 
@@ -467,7 +467,7 @@
             this.dtpDaily_Sales_A.Name = "dtpDaily_Sales_A";
             this.dtpDaily_Sales_A.Size = new System.Drawing.Size(193, 33);
             this.dtpDaily_Sales_A.TabIndex = 19;
-            this.dtpDaily_Sales_A.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            this.dtpDaily_Sales_A.Value = new System.DateTime(2022, 7, 1, 0, 0, 0, 0);
             // 
             // rbAnnual_Sales
             // 
@@ -528,7 +528,7 @@
             this.dtpSales_Year_A.ShowUpDown = true;
             this.dtpSales_Year_A.Size = new System.Drawing.Size(193, 33);
             this.dtpSales_Year_A.TabIndex = 15;
-            this.dtpSales_Year_A.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            this.dtpSales_Year_A.Value = new System.DateTime(2022, 7, 1, 0, 0, 0, 0);
             // 
             // tabPage2
             // 
@@ -687,7 +687,7 @@
             this.guna2DateTimePicker3.Name = "guna2DateTimePicker3";
             this.guna2DateTimePicker3.Size = new System.Drawing.Size(193, 33);
             this.guna2DateTimePicker3.TabIndex = 31;
-            this.guna2DateTimePicker3.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            this.guna2DateTimePicker3.Value = new System.DateTime(2022, 7, 1, 0, 0, 0, 0);
             // 
             // guna2DateTimePicker4
             // 
@@ -704,7 +704,7 @@
             this.guna2DateTimePicker4.Name = "guna2DateTimePicker4";
             this.guna2DateTimePicker4.Size = new System.Drawing.Size(159, 33);
             this.guna2DateTimePicker4.TabIndex = 30;
-            this.guna2DateTimePicker4.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            this.guna2DateTimePicker4.Value = new System.DateTime(2022, 7, 1, 0, 0, 0, 0);
             // 
             // dtpShow_Import_A
             // 
@@ -834,7 +834,7 @@
             this.dtpAnnualy_Import_A.ShowUpDown = true;
             this.dtpAnnualy_Import_A.Size = new System.Drawing.Size(225, 33);
             this.dtpAnnualy_Import_A.TabIndex = 15;
-            this.dtpAnnualy_Import_A.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            this.dtpAnnualy_Import_A.Value = new System.DateTime(2022, 7, 1, 0, 0, 0, 0);
             // 
             // tabPage3
             // 
@@ -982,7 +982,7 @@
             this.dtp_Profit_Date_B.Name = "dtp_Profit_Date_B";
             this.dtp_Profit_Date_B.Size = new System.Drawing.Size(193, 33);
             this.dtp_Profit_Date_B.TabIndex = 67;
-            this.dtp_Profit_Date_B.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            this.dtp_Profit_Date_B.Value = new System.DateTime(2022, 7, 1, 0, 0, 0, 0);
             // 
             // dtp_Profit_Date_A
             // 
@@ -999,7 +999,7 @@
             this.dtp_Profit_Date_A.Name = "dtp_Profit_Date_A";
             this.dtp_Profit_Date_A.Size = new System.Drawing.Size(159, 33);
             this.dtp_Profit_Date_A.TabIndex = 66;
-            this.dtp_Profit_Date_A.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            this.dtp_Profit_Date_A.Value = new System.DateTime(2022, 7, 1, 0, 0, 0, 0);
             // 
             // lbDate
             // 
@@ -1473,7 +1473,7 @@
             this.dtpDaily_Import_A.Name = "dtpDaily_Import_A";
             this.dtpDaily_Import_A.Size = new System.Drawing.Size(225, 33);
             this.dtpDaily_Import_A.TabIndex = 33;
-            this.dtpDaily_Import_A.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            this.dtpDaily_Import_A.Value = new System.DateTime(2022, 7, 1, 0, 0, 0, 0);
             // 
             // Analyze
             // 
