@@ -192,7 +192,7 @@ namespace GUI
                             Birthday = Convert.ToDateTime(dpBirthday.Text),
                             Adress = txtAddress.Text,
                             PhoneNumber = txtPhone.Text,
-                            Position = null,
+                            Position = "Staff",
                             Email = txtEmail.Text,
                             Status = true
                         }, "Add");

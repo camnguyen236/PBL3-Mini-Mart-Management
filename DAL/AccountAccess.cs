@@ -116,7 +116,7 @@ namespace DAL
         public void addAccount(Account account)
         {
             string query = "insert into Inf_user(US,PW,Name,Gender,Birthday,Adress,PhoneNumber,Position,Email,Status) " +
-                    "values ('" + account.US + "','" + account.PW + "',N'" + account.Name + "','" + account.Gender + "','" +
+                    "values ('" + account.US + "','" + account.PW + "',N'" + account.Name + "',N'" + account.Gender + "','" +
                     account.Birthday + "',N'" + account.Adress + "','" + account.PhoneNumber + "','" 
                     + account.Position + "','" + account.Email + "','" + account.Status + "')";
             DataProvider.Instance.ExcuteDB(query);
