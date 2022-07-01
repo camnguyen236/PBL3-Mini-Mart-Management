@@ -91,7 +91,6 @@
             this.rbCustom_Import_A = new Guna.UI2.WinForms.Guna2RadioButton();
             this.lbTotalCost_Import_A = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dtpDaily_Import_A = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.rbAnnual_Import_A = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbDaily_Import_A = new Guna.UI2.WinForms.Guna2RadioButton();
             this.dtpAnnualy_Import_A = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -120,6 +119,7 @@
             this.cbProductsGroups = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dgv_Analyze_Inventory = new Guna.UI2.WinForms.Guna2DataGridView();
             this.PBBackInR = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.dtpDaily_Import_A = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgSales_A)).BeginInit();
@@ -638,6 +638,7 @@
             // 
             // guna2GroupBox2
             // 
+            this.guna2GroupBox2.Controls.Add(this.dtpDaily_Import_A);
             this.guna2GroupBox2.Controls.Add(this.label1);
             this.guna2GroupBox2.Controls.Add(this.guna2DateTimePicker3);
             this.guna2GroupBox2.Controls.Add(this.guna2DateTimePicker4);
@@ -645,7 +646,6 @@
             this.guna2GroupBox2.Controls.Add(this.rbCustom_Import_A);
             this.guna2GroupBox2.Controls.Add(this.lbTotalCost_Import_A);
             this.guna2GroupBox2.Controls.Add(this.label4);
-            this.guna2GroupBox2.Controls.Add(this.dtpDaily_Import_A);
             this.guna2GroupBox2.Controls.Add(this.rbAnnual_Import_A);
             this.guna2GroupBox2.Controls.Add(this.rbDaily_Import_A);
             this.guna2GroupBox2.Controls.Add(this.dtpAnnualy_Import_A);
@@ -774,24 +774,6 @@
             this.label4.Size = new System.Drawing.Size(110, 28);
             this.label4.TabIndex = 21;
             this.label4.Text = "Total Cost:";
-            // 
-            // dtpDaily_Import_A
-            // 
-            this.dtpDaily_Import_A.Checked = true;
-            this.dtpDaily_Import_A.CustomFormat = "";
-            this.dtpDaily_Import_A.CustomizableEdges.TopLeft = false;
-            this.dtpDaily_Import_A.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(190)))));
-            this.dtpDaily_Import_A.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtpDaily_Import_A.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDaily_Import_A.Location = new System.Drawing.Point(196, 134);
-            this.dtpDaily_Import_A.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dtpDaily_Import_A.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpDaily_Import_A.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpDaily_Import_A.Name = "dtpDaily_Import_A";
-            this.dtpDaily_Import_A.ShowUpDown = true;
-            this.dtpDaily_Import_A.Size = new System.Drawing.Size(225, 33);
-            this.dtpDaily_Import_A.TabIndex = 19;
-            this.dtpDaily_Import_A.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
             // 
             // rbAnnual_Import_A
             // 
@@ -1476,6 +1458,23 @@
             this.PBBackInR.UseTransparentBackground = true;
             this.PBBackInR.Click += new System.EventHandler(this.PBBackSR_Click);
             // 
+            // dtpDaily_Import_A
+            // 
+            this.dtpDaily_Import_A.Checked = true;
+            this.dtpDaily_Import_A.CustomFormat = "";
+            this.dtpDaily_Import_A.CustomizableEdges.TopLeft = false;
+            this.dtpDaily_Import_A.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(166)))), ((int)(((byte)(190)))));
+            this.dtpDaily_Import_A.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpDaily_Import_A.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDaily_Import_A.Location = new System.Drawing.Point(196, 140);
+            this.dtpDaily_Import_A.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpDaily_Import_A.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpDaily_Import_A.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpDaily_Import_A.Name = "dtpDaily_Import_A";
+            this.dtpDaily_Import_A.Size = new System.Drawing.Size(225, 33);
+            this.dtpDaily_Import_A.TabIndex = 33;
+            this.dtpDaily_Import_A.Value = new System.DateTime(2022, 3, 27, 10, 26, 13, 575);
+            // 
             // Analyze
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1534,7 +1533,6 @@
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
         private System.Windows.Forms.Label lbTotalCost_Import_A;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpDaily_Import_A;
         private Guna.UI2.WinForms.Guna2RadioButton rbAnnual_Import_A;
         private Guna.UI2.WinForms.Guna2RadioButton rbDaily_Import_A;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpAnnualy_Import_A;
@@ -1575,5 +1573,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataVisualization.Charting.Chart dgv_Profit_Cost_Chart;
         private System.Windows.Forms.DataVisualization.Charting.Chart dgv_Profit_Revenue_Chart;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpDaily_Import_A;
     }
 }
