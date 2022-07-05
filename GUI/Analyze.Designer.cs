@@ -1053,7 +1053,7 @@
             this.dgv_Profit_Cost.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_Profit_Cost.RowTemplate.Height = 30;
             this.dgv_Profit_Cost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Profit_Cost.Size = new System.Drawing.Size(188, 775);
+            this.dgv_Profit_Cost.Size = new System.Drawing.Size(151, 991);
             this.dgv_Profit_Cost.TabIndex = 61;
             this.dgv_Profit_Cost.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_Profit_Cost.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1130,7 +1130,7 @@
             this.dgv_Profit_Revenue.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dgv_Profit_Revenue.RowTemplate.Height = 30;
             this.dgv_Profit_Revenue.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Profit_Revenue.Size = new System.Drawing.Size(188, 775);
+            this.dgv_Profit_Revenue.Size = new System.Drawing.Size(151, 991);
             this.dgv_Profit_Revenue.TabIndex = 60;
             this.dgv_Profit_Revenue.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_Profit_Revenue.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1439,8 +1439,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(205)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(1110, 570);
+            this.ClientSize = new System.Drawing.Size(1105, 570);
             this.Controls.Add(this.guna2TabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Analyze";
             this.Text = "Analyze";
